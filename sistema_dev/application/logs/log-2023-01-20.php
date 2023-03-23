@@ -1,0 +1,36 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2023-01-20 01:47:08 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:09 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:09 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:09 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:09 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:09 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:10 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:10 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:10 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:10 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:11 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:11 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:11 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:11 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:12 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:12 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:12 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:12 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:12 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:13 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:13 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:13 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:13 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:14 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:14 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:14 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:14 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:14 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:15 --> 404 Page Not Found: Tools/.env
+ERROR - 2023-01-20 01:47:15 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:15 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:15 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 01:47:16 --> 404 Page Not Found: /index
+ERROR - 2023-01-20 04:19:53 --> 404 Page Not Found: /index
