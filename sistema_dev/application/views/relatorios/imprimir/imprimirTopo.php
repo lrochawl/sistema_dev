@@ -2,7 +2,7 @@
     <div>
         <br>
         <div style="width: 60%; float: left; margin-top:-15px" class="float-left col-md-2">
-            <img style="width: 180px" src="<?= $emitente[0]->url_logo; ?>" alt=""><br><br>
+            <img style="width: 180px" src="<?= $emitente[0]->url_image_user; ?>" alt=""><br><br>
         </div>
         <div style="float: right">
             <b><?= $emitente[0]->empresa ?></b> <br> <b>CNPJ: </b> <?= $emitente[0]->cnpj ?><br>

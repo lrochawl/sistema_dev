@@ -22,7 +22,7 @@
         <div class="row-fluid">
             <div class="span12">
                 <div class="widget-box  marca">
-                 <h4 style="font-size: 0.7em; padding: 0px;">    </h4>
+                 <h4 style="font-size: 0.7em; padding: 0px;">   <?= $topo ?> </h4>
                     <div class="widget-title">
                         <h4 style="text-align: center; font-size: 1.9em; padding: 15px;">
                             <?= ucfirst($title) ?>
