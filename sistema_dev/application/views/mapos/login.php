@@ -4,12 +4,12 @@
 <title><?= $this->config->item('app_name') ?> </title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap-responsive.min.css" />
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/matrix-login.css" />
-    <link href="<?= base_url(); ?>assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="shortcut icon" type="image/png" href="<?= base_url(); ?>assets/img/favicon.png" />
-    <script src="<?= base_url() ?>assets/js/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>" />
+    <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap-responsive.min.css') ?>" />
+    <link rel="stylesheet" href="<?= base_url('assets/css/matrix-login.css') ?>" />
+    <link href="<?= base_url('assets/font-awesome/css/font-awesome.css'); ?>" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/png" href="<?= base_url('assets/img/favicon.png'); ?>" />
+    <script src="<?= base_url('assets/js/jquery-1.12.4.min.js') ?>"></script>
 </head>
 <body>
 <div class="main-login">
@@ -37,10 +37,10 @@ echo saudacao($login);
 ?></h1>
 
 <h2 class="h-two"> Ao Sistema de Controle de Loja</h2>
-    <img src="<?php echo base_url() ?>assets/img/dashboard-animate.svg" class="left-login-image" alt="Map-OS - Versão: <?= $this->config->item('app_version'); ?>">
+    <img src="<?php echo base_url('assets/img/dashboard-animate.svg') ?>" class="left-login-image" alt="Map-OS - Versão: <?= $this->config->item('app_version'); ?>">
 </div>
 <div id="loginbox">
-    <form class="form-vertical" id="formLogin" method="post" action="<?= site_url('login/verificarLogin') ?>">
+    <form class="form-vertical" id="formLogin" method="post" action="<?= base_url('login/verificarLogin') ?>">
     <?php if ($this->session->flashdata('error') != null) { ?>
         <div class="alert alert-danger">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -60,7 +60,7 @@ echo saudacao($login);
                 </div>
                 <div class="title01">
                  
-                  <?= (isset($configuration['app_theme']) and $configuration['app_theme'] == 'white') ? '<img src="'. base_url() .'assets/img/logo-mapos.png">' : '<img src="'. base_url() .'assets/img/logo-mapos-branco.png">'; ?>
+                  <?= (isset($configuration['app_theme']) and $configuration['app_theme'] == 'white') ? '<img src="'. base_url('assets/img/logo-mapos.png').'">' : '<img src="'. base_url('assets/img/logo-mapos-branco.png') .'">'; ?>
                 </div>
               </div>
               <div id="mcell">Versão: <?= $this->config->item('app_version'); ?></div>
@@ -147,7 +147,7 @@ $(document).ready(function() {
                         dataType: 'json',
                         success: function(data) {
                             if (data.result == true) {
-                                window.location.href = "<?= site_url('mapos'); ?>";
+                                window.location.href = "<?= base_url('mapos'); ?>";
                             } else {
 
                                 $('#btn-acessar').removeClass('disabled');
