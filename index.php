@@ -23,8 +23,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta property="og:title" content="WL Topos - Tecnologia em IA, Big Data, Cibersegurança, Desenvolvimento de Software e Robótica">
 <meta property="og:type" content="website">
-<meta property="og:url" content="http://www.wltopos.com.br">
-<meta property="og:image" content="http://www.wltopos.com.br/images/logo.png">
+<meta property="og:url" content="http://www.wltopos.com">
+<meta property="og:image" content="http://www.wltopos.com/images/logo.png">
 <meta property="og:description" content="Conheça a WL Topos, empresa de tecnologia especializada em Inteligência Artificial (IA), Big Data, Cibersegurança, Desenvolvimento de Software, Robótica e Assistência Técnica.">
 <meta property="og:site_name" content="WL Topos">
 <meta name="twitter:card" content="summary">
@@ -32,7 +32,7 @@
 <meta name="twitter:creator" content="@toposwl">
 <meta name="twitter:title" content="WL Topos - Tecnologia em IA, Big Data, Cibersegurança, Desenvolvimento de Software e Robótica">
 <meta name="twitter:description" content="Conheça a WL Topos, empresa de tecnologia especializada em Inteligência Artificial (IA), Big Data, Cibersegurança, Desenvolvimento de Software, Robótica e Assistência Técnica.">
-<meta name="twitter:image" content="http://www.wltopos.com.br/images/logo.png">
+<meta name="twitter:image" content="http://www.wltopos.com/images/logo.png">
 
    <style>
 

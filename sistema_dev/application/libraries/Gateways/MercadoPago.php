@@ -218,7 +218,7 @@ class MercadoPago extends BasePaymentGateway
         $payment->transaction_amount = floatval($this->valorTotal($totalProdutos, $totalServicos, $totalDesconto));
         $payment->description = PaymentGateway::PAYMENT_TYPE_OS ? "OS #$id" : "Venda #$id";
         $payment->payment_method_id = "pix";
-        $payment->notification_url = "http://wltopos.com.br/";
+        $payment->notification_url = "http://wltopos.com/";
         $payment->date_of_expiration = $expirationDate;
         $payment->payer = [
             'email' => $entity->email,

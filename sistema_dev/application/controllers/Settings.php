@@ -207,7 +207,7 @@ class Settings extends MY_Controller
         $this->data['descricao'] = $this->data['result']->$b;
         $this->data['dataCadastro'] = ($this->setdb_model->validaDate($this->data['result']->$c) == true) ? $this->setdb_model->hData($this->data['result']->$c) : 'Não informado';
         $this->data['dataUpdate'] = ($this->setdb_model->validaDate($this->data['result']->$d) == true) ? $this->setdb_model->hData($this->data['result']->$d) : 'Não informado';
-        $this->data['urlLogo'] = ($this->data['result']->$e != '' and $this->data['result']->$e != null) ? $this->data['result']->$e : 'https://sistema.wltopos.com/assets/img/sem_logo.png';
+        $this->data['urlLogo'] = ($this->data['result']->$e != '' and $this->data['result']->$e != null) ? $this->data['result']->$e : base_url().'assets/img/sem_logo.png';
 
         $this->data['config'] = $this->data['titulo'];
         $this->data['view'] = 'produtos/settings/editar';
@@ -242,7 +242,7 @@ class Settings extends MY_Controller
         $this->data['descricao'] = $this->data['result']->$b;
         $this->data['dataCadastro'] = ($this->setdb_model->validaDate($this->data['result']->$c) == true) ? $this->setdb_model->hData($this->data['result']->$c) : 'Não informado';
         $this->data['dataUpdate'] = ($this->setdb_model->validaDate($this->data['result']->$d) == true) ? $this->setdb_model->hData($this->data['result']->$d) : 'Não informado';
-        $this->data['urlLogo'] = ($this->data['result']->$e != '' and $this->data['result']->$e != null) ? $this->data['result']->$e : 'https://sistema.wltopos.com/assets/img/sem_logo.png';
+        $this->data['urlLogo'] = ($this->data['result']->$e != '' and $this->data['result']->$e != null) ? $this->data['result']->$e : base_url().'assets/img/sem_logo.png';
 
 
         if ($this->data['result'] == null) {

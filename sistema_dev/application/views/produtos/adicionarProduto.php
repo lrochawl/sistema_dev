@@ -1,8 +1,8 @@
-<link rel="stylesheet" href="<?php echo base_url(); ?>assets/js/jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.css" />
-<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/controllers/adcionarProduto.css" />
-<script type="text/javascript" src="<?php echo base_url() ?>assets/js/jquery-ui/js/jquery-ui-1.9.2.custom.js"></script>
-<script src="<?php echo base_url() ?>assets/js/sweetalert2.all.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url() ?>assets/js/auth/login.js"></script>
+<link rel="stylesheet" href="<?php echo base_url('assets/js/jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.css'); ?>" />
+<link rel="stylesheet" href="<?php echo base_url('assets/css/controllers/adcionarProduto.css'); ?>" />
+<script type="text/javascript" src="<?php echo base_url('assets/js/jquery-ui/js/jquery-ui-1.9.2.custom.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/sweetalert2.all.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/auth/login.js') ?>"></script>
 <div class="row-fluid" style="margin-top:0">
     <div class="span12">
         <div class="widget-box">
@@ -181,7 +181,7 @@
                         <div class="span6 offset3" style="display: flex;justify-content: center">
                             <button type="submit" class="button btn btn-mini btn-success" style="max-width: 160px"><span class="button__icon"><i class='bx bx-plus-circle'></i></span><span class="button__text2" id="adcionarProduto">Adicionar</span></button>
                             <button type="submit" id="editarProduto" class="button btn btn-mini btn-info" style="max-width: 160px; display: none;" disabled><span class="button__icon"><i class='bx bx-plus-circle'></i></span><span class="button__text2">Editar</span></button>
-                            <a href="<?php echo base_url() ?>index.php/produtos" id="voltar" class="button btn btn-mini btn-warning"><span class="button__icon"><i class="bx bx-undo"></i></span><span class="button__text2">Voltar</span></a>
+                            <a href="<?php echo base_url('index.php/produtos') ?>" id="voltar" class="button btn btn-mini btn-warning"><span class="button__icon"><i class="bx bx-undo"></i></span><span class="button__text2">Voltar</span></a>
                         </div>
                     </div>
                 </div>
@@ -191,10 +191,10 @@
 </div>
 </div>
 
-<script src="<?php echo base_url() ?>assets/js/controllers/imagemDragAndDrop.js"></script>
-<script src="<?php echo base_url() ?>assets/js/jquery.validate.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/maskmoney.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/controllers/margemLucro.js"></script>
+<script src="<?php echo base_url('assets/js/controllers/imagemDragAndDrop.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/jquery.validate.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/maskmoney.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/controllers/margemLucro.js'); ?>"></script>
 <script type="text/javascript">
     function handleEnter(event) {
         if (event.key === "Enter") {
@@ -223,7 +223,7 @@
         $(".money").maskMoney();
         //auto complete produto
         $("#adNotaFiscal").autocomplete({
-            source: "<?php echo base_url(); ?>index.php/AutoComplete/autoCompleteNotaFiscal",
+            source: "<?php echo base_url('index.php/AutoComplete/autoCompleteNotaFiscal'); ?>",
             async: true,
             minLength: 1,
 
@@ -245,7 +245,7 @@
         const image = document.createElement("img");
         //  const camposDB = <?= json_encode($resultAddCampo) ?>;
         $("#codDeBarra").autocomplete({
-            source: "<?php echo base_url(); ?>AutoComplete/autoCompleteProduto",
+            source: "<?php echo base_url('AutoComplete/autoCompleteProduto'); ?>",
             minLength: 1,
             response: function(event, ui) {
                 $("#editarProduto").hide();
@@ -390,8 +390,8 @@
                             } catch (err) {
                                 //image.src = 'https://sistema.wltopos.com/assets/img/sem_logo.png';
                                 // imgLogo.appendChild(image).setAttribute("id", "imgLogo");
-                                $('#imagemProduto').val('https://sistema.wltopos.com/assets/img/sem_logo.png');
-                                updateThumb('https://sistema.wltopos.com/assets/img/sem_logo.png');
+                                $('#imagemProduto').val( base_url('assets/img/sem_logo.png'));
+                                updateThumb(base_url('assets/img/sem_logo.png'));
                             }
                         }
 
