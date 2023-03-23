@@ -40,7 +40,7 @@ date_default_timezone_set('America/Sao_Paulo');
 |
 */
 #$config['base_url'] = 'http://localhost/sistemaNovo/SistemaDeLoja-SCL-/';
-$config['base_url'] = 'https://dev.wltopos.com/';
+$config['base_url'] = $_SERVER['HTTP_HOST'];
 // $config['base_url'] = 'https://sistema.wltopos.com/';
 
 /*
