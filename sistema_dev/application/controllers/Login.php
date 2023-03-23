@@ -10,8 +10,7 @@ class Login extends CI_Controller
 
     public function index()
     {
-        echo base_url(); 
-        exit();
+      
         $this->load->view('mapos/login');
     }
 
