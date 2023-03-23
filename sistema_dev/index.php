@@ -61,7 +61,7 @@ define('ENVIRONMENT', 'production');
 
 // we don't want to access the main project before installation. redirect to installation page
 if (ENVIRONMENT === 'pre_installation') {
-    $domain = $_SERVER['HTTP_HOST'] ;
+    $domain = $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'];
 
     $domain = preg_replace('/index.php.*/', '', $domain); //remove everything after index.php
     if (!empty($_SERVER['HTTPS'])) {
@@ -70,7 +70,7 @@ if (ENVIRONMENT === 'pre_installation') {
         $domain = 'http://' . $domain;
     }
 
-    header("Location: $domain./install/index.php");
+  //  header("Location: $domain./install/index.php");
     exit;
 }
 
