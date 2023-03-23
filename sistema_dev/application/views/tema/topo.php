@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<?= base_url(); ?>
+
 <head>
   <title><?= $configuration['app_name'] ?: 'Sistema de Loja' ?></title>
   <meta charset="UTF-8" />
