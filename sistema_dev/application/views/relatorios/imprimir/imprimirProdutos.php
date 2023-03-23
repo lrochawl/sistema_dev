@@ -6,12 +6,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-responsive.min.css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/fullcalendar.css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/main.css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/blue.css" class="skin-color" />
-    <script type="text/javascript" src="<?= base_url('assets/js/calculador.js')?>" ></script>
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-responsive.min.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/fullcalendar.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/blue.css'); ?>" class="skin-color" />
+    <script type="text/javascript" src="<?= base_url('assets/js/calculador.js');?>" ></script>
 
     
 </head>
@@ -22,7 +22,7 @@
         <div class="row-fluid">
             <div class="span12">
                 <div class="widget-box  marca">
-                 <h4 style="font-size: 0.7em; padding: 0px;">   <?= $topo ?> </h4>
+                 <h4 style="font-size: 0.7em; padding: 0px;">    </h4>
                     <div class="widget-title">
                         <h4 style="text-align: center; font-size: 1.9em; padding: 15px;">
                             <?= ucfirst($title) ?>
