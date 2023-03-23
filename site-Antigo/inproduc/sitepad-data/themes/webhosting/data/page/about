@@ -1,0 +1,477 @@
+[pl_row pagelayer-id="vy7Vz5vlapCuW2oD"  stretch="auto" col_gap="10" width_content="auto" row_height="default" overlay_hover_delay="400" row_shape_top_color="#227bc3" row_shape_top_width="100" row_shape_top_height="100" row_shape_bottom_color="#e44993" row_shape_bottom_width="100" row_shape_bottom_height="100" ele_bg_type="color" ele_bg_color="#d7d7d762" ele_padding="70px,0px,70px,0px"]
+[pl_col pagelayer-id="i55JpQFtTXgc3u7O"  overlay_hover_delay="400" col="6" content_pos="center"]
+[pl_heading pagelayer-id="y36A1KwZO2GsJJdK"  heading_state="normal" color="#111111" heading_typo="Montserrat,36,,,,,Solid,,,," ele_padding="0px,0px,0px,0px" ele_margin="0px,0px,0px,0px" align="left" align_tablet="center" heading_typo_mobile=",26,,,,,Solid,,,," align_mobile="center" animation="fadeInLeft" animation_delay="600"]
+<h2>We Welcome you all!</h2>[/pl_heading]
+[pl_iconbox pagelayer-id="pDW3EUyemm7taWNQ"  service_icon="fas fa-braille" service_alignment="left" service_vertical_alignment="middle" service_icon_view="default" service_icon_padding="15" service_icon_state="normal" service_icon_color="#00fb21ff" service_icon_font_size="16" service_icon_hover_delay="400" service_bor_state="normal" service_heading="About Us" heading_alignment="left" service_title_spacing="0,0,0,10" heading_state="normal" service_heading_color="#00fb21ff" service_heading_typo="Montserrat,20,,600,,,Solid,,,," heading_delay="400" service_text_alignment="center" service_btn_hover_delay="400" service_icon_spacing="0,0,0,0" ele_padding="10px,0px,0px,0px" animation="fadeInLeft" animation_delay="600" ele_padding_tablet="10px,0px,0px,20px"]
+
+
+
+
+[/pl_iconbox]
+[pl_text pagelayer-id="1cCYyJ4kPi2KB0rL"  ele_padding="10px,0px,0px,0px" font_family="Raleway" font_size="16" animation="fadeInLeft" animation_delay="600" ele_padding_tablet="20px,20px,0px,20px"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="text-align: justify; ">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>[/pl_text]
+[pl_btn pagelayer-id="6zZflC2AeImz5x2u"  text="Read More" align="left" type="pagelayer-btn-anim" size="pagelayer-btn-small" btn_hover_delay="400" icon_position="pagelayer-btn-icon-left" icon_spacing="5" link="#" btn_typo="Raleway,18,,600,,,Solid,,,," anim_type="slide" btn_bg_color="#000000ff" btn_color="#ffffff" direction="pagelayer-btn-anim-left" btn_hover="hover" btn_bg_color_hover="#00fb21ff" btn_border_type="solid" btn_border_color="#000000ff" btn_border_width="2,2,2,2" ele_margin="0px,0px,0px,0px" ele_css="{{element}} .pagelayer-btn-holder{
+border-radius: 10px;
+}
+
+{{element}} .pagelayer-btn-anim-slide:after{
+border-radius: 10px;
+}" ele_align="0%" ele_height="auto" ele_custom_width="156px" ele_padding="20px,0px,0px,0px" align_tablet="center" align_mobile="center" animation="fadeInLeft" animation_delay="600"]
+[/pl_btn]
+[/pl_col]
+[pl_col pagelayer-id="xalEvapfheZaTVvP"  overlay_hover_delay="400" col="6"]
+[pl_image pagelayer-id="cz4bp6CP2Izq5JR6"  id="{{theme_url}}/images/server.png" id-size="full" align="center" img_hover="normal" img_hover_delay="400" caption_color="#0986c0" animation="fadeInRight" animation_delay="600" custom_size="250x400"]
+
+
+
+
+
+[/pl_image]
+[/pl_col]
+[/pl_row]
+[pl_row pagelayer-id="W3swfnhYIv4hJfxe"  stretch="auto" col_gap="10" width_content="auto" row_height="default" overlay_hover_delay="400" row_shape_top_color="#227bc3" row_shape_top_width="100" row_shape_top_height="100" row_shape_bottom_color="#e44993" row_shape_bottom_width="100" row_shape_bottom_height="100" ele_padding="70px,0px,70px,0px" ele_bg_type="" ele_bg_color="#d7d7d762"]
+[pl_col pagelayer-id="lGJ4fuzXkTLZJvTQ"  overlay_hover_delay="400"]
+[pl_heading pagelayer-id="zHqCpkdcinDgbHgR"  heading_state="normal" color="#111111" heading_typo="Montserrat,36,,,,,Solid,,,," ele_padding="0px,0px,0px,0px" ele_margin="0px,0px,0px,0px" align="center" heading_typo_mobile=",26,,,,,Solid,,,," animation="fadeInUp" animation_delay="600"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>What we offer?</h2>[/pl_heading]
+[pl_text pagelayer-id="Cp5hZec9ZjeKFQ69"  ele_custom_pos="true" ele_align="50%" ele_height="auto" ele_custom_width="700px" ele_padding="10px,0px,0px,0px" font_family="Raleway" font_size="16" animation="fadeInUp" animation_delay="600"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="text-align: center; ">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>[/pl_text]
+[pl_inner_row pagelayer-id="IkoTDfQP7o50Abm1"  stretch="auto" col_gap="10" width_content="auto" row_height="default" overlay_hover_delay="400" row_shape_top_color="#227bc3" row_shape_top_width="100" row_shape_top_height="100" row_shape_bottom_color="#e44993" row_shape_bottom_width="100" row_shape_bottom_height="100" ele_padding="20px,0px,0px,0px"]
+[pl_inner_col pagelayer-id="K6iiylyMyzAybPJw"  overlay_hover_delay="400" content_pos="center" col_width_tablet="40" col="4" ele_padding_tablet="0px,30px,0px,0px"]
+[pl_iconbox pagelayer-id="4hfGvcnFy5JUcsTz"  service_icon="fas fa-power-off" service_alignment="right" service_vertical_alignment="middle" service_icon_view="framed" service_icon_padding="10" service_icon_state="normal" service_icon_color="#00fb21ff" service_icon_font_size="50" service_icon_hover_delay="400" service_bor_state="normal" service_heading="Feed & High Security" heading_alignment="right" service_title_spacing="0,20,10,0" heading_state="normal" service_heading_color="#000000ff" service_heading_typo="Montserrat,20,,600,,,Solid,,,," heading_delay="400" service_text_alignment="right" service_btn_hover_delay="400" service_icon_shape_type="circle" service_content_spacing="0,20,0,20" font_family="Raleway" font_size="16" service_text_alignment_tablet="right" heading_alignment_tablet="right" animation="fadeInLeft" animation_delay="600"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</span></p>[/pl_iconbox]
+[pl_iconbox pagelayer-id="RnmJpuPQVsCyAaba"  service_icon="fas fa-desktop" service_alignment="right" service_vertical_alignment="middle" service_icon_view="framed" service_icon_padding="10" service_icon_state="normal" service_icon_color="#00fb21ff" service_icon_font_size="50" service_icon_hover_delay="400" service_bor_state="normal" service_heading="Worldwide Security" heading_alignment="right" service_title_spacing="0,20,10,0" heading_state="normal" service_heading_color="#000000ff" service_heading_typo="Montserrat,20,,600,,,Solid,,,," heading_delay="400" service_text_alignment="right" service_btn_hover_delay="400" service_icon_shape_type="circle" service_content_spacing="0,20,0,20" font_family="Raleway" font_size="16" ele_padding="0px,0px,0px,0px" ele_margin="50px,0px,0px,0px" ele_margin_mobile="20px,0px,0px,0px" animation="fadeInLeft" animation_delay="600"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</span></p>[/pl_iconbox]
+[pl_iconbox pagelayer-id="yC87lZptq4voi1Lf"  service_icon="fas fa-shield-alt" service_alignment="right" service_vertical_alignment="middle" service_icon_view="framed" service_icon_padding="10" service_icon_state="normal" service_icon_color="#00fb21ff" service_icon_font_size="50" service_icon_hover_delay="400" service_bor_state="normal" service_heading="Email Connection Security" heading_alignment="right" service_title_spacing="0,20,10,0" heading_state="normal" service_heading_color="#000000ff" service_heading_typo="Montserrat,20,,600,,,Solid,,,," heading_delay="400" service_text_alignment="right" service_btn_hover_delay="400" service_icon_shape_type="circle" service_content_spacing="0,20,0,20" font_family="Raleway" font_size="16" ele_padding="0px,0px,0px,0px" ele_margin="50px,0px,0px,0px" ele_margin_mobile="20px,0px,0px,0px" animation="fadeInLeft" animation_delay="600"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</span></p>[/pl_iconbox]
+[pl_iconbox pagelayer-id="JN3rz5fhdK3mJtl0"  service_icon="fas fa-chart-line" service_alignment="right" service_vertical_alignment="middle" service_icon_view="framed" service_icon_padding="10" service_icon_state="normal" service_icon_color="#00fb21ff" service_icon_font_size="50" service_icon_hover_delay="400" service_bor_state="normal" service_heading="Mobile Optimized" heading_alignment="right" service_title_spacing="0,20,10,0" heading_state="normal" service_heading_color="#000000ff" service_heading_typo="Montserrat,20,,600,,,Solid,,,," heading_delay="400" service_text_alignment="right" service_btn_hover_delay="400" service_icon_shape_type="circle" service_content_spacing="0,20,0,20" font_family="Raleway" font_size="16" ele_padding="0px,0px,0px,0px" ele_margin="50px,0px,0px,0px" ele_margin_mobile="20px,0px,0px,0px" animation="fadeInLeft" animation_delay="600"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</span></p>[/pl_iconbox]
+[/pl_inner_col]
+[pl_inner_col pagelayer-id="W06URrMK1I0h8ZNU"  overlay_hover_delay="400" content_pos="center" col_width_tablet="20" col="4"]
+[pl_image pagelayer-id="DvCAs2AtVZ9AvdLl"  id="{{theme_url}}/images/home.png" id-size="full" align="center" img_hover="normal" img_hover_delay="400" caption_color="#0986c0" custom_size="100x100" max-width_tablet="30" animation="fadeInUp" animation_delay="600"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[/pl_image]
+[/pl_inner_col]
+[pl_inner_col pagelayer-id="qoDsLDJiDeBkW2hD"  overlay_hover_delay="400" content_pos="center" col_width_tablet="40" col="4" ele_padding_tablet="0px,0px,0px,30px"]
+[pl_iconbox pagelayer-id="PddNAGVN2EAYcNDJ"  service_icon="fas fa-bullseye" service_alignment="left" service_vertical_alignment="middle" service_icon_view="framed" service_icon_padding="10" service_icon_state="normal" service_icon_color="#00fb21ff" service_icon_font_size="50" service_icon_hover_delay="400" service_bor_state="normal" service_heading="Password Security" heading_alignment="left" service_title_spacing="0,0,10,20" heading_state="normal" service_heading_color="#000000ff" service_heading_typo="Montserrat,20,,600,,,Solid,,,," heading_delay="400" service_text_alignment="left" service_btn_hover_delay="400" service_icon_shape_type="circle" service_content_spacing="0,20,0,20" font_family="Raleway" font_size="16" animation="fadeInRight" animation_delay="600"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</span></p>[/pl_iconbox]
+[pl_iconbox pagelayer-id="QYYlzHxcmpoCtGQy"  service_icon="fas fa-globe" service_alignment="left" service_vertical_alignment="middle" service_icon_view="framed" service_icon_padding="10" service_icon_state="normal" service_icon_color="#00fb21ff" service_icon_font_size="50" service_icon_hover_delay="400" service_bor_state="normal" service_heading="Documentation Server" heading_alignment="left" service_title_spacing="0,0,10,20" heading_state="normal" service_heading_color="#000000ff" service_heading_typo="Montserrat,20,,600,,,Solid,,,," heading_delay="400" service_text_alignment="left" service_btn_hover_delay="400" service_icon_shape_type="circle" service_content_spacing="0,20,0,20" font_family="Raleway" font_size="16" ele_margin="50px,0px,0px,0px" ele_margin_mobile="20px,0px,0px,0px" animation="fadeInRight" animation_delay="600"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</span></p>[/pl_iconbox]
+[pl_iconbox pagelayer-id="jJLWYhPz2QWivvlo"  service_icon="far fa-life-ring" service_alignment="left" service_vertical_alignment="middle" service_icon_view="framed" service_icon_padding="10" service_icon_state="normal" service_icon_color="#00fb21ff" service_icon_font_size="50" service_icon_hover_delay="400" service_bor_state="normal" service_heading="24 Daily Backup" heading_alignment="left" service_title_spacing="0,0,10,20" heading_state="normal" service_heading_color="#000000ff" service_heading_typo="Montserrat,20,,600,,,Solid,,,," heading_delay="400" service_text_alignment="left" service_btn_hover_delay="400" service_icon_shape_type="circle" service_content_spacing="0,20,0,20" font_family="Raleway" font_size="16" ele_margin="50px,0px,0px,0px" ele_margin_mobile="20px,0px,0px,0px" animation="fadeInRight" animation_delay="600"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</span></p>[/pl_iconbox]
+[pl_iconbox pagelayer-id="mx8fJDfeqlr0C1MB"  service_icon="fas fa-lock" service_alignment="left" service_vertical_alignment="middle" service_icon_view="framed" service_icon_padding="10" service_icon_state="normal" service_icon_color="#00fb21ff" service_icon_font_size="50" service_icon_hover_delay="400" service_bor_state="normal" service_heading="Installation Services" heading_alignment="left" service_title_spacing="0,0,10,20" heading_state="normal" service_heading_color="#000000ff" service_heading_typo="Montserrat,20,,600,,,Solid,,,," heading_delay="400" service_text_alignment="left" service_btn_hover_delay="400" service_icon_shape_type="circle" service_content_spacing="0,20,0,20" font_family="Raleway" font_size="16" ele_margin="50px,0px,0px,0px" ele_margin_mobile="20px,0px,0px,0px" animation="fadeInRight" animation_delay="600"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</span></p>[/pl_iconbox]
+[/pl_inner_col]
+[/pl_inner_row]
+[/pl_col]
+[/pl_row]
+[pl_row pagelayer-id="3XG7IVLwnqqjlBFD"  stretch="auto" col_gap="10" width_content="auto" row_height="default" overlay_hover_delay="400" row_shape_top_color="#227bc3" row_shape_top_width="100" row_shape_top_height="100" row_shape_bottom_color="#e44993" row_shape_bottom_width="100" row_shape_bottom_height="100" ele_padding="70px,0px,70px,0px" ele_bg_type="color" ele_bg_color="#d7d7d762"]
+[pl_col pagelayer-id="1E40rsbZpQMznwB2"  overlay_hover_delay="400"]
+[pl_heading pagelayer-id="oYOQ8FFOwsFLhMKu"  heading_state="normal" color="#111111" heading_typo="Montserrat,36,,,,,Solid,,,," ele_padding="0px,0px,0px,0px" ele_margin="0px,0px,0px,0px" align="center" heading_typo_mobile=",26,,,,,Solid,,,," animation="fadeInUp" animation_delay="600"]
+
+
+
+
+
+
+
+
+
+
+
+<h2>Why choose Hosting?</h2>[/pl_heading]
+[pl_text pagelayer-id="uywWLU4IftOpzCkJ"  ele_custom_pos="true" ele_align="50%" ele_height="auto" ele_custom_width="700px" ele_padding="10px,0px,0px,0px" font_family="Raleway" font_size="16" animation="fadeInUp" animation_delay="600"]
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="text-align: center; ">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>[/pl_text]
+[pl_inner_row pagelayer-id="8QiCixW7DbY6yqsH"  stretch="auto" col_gap="10" width_content="auto" row_height="default" overlay_hover_delay="400" row_shape_top_color="#227bc3" row_shape_top_width="100" row_shape_top_height="100" row_shape_bottom_color="#e44993" row_shape_bottom_width="100" row_shape_bottom_height="100" ele_padding="20px,0px,0px,0px"]
+[pl_inner_col pagelayer-id="uwVHiDadvx7RD8xH"  overlay_hover_delay="400" col_width="25" col_width_tablet="50" col_width_mobile="100"]
+[pl_iconbox pagelayer-id="xhG3LavBsglvLzVI"  service_icon="fas fa-tools" service_alignment="top" service_vertical_alignment="middle" service_icon_view="framed" service_icon_padding="10" service_icon_state="normal" service_icon_color="#00fb21ff" service_icon_font_size="45" service_icon_hover_delay="400" service_bor_state="normal" service_heading="Customizing" heading_alignment="center" service_title_spacing="20,0,10,0" heading_state="normal" service_heading_color="#000000ff" service_heading_typo="Montserrat,18,,600,,,Solid,,Uppercase,," heading_delay="400" service_text_alignment="center" service_btn_hover_delay="400" service_icon_shape_type="circle" service_content_spacing="0,0,0,0" font_family="Raleway" font_size="16" ele_padding="20px,20px,20px,20px" border_type="dashed" border_width="1px,1px,1px,1px" border_color="#ccccccff" border_radius="10px,10px,10px,10px" animation="fadeInUp" animation_delay="600" border_shadow_hover=",,,,0," ele_hover_anim="float"]
+
+
+
+
+
+
+
+
+
+
+
+
+Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.[/pl_iconbox]
+[/pl_inner_col]
+[pl_inner_col pagelayer-id="XpAvITB3bRo8Bd8D"  overlay_hover_delay="400" col_width="25" col_width_tablet="50" col_width_mobile="100"]
+[pl_iconbox pagelayer-id="EebRzKfxsXNfYvQo"  service_icon="fas fa-cloud-meatball" service_alignment="top" service_vertical_alignment="middle" service_icon_view="framed" service_icon_padding="10" service_icon_state="normal" service_icon_color="#00fb21ff" service_icon_font_size="45" service_icon_hover_delay="400" service_bor_state="normal" service_heading="Backup Facility" heading_alignment="center" service_title_spacing="20,0,10,0" heading_state="normal" service_heading_color="#000000ff" service_heading_typo="Montserrat,18,,600,,,Solid,,Uppercase,," heading_delay="400" service_text_alignment="center" service_btn_hover_delay="400" service_icon_shape_type="circle" service_content_spacing="0,0,0,0" font_family="Raleway" font_size="16" ele_padding="20px,20px,20px,20px" border_type="dashed" border_width="1px,1px,1px,1px" border_color="#ccccccff" border_radius="10px,10px,10px,10px" animation="fadeInUp" animation_delay="600" ele_hover_anim="float"]
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>[/pl_iconbox]
+[/pl_inner_col]
+[pl_inner_col pagelayer-id="QkO3F1vzNWziA7GP"  overlay_hover_delay="400" col_width="25" col_width_tablet="50" col_width_mobile="100"]
+[pl_iconbox pagelayer-id="qXHJjiX1QbNOhues"  service_icon="fas fa-envelope" service_alignment="top" service_vertical_alignment="middle" service_icon_view="framed" service_icon_padding="10" service_icon_state="normal" service_icon_color="#00fb21ff" service_icon_font_size="45" service_icon_hover_delay="400" service_bor_state="normal" service_heading="Unlimited Email" heading_alignment="center" service_title_spacing="20,0,10,0" heading_state="normal" service_heading_color="#000000ff" service_heading_typo="Montserrat,18,,600,,,Solid,,Uppercase,," heading_delay="400" service_text_alignment="center" service_btn_hover_delay="400" service_icon_shape_type="circle" service_content_spacing="0,0,0,0" font_family="Raleway" font_size="16" ele_padding="20px,20px,20px,20px" border_type="dashed" border_width="1px,1px,1px,1px" border_color="#ccccccff" border_radius="10px,10px,10px,10px" animation="fadeInUp" animation_delay="600" ele_hover_anim="float"]
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>[/pl_iconbox]
+[/pl_inner_col]
+[pl_inner_col pagelayer-id="hA7ttfS50DraaPcx"  overlay_hover_delay="400" col_width="25" col_width_tablet="50" col_width_mobile="100"]
+[pl_iconbox pagelayer-id="N56FbAXGuSpe4qRk"  service_icon="fas fa-globe" service_alignment="top" service_vertical_alignment="middle" service_icon_view="framed" service_icon_padding="10" service_icon_state="normal" service_icon_color="#00fb21ff" service_icon_font_size="45" service_icon_hover_delay="400" service_bor_state="normal" service_heading="Domain Hosting" heading_alignment="center" service_title_spacing="20,0,10,0" heading_state="normal" service_heading_color="#000000ff" service_heading_typo="Montserrat,18,,600,,,Solid,,Uppercase,," heading_delay="400" service_text_alignment="center" service_btn_hover_delay="400" service_icon_shape_type="circle" service_content_spacing="0,0,0,0" font_family="Raleway" font_size="16" ele_padding="20px,20px,20px,20px" border_type="dashed" border_width="1px,1px,1px,1px" border_color="#ccccccff" border_radius="10px,10px,10px,10px" animation="fadeInUp" animation_delay="600" ele_hover_anim="float"]
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>[/pl_iconbox]
+[/pl_inner_col]
+[pl_inner_col pagelayer-id="v8h5pNzG7yZgAlNT"  overlay_hover_delay="400" col_width="25" col_width_tablet="50" col_width_mobile="100"]
+[pl_iconbox pagelayer-id="2U1bwuGCbxxJo7sJ"  service_icon="fas fa-search" service_alignment="top" service_vertical_alignment="middle" service_icon_view="framed" service_icon_padding="10" service_icon_state="normal" service_icon_color="#00fb21ff" service_icon_font_size="45" service_icon_hover_delay="400" service_bor_state="normal" service_heading="Data Analysis" heading_alignment="center" service_title_spacing="20,0,10,0" heading_state="normal" service_heading_color="#000000ff" service_heading_typo="Montserrat,18,,600,,,Solid,,Uppercase,," heading_delay="400" service_text_alignment="center" service_btn_hover_delay="400" service_icon_shape_type="circle" service_content_spacing="0,0,0,0" font_family="Raleway" font_size="16" ele_padding="20px,20px,20px,20px" border_type="dashed" border_width="1px,1px,1px,1px" border_color="#ccccccff" border_radius="10px,10px,10px,10px" animation="fadeInUp" animation_delay="600" ele_hover_anim="float"]
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>[/pl_iconbox]
+[/pl_inner_col]
+[pl_inner_col pagelayer-id="ugatN848OsvCWvbj"  overlay_hover_delay="400" col_width="25" col_width_tablet="50" col_width_mobile="100"]
+[pl_iconbox pagelayer-id="JDUK3nPCLVvLvYtV"  service_icon="fas fa-tachometer-alt" service_alignment="top" service_vertical_alignment="middle" service_icon_view="framed" service_icon_padding="10" service_icon_state="normal" service_icon_color="#00fb21ff" service_icon_font_size="45" service_icon_hover_delay="400" service_bor_state="normal" service_heading="Speed Server" heading_alignment="center" service_title_spacing="20,0,10,0" heading_state="normal" service_heading_color="#000000ff" service_heading_typo="Montserrat,18,,600,,,Solid,,Uppercase,," heading_delay="400" service_text_alignment="center" service_btn_hover_delay="400" service_icon_shape_type="circle" service_content_spacing="0,0,0,0" font_family="Raleway" font_size="16" ele_padding="20px,20px,20px,20px" border_type="dashed" border_width="1px,1px,1px,1px" border_color="#ccccccff" border_radius="10px,10px,10px,10px" animation="fadeInUp" animation_delay="600" ele_hover_anim="float"]
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>[/pl_iconbox]
+[/pl_inner_col]
+[pl_inner_col pagelayer-id="lXr1vc3Jucm9MTw4"  overlay_hover_delay="400" col_width="25" col_width_tablet="50" col_width_mobile="100"]
+[pl_iconbox pagelayer-id="rBMFEUVmheW79gIx"  service_icon="fas fa-exchange-alt" service_alignment="top" service_vertical_alignment="middle" service_icon_view="framed" service_icon_padding="10" service_icon_state="normal" service_icon_color="#00fb21ff" service_icon_font_size="45" service_icon_hover_delay="400" service_bor_state="normal" service_heading="Domain Transfer" heading_alignment="center" service_title_spacing="20,0,10,0" heading_state="normal" service_heading_color="#000000ff" service_heading_typo="Montserrat,18,,600,,,Solid,,Uppercase,," heading_delay="400" service_text_alignment="center" service_btn_hover_delay="400" service_icon_shape_type="circle" service_content_spacing="0,0,0,0" font_family="Raleway" font_size="16" ele_padding="20px,20px,20px,20px" border_type="dashed" border_width="1px,1px,1px,1px" border_color="#ccccccff" border_radius="10px,10px,10px,10px" animation="fadeInUp" animation_delay="600" ele_hover_anim="float"]
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>[/pl_iconbox]
+[/pl_inner_col]
+[pl_inner_col pagelayer-id="pOW6Svrj5W7dYyE5"  overlay_hover_delay="400" col_width="25" col_width_tablet="50" col_width_mobile="100"]
+[pl_iconbox pagelayer-id="5254v4oEIzHo45HA"  service_icon="fas fa-headset" service_alignment="top" service_vertical_alignment="middle" service_icon_view="framed" service_icon_padding="10" service_icon_state="normal" service_icon_color="#00fb21ff" service_icon_font_size="45" service_icon_hover_delay="400" service_bor_state="normal" service_heading="24/7 Support" heading_alignment="center" service_title_spacing="20,0,10,0" heading_state="normal" service_heading_color="#000000ff" service_heading_typo="Montserrat,18,,600,,,Solid,,Uppercase,," heading_delay="400" service_text_alignment="center" service_btn_hover_delay="400" service_icon_shape_type="circle" service_content_spacing="0,0,0,0" font_family="Raleway" font_size="16" ele_padding="20px,20px,20px,20px" border_type="dashed" border_width="1px,1px,1px,1px" border_color="#ccccccff" border_radius="10px,10px,10px,10px" animation="fadeInUp" animation_delay="600" ele_hover_anim="float"]
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>[/pl_iconbox]
+[/pl_inner_col]
+[/pl_inner_row]
+[/pl_col]
+[/pl_row]
+[pl_row pagelayer-id="WdIEaI9cIttrOrza"  stretch="auto" col_gap="10" width_content="auto" row_height="default" overlay_hover_delay="400" row_shape_top_color="#227bc3" row_shape_top_width="100" row_shape_top_height="100" row_shape_bottom_color="#e44993" row_shape_bottom_width="100" row_shape_bottom_height="100" ele_bg_type="" ele_bg_color="#d7d7d762" ele_padding="70px,0px,40px,0px"]
+[pl_col pagelayer-id="MkSK7BaRL9oM6MG3"  overlay_hover_delay="400" col="7"]
+[pl_tabs pagelayer-id="69V7DCAxB5GyOAb2"  tabs_holder_bg_color="" tabs_border_type="solid" tabs_holder_align="center" tabs_color="#444444ff" tabs_bg_color="" tabs_active_color="#ffffffff" tabs_active_bg_color="#000000ff" tabs_icon_align="left" tabs_icon_spacing="10" tabs_content_color="#000000" tabs_content_bg_color="" tab_padding="30" tabs_border_color="#000000ff" tabs_holder_border_width="1,1,1,1" tabs_holder_border_radius="0,0,0,0" tabs_content_border_width="0,0,0,0" tabs_content_typo="Raleway,16,,,,,Solid,,,," tab_title_typo="Montserrat,15,,,,,Solid,,,," tab_padding_mobile="10" animation="fadeInLeft" animation_delay="600"]
+[pl_tab pagelayer-id="x5hXdLguJfwr67h7"  title="Next gen VPS" default_active="true"]
+
+
+
+
+
+
+<p style="font-size: 22px; font-weight: 600; color: black;">Next Generation VPS</p>
+<p style="margin-top: 30px;">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+<ul style="list-style-type:circle; margin-left: 20px; margin-top: 30px;">
+<li>Instant provisioning</li>
+<li>Automated upgrades</li>
+<li>Guaranteed resources</li>
+<li>Control panel included</li>
+</ul>
+<button style="margin: 30px 0px 0px 10px; padding: 15px; background-color: black; color: white; border-radius: 25px; border: 0px;">Get Plans</button>
+<p style="margin-top: 10px;"><span style="margin-left: 10px;"> Starting at </span><span style="font-size: 26px; font-weight:600; color: #00FB21;">$82.26/month*</span></p>[/pl_tab]
+[pl_tab pagelayer-id="imki8x5Y1vt2UK5H"  title="Performance"]
+
+
+
+
+
+
+<p style="font-size: 22px; font-weight: 600; color: black;">Performance of VPS Hosting</p>
+<p style="margin-top: 30px;">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+<ul style="list-style-type:circle; margin-left: 20px; margin-top: 30px;">
+<li>Guaranteed resources</li>
+<li>Instant provisioning</li>
+<li>Control panel included</li>
+<li>Automated upgrades</li>
+</ul>
+<button style="margin: 30px 0px 0px 10px; padding: 15px; background-color: black; color: white; border-radius: 25px; border: 0px;">Get Plans</button>
+<p style="margin-top: 10px;"><span style="margin-left: 10px;"> Starting at </span><span style="font-size: 26px; font-weight:600; color: #00FB21; ">$61.68/month*</span></p>[/pl_tab]
+[pl_tab pagelayer-id="vhdtYnJeocabwBbG"  title="Effectiveness"]
+
+
+
+
+
+
+<p style="font-size: 22px; font-weight: 600; color: black;">More Effective VPS hosting</p>
+<p style="margin-top: 30px;">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+<ul style="list-style-type:circle; margin-left: 20px; margin-top: 30px;">
+<li>Control panel included</li>
+<li>Guaranteed resources</li>
+<li>Automated upgrades</li>
+<li>Instant provisioning</li>
+</ul>
+<button style="margin: 30px 0px 0px 10px; padding: 15px; background-color: black; color: white; border-radius: 25px; border: 0px;">Get Plans</button>
+<p style="margin-top: 10px;"><span style="margin-left: 10px;"> Starting at </span><span style="font-size: 26px; font-weight:600; color: #00FB21; ">$72.23/month*</span></p>[/pl_tab]
+[pl_tab pagelayer-id="MJmjM22C3kUcj06e"  title="Maintenance"]
+
+
+
+
+
+
+<p style="font-size: 22px; font-weight: 600; color: black;">VPS Hosting Maintenance</p>
+<p style="margin-top: 30px;">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+<ul style="list-style-type:circle; margin-left: 20px; margin-top: 30px;">
+<li>Control panel included</li>
+<li>Automated upgrades</li>
+<li>Instant provisioning</li>
+<li>Guaranteed resources</li>
+</ul>
+<button style="margin: 30px 0px 0px 10px; padding: 15px; background-color: black; color: white; border-radius: 25px; border: 0px;">Get Plans</button>
+<p style="margin-top: 10px;"><span style="margin-left: 10px;"> Starting at </span><span style="font-size: 26px; font-weight:600; color: #00FB21; ">$25.99/month*</span></p>[/pl_tab]
+[/pl_tabs]
+[/pl_col]
+[pl_col pagelayer-id="lky560h5mIBbgzWP"  overlay_hover_delay="400" col="5" content_pos="center"]
+[pl_image pagelayer-id="J8IIfsD0y9RqwnZY"  id="{{theme_url}}/images/home1.png" id-size="full" align="center" img_hover="normal" img_hover_delay="400" caption_color="#0986c0" max-width="NaN" animation="fadeInRight" animation_delay="600"]
+
+
+
+
+
+
+[/pl_image]
+[/pl_col]
+[/pl_row]

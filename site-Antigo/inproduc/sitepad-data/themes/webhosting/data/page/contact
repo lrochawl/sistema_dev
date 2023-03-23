@@ -1,0 +1,55 @@
+[pl_row pagelayer-id="vp1T0duuBQDTAZAH"  stretch="auto" col_gap="10" width_content="auto" row_height="default" overlay_hover_delay="400" row_shape_top_color="#227bc3" row_shape_top_width="100" row_shape_top_height="100" row_shape_bottom_color="#e44993" row_shape_bottom_width="100" row_shape_bottom_height="100"]
+[pl_col pagelayer-id="YxLla6aDEOy3JOmn"  overlay_hover_delay="400" col="4" ele_padding="50px,50px,50px,50px" ele_bg_type="color" ele_bg_color="#d7d7d762"]
+[pl_iconbox pagelayer-id="6iISVPo2mb2BFxAc"  service_icon="fas fa-map-marker-alt" service_alignment="top" service_vertical_alignment="middle" service_icon_view="default" service_icon_padding="15" service_icon_state="normal" service_icon_color="#000000ff" service_icon_font_size="50" service_icon_hover_delay="400" service_bor_state="normal" service_heading="Address" heading_alignment="center" service_title_spacing=",,10," heading_state="normal" service_heading_color="#000000ff" service_heading_typo="Montserrat,26,,600,,,Solid,,,," heading_delay="400" service_text_alignment="center" service_btn_hover_delay="400" service_icon_spacing="0,0,10,0" font_family="Raleway" font_size="16"]
+
+
+206, James Street, New Balcony, 502360[/pl_iconbox]
+[/pl_col]
+[pl_col pagelayer-id="mCTuZgWAqFiuBjEp"  overlay_hover_delay="400" col="4" ele_bg_type="color" ele_bg_color="#d7d7d762" ele_padding="50px,50px,50px,50px" border_type="solid" border_width="0px,1px,0px,1px" border_color="#CCC" border_width_tablet="1px,0px,1px,0px" border_width_mobile="1px,0px,1px,0px"]
+[pl_iconbox pagelayer-id="Nf2D8QLYfGtassvP"  service_icon="fas fa-mobile-alt" service_alignment="top" service_vertical_alignment="middle" service_icon_view="default" service_icon_padding="15" service_icon_state="normal" service_icon_color="#000000ff" service_icon_font_size="50" service_icon_hover_delay="400" service_bor_state="normal" service_heading="Call Us" heading_alignment="center" service_title_spacing=",,10," heading_state="normal" service_heading_color="#000000ff" service_heading_typo="Montserrat,26,,600,,,Solid,,,," heading_delay="400" service_text_alignment="center" service_btn_hover_delay="400" service_icon_spacing="0,0,10,0" font_family="Raleway" font_size="16"]
+
+
++(123) 123456789[/pl_iconbox]
+[/pl_col]
+[pl_col pagelayer-id="yIhHzyt8RDURZ8AV"  overlay_hover_delay="400" col="4" ele_bg_type="color" ele_bg_color="#d7d7d762" ele_padding="50px,50px,50px,50px"]
+[pl_iconbox pagelayer-id="iYNQTAFsNTDRJ3GT"  service_icon="fas fa-envelope-open-text" service_alignment="top" service_vertical_alignment="middle" service_icon_view="default" service_icon_padding="15" service_icon_state="normal" service_icon_color="#000000ff" service_icon_font_size="50" service_icon_hover_delay="400" service_bor_state="normal" service_heading="Email Us" heading_alignment="center" service_title_spacing=",,10," heading_state="normal" service_heading_color="#000000ff" service_heading_typo="Montserrat,26,,600,,,Solid,,,," heading_delay="400" service_text_alignment="center" service_btn_hover_delay="400" service_icon_spacing="0,0,10,0" font_family="Raleway" font_size="16"]
+
+
+sitepadteam@sitepad.com[/pl_iconbox]
+[/pl_col]
+[/pl_row]
+[pl_row pagelayer-id="QZlxayI6ZZobtJMr"  stretch="auto" col_gap="10" width_content="auto" row_height="default" overlay_hover_delay="400" row_shape_top_color="#227bc3" row_shape_top_width="100" row_shape_top_height="100" row_shape_bottom_color="#e44993" row_shape_bottom_width="100" row_shape_bottom_height="100" ele_padding="70px,0px,70px,0px"]
+[pl_col pagelayer-id="cfxkhSPMPxjRodQH"  overlay_hover_delay="400" col="5"]
+[pl_heading pagelayer-id="uGh4IMejmyIyqcWe"  heading_state="normal" color="#111111" heading_typo="Montserrat,22,,600,,,Solid,,,," ele_padding="0px,0px,0px,0px" ele_margin="0px,0px,0px,0px" align="left" align_mobile="center" heading_typo_mobile=",26,,,,,Solid,,,," animation="fadeInUp" animation_delay="600"]
+
+
+<h2>Find our location</h2>[/pl_heading]
+[pl_google_maps pagelayer-id="mLvlcz15cRqPARIt"  zoom="10" height="400" ele_padding="20px,0px,0px,0px" animation="fadeInUp" animation_delay="600"]
+
+
+New York, New York, USA[/pl_google_maps]
+[/pl_col]
+[pl_col pagelayer-id="g3ifTV25Sfulyi4J"  overlay_hover_delay="400" col="7"]
+[pl_heading pagelayer-id="RICTtBjOf8ANfRcW"  heading_state="normal" color="#111111" heading_typo="Montserrat,22,,600,,,Solid,,,," ele_padding="0px,0px,0px,0px" ele_margin="0px,0px,0px,0px" align="left" align_mobile="center" heading_typo_mobile=",26,,,,,Solid,,,," animation="fadeInUp" animation_delay="600"]
+
+
+<h2>Interested in Discussing?</h2>[/pl_heading]
+[pl_contact pagelayer-id="QVkguElUaX1uKkY5"  form="contact-form" name="Contact Form" form_position="left" space_label=",,10," input_state="normal" input_padding="5,5" radio_padding="10,10" field_hover_delay="400" submit="Send your Message" type="pagelayer-btn-custom" size="pagelayer-btn-small" btn_hover_delay="400" icon_position="pagelayer-btn-icon-left" icon_spacing="5" con_post_id="6842" ele_padding="20px,0px,0px,0px" form_label_color="#000000ff" form_placeholder_color="#000000ff" label_typo="Raleway,16,,600,,,Solid,,,," placeholder_typo="Raleway,16,,,,,Solid,,,," input_height="NaN" form_input_color="#000000ff" input_typo="Raleway,16,,,,,Solid,,,," field_border_type="solid" field_border_color="#000000ff" field_border_width="1,1,1,1" contect_btn_align="center" btn_bg_color="#000000ff" btn_color="#ffffff" btn_typo="Raleway,16,,600,,,Solid,,,," btn_hover="hover" btn_bg_color_hover="#00fb21ff" btn_color_hover="#000000ff" btn_border_type="solid" btn_border_color="" btn_border_width="0,0,0,0" btn_border_radius="0,0,0,0" animation="fadeInUp" animation_delay="600"]
+[pl_contact_item pagelayer-id="M89MbF0zGg1xeDJm"  label_name="Name" field_type="text" values="One
+Two" field_name="Fieldname" field_width="49" space_between=",,10," required="true" label_as_holder="" field_display="inline-block" placeholder="Enter Name" field_width_mobile="100"]
+[/pl_contact_item]
+[pl_contact_item pagelayer-id="DH4YSGOI1ye2WvvO"  label_name="Email" field_type="email" values="One
+Two" field_name="Fieldname" field_width="49" space_between=",,10," required="true" label_as_holder="" field_display="inline-block" placeholder="Enter Email" field_width_mobile="100"]
+[/pl_contact_item]
+[pl_contact_item pagelayer-id="Kq053pBG8dVFloLC"  label_name="Subject" field_type="text" values="One
+Two" field_name="Fieldname" field_width="49" space_between=",,10," required="true" label_as_holder="" field_display="inline-block" placeholder="Enter Subject" field_width_mobile="100"]
+[/pl_contact_item]
+[pl_contact_item pagelayer-id="dOiOXHpxkXKB4l2G"  label_name="Phone" field_type="tel" values="One
+Two" field_name="Fieldname" field_width="49" space_between=",,10," required="true" label_as_holder="" field_display="inline-block" placeholder="Enter Phone" field_width_mobile="100"]
+[/pl_contact_item]
+[pl_contact_item pagelayer-id="JGFBPewA2vYM8RV6"  label_name="Message" field_type="textarea" values="One
+Two" field_name="Fieldname" field_width="99" space_between=",,10," required="true" label_as_holder="" field_display="" textarea_rows="4" placeholder="Enter message" field_width_mobile="100"]
+[/pl_contact_item]
+[/pl_contact]
+[/pl_col]
+[/pl_row]

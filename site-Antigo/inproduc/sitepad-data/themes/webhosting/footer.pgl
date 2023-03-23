@@ -1,0 +1,59 @@
+[pl_row pagelayer-id="7ROmH5XBam618hgF"  stretch="auto" col_gap="10" width_content="auto" row_height="default" overlay_hover_delay="400" row_shape_top_color="#227bc3" row_shape_top_width="100" row_shape_top_height="100" row_shape_bottom_color="#e44993" row_shape_bottom_width="100" row_shape_bottom_height="100" ele_padding="30px,0px,30px,0px" ele_bg_type="color" ele_bg_color="#000000ff"]
+[pl_col pagelayer-id="xj4C6mzx89DB252H"  overlay_hover_delay="400"]
+[pl_inner_row pagelayer-id="K0sxqdvxOcHWKwhq"  stretch="auto" col_gap="10" width_content="auto" row_height="default" overlay_hover_delay="400" row_shape_top_color="#227bc3" row_shape_top_width="100" row_shape_top_height="100" row_shape_bottom_color="#e44993" row_shape_bottom_width="100" row_shape_bottom_height="100"]
+[pl_inner_col pagelayer-id="xuGCLP4bPJWaKga2"  overlay_hover_delay="400" col="6"]
+[pl_wp_title pagelayer-id="qIo10JPWxx2ZrHOV"  site_name="Host" site_title_state="normal" text-align="left" site_title_style="Montserrat,26,,,,,Solid,,Uppercase,," title_color="#ffffffff" title_padding="5,0,5,0"]
+[/pl_wp_title]
+[pl_text pagelayer-id="FaZL4BfvfBP7zU1d"  ele_padding="10px,0px,0px,0px" font_family="Raleway" font_size="16"]
+
+
+
+<p><span style="color: rgb(255, 255, 255);">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span></p>[/pl_text]
+[pl_share_grp pagelayer-id="82Ug1FZZsTlLoUJJ"  type="icon" bg_shape="pagelayer-social-bg-none" align="left" vspace="0" hspace="20" height="0" icon_size="25" icon_space="5" color_scheme="" icon_color="#ffffff" social_hover_delay="400" name_typo=",15,,,,,solid,,,," ele_padding="15px,0px,0px,0px" icon_bg_color="" social_hover="hover" icon_color_hover="#00fb21ff" hspace_mobile="15"]
+[pl_share pagelayer-id="ZdHeQZgsdhMGX63R"  icon="fab fa-facebook-f"]
+[/pl_share]
+[pl_share pagelayer-id="yaA28bL9AT08l9nr"  icon="fab fa-twitter"]
+[/pl_share]
+[pl_share pagelayer-id="xzr6TETboS1hd65m"  icon="fab fa-google-plus-g"]
+[/pl_share]
+[pl_share pagelayer-id="J740g3kksrCAxP1W"  icon="fab fa-instagram"]
+[/pl_share]
+[/pl_share_grp]
+[/pl_inner_col]
+[pl_inner_col pagelayer-id="AYm7x1fHURAKNDPV"  overlay_hover_delay="400" col="3"]
+[pl_heading pagelayer-id="DKdSpPJaNSYsUQq9"  heading_state="normal" color="#ffffffff" heading_typo="Montserrat,26,,,,,Solid,,,,"]
+
+
+<h2>Quick Link</h2>[/pl_heading]
+[pl_list pagelayer-id="LaVey7j5AhMj3oit"  list_type="none" spacing="10" list_text_state="hover" item_indent="10" list_icon_state="normal" icon_color="#00fb21ff" icon_border_type="" icon_border_color="#cbd2dc78" icon_border_width="3" list_color="#ffffffff" list_color_hover="#00fb21ff" list_hover_delay="400" list_typo_hover="Raleway,16,,,,,Solid,,,," list_typo="Raleway,16,,,,,Solid,,,,"]
+[pl_list_item pagelayer-id="9XOGmqS43Ay5Oj9O"  show_icon="true" icon="far fa-dot-circle"]
+
+
+Home[/pl_list_item]
+[pl_list_item pagelayer-id="DfJlDIPvHQWB5aua"  show_icon="true" icon="far fa-dot-circle"]
+
+
+About Us[/pl_list_item]
+[pl_list_item pagelayer-id="F0nS9MGAdENBPCEK"  show_icon="true" icon="far fa-dot-circle"]
+
+
+Contact Us[/pl_list_item]
+[/pl_list]
+[/pl_inner_col]
+[pl_inner_col pagelayer-id="Pz1hgupeWJyoqVK3"  overlay_hover_delay="400" col="3"]
+[pl_heading pagelayer-id="g7WYtKBdOmaF5cEL"  heading_state="normal" color="#ffffffff" heading_typo="Montserrat,26,,,,,Solid,,,,"]
+
+
+<h2>Reach Us</h2>[/pl_heading]
+[pl_address pagelayer-id="44q8lj4TRsN1T3ly"  icon="fas fa-map-marker-alt" space="10" color="#ffffffff" typography="Raleway,16,,,,,Solid,,,," icon_color="#00fb21ff" icon_size="16"]
+[/pl_address]
+[pl_phone pagelayer-id="Eycq1xnbx0qEe7HO"  icon="fas fa-mobile-alt" ele_padding="10px,0px,0px,0px" color="#ffffffff" linked="true" typography="Raleway,16,,,,,Solid,,,," space="10" icon_size="16" icon_color="#00fb21ff"]
+[/pl_phone]
+[pl_email pagelayer-id="9cZfdZ2HVSC3eZPB"  icon="fas fa-envelope" ele_padding="10px,0px,0px,0px" linked="true" color="#ffffffff" typography="Raleway,16,,,,,Solid,,,," space="10" icon_color="#00fb21ff" icon_size="16"]
+[/pl_email]
+[/pl_inner_col]
+[/pl_inner_row]
+[pl_copyright pagelayer-id="dB9YgFa0SFw9YDG1"  color="#ffffffff" typography="Montserrat,20,,600,,,Solid,,Uppercase,," ele_padding_mobile="10px,0px,0px,0px"]
+[/pl_copyright]
+[/pl_col]
+[/pl_row]

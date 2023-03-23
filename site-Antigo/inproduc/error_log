@@ -1,0 +1,48 @@
+[10-Apr-2022 14:03:09 UTC] PHP Warning:  require_once(/usr/local/sitepad/editor//wp-admin/includes/plugin.php): failed to open stream: No such file or directory in /usr/local/sitepad/editor/site-data/plugins/pagelayer-pro/main/plugin-update-checker.php on line 363
+[10-Apr-2022 14:03:09 UTC] PHP Stack trace:
+[10-Apr-2022 14:03:09 UTC] PHP   1. {main}() /home/wltoposc/public_html/inproduc/index.php:0
+[10-Apr-2022 14:03:09 UTC] PHP   2. include_once() /home/wltoposc/public_html/inproduc/index.php:28
+[10-Apr-2022 14:03:09 UTC] PHP   3. include_once() /usr/local/sitepad/editor/site-inc/bootstrap.php:86
+[10-Apr-2022 14:03:09 UTC] PHP   4. do_action_ref_array() /usr/local/sitepad/editor/cron.php:133
+[10-Apr-2022 14:03:09 UTC] PHP   5. WP_Hook->do_action() /usr/local/sitepad/editor/site-inc/plugin.php:531
+[10-Apr-2022 14:03:09 UTC] PHP   6. WP_Hook->apply_filters() /usr/local/sitepad/editor/site-inc/class-wp-hook.php:310
+[10-Apr-2022 14:03:09 UTC] PHP   7. Pagelayer_PucScheduler_3_2->maybeCheckForUpdates() /usr/local/sitepad/editor/site-inc/class-wp-hook.php:286
+[10-Apr-2022 14:03:09 UTC] PHP   8. PagelayerUpdateChecker_3_2->checkForUpdates() /usr/local/sitepad/editor/site-data/plugins/pagelayer-pro/main/plugin-update-checker.php:1357
+[10-Apr-2022 14:03:09 UTC] PHP   9. PagelayerUpdateChecker_3_2->getInstalledVersion() /usr/local/sitepad/editor/site-data/plugins/pagelayer-pro/main/plugin-update-checker.php:375
+[10-Apr-2022 14:03:09 UTC] PHP  10. PagelayerUpdateChecker_3_2->getPluginHeader() /usr/local/sitepad/editor/site-data/plugins/pagelayer-pro/main/plugin-update-checker.php:326
+[10-Apr-2022 14:03:09 UTC] PHP Fatal error:  require_once(): Failed opening required '/usr/local/sitepad/editor//wp-admin/includes/plugin.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /usr/local/sitepad/editor/site-data/plugins/pagelayer-pro/main/plugin-update-checker.php on line 363
+[10-Apr-2022 14:03:09 UTC] PHP Stack trace:
+[10-Apr-2022 14:03:09 UTC] PHP   1. {main}() /home/wltoposc/public_html/inproduc/index.php:0
+[10-Apr-2022 14:03:09 UTC] PHP   2. include_once() /home/wltoposc/public_html/inproduc/index.php:28
+[10-Apr-2022 14:03:09 UTC] PHP   3. include_once() /usr/local/sitepad/editor/site-inc/bootstrap.php:86
+[10-Apr-2022 14:03:09 UTC] PHP   4. do_action_ref_array() /usr/local/sitepad/editor/cron.php:133
+[10-Apr-2022 14:03:09 UTC] PHP   5. WP_Hook->do_action() /usr/local/sitepad/editor/site-inc/plugin.php:531
+[10-Apr-2022 14:03:09 UTC] PHP   6. WP_Hook->apply_filters() /usr/local/sitepad/editor/site-inc/class-wp-hook.php:310
+[10-Apr-2022 14:03:09 UTC] PHP   7. Pagelayer_PucScheduler_3_2->maybeCheckForUpdates() /usr/local/sitepad/editor/site-inc/class-wp-hook.php:286
+[10-Apr-2022 14:03:09 UTC] PHP   8. PagelayerUpdateChecker_3_2->checkForUpdates() /usr/local/sitepad/editor/site-data/plugins/pagelayer-pro/main/plugin-update-checker.php:1357
+[10-Apr-2022 14:03:09 UTC] PHP   9. PagelayerUpdateChecker_3_2->getInstalledVersion() /usr/local/sitepad/editor/site-data/plugins/pagelayer-pro/main/plugin-update-checker.php:375
+[10-Apr-2022 14:03:09 UTC] PHP  10. PagelayerUpdateChecker_3_2->getPluginHeader() /usr/local/sitepad/editor/site-data/plugins/pagelayer-pro/main/plugin-update-checker.php:326
+[12-Jun-2022 11:53:42 UTC] PHP Warning:  require_once(/usr/local/sitepad/editor//wp-admin/includes/plugin.php): failed to open stream: No such file or directory in /usr/local/sitepad/editor/site-data/plugins/pagelayer-pro/main/plugin-update-checker.php on line 363
+[12-Jun-2022 11:53:42 UTC] PHP Stack trace:
+[12-Jun-2022 11:53:42 UTC] PHP   1. {main}() /home/wltoposc/public_html/inproduc/index.php:0
+[12-Jun-2022 11:53:42 UTC] PHP   2. include_once() /home/wltoposc/public_html/inproduc/index.php:28
+[12-Jun-2022 11:53:42 UTC] PHP   3. include_once() /usr/local/sitepad/editor/site-inc/bootstrap.php:86
+[12-Jun-2022 11:53:42 UTC] PHP   4. do_action_ref_array($tag = 'check_plugin_updates-pagelayer-pro', $args = []) /usr/local/sitepad/editor/cron.php:133
+[12-Jun-2022 11:53:42 UTC] PHP   5. WP_Hook->do_action($args = []) /usr/local/sitepad/editor/site-inc/plugin.php:531
+[12-Jun-2022 11:53:42 UTC] PHP   6. WP_Hook->apply_filters($value = '', $args = []) /usr/local/sitepad/editor/site-inc/class-wp-hook.php:310
+[12-Jun-2022 11:53:42 UTC] PHP   7. Pagelayer_PucScheduler_3_2->maybeCheckForUpdates() /usr/local/sitepad/editor/site-inc/class-wp-hook.php:286
+[12-Jun-2022 11:53:42 UTC] PHP   8. PagelayerUpdateChecker_3_2->checkForUpdates() /usr/local/sitepad/editor/site-data/plugins/pagelayer-pro/main/plugin-update-checker.php:1357
+[12-Jun-2022 11:53:42 UTC] PHP   9. PagelayerUpdateChecker_3_2->getInstalledVersion() /usr/local/sitepad/editor/site-data/plugins/pagelayer-pro/main/plugin-update-checker.php:375
+[12-Jun-2022 11:53:42 UTC] PHP  10. PagelayerUpdateChecker_3_2->getPluginHeader() /usr/local/sitepad/editor/site-data/plugins/pagelayer-pro/main/plugin-update-checker.php:326
+[12-Jun-2022 11:53:42 UTC] PHP Fatal error:  require_once(): Failed opening required '/usr/local/sitepad/editor//wp-admin/includes/plugin.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /usr/local/sitepad/editor/site-data/plugins/pagelayer-pro/main/plugin-update-checker.php on line 363
+[12-Jun-2022 11:53:42 UTC] PHP Stack trace:
+[12-Jun-2022 11:53:42 UTC] PHP   1. {main}() /home/wltoposc/public_html/inproduc/index.php:0
+[12-Jun-2022 11:53:42 UTC] PHP   2. include_once() /home/wltoposc/public_html/inproduc/index.php:28
+[12-Jun-2022 11:53:42 UTC] PHP   3. include_once() /usr/local/sitepad/editor/site-inc/bootstrap.php:86
+[12-Jun-2022 11:53:42 UTC] PHP   4. do_action_ref_array($tag = 'check_plugin_updates-pagelayer-pro', $args = []) /usr/local/sitepad/editor/cron.php:133
+[12-Jun-2022 11:53:42 UTC] PHP   5. WP_Hook->do_action($args = []) /usr/local/sitepad/editor/site-inc/plugin.php:531
+[12-Jun-2022 11:53:42 UTC] PHP   6. WP_Hook->apply_filters($value = '', $args = []) /usr/local/sitepad/editor/site-inc/class-wp-hook.php:310
+[12-Jun-2022 11:53:42 UTC] PHP   7. Pagelayer_PucScheduler_3_2->maybeCheckForUpdates() /usr/local/sitepad/editor/site-inc/class-wp-hook.php:286
+[12-Jun-2022 11:53:42 UTC] PHP   8. PagelayerUpdateChecker_3_2->checkForUpdates() /usr/local/sitepad/editor/site-data/plugins/pagelayer-pro/main/plugin-update-checker.php:1357
+[12-Jun-2022 11:53:42 UTC] PHP   9. PagelayerUpdateChecker_3_2->getInstalledVersion() /usr/local/sitepad/editor/site-data/plugins/pagelayer-pro/main/plugin-update-checker.php:375
+[12-Jun-2022 11:53:42 UTC] PHP  10. PagelayerUpdateChecker_3_2->getPluginHeader() /usr/local/sitepad/editor/site-data/plugins/pagelayer-pro/main/plugin-update-checker.php:326
