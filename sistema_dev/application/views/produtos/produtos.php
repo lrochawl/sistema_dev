@@ -132,32 +132,9 @@
             <h5 id="myModalLabel">Gerar etiquetas com Código de Barras</h5>
         </div>
         <div class="modal-body">
-            <div class="span12 alert alert-info" style="margin-left: 0"> Escolha o intervalo de produtos para gerar as etiquetas.</div>
+            <div class="span6 alert alert-info" style="margin-left: 0"> Escolha o intervalo de produtos para gerar as etiquetas.</div>
             <div class="control-group">
-                <div class="span12" style="margin-left: 0;">
-                    <div class="control-group">
-                        <div class="controls">
-                                <label for="valor">De</label>
-                                <input class="span4" style="margin-left: 0" type="text" id="de_id" name="de_id" placeholder="ID do primeiro produto" value="" />
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="controls">
-                           
-                                <label for="valor">Até</label>
-                                <input class="span4" type="text" id="ate_id" name="ate_id" placeholder="ID do último produto" value="" />
-                           
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="controls">
-                            
-                                <label for="valor">Qtd. do Estoque</label>
-                                <input class="span3" type="checkbox" name="qtdEtiqueta" value="true" />
-                            
-                        </div>
-                    </div>
-                    <div class="control-group">
+            <div class="control-group">
                         <div class="controls">
                         <label  for="valor">Formato Etiqueta</label>
                         <select class="span5" name="etiquetaCode">
@@ -170,13 +147,34 @@
                         </select>
                         </div>
                     </div>
-
+                <div class="span6" style="margin-left: 0;">
+                    <div class="control-group">
+                        <div class="controls">
+                            <label for="valor">De</label>
+                            <input class="span4" style="margin-left: 0" type="text" id="de_id" name="de_id" placeholder="ID do primeiro produto" value="" />
+                        <!--  -->
+                            <label for="valor">Até</label>
+                            <input class="span4" type="text" id="ate_id" name="ate_id" placeholder="ID do último produto" value="" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <label for="valor">Qtd. do Estoque</label>
+                            <input class="span3" type="checkbox" name="qtdEtiqueta" value="true" />
+                        </div>
+                    </div>
+                   
                 </div>
             </div>
         </div>
         <div class="modal-footer" style="display:flex;justify-content: center">
-            <button class="button btn btn-warning" data-dismiss="modal" aria-hidden="true"><span class="button__icon"><i class="bx bx-x"></i></span><span class="button__text2">Cancelar</span></button>
-            <button class="button btn btn-success"><span class="button__icon"><i class='bx bx-barcode'></i></span><span class="button__text2">Gerar</span></button>
+            <button class="button btn btn-warning" data-dismiss="modal" aria-hidden="true">
+                <span class="button__icon"><i class="bx bx-x"></i></span>
+                <span class="button__text2">Cancelar</span></button>
+            <button class="button btn btn-success">
+                <span class="button__icon">
+                    <i class='bx bx-barcode'></i></span>
+                    <span class="button__text2">Gerar</span></button>
         </div>
     </form>
 </div>
