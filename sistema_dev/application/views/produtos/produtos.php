@@ -132,7 +132,7 @@
             <h5 id="myModalLabel">Gerar etiquetas com Código de Barras</h5>
         </div>
         <div class="modal-body">
-            <div class="span6 alert alert-info" style="margin-left: 0"> Escolha o intervalo de produtos para gerar as etiquetas.</div>
+            <div class="span12 alert alert-info" style="margin-left: 0"> Escolha o intervalo de produtos para gerar as etiquetas.</div>
             <div class="control-group">
             <div class="control-group">
                         <div class="controls">
