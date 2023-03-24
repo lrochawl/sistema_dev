@@ -99,6 +99,8 @@
                 </div>
             </div>
             </div>
+
+            
             <div class="span6">
             <div class="control-group">
                 <label for="estoqueAtualTxt" class="control-label">Estoque Atual</label>
