@@ -135,6 +135,8 @@
             <div class="span12 alert alert-info" style="margin-left: 0"> Escolha o intervalo de produtos para gerar as etiquetas.</div>
 
             <div class="span12" style="margin-left: 0;">
+            <div class="control-group">
+            <div class="controls">
                 <div class="span6" style="margin-left: 0;">
                     <label for="valor">De</label>
                     <input class="span9" style="margin-left: 0" type="text" id="de_id" name="de_id" placeholder="ID do primeiro produto" value="" />
@@ -163,6 +165,8 @@
                     </select>
                 </div>
 
+            </div>
+        </div>
             </div>
         </div>
         <div class="modal-footer" style="display:flex;justify-content: center">
