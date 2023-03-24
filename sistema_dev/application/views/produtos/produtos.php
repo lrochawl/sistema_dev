@@ -151,6 +151,17 @@
                     <input class="span12" type="checkbox" name="qtdEtiqueta" value="true" />
                 </div>
 
+                <div class="control-group">
+                <label for="estoqueAtualTxt" class="control-label">Estoque Atual</label>
+                <div class="controls">
+                    <input id="estoqueAtualTxt" type="text" value="" readonly />
+                    <input type="hidden" id="estoqueAtual" name="estoqueAtual" value="" />
+                    <input type="hidden" class="idProduto" name="id" value="" />
+                    <input id="medida" type="hidden" name="medida" value="" />
+
+                </div>
+            </div>
+            
                 <div class="span6">
                     <label class="span12" for="valor">Formato Etiqueta</label>
                     <select class="span5" name="etiquetaCode">
