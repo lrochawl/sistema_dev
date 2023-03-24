@@ -154,7 +154,8 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="span12" style="margin-left: 0;">
+                            
+                            <div class="span6">
                                 <div class="control-group">
                                     <div class="controls">
                                         <label for="valor">De</label>
@@ -164,6 +165,18 @@
                                         <input class="span6" type="text" id="ate_id" name="ate_id" placeholder="ID do último produto" value="" />
                                     </div>
                                 </div>
+                            </div>
+                            <div class="span6">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label for="valor">De</label>
+                                        <input class="span6" style="margin-left: 0" type="text" id="de_id" name="de_id" placeholder="ID do primeiro produto" value="" />
+                                        <!--  -->
+                                        <label for="valor">Até</label>
+                                        <input class="span6" type="text" id="ate_id" name="ate_id" placeholder="ID do último produto" value="" />
+                                    </div>
+                                </div>
+                            </div>
                                 <div class="control-group">
                                     <div class="controls">
                                         <label for="valor">Qtd. do Estoque</label>
@@ -171,7 +184,7 @@
                                     </div>
                                 </div>
 
-                            </div>
+                           
                         </div>
 
                         <div class="modal-footer" style="display:flex;justify-content: center">
