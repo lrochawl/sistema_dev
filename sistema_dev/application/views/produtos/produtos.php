@@ -152,16 +152,23 @@
                 </div>
 
                 <div class="control-group">
-                <label for="estoqueAtualTxt" class="control-label">Estoque Atual</label>
+                <label for="estoque" class="control-label">Atualizar Produtos<span class="required">*</span></label>
                 <div class="controls">
-                    <input id="estoqueAtualTxt" type="text" value="" readonly />
-                    <input type="hidden" id="estoqueAtual" name="estoqueAtual" value="" />
-                    <input type="hidden" class="idProduto" name="id" value="" />
-                    <input id="medida" type="hidden" name="medida" value="" />
+                    <select name="operacao" class="select30" required>
+                        <option desabled>Selecione</option>
+                        <option value="+">Adicionar</option>
+                        <option value="-">Remover</option>
+                    </select>
 
+                    <input id="estoque" type="number" name="estoque" value="0" class="input3" required />
+
+                    <select name="selectMedida" class="select30" id="selectMedida" required>
+                        <option desabled>Selecione</option>
+
+                    </select>
                 </div>
             </div>
-            
+
                 <div class="span6">
                     <label class="span12" for="valor">Formato Etiqueta</label>
                     <select class="span5" name="etiquetaCode">
