@@ -132,76 +132,42 @@
             <h5 id="myModalLabel">Gerar etiquetas com Código de Barras</h5>
         </div>
         <div class="modal-body">
+            <div class="span12 alert alert-info" style="margin-left: 0"> Escolha o intervalo de produtos para gerar as etiquetas.</div>
 
-            <div class="row-fluid" style="margin-top:0">
-                <div class="span12">
-                    <div class="widget-box">
-
-                        <div class="span12 alert alert-info" style="margin-left: 0">
-                            Escolha o intervalo de produtos para gerar as etiquetas.
-                        </div>
-                        <div class="control-group">
-                            <div class="control-group">
-                                <div class="controls">
-                                    <label for="valor">Formato Etiqueta</label>
-                                    <select class="span6" name="etiquetaCode">
-                                        <option value="EAN13">EAN-13</option>
-                                        <option value="UPCA">UPCA</option>
-                                        <option value="C93">CODE 93</option>
-                                        <option value="C128A">CODE 128</option>
-                                        <option value="CODABAR">CODABAR</option>
-                                        <option value="QR">QR-CODE</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
-                            <div class="span6">
-                                <div class="control-group">
-                                    <div class="controls">
-                                        <label for="valor">De</label>
-                                        <input class="span6" style="margin-left: 0" type="text" id="de_id" name="de_id" placeholder="ID do primeiro produto" value="" />
-                                        <!--  -->
-                                        <label for="valor">Até</label>
-                                        <input class="span6" type="text" id="ate_id" name="ate_id" placeholder="ID do último produto" value="" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="span6">
-                                <div class="control-group">
-                                    <div class="controls">
-                                        <label for="valor">De</label>
-                                        <input class="span6" style="margin-left: 0" type="text" id="de_id" name="de_id" placeholder="ID do primeiro produto" value="" />
-                                        <!--  -->
-                                        <label for="valor">Até</label>
-                                        <input class="span6" type="text" id="ate_id" name="ate_id" placeholder="ID do último produto" value="" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="span6">
-                                <div class="control-group">
-                                    <div class="controls">
-                                        <label for="valor">Qtd. do Estoque</label>
-                                        <input class="span3" type="checkbox" name="qtdEtiqueta" value="true" />
-                                    </div>
-                                </div>
-                             </div>
-                           
-                        </div>
-
-                        <div class="modal-footer" style="display:flex;justify-content: center">
-                            <button class="button btn btn-warning" data-dismiss="modal" aria-hidden="true">
-                                <span class="button__icon"><i class="bx bx-x"></i></span>
-                                <span class="button__text2">Cancelar</span></button>
-                            <button class="button btn btn-success">
-                                <span class="button__icon">
-                                    <i class='bx bx-barcode'></i></span>
-                                <span class="button__text2">Gerar</span></button>
-                        </div>
-
-                    </div>
-
+            <div class="span12" style="margin-left: 0;">
+                <div class="span6" style="margin-left: 0;">
+                    <label for="valor">De</label>
+                    <input class="span9" style="margin-left: 0" type="text" id="de_id" name="de_id" placeholder="ID do primeiro produto" value="" />
                 </div>
+
+
+                <div class="span6">
+                    <label for="valor">Até</label>
+                    <input class="span9" type="text" id="ate_id" name="ate_id" placeholder="ID do último produto" value="" />
+                </div>
+
+                <div class="span4">
+                    <label for="valor">Qtd. do Estoque</label>
+                    <input class="span12" type="checkbox" name="qtdEtiqueta" value="true" />
+                </div>
+
+                <div class="span6">
+                    <label class="span12" for="valor">Formato Etiqueta</label>
+                    <select class="span5" name="etiquetaCode">
+                        <option value="EAN13">EAN-13</option>
+                        <option value="UPCA">UPCA</option>
+                        <option value="C93">CODE 93</option>
+                        <option value="C128A">CODE 128</option>
+                        <option value="CODABAR">CODABAR</option>
+                        <option value="QR">QR-CODE</option>
+                    </select>
+                </div>
+
             </div>
+        </div>
+        <div class="modal-footer" style="display:flex;justify-content: center">
+            <button class="button btn btn-warning" data-dismiss="modal" aria-hidden="true"><span class="button__icon"><i class="bx bx-x"></i></span><span class="button__text2">Cancelar</span></button>
+            <button class="button btn btn-success"><span class="button__icon"><i class='bx bx-barcode'></i></span><span class="button__text2">Gerar</span></button>
         </div>
     </form>
 </div>
@@ -263,7 +229,7 @@
                 },
             ],
             "language": {
-                // processing: '<i class="fa fa-spinner fa-spin fa-3x fa-aw"></i>',
+               // processing: '<i class="fa fa-spinner fa-spin fa-3x fa-aw"></i>',
             },
             "responsive": true,
             "pagingType": $(window).width() < 768 ? 'simple' : 'numbers',
@@ -277,12 +243,12 @@
         //⬇️FUNÇÃO PARA INCLUIR VALORES DOS ATRIBUTOS DO LINK PARA VALUES DO MODAL
         $(document).on('click', 'a', function(event) {
 
-            let produto = $(this).attr('produto');
-            let codigo = $(this).attr('codigo');
+            let produto    = $(this).attr('produto');
+            let codigo     = $(this).attr('codigo');
             let estoqueTxt = $(this).attr('estoqueTxt');
-            let estoque = $(this).attr('estoque');
+            let estoque    = $(this).attr('estoque');
             let dataResult = $(this).attr('data_result');
-            let medida = $(this).attr('medida');
+            let medida     = $(this).attr('medida');
 
             if ($(this).attr('href') == "#modal-excluir") {
                 $('.idProduto').val(produto);
@@ -307,8 +273,8 @@
                     $('#selectMedida').append(`<option value="F">${dataR[2]}</option>`);
                 }
             }
-
-
+          
+             
 
         });
 
