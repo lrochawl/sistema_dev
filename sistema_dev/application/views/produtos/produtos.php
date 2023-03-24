@@ -3,6 +3,14 @@
 <script type="text/javascript" src="<?php echo base_url() ?>assets/js/jquery-ui/js/jquery-ui-1.9.2.custom.js"></script>
 <script src="<?php echo base_url() ?>assets/js/sweetalert2.all.min.js"></script>
 
+<style>
+    }
+div#modal-etiquetas {
+    width: 25em;
+    
+}
+</style>
+
 
 <div class="new122" style="margin-top: 0; min-height: 100vh">
     <div class="flexxn">
@@ -137,7 +145,7 @@
             <div class="control-group">
                         <div class="controls">
                         <label  for="valor">Formato Etiqueta</label>
-                        <select class="span4" name="etiquetaCode">
+                        <select class="span6" name="etiquetaCode">
                             <option value="EAN13">EAN-13</option>
                             <option value="UPCA">UPCA</option>
                             <option value="C93">CODE 93</option>
@@ -151,10 +159,10 @@
                     <div class="control-group">
                         <div class="controls">
                             <label for="valor">De</label>
-                            <input class="span4" style="margin-left: 0" type="text" id="de_id" name="de_id" placeholder="ID do primeiro produto" value="" />
+                            <input class="span6" style="margin-left: 0" type="text" id="de_id" name="de_id" placeholder="ID do primeiro produto" value="" />
                         <!--  -->
                             <label for="valor">Até</label>
-                            <input class="span4" type="text" id="ate_id" name="ate_id" placeholder="ID do último produto" value="" />
+                            <input class="span6" type="text" id="ate_id" name="ate_id" placeholder="ID do último produto" value="" />
                         </div>
                     </div>
                     <div class="control-group">
