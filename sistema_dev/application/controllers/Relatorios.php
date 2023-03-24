@@ -207,6 +207,8 @@ class Relatorios extends MY_Controller
         $data['emitente'] = $this->Mapos_model->getEmitente();
         $data['title'] = 'Relatório de Produtos Customizado';
         $data['topo'] = $this->load->view('relatorios/imprimir/imprimirTopo', $data, true);
+        $this->load->view('relatorios/imprimir/imprimirProdutos', $data, true);
+        exit();
 
         $this->load->helper('mpdf');
         $html = $this->load->view('relatorios/imprimir/imprimirProdutos', $data, true);
@@ -220,8 +222,6 @@ class Relatorios extends MY_Controller
         try {
             if ($de <= $ate) {
                 $data['produtos'] = $this->Relatorios_model->produtosEtiquetas($de, $ate);
-                $this->load->view('relatorios/imprimir/imprimirEtiquetas', $data, true);
-                exit();
                 $this->load->helper('mpdf');
                 $html = $this->load->view('relatorios/imprimir/imprimirEtiquetas', $data, true);
                 pdf_create($html, 'etiquetas_' . $de . '_' . $ate, true);
