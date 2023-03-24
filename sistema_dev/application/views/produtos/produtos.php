@@ -147,7 +147,7 @@
                         </select>
                         </div>
                     </div>
-                <div class="span6" style="margin-left: 0;">
+                <div class="span12" style="margin-left: 0;">
                     <div class="control-group">
                         <div class="controls">
                             <label for="valor">De</label>
