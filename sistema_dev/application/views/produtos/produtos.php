@@ -146,11 +146,6 @@
                     <input class="span9" type="text" id="ate_id" name="ate_id" placeholder="ID do último produto" value="" />
                 </div>
 
-                <div class="span4">
-                    <label for="valor">Qtd. do Estoque</label>
-                    <input class="span12" type="checkbox" name="qtdEtiqueta" value="true" />
-                </div>
-
                 <div class="control-group">
                 <label for="estoque" class="control-label">Atualizar Produtos<span class="required">*</span></label>
                 <div class="controls">
@@ -168,6 +163,13 @@
                     </select>
                 </div>
             </div>
+
+                <div class="span4">
+                    <label for="valor">Qtd. do Estoque</label>
+                    <input class="span12" type="checkbox" name="qtdEtiqueta" value="true" />
+                </div>
+
+                
 
                 <div class="span6">
                     <label class="span12" for="valor">Formato Etiqueta</label>
