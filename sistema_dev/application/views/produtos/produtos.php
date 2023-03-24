@@ -177,13 +177,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="span6">
                                 <div class="control-group">
                                     <div class="controls">
                                         <label for="valor">Qtd. do Estoque</label>
                                         <input class="span3" type="checkbox" name="qtdEtiqueta" value="true" />
                                     </div>
                                 </div>
-
+                             </div>
                            
                         </div>
 
