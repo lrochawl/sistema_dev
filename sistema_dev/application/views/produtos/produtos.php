@@ -137,27 +137,24 @@
                 <div class="span12" style="margin-left: 0;">
                     <div class="control-group">
                         <div class="controls">
-                            <div class="span6" style="margin-left: 0;">
                                 <label for="valor">De</label>
                                 <input class="span9" style="margin-left: 0" type="text" id="de_id" name="de_id" placeholder="ID do primeiro produto" value="" />
-                            </div>
-
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls">
-                            <div class="span6">
+                           
                                 <label for="valor">Até</label>
                                 <input class="span9" type="text" id="ate_id" name="ate_id" placeholder="ID do último produto" value="" />
-                            </div>
+                           
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls">
-                            <div class="span4">
+                            
                                 <label for="valor">Qtd. do Estoque</label>
                                 <input class="span12" type="checkbox" name="qtdEtiqueta" value="true" />
-                            </div>
+                            
                         </div>
                     </div>
                     <div class="span6">
