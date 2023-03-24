@@ -138,14 +138,14 @@
                     <div class="control-group">
                         <div class="controls">
                                 <label for="valor">De</label>
-                                <input class="span9" style="margin-left: 0" type="text" id="de_id" name="de_id" placeholder="ID do primeiro produto" value="" />
+                                <input class="span4" style="margin-left: 0" type="text" id="de_id" name="de_id" placeholder="ID do primeiro produto" value="" />
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls">
                            
                                 <label for="valor">Até</label>
-                                <input class="span9" type="text" id="ate_id" name="ate_id" placeholder="ID do último produto" value="" />
+                                <input class="span4" type="text" id="ate_id" name="ate_id" placeholder="ID do último produto" value="" />
                            
                         </div>
                     </div>
@@ -153,12 +153,13 @@
                         <div class="controls">
                             
                                 <label for="valor">Qtd. do Estoque</label>
-                                <input class="span12" type="checkbox" name="qtdEtiqueta" value="true" />
+                                <input class="span3" type="checkbox" name="qtdEtiqueta" value="true" />
                             
                         </div>
                     </div>
-                    <div class="span6">
-                        <label class="span12" for="valor">Formato Etiqueta</label>
+                    <div class="control-group">
+                        <div class="controls">
+                        <label class="span6" for="valor">Formato Etiqueta</label>
                         <select class="span5" name="etiquetaCode">
                             <option value="EAN13">EAN-13</option>
                             <option value="UPCA">UPCA</option>
@@ -167,6 +168,7 @@
                             <option value="CODABAR">CODABAR</option>
                             <option value="QR">QR-CODE</option>
                         </select>
+                        </div>
                     </div>
 
                 </div>
