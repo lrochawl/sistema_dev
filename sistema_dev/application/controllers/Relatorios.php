@@ -220,6 +220,8 @@ class Relatorios extends MY_Controller
         try {
             if ($de <= $ate) {
                 $data['produtos'] = $this->Relatorios_model->produtosEtiquetas($de, $ate);
+                $this->load->view('relatorios/imprimir/imprimirEtiquetas', $data, true);
+                exit();
                 $this->load->helper('mpdf');
                 $html = $this->load->view('relatorios/imprimir/imprimirEtiquetas', $data, true);
                 pdf_create($html, 'etiquetas_' . $de . '_' . $ate, true);
