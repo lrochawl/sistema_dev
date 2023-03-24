@@ -3,12 +3,6 @@
 <script type="text/javascript" src="<?php echo base_url() ?>assets/js/jquery-ui/js/jquery-ui-1.9.2.custom.js"></script>
 <script src="<?php echo base_url() ?>assets/js/sweetalert2.all.min.js"></script>
 
-<style>
-div#modal-etiquetas {
-    width: 25em;
-    
-}
-</style>
 
 
 <div class="new122" style="margin-top: 0; min-height: 100vh">
@@ -93,6 +87,7 @@ div#modal-etiquetas {
             <h5 id="myModalLabel"><i class="fas fa-plus-square"></i> Atualizar Estoque</h5>
         </div>
         <div class="modal-body">
+            <div class="span6">
             <div class="control-group">
                 <label for="estoqueAtualTxt" class="control-label">Estoque Atual</label>
                 <div class="controls">
@@ -103,7 +98,20 @@ div#modal-etiquetas {
 
                 </div>
             </div>
+            </div>
+            <div class="span6">
+            <div class="control-group">
+                <label for="estoqueAtualTxt" class="control-label">Estoque Atual</label>
+                <div class="controls">
+                    <input id="estoqueAtualTxt" type="text" value="" readonly />
+                    <input type="hidden" id="estoqueAtual" name="estoqueAtual" value="" />
+                    <input type="hidden" class="idProduto" name="id" value="" />
+                    <input id="medida" type="hidden" name="medida" value="" />
 
+                </div>
+            </div>
+            </div>
+            
             <div class="control-group">
                 <label for="estoque" class="control-label">Atualizar Produtos<span class="required">*</span></label>
                 <div class="controls">
