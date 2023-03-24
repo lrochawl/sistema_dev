@@ -3,8 +3,6 @@
 <script type="text/javascript" src="<?php echo base_url() ?>assets/js/jquery-ui/js/jquery-ui-1.9.2.custom.js"></script>
 <script src="<?php echo base_url() ?>assets/js/sweetalert2.all.min.js"></script>
 
-
-
 <div class="new122" style="margin-top: 0; min-height: 100vh">
     <div class="flexxn">
         <?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'aProduto')) { ?>
@@ -87,7 +85,6 @@
             <h5 id="myModalLabel"><i class="fas fa-plus-square"></i> Atualizar Estoque</h5>
         </div>
         <div class="modal-body">
-            <div class="span6">
             <div class="control-group">
                 <label for="estoqueAtualTxt" class="control-label">Estoque Atual</label>
                 <div class="controls">
@@ -98,22 +95,7 @@
 
                 </div>
             </div>
-            </div>
 
-            
-            <div class="span6">
-            <div class="control-group">
-                <label for="estoqueAtualTxt" class="control-label">Estoque Atual</label>
-                <div class="controls">
-                    <input id="estoqueAtualTxt" type="text" value="" readonly />
-                    <input type="hidden" id="estoqueAtual" name="estoqueAtual" value="" />
-                    <input type="hidden" class="idProduto" name="id" value="" />
-                    <input id="medida" type="hidden" name="medida" value="" />
-
-                </div>
-            </div>
-            </div>
-            
             <div class="control-group">
                 <label for="estoque" class="control-label">Atualizar Produtos<span class="required">*</span></label>
                 <div class="controls">
@@ -164,6 +146,27 @@
                         </select>
                         </div>
                     </div>
+                    <div class="span6">
+                <div class="span12" style="margin-left: 0;">
+                    <div class="control-group">
+                        <div class="controls">
+                            <label for="valor">De</label>
+                            <input class="span6" style="margin-left: 0" type="text" id="de_id" name="de_id" placeholder="ID do primeiro produto" value="" />
+                        <!--  -->
+                            <label for="valor">Até</label>
+                            <input class="span6" type="text" id="ate_id" name="ate_id" placeholder="ID do último produto" value="" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <label for="valor">Qtd. do Estoque</label>
+                            <input class="span3" type="checkbox" name="qtdEtiqueta" value="true" />
+                        </div>
+                    </div>
+                   
+                </div>
+                </div>
+                <div class="span6">
                 <div class="span12" style="margin-left: 0;">
                     <div class="control-group">
                         <div class="controls">
@@ -183,6 +186,7 @@
                    
                 </div>
             </div>
+        </div>
         </div>
         <div class="modal-footer" style="display:flex;justify-content: center">
             <button class="button btn btn-warning" data-dismiss="modal" aria-hidden="true">
