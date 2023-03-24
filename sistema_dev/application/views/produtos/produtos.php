@@ -136,7 +136,10 @@
             <div class="row-fluid" style="margin-top:0">
                 <div class="span12">
                     <div class="widget-box">
-                        <div class="span12 alert alert-info" style="margin-left: 0"> Escolha o intervalo de produtos para gerar as etiquetas.</div>
+
+                        <div class="span12 alert alert-info" style="margin-left: 0">
+                            Escolha o intervalo de produtos para gerar as etiquetas.
+                        </div>
                         <div class="control-group">
                             <div class="control-group">
                                 <div class="controls">
@@ -170,19 +173,23 @@
 
                             </div>
                         </div>
+
+                        <div class="modal-footer" style="display:flex;justify-content: center">
+                            <button class="button btn btn-warning" data-dismiss="modal" aria-hidden="true">
+                                <span class="button__icon"><i class="bx bx-x"></i></span>
+                                <span class="button__text2">Cancelar</span></button>
+                            <button class="button btn btn-success">
+                                <span class="button__icon">
+                                    <i class='bx bx-barcode'></i></span>
+                                <span class="button__text2">Gerar</span></button>
+                        </div>
+
                     </div>
-                    <div class="modal-footer" style="display:flex;justify-content: center">
-                        <button class="button btn btn-warning" data-dismiss="modal" aria-hidden="true">
-                            <span class="button__icon"><i class="bx bx-x"></i></span>
-                            <span class="button__text2">Cancelar</span></button>
-                        <button class="button btn btn-success">
-                            <span class="button__icon">
-                                <i class='bx bx-barcode'></i></span>
-                            <span class="button__text2">Gerar</span></button>
-                    </div>
+
+                </div>
+            </div>
+        </div>
     </form>
-</div>
-</div>
 </div>
 
 
