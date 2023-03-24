@@ -54,6 +54,7 @@
                                         echo '<td align="center">' . $p->marca . '</td>';
                                         echo '<td align="center">R$: ' . $p->precoCompra . '</td>';
                                         echo '<td align="center">' . $estoque['textoRS'] . '</td>';
+                                        
                                         echo '<td align="center">'.$p->location . '</td>';
                                         echo '</tr>';
 

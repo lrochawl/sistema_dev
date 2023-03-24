@@ -5,7 +5,7 @@
             <img style="width: 180px" src="/assets/uploads/<?= $emitente[0]->dbEmpresa.'/userImage/'.$emitente[0]->url_image_user; ?>" alt=""><br><br>
         </div>
         <div style="float: right">
-            <b><?= $emitente[0]->empresa ?></b> <br> <b>CNPJ: </b> <?= $emitente[0]->cnpj ?><br>
+            <b><?= strtoupper($emitente[0]->empresa) ?></b> <br> <b>CNPJ: </b> <?= $emitente[0]->cnpj ?><br>
             <b>END.: </b> <?= $emitente[0]->ruaEmitente ?>, <?= $emitente[0]->numeroEmitente ?>, <?= $emitente[0]->bairroEmitente ?>, <?= $emitente[0]->cidadeEmitente ?> - <?= $emitente[0]->estado ?> <br>
 
             <?php if (isset($title)): ?>
