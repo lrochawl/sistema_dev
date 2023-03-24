@@ -207,7 +207,9 @@ class Relatorios extends MY_Controller
         $data['emitente'] = $this->Mapos_model->getEmitente();
         $data['title'] = 'Relatório de Produtos Customizado';
         $data['topo'] = $this->load->view('relatorios/imprimir/imprimirTopo', $data, true);
-        $this->load->view('relatorios/imprimir/imprimirProdutos', $data, true);
+       
+        $this->data['view'] = 'relatorios/imprimir/imprimirProdutos';
+        return $this->layout();
         exit();
 
         $this->load->helper('mpdf');
