@@ -131,63 +131,155 @@
             <h5 id="myModalLabel">Gerar etiquetas com Código de Barras</h5>
         </div>
         <div class="modal-body">
-            <div class="span12 alert alert-info" style="margin-left: 0"> Escolha o intervalo de produtos para gerar as etiquetas.</div>
-            <div class="control-group">
-            <div class="control-group">
-                        <div class="controls">
-                        <label  for="valor">Formato Etiqueta</label>
-                        <select class="span6" name="etiquetaCode">
-                            <option value="EAN13">EAN-13</option>
-                            <option value="UPCA">UPCA</option>
-                            <option value="C93">CODE 93</option>
-                            <option value="C128A">CODE 128</option>
-                            <option value="CODABAR">CODABAR</option>
-                            <option value="QR">QR-CODE</option>
-                        </select>
+        <div class="row-fluid" style="margin-top:0">
+    <div class="span12">
+        <div class="widget-box">
+            <div class="widget-title" style="margin: -20px 0 0">
+                <span class="icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </span>
+                <h5>Cadastro de Produto</h5>
+                <?php echo $custom_error; ?>
+            </div>
+            <div id="imageLogo"> </div>
+            <form action="<?php echo current_url(); ?>" id="formProduto" method="post" enctype="multipart/form-data" class="form-horizontal">
+                <div class="drop-zone">
+                    <span class="drop-zone__prompt" id="zone__prompt">Arraste o arquivo ou clique para upload</span>
+                    <input type="file" name="userfile" class="drop-zone__input">
+                    <div id="drop-zone" class="drop-zone__thumb"></div>
+                </div>
+                <div class="widget-content nopadding tab-content" style="margin-bottom: 2%;">
+                    <div class="span6">
+                        <input onkeydown='handleEnter(event)' type="hidden" id="adNotaFiscal_id" name="adNotaFiscal_id" value="" />
+                        <input onkeydown='handleEnter(event)' type="hidden" id="produto_id" name="codDeBarra" value="" />
+                        <input onkeydown='handleEnter(event)' type="hidden" id="imagemProduto" name="imagemProduto" value="" />
+                        <div class="control-group">
+                            <div class="control-group">
+                                <label for="codDeBarra" class="control-label">Código/Referência/GTIN<span class="required">*</span></label>
+                                <div class="controls">
+                                    <input required onkeydown='handleEnter(event)' autocomplete="off" name="codigo" id="codDeBarra" type="text" value="<?php echo set_value('codDeBarra'); ?>" />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="adNotaFiscal" class="control-label">Nota Fiscal<span class="required">*</span></label>
+                                <div class="controls">
+                                    <input required onkeydown='handleEnter(event)' type="text" autocomplete="off" id="adNotaFiscal" name="adNotaFiscal" value="<?php echo set_value('adNotaFiscal'); ?>" />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="selectMarca" class="control-label">Marca<span class="required">*</span></label>
+                                <div class="controls">
+                                    <select required onkeydown='handleEnter(event)' id="selectMarca" name="marca" value="<?php echo set_value('marca'); ?>">
+                                        <?php if (!$resultMarca) {
+                                            echo '<option disabled selected>Sem marcas cadastradas</option>';
+                                        } else {
+                                            echo '<option value="" disabled selected>Selecione uma marca</option>';
+                                            foreach ($resultMarca as $rmc) {
+                                                echo "<option value=$rmc->id_estoque_marca >$rmc->marca</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="tipoMarca" class="control-label">Grupo<span class="required">*</span></label>
+                                <div class="controls">
+                                    <select required onkeydown='handleEnter(event)' name="complemento" id="tipoMarca" value="<?php echo set_value('complemento'); ?>">
+                                        <?php if (!$resultTipo) {
+                                            echo '<option disabled selected>Sem itens cadastrados</option>';
+                                        } else {
+                                            echo '<option value="" disabled selected>Selecione um item</option>';
+                                            foreach ($resultTipo as $rt) {
+                                                echo "<option value=$rt->id_estoque_tipo_produto >$rt->tipo_produto</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="descricao" class="control-label">Descrição<span class="required">*</span></label>
+                            <div class="controls">
+                                <input required onkeydown='handleEnter(event)' id="descricao" type="text" name="descricao" value="<?php echo set_value('descricao'); ?>" />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="precoCompra" class="control-label">Preço de Compra(R$)<span class="required">*</span></label>
+                            <div class="controls">
+                                <input required onkeydown='handleEnter(event)' id="precoCompra" class="money input-numberProduto" data-affixes-stay="true" data-thousands="" data-decimal="." type="text" name="precoCompra" value="<?php echo set_value('precoCompra'); ?>" />
+                                Margem (%) <input required onkeydown='handleEnter(event)' style="width: 3em;" id="margemLucro" name="margemLucro" value="<?php echo set_value('margemLucro'); ?>" type="text" placeholder="%" maxlength="3" size="2" />
+                                <strong><span style="color: red" id="errorAlert"></span></strong>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="precoVenda" class="control-label">Preço de Venda(R$)<span class="required">*</span></label>
+                            <div class="controls">
+                                <input required onkeydown='handleEnter(event)' id="precoVenda" class="money" data-affixes-stay="true" data-thousands="" data-decimal="." type="text" name="precoVenda" value="<?php echo set_value('precoVenda'); ?>" readonly />
+                                <a class="btn btn-primary btn-calcular" onclick="calcPrecoVenda()" id="calcular" role="button">Calcular</a>
+                            </div>
                         </div>
                     </div>
                     <div class="span6">
-                <div class="span12" style="margin-left: 0;">
-                    <div class="control-group">
-                        <div class="controls">
-                            <label for="valor">De</label>
-                            <input class="span6" style="margin-left: 0" type="text" id="de_id" name="de_id" placeholder="ID do primeiro produto" value="" />
-                        <!--  -->
-                            <label for="valor">Até</label>
-                            <input class="span6" type="text" id="ate_id" name="ate_id" placeholder="ID do último produto" value="" />
+                        <div class="control-group">
+                            <label for="estoque" class="control-label">Estoque<span class="required">*</span></label>
+                            <div class="controls">
+                                <input required onkeydown='handleEnter(event)' class="input-numberProduto" min="0" id="estoque" type="number" name="estoque" value="<?php echo set_value('estoque'); ?>" />
+                                <select required onkeydown='handleEnter(event)' class="wh3" id="unidade" title="unidade" name="unidade" value="<?php echo set_value('unidade'); ?>">
+                                    <?php if (!$resultMedida) {
+                                        echo '<option disabled selected>Sem madidas cadastradas</option>';
+                                    } else {
+                                        echo '<option value="" disabled selected>Medida</option>';
+                                        foreach ($resultMedida as $r) {
+                                            if ($r->status == 1) {
+                                                echo "<option value=$r->id_estoque_medida >$r->medida $r->multiplicador $r->siglaMedidaSistema </option>";
+                                            } else if ($r->status == 2) {
+                                                echo "<option value=$r->id_estoque_medida >$r->medida </option>";
+                                            }
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="controls">
-                            <label for="valor">Qtd. do Estoque</label>
-                            <input class="span3" type="checkbox" name="qtdEtiqueta" value="true" />
+                        <div class="control-group">
+                            <label for="estoqueMinimo" class="control-label">Estoque Mínimo</label>
+                            <div class="controls">
+                                <input required onkeydown='handleEnter(event)' class="input-numberProduto" min="0" id="estoqueMinimo" type="number" name="estoqueMinimo" value="<?php echo set_value('estoqueMinimo'); ?>" />
+                                <select required onkeydown='handleEnter(event)' class="wh3" title="locations" name="location" id="locations" value="<?php echo set_value('location'); ?>">
+
+                                    <?php if (!$resultLocations) {
+                                        echo '<option disabled selected>Sem Localizações</option>';
+                                    } else {
+                                        echo '<option value="" disabled selected>Localização</option>';
+                                        foreach ($resultLocations as $r) {
+                                            echo "<option value=$r->id_estoque_location >$r->location</option>";
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                   
-                </div>
-                </div>
-                <div class="span6">
-                <div class="span12" style="margin-left: 0;">
-                    <div class="control-group">
-                        <div class="controls">
-                            <label for="valor">De</label>
-                            <input class="span6" style="margin-left: 0" type="text" id="de_id" name="de_id" placeholder="ID do primeiro produto" value="" />
-                        <!--  -->
-                            <label for="valor">Até</label>
-                            <input class="span6" type="text" id="ate_id" name="ate_id" placeholder="ID do último produto" value="" />
+                        <div class="control-group" id="divAddCampo">
+                            <label for="addCampo" class="control-label">Adicionar campo<span class="required">*</span></label>
+                            <div class="controls">
+                                <select required onkeydown='handleEnter(event)' onchange="btAddCampo()"  title="Adicionar campo" name="addCampo" id="addCampo" value="<?php echo set_value('addCampo'); ?>">
+                                    <?php if ($resultAddCampo) {
+                                        echo  '<option value="0" disabled selected>Tipo de observação</option>';
+                                        foreach ($resultAddCampo as $r) {
+                                            if (isset($r->addCampo)) {
+                                                echo "<option value='$r->id_estoque_addCampo,$r->tipoAddCampo' > $r->addCampo</option>";
+                                            }
+                                        }
+                                    } else {
+                                        echo '<option disabled selected>Sem tipos cadastrados</option>';
+                                    }
+                                    ?>
+                                </select>
+                                <button title="adicionar campo" class="btn btn-light" type="button" id="add-campo" style="margin-left: 5px;"><i class="fa fa-plus"></i></button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="controls">
-                            <label for="valor">Qtd. do Estoque</label>
-                            <input class="span3" type="checkbox" name="qtdEtiqueta" value="true" />
-                        </div>
-                    </div>
-                   
-                </div>
-            </div>
-        </div>
-        </div>
         <div class="modal-footer" style="display:flex;justify-content: center">
             <button class="button btn btn-warning" data-dismiss="modal" aria-hidden="true">
                 <span class="button__icon"><i class="bx bx-x"></i></span>
