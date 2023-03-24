@@ -126,14 +126,13 @@
 
 <!-- Modal Etiquetas -->
 <div id="modal-etiquetas" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-<div class="span6 alert alert-info" style="margin-left: 0"> Escolha o intervalo de produtos para gerar as etiquetas.</div>
     <form action="<?php echo base_url() ?>relatorios/produtosEtiquetas" method="get">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h5 id="myModalLabel">Gerar etiquetas com Código de Barras</h5>
         </div>
         <div class="modal-body">
-            
+            <div class="span12 alert alert-info" style="margin-left: 0"> Escolha o intervalo de produtos para gerar as etiquetas.</div>
             <div class="control-group">
             <div class="control-group">
                         <div class="controls">
