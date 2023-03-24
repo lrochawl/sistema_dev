@@ -137,7 +137,7 @@
             <div class="control-group">
                         <div class="controls">
                         <label  for="valor">Formato Etiqueta</label>
-                        <select class="span5" name="etiquetaCode">
+                        <select class="span4" name="etiquetaCode">
                             <option value="EAN13">EAN-13</option>
                             <option value="UPCA">UPCA</option>
                             <option value="C93">CODE 93</option>
