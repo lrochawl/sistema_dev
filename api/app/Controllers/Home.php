@@ -11,8 +11,7 @@ class Home extends BaseController
 
         $apiConnectModel = new ApiConnectModel();
         $data['usuarios'] = $apiConnectModel->getAPIData();
-     print_r($data);
-     exit();
+  
         return view('welcome_message', $data);
     }
 }
