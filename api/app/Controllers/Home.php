@@ -9,7 +9,7 @@ class Home extends BaseController
 
     public function index()
     {
-        echo "ID do cliente: ". ;
+        echo "ID do cliente: " ;
     }
 
     public function mostrar($id = null)
