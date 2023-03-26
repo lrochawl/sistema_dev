@@ -12,7 +12,7 @@ class Home extends BaseController
         echo "ID do cliente: ". ;
     }
 
-    public function mostrar($id)
+    public function mostrar($id = null)
     {
         echo "ID do cliente: ".$id ;
     }
