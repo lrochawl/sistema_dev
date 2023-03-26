@@ -194,10 +194,10 @@
 		</div>
 	</section>
 
-	<script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
+	<script src="<?= base_url('public/recusos/js/jquery.min.js')?>"></script>
+  <script src="<?= base_url('public/recusos/js/popper.js')?>"></script>
+  <script src="<?= base_url('public/recusos/js/bootstrap.min.js')?>"></script>
+  <script src="<?= base_url('public/recusos/js/main.js')?>"></script>
 
 	</body>
 </html>
