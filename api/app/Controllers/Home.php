@@ -11,12 +11,12 @@ class Home extends BaseController
    public function index(){
     return view('welcome_message');
    }
-    public function qr($local)
+    public function qr($ambiente, $local)
     {
 
         $apiConnectModel = new ApiConnectModel();
-        $data['produtos'] = $apiConnectModel->getProdutoByLocal($local);
+        $data['produtos'] = $apiConnectModel->getProdutoByLocal($ambiente, $local);
 
-        return view('welcome_message', $data);
+        return view('qr_list', $data);
     }
 }
