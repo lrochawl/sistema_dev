@@ -6,12 +6,13 @@ use App\Models\ApiConnectModel;
 
 class Home extends BaseController
 {
-    public function index($ambiente, $local)
+    public function index($local)
     {
 
         $apiConnectModel = new ApiConnectModel();
-        $array = array('name' => $ambiente, 'title' => $local);
-        $query = $db->where($array)->get(‘table_name’);
+        $data['usuarios'] = $apiConnectModel->getProdutoByLocal($local);
+  print_r($data);
+  exit();
         return view('welcome_message', $data);
     }
 }
