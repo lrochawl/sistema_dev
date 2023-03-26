@@ -24,7 +24,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'https://wltopos.com/sistema_dev/sistema4/';
+    public $baseURL = 'https://wltopos.com/sistema_dev/sistema4/public/';
 
     /**
      * --------------------------------------------------------------------------
