@@ -9,7 +9,7 @@ class Home extends BaseController
     public function index()
     {
 
-        $apiConnectModel = new ApiConnectModel();
+       // $apiConnectModel = new ApiConnectModel();
         $data['usuarios'] = '$apiConnectModel->getAPIData()';
   
         return view('welcome_message', $data);
