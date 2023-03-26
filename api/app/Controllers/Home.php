@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\ApiConnect_Model;
+use App\Models\ApiConnectModel;
 
 class Home extends BaseController
 {
