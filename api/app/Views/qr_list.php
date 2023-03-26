@@ -47,7 +47,7 @@
 										</label>
 						    	</td>
 						    	<td>
-						    		<div class="img" style="background-image: url(<?= base_url('recursos/images/product-1.png') ?>);"></div>
+						    		<div class="img" style="background-image: url(<?= $produto->imagemProduto ?>);"></div>
 						    	</td>
 						      <td>
 						      	<div class="email">
