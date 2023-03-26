@@ -6,7 +6,8 @@ use App\Models\ApiConnectModel;
 
 class Home extends BaseController
 {
-    public function mostrar()
+
+    public function index()
     {
         echo "ID do cliente: " ;
     }
