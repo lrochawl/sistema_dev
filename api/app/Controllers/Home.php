@@ -6,9 +6,18 @@ use App\Models\ApiConnectModel;
 
 class Home extends BaseController
 {
-
-    public function index($id)
+   
+   
+   public function index(){
+    return view('welcome_message');
+   }
+    public function qr($local)
     {
-        echo "ID do cliente: ".$id ;
+
+        $apiConnectModel = new ApiConnectModel();
+        $data['usuarios'] = $apiConnectModel->getProdutoByLocal($local);
+  print_r($data);
+  exit();
+        return view('welcome_message', $data);
     }
 }
