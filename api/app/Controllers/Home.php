@@ -7,8 +7,8 @@ use App\Models\ApiConnectModel;
 class Home extends BaseController
 {
 
-    public function index()
+    public function index($id)
     {
-        echo "ID do cliente: " ;
+        echo "ID do cliente: ".$id ;
     }
 }
