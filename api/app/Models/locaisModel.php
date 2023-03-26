@@ -6,6 +6,6 @@ use CodeIgniter\Model;
 
 class locaisModel extends Model
 {
-    protected $table = 'estoque_location';
+    protected $table = 'estoque_locations';
     protected $primaryKey = 'id_estoque_location';
 }

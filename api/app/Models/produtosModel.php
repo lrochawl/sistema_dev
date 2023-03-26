@@ -7,5 +7,5 @@ use CodeIgniter\Model;
 class produtosModel extends Model
 {
     protected $table = 'estoque_produtos';
-    protected $primaryKey = 'id_estoque_produtos';
+    protected $primaryKey = 'id_estoque_produto';
 }
