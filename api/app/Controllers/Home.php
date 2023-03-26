@@ -6,7 +6,7 @@ use App\Models\ApiConnectModel;
 
 class Home extends BaseController
 {
-    public function index($local)
+    public function qr($local)
     {
 
         $apiConnectModel = new ApiConnectModel();
