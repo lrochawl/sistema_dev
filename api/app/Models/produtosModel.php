@@ -6,6 +6,6 @@ use CodeIgniter\Model;
 
 class produtosModel extends Model
 {
-    protected $table = 'pedidos';
-    protected $primaryKey = 'id';
+    protected $table = 'estoque_produtos';
+    protected $primaryKey = 'id_estoque_produtos';
 }
