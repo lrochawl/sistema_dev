@@ -9,7 +9,7 @@
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<link rel="stylesheet" href="<?= base_url('public/recusos/css/style.css') ?>">
+	<link rel="stylesheet" href="<?= base_url('recursos/css/style.css') ?>">
 
 	</head>
 	<body>
@@ -194,10 +194,10 @@
 		</div>
 	</section>
 
-	<script src="<?= base_url('public/recusos/js/jquery.min.js')?>"></script>
-  <script src="<?= base_url('public/recusos/js/popper.js')?>"></script>
-  <script src="<?= base_url('public/recusos/js/bootstrap.min.js')?>"></script>
-  <script src="<?= base_url('public/recusos/js/main.js')?>"></script>
+	<script src="<?= base_url('recursos/js/jquery.min.js')?>"></script>
+  <script src="<?= base_url('recursos/js/popper.js')?>"></script>
+  <script src="<?= base_url('recursos/js/bootstrap.min.js')?>"></script>
+  <script src="<?= base_url('recursos/js/main.js')?>"></script>
 
 	</body>
 </html>
