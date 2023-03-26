@@ -62,6 +62,7 @@
 				          	</div>
 				          </td>
 				          <td><?= $produto->tipo_produto ?></td>
+				          <td><?= $produto->marca ?></td>
 						      <td>
 						      	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				            	<span aria-hidden="true"><i class="fa fa-close"></i></span>
