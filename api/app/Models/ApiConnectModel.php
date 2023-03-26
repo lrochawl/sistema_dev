@@ -10,7 +10,18 @@ class ApiConnectModel extends Model
     protected $primaryKey = 'id_estoque_produto';
     protected $allowedFields = ['codDeBarra','produtoDescricao','estoque','estoqueMinimo','precoCompra','margemLucro','precoVenda','observacao','estoque_location_id','estoque_medida_id','estoque_marca_id','financeiro_nota_id','imagemProduto','pathImagem','saida','entrada','dataCadastro','dateUpdate','status','msg_status'];
     protected $returnType = 'object';
-    public function getAPIData(){
-        return $this->findAll();
+   
+    public function getProdutoByLocal($local)
+    {
+    $produtosModel = new produtosModel();
+    $locaisModel = new locaisModel();
+
+    $query = $produtosModel->select('estoque_produtos.*')
+        ->join('estoque_locations', 'estoque_location.id_estoque_location = estoque_produtos.estoque_location_id')
+        ->where('estoque_location.location', $local)
+        ->get();
+
+    return $query->getResult();
     }
+    
 }
