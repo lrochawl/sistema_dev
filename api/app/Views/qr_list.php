@@ -31,7 +31,7 @@
 						    	<th>&nbsp;</th>
 						    	<th>Local</th>
 						      <th>Produto</th>
-						      <th>Marca</th>
+						      <th>Quantidade</th>
 						      <th>Grupo</th>
 						      <th>Quantidade</th>
 						      <th>&nbsp;</th>
@@ -61,7 +61,7 @@
 				             	<input type="text" name="quantity" class="quantity form-control input-number" value="<?= $produto->estoque ?>" min="1" max="100">
 				          	</div>
 				          </td>
-				          <td><?= $produto->location ?></td>
+				          <td><?= $produto->tipo_produto ?></td>
 						      <td>
 						      	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				            	<span aria-hidden="true"><i class="fa fa-close"></i></span>

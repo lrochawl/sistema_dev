@@ -18,6 +18,7 @@ class ApiConnectModel extends Model
 
     $query = $produtosModel->select('estoque_produtos.*, estoque_locations.*')
         ->join('estoque_locations', 'estoque_locations.id_estoque_location = estoque_produtos.estoque_location_id')
+        ->join('estoque_tipo_produtos', 'estoque_tipo_produtos.id_estoque_tipo_produto = estoque_produtos.id_estoque_tipo_produto')
         ->where('estoque_locations.location', $local)
         ->where('estoque_locations.ambiente', $ambiente)
         ->get();
