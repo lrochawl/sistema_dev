@@ -65,7 +65,7 @@
 				          <td><?= $produto->marca ?></td>
 						      <td>
 						      	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				            	<span aria-hidden="true"><i class="fa fa-close"></i></span>
+				            	<span aria-hidden="true"><i class="fa fa-close"><a href="https://sistema.wltopos.com.br/index.php/produtos/editar/<?= $produto->id_estoque_produto ?>"></a></i></span>
 				          	</button>
 				        	</td>
 						    </tr>
