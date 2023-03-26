@@ -16,7 +16,8 @@ class Home extends BaseController
 
         $apiConnectModel = new ApiConnectModel();
         $data['produtos'] = $apiConnectModel->getProdutoByLocal($local);
-
+print_r($data);
+exit();
         return view('welcome_message', $data);
     }
 }
