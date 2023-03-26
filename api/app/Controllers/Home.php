@@ -13,6 +13,6 @@ class Home extends BaseController
        // $data['usuarios'] = $apiConnectModel->getProdutoByLocal($local);
   print_r($local);
   exit();
-        return view('welcome_message', $data);
+     //   return view('welcome_message', $data);
     }
 }
