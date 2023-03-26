@@ -6,8 +6,8 @@ use App\Models\ApiConnectModel;
 
 class Home extends BaseController
 {
-    public function mostrar($idCliente)
+    public function mostrar()
     {
-        echo "ID do cliente: " . $idCliente;
+        echo "ID do cliente: " ;
     }
 }
