@@ -58,7 +58,7 @@
 						      <td><?= $produto->produtoDescricao ?></td>
 						      <td class="quantity">
 					        	<div class="input-group">
-				             	<input type="text" name="quantity" class="quantity form-control input-number" value="2" min="1" max="100">
+				             	<input type="text" name="quantity" class="quantity form-control input-number" value="<?= $produto->estoque ?>" min="1" max="100">
 				          	</div>
 				          </td>
 				          <td><?= $produto->location ?></td>
