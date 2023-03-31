@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Sistema de ReapMail 1.0</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+
+<script>
+$('.file_upload').file_upload();
+
+</script>
+
+</head>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+				 Personalize os parametros do sistema!
+				</span>
+			<div class="file-upload-wrapper">
+			<input type="file" id="input-file-now-custom-1" class="file-upload" data-default-file="https://mdbootstrap.com/img/Photos/Others/images/89.jpg" />
+			</div>
+				
+				<div class="wrap-input100 validate-input" data-validate = "Op's, Vamos prescisar desta informação!">
+					<span class="label-input100">Logo Loja</span>
+					<input class="input100" type="file" name="servidorSMTP" maxlength="100"  placeholder="Senha de acesso ao email">
+					<span class="focus-input100"></span>
+				</div>
+				
+				<div class="wrap-input100 validate-input" data-validate = "Op's, Vamos prescisar desta informação!">
+					<span class="label-input100">Imagem da Loja</span>
+					<input class="input100" type="file" name="servidorSMTP" maxlength="100"  placeholder="Senha de acesso ao email">
+					<span class="focus-input100"></span>
+				</div>
+				
+				<div class="wrap-input100 validate-input" data-validate="Op's, Vamos prescisar desta informação!">
+					<span class="label-input100">Email Atendimento</span>
+					<input class="input100" type="email" maxlength="50" name="emailConexao" placeholder="Será utilizado para envio dos email's">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Op's, Vamos prescisar desta informação!">
+					<span class="label-input100">WhatsApp</span>
+					<input class="input100" type="password" maxlength="50" name="senhaConexao" placeholder="Senha de acesso ao email">
+					<span class="focus-input100"></span>
+				</div>
+				
+				<div class="wrap-input100 input100-select">
+					<span class="label-input100">Tipo de Conexão</span>
+					<div>
+						<select class="selection-2" name="tipoConexao">
+							<option value = "tls">TLS</option>
+							<option value = "ssl">SSL</option>
+							<option value = "TCP">TCP</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 input100-select">
+					<span class="label-input100">Porta de Conexão</span>
+					<div>
+						<select class="selection-2" name="servidorPorta">
+							<option value="465">465</option>
+							<option value = "587">587</option>
+							<option value="25">25</option>
+							
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Message is required">
+					<span class="label-input100">Texto do e-mail - Retorno cliente</span>
+					<textarea class="input100" name="message" placeholder="Texto exibido no e-mail encaminhado ao cliente"></textarea>
+					<span class="focus-input100"></span>
+				</div>
+				
+				<div class="wrap-input100 validate-input" data-validate = "Message is required">
+					<span class="label-input100">Texto do e-mail - Retorno atendimento</span>
+					<textarea class="input100" name="message" placeholder="Texto exibido no corpo do email encaminhado ao atendimento da loja"></textarea>
+					<span class="focus-input100"></span>
+				</div>
+				
+				<div class="wrap-input100 validate-input" data-validate = "Message is required">
+					<span class="label-input100">Texto padrão WhatsApp - Cliente</span>
+					<textarea class="input100" name="message" placeholder="Texto breve padrão para ser enviado pelo cliente"></textarea>
+					<span class="focus-input100"></span>
+				</div>
+				
+				<div class="wrap-input100 validate-input" data-validate = "Message is required">
+					<span class="label-input100">Texto padrão WhatsApp - Atendimento</span>
+					<textarea class="input100" name="message" placeholder="Texto breve padrão para ser enviado em resposta ao cliente"></textarea>
+					<span class="focus-input100"></span>
+				</div>
+				
+				<div class="wrap-input100 validate-input" data-validate = "Message is required">
+					<span class="label-input100">Texto da Empresa</span>
+					<textarea class="input100" name="message" placeholder="Descrição da empresa exibida nos e-mail's encaminhados"></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn">
+							<span>
+								Submit
+								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+							</span>
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>
