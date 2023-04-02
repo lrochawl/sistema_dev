@@ -18,6 +18,7 @@ class Home extends BaseController
         $data['produtos'] = $apiConnectModel->getProdutoByLocal($ambiente, $local)->getResult();
         $data['quantidade']    = $apiConnectModel->getProdutoByLocal($ambiente, $local)->getNumRows();
         $data['local']    = "Ambiente: ".strtoupper($ambiente)." Local: ".strtoupper($local);
+        $data['apiConnectModel'] = $apiConnectModel;
 
         return view('qr_list', $data);
     }
