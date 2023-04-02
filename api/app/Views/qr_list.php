@@ -18,9 +18,10 @@
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-4">
 					<?php if(is_array($produtos) and !empty($produtos)):?>
-					<h2 class="heading-section">Tabela de Produtos Localizados | <?= $local ?></h2>
+					<h2 class="heading-section" onload="mostraTabela()">Tabela de Produtos Localizados | <?= $local ?></h2>
 					<?php else: ?>
-						<h2 class="heading-section">Não há produtos neste local | <?= $local ?></h2>
+						<h2 class="heading-section" onload="escondeTabela()">😒 Não há produtos a serem ecibidos neste local | <?= $local ?></h2>
+
 					<?php endif ?>
 				</div>
 			</div>
@@ -88,6 +89,15 @@
   <script src="<?= base_url('recursos/js/popper.js')?>"></script>
   <script src="<?= base_url('recursos/js/bootstrap.min.js')?>"></script>
   <script src="<?= base_url('recursos/js/main.js')?>"></script>
+<script>
+	function escondeTabela(){
+		$(".col-md-12").hide();
+	}
+	function mostraTabela(){
+		$(".col-md-12").show()
+	}
+	
+</script>
 
 	</body>
 </html>
