@@ -31,9 +31,9 @@ class ApiConnectModel extends Model
     {
         //MEDIDA PADRÃO <<<< MEDIDA SISTEMA >>>>> MEDIDA FRACIONADA
         $produtosModel = new produtosModel();
-        $marcasModel = new marcasModel();
+        $medidasModel = new medidasModel();
 
-        $data = $marcasModel->select('estoque_marcas.*')
+        $data = $medidasModel->select('estoque_marcas.*, estoque_sistema_medidas.*, estoque_sistema_medidas.*')
             ->join('estoque_sistema_medidas', 'estoque_medidas.estoque_sistema_medida_id = estoque_sistema_medidas.id_estoque_sistema_medida')
             ->where('id_estoque_medida', $idMedidaDefault)
             ->get();
