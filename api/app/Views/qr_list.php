@@ -25,7 +25,7 @@
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-md-6 text-center mb-4">
-						<h2 class="heading-section" onload="mostraTabela()">
+						<h2 id="titulo" class="heading-section" onload="mostraTabela()">
 							<?= (is_array($produtos) and !empty($produtos)) ? "😊 A pesquisa localizou $quantidade registros": "😒 Não há produtos a serem exibidos neste local "  ?>
 						</h2>
 						<h3 class="heading-section"><?=$local?></h3>
@@ -90,7 +90,7 @@
 				</div>
 			</div>
 		</section>
-
+		
 		<script src="<?= base_url('recursos/js/jquery.min.js') ?>"></script>
 		<script src="<?= base_url('recursos/js/popper.js') ?>"></script>
 		<script src="<?= base_url('recursos/js/bootstrap.min.js') ?>"></script>
@@ -98,10 +98,12 @@
 		<script>
 			function escondeTabela() {
 				$(".col-md-12").hide();
+				$("#titulo").append('<h2 id="linkScan" class="heading-section"><a href="https://dev.wltopos.com/QrCode">Scanear novamente</a></h2>');
 			}
 
 			function mostraTabela() {
-				$(".col-md-12").show()
+				$(".col-md-12").show();
+				$("#linkScan").remove();
 			}
 		</script>
 
