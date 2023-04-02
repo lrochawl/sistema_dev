@@ -39,13 +39,14 @@ class ApiConnectModel extends Model
             ->get();
 
         $data = get_object_vars($data);
-
+print_r($data);
+exit();
 
         if ($medidaConvert == 'D') { //Medida sistema para medida padrão
             $estoque['valorConvertido'] = $estoqueAtual / $data['multiplicador'];
 
             if ($data['status'] == 2) {
-                $estoque['texto'] =  $estoque['valorConvertido'] . " " . ($estoque['valorConvertido'] > 1 ? $data['medida'] . 'S' : $data['medida']);
+                $estoque['texto']   =  $estoque['valorConvertido'] . " " . ($estoque['valorConvertido'] > 1 ? $data['medida'] . 'S' : $data['medida']);
                 $estoque['textoRS'] = $estoque['valorConvertido'] . " " . ($estoque['valorConvertido'] > 1 ? $data['medida'] . 'S' : $data['medida']);
 
                 $estoque['valorConvertidoEstoqueMinimo'] = $estoqueMinimo / $data['multiplicador'];
