@@ -25,10 +25,10 @@
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-md-6 text-center mb-4">
-						<h2 id="titulo" class="heading-section" onload="mostraTabela()">
+						<h2 class="heading-section" onload="mostraTabela()">
 							<?= (is_array($produtos) and !empty($produtos)) ? "😊 A pesquisa localizou $quantidade registros": "😒 Não há produtos a serem exibidos neste local "  ?>
 						</h2>
-						<h3 class="heading-section"><?=$local?></h3>
+						<h3 id="titulo" class="heading-section"><?=$local?></h3>
 					</div>
 				</div>
 				<div class="row">
