@@ -72,7 +72,7 @@
 													<span><?= $produto->ambiente ?> </span>
 												</div>
 											</td>
-											<td><?= $produto->produtoDescricao ?></td>
+											<td><?= $produto->id_estoque_produto." - ". $produto->produtoDescricao ?></td>
 											<td class="quantity">
 												<div class="input-group">
 													<input type="text" name="quantity" class="quantity form-control input-number" value="<?= $produto->estoque ?>" min="1" max="100">
