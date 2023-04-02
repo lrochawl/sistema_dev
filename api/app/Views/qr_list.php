@@ -18,9 +18,9 @@
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-4">
 					<?php if(is_array($produtos) and !empty($produtos)):?>
-					<h2 class="heading-section">Tabela de Produtos Localizados (<?= $local ?>)</h2>
+					<h2 class="heading-section">Tabela de Produtos Localizados | <?= $local ?></h2>
 					<?php else: ?>
-						<h2 class="heading-section">Não há produtos neste local (<?= $local ?>)</h2>
+						<h2 class="heading-section">Não há produtos neste local | <?= $local ?></h2>
 					<?php endif ?>
 				</div>
 			</div>
