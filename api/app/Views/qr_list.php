@@ -78,7 +78,7 @@
 													<span>
 														<?php
 														 $quantidade = $apiConnectModel->converteMedida($produto->estoque, $produto->estoque_medida_id, 'D');
-														 echo $quantidade['textoEstoqueMinimoRS'];
+														 echo $produto->estoque.' '. $quantidade['textoEstoqueMinimoRS'];
 														 ?>
 														 </span>
 												</div>
