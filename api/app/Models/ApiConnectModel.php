@@ -39,7 +39,7 @@ class ApiConnectModel extends Model
             ->get();
 
        // $data = get_object_vars($data);
-print_r($data);
+print_r($data->getResult());
 exit();
 
         if ($medidaConvert == 'D') { //Medida sistema para medida padrão
