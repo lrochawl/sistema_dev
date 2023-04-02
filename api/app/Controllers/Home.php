@@ -13,7 +13,7 @@ class Home extends BaseController
    }
     public function qr($ambiente, $local)
     {
-        $this->load->model('produtos_model');
+       
         $apiConnectModel = new ApiConnectModel();
         $data['produtos'] = $apiConnectModel->getProdutoByLocal($ambiente, $local)->getResult();
         $data['quantidade']    = $apiConnectModel->getProdutoByLocal($ambiente, $local)->getNumRows();
