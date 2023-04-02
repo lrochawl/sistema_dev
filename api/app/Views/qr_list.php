@@ -75,7 +75,7 @@
 											</td>
 											<td><?= $produto->tipo_produto ?></td>
 											<td><?= $produto->marca ?></td>
-											<td><a href="https://sistema.wltopos.com.br/index.php/produtos/editar/<?= $produto->id_estoque_produto ?>">Editar</a></td>
+											<td><a href="https://dev.wltopos.com/index.php/produtos/visualizar/<?= $produto->id_estoque_produto ?>">Detalhes</a></td>
 											<td>
 												<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 													<span aria-hidden="true"><i class="fa fa-close"></i></span>
