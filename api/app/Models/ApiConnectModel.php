@@ -42,7 +42,7 @@ class ApiConnectModel extends Model
    
         if ($medidaConvert == 'D') { //Medida sistema para medida padrão
             $estoque['valorConvertido'] = $estoqueAtual / $data[0]->multiplicador;
-
+print_r($estoque['valorConvertido'] );
             if ($data[0]->status == 2) {
                 $estoque['texto']   =  $estoque['valorConvertido'] . " " . ($estoque['valorConvertido'] > 1 ? $data[0]->medida . 'S' : $data[0]->medida);
                 $estoque['textoRS'] = $estoque['valorConvertido'] . " " . ($estoque['valorConvertido'] > 1 ? $data[0]->medida . 'S' : $data[0]->medida);
