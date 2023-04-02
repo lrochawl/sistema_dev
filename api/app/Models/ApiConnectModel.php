@@ -24,7 +24,7 @@ class ApiConnectModel extends Model
         ->where('estoque_locations.ambiente', $ambiente)
         ->get();
 
-    return $query->getResult();
+    return $query;
     }
     
 }
