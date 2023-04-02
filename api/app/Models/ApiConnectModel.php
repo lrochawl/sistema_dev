@@ -36,12 +36,12 @@ class ApiConnectModel extends Model
         $data = $medidasModel->select('estoque_sistema_medidas.*, estoque_medidas.*')
             ->join('estoque_sistema_medidas', 'estoque_medidas.estoque_sistema_medida_id = estoque_sistema_medidas.id_estoque_sistema_medida')
             ->where('id_estoque_medida', $idMedidaDefault)
-            ->get();
+            ->get()->getResult();
 
        $data = get_object_vars($data);
    
         if ($medidaConvert == 'D') { //Medida sistema para medida padrão
-            $estoque['valorConvertido'] = $estoqueAtual / $data[0]->multiplicador;
+            $estoque['valorConvertido'] = $estoqueAtual / $data->multiplicador;
 
             if ($data['status'] == 2) {
                 $estoque['texto']   =  $estoque['valorConvertido'] . " " . ($estoque['valorConvertido'] > 1 ? $data[0]->medida . 'S' : $data[0]->medida);
