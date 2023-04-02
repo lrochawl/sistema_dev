@@ -75,7 +75,12 @@
 											<td><?= $produto->id_estoque_produto." - ". $produto->produtoDescricao ?></td>
 											<td class="quantity">
 												<div class="input-group">
-													<span><?= $apiConnectModel->converteMedida($produto->estoque, $produto->estoque_medida_id, 'D');?></span>
+													<span>
+														<?php
+														 $quantidade = $apiConnectModel->converteMedida($produto->estoque, $produto->estoque_medida_id, 'D');
+														 print_r($quantidade); exit();
+														 ?>
+														 </span>
 												</div>
 											</td>
 											<td><?= $produto->tipo_produto ?></td>
