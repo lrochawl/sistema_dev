@@ -38,7 +38,7 @@ class ApiConnectModel extends Model
             ->where('id_estoque_medida', $idMedidaDefault)
             ->get()->getResult();
 
-       $data = get_object_vars($data);
+      // $data = get_object_vars($data);
    
         if ($medidaConvert == 'D') { //Medida sistema para medida padrão
             $estoque['valorConvertido'] = $estoqueAtual / $data->multiplicador;
