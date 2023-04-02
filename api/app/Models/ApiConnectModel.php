@@ -33,7 +33,7 @@ class ApiConnectModel extends Model
         $produtosModel = new produtosModel();
         $medidasModel = new medidasModel();
 
-        $data = $medidasModel->select('estoque_marcas.*, estoque_sistema_medidas.*, estoque_sistema_medidas.*')
+        $data = $medidasModel->select('estoque_sistema_medidas.*, estoque_sistema_medidas.*')
             ->join('estoque_sistema_medidas', 'estoque_medidas.estoque_sistema_medida_id = estoque_sistema_medidas.id_estoque_sistema_medida')
             ->where('id_estoque_medida', $idMedidaDefault)
             ->get();
