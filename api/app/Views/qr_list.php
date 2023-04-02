@@ -108,7 +108,7 @@
 
 			function mostraTabela() {
 				$(".col-md-12").show();
-				$("#linkScan").remove();
+				$("#titulo").append('<h2 id="linkScan" class="heading-section"><a href="https://dev.wltopos.com/QrCode">Scanear novamente</a></h2>');
 			}
 		</script>
 
