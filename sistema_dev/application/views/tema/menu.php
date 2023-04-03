@@ -50,6 +50,16 @@
                         </a>
                     </li>
                 <?php } ?>
+                <?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vCliente')) { ?>
+                    <li class="<?php if (isset($menuClientes)) {
+    echo 'active';
+}; ?>">
+                        <a class="tip-bottom" title="" href="<?= site_url('QrCode') ?>"><i class='bx bx-qr-scan bx-flashing'></i>
+                            <span class="title">Scan QR Code</span>
+                            <span class="title-tooltip">Scan QR Code</span>
+                        </a>
+                    </li>
+                <?php } ?>
                 <?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vArquivo')) { ?>
                     <li class="<?php if (isset($menuNotasFiscais)) {
     echo 'active';
