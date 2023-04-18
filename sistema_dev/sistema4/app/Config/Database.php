@@ -33,9 +33,9 @@ class Database extends Config
     public $default = [
         'DSN'      => '',
         'hostname' => 'localhost',
-        'username' => '',
-        'password' => '',
-        'database' => '',
+        'username' => 'u782442173_db_wltopos',
+        'password' => 'Topos.1212',
+        'database' => 'u782442173_db_wltopos',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
