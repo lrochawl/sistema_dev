@@ -55,8 +55,7 @@ class Usuarios extends BaseController
         }
 
         $retorno = ['data' => $data];
-print_r($this->response->setJSON($retorno));
-exit();
+
         return $this->response->setJSON($retorno);
         
     }
