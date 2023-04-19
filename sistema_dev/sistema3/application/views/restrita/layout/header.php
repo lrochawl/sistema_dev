@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="<?= base_url("public/assets/css/app.min.css"); ?>">
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?= base_url("public/assets/css/style.css"); ?>">
-    <link rel="stylesheet" href="<?= base_url("public/assets/css/components.css"); ?>">
+    
 
     <?php if (isset($styles)) : ?>
 
@@ -23,7 +23,7 @@
     <?php endif; ?>
 
     <!-- Custom style CSS -->
-    <link rel="stylesheet" href="<?= base_url("public/assets/css/components.css"); ?>X">
+    <link rel="stylesheet" href="<?= base_url("public/assets/css/components.css"); ?>">
     <link rel='shortcut icon' type='image/x-icon' href='public/assets/img/favicon.ico' />
 </head>
 
