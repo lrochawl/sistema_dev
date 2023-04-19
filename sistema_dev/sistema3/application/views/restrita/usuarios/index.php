@@ -25,10 +25,10 @@
                                 <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
                               </div>
                             </th>
-                            <th>Task Name</th>
-                            <th>Progress</th>
-                            <th>Members</th>
-                            <th>Due Date</th>
+                            <th>#</th>
+                            <th>Nome Completo</th>
+                            <th>E-mail</th>
+                            <th>Usuário</th>
                             <th>Status</th>
                             <th>Action</th>
                           </tr>
@@ -43,18 +43,7 @@
                               </div>
                             </td>
                             <td>Create a mobile app</td>
-                            <td class="align-middle">
-                              <div class="progress progress-xs">
-                                <div class="progress-bar width-per-70"></div>
-                              </div>
-                            </td>
-                            <td>
-                              <img alt="image" src="assets/img/users/user-5.png" width="35">
-                            </td>
-                            <td>2018-01-20</td>
-                            <td>
-                              <div class="badge badge-success badge-shadow">Completed</div>
-                            </td>
+                            
                             <td><a href="#" class="btn btn-primary">Detail</a></td>
                           </tr>
                           <tr>
