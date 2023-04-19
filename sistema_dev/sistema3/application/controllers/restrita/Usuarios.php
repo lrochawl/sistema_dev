@@ -12,9 +12,7 @@ class Usuarios extends CI_Controller{
         $data = array(
             'usuarios' => $this->ion_auth->users()->result(),
         );
-            
-        print_r($data);
-        exit();
+            $this->Log_model($data);
         $this->load->view('restrita/layout/header');
         $this->load->view('restrita/usuarios/index');
         $this->load->view('restrita/layout/sidebar_settings');
