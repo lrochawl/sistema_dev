@@ -11,7 +11,7 @@
               <div class="col-12">
                 <div class="card">
                   <div class="card-header">
-                    <h4>Multi Select</h4>
+                    <h4><?= isset($titulo)?$titulo:'LISTANDO'?></h4>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">

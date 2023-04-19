@@ -9,9 +9,8 @@ class Usuarios extends CI_Controller{
     public function index(){
 
 
-        $data = array(
+        $dataHeader = array(
             'titulo' => 'Usuários cadastrados',
-            'usuarios' => $this->ion_auth->users()->result(),
             'styles' => array(
                 'bundles/datatables/datatables.min.css',
                 'bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css',
@@ -22,9 +21,14 @@ class Usuarios extends CI_Controller{
                 'bundles/jquery-ui/jquery-ui.min.js'
             )
         );
+        $dataBody = array(
+            'titulo' => 'Usuários cadastrados',
+            'usuarios' => $this->ion_auth->users()->result(),
+           
+        );
             
-        $this->load->view('restrita/layout/header', $data);
-        $this->load->view('restrita/usuarios/index', $data);
+        $this->load->view('restrita/layout/header', $dataHeader);
+        $this->load->view('restrita/usuarios/index', $dataBody);
         $this->load->view('restrita/layout/sidebar_settings');
         $this->load->view('restrita/layout/footer');
     }
