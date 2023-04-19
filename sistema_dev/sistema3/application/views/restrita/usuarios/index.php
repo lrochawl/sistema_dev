@@ -52,7 +52,7 @@ s<?php $this->load->view('restrita/layout/navbar');?>
                             </td>
                             <td>
                                 <a href="#" class="btn btn-icon btn-primary"><i class="fa fa-edit"></i></a>
-                                <a href="#" class="btn btn-icon btn-danger"><i class="fa fa-times"></a>
+                                <a href="#" class="btn btn-icon btn-danger"><i class="fa fa-times"></i></a>
                             </td>
                           </tr>
                          <?php endforeach;?>
