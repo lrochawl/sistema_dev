@@ -45,17 +45,10 @@
                             </td>
                             <td><?= $usuario->id ?></td>
                             <td><?= $usuario->first_name.' '.$usuario->last_name ?></td>
-                            <td class="align-middle">
-                              <div class="progress progress-xs">
-                                <div class="progress-bar width-per-70"></div>
-                              </div>
-                            </td>
-                            <td>
-                              <img alt="image" src="assets/img/users/user-5.png" width="35">
-                            </td>
-                            <td>2018-01-20</td>
-                            <td>
-                              <div class="badge badge-success badge-shadow">Completed</div>
+                            <td><?= $usuario->first_name.' '.$usuario->last_name ?></td>
+                            <td><?= $usuario->email; ?></td>
+                            <td><?= $usuario->username; ?></td>
+                           
                             </td>
                             <td><a href="#" class="btn btn-primary">Detail</a></td>
                           </tr>
