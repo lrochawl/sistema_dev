@@ -17,7 +17,7 @@
     <?php if (isset($styles)) : ?>
 
         <?php foreach ($styles as $style) : ?>
-            <link rel="stylesheet" href="<?= base_url("public/assets/".$style); ?>">
+            <link rel="stylesheet" href="<?= base_url("public/assets/" . $style); ?>">
         <?php endforeach ?>
 
     <?php endif; ?>
