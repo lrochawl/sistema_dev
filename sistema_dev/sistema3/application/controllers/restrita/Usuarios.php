@@ -1,12 +1,15 @@
 <?php defined('BASEPATH') or exit('Ação não permitida');
 
-class Usuarios extends CI_Controller{
+class Usuarios extends CI_Controller
+{
 
-    public function __construct(){
+    public function __construct()
+    {
         parent::__construct();
     }
 
-    public function index(){
+    public function index()
+    {
 
 
         $dataHeader = array(
@@ -25,33 +28,36 @@ class Usuarios extends CI_Controller{
         $dataBody = array(
             'titulo' => 'Usuários cadastrados',
             'usuarios' => $this->ion_auth->users()->result(),
-           
+
         );
-            
+
         $this->load->view('restrita/layout/header', $dataHeader);
         $this->load->view('restrita/usuarios/index', $dataBody);
         $this->load->view('restrita/layout/sidebar_settings');
         $this->load->view('restrita/layout/footer');
     }
 
-    public function core($usuario_id = NULL){
+    public function core($usuario_id = NULL)
+    {
 
-        if(!$usuario_id){
+        if (!$usuario_id) {
             //cadastrar
 
-        }else{
+        } else {
             //editar
-            if(!$this->ion_auth->user($usuario_id)->row()){
+            if (!$this->ion_auth->user($usuario_id)->row()) {
                 exit('Usuario não exist');
-            }else{
-                exit('Usuario encontrado');
+            } else {
+
+                $data = array(
+                    'titulo' => 'Editar usuário',
+                    'usuario' => 
+                );
+                
+                $this->load->view('restrita/layout/header');
+                $this->load->view('restrita/usuarios/core/index');
+                $this->load->view('restrita/layout/footer');
             }
         }
-
-        $this->load->view('restrita/layout/header');
-        $this->load->view('restrita/usuarios/core/index');
-        $this->load->view('restrita/layout/footer');
-
     }
-
 }
