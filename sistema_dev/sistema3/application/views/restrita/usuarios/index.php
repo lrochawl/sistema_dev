@@ -35,6 +35,7 @@
                         </thead>
                         <tbody>
                           <tr>
+                            <?php foreach($usuarios as $usuario):?>
                             <td class="text-center pt-2">
                               <div class="custom-checkbox custom-control">
                                 <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input"
@@ -42,7 +43,8 @@
                                 <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
                               </div>
                             </td>
-                            <td>Create a mobile app</td>
+                            <td><?= $usuario->id ?></td>
+                            <td><?= $usuario->first_name.' '.$usuario->last_name ?></td>
                             <td class="align-middle">
                               <div class="progress progress-xs">
                                 <div class="progress-bar width-per-70"></div>
@@ -57,7 +59,7 @@
                             </td>
                             <td><a href="#" class="btn btn-primary">Detail</a></td>
                           </tr>
-                         
+                         <?php endforeach;?>
                         </tbody>
                       </table>
                     </div>
