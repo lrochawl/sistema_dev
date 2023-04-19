@@ -7,7 +7,7 @@
                 <section class="section">
                     <div class="section-body">
                         <!-- add content here -->
-                        <?= '<pre>'.$usuarios.'</pre>' ?>
+                        <?= '<pre>'.print_r($usuarios).'</pre>' ?>
                     </div>
                 </section>
                 
