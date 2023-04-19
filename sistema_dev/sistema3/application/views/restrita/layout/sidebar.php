@@ -1,7 +1,7 @@
 <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="<?= base_url(); ?>index.html"> <img alt="image" src="<?= base_url("public/assets/img/logo.png"); ?>" class="header-logo" /> <span class="logo-name">Otika</span>
+                        <a href="<?= base_url("restrita/home"); ?>"> <img alt="image" src="<?= base_url("public/assets/img/logo.png"); ?>" class="header-logo" /> <span class="logo-name">Otika</span>
                         </a>
                     </div>
                     <ul class="sidebar-menu">
@@ -10,9 +10,9 @@
                             <a href="<?= base_url(); ?>index.html" class="nav-link"><i data-feather="monitor"></i><span>Inicio</span></a>
                         </li>
                         <li class="dropdown">
-                            <a href="<?= base_url(); ?>#" class="menu-toggle nav-link has-dropdown"><i data-feather="briefcase"></i><span>Usuarios</span></a>
+                            <a href="<?= base_url("restrita/usuarios"); ?>" class="menu-toggle nav-link has-dropdown"><i data-feather="briefcase"></i><span>Usuarios</span></a>
                             <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="<?= base_url(); ?>widget-chart.html">Listar</a></li>
+                                <li><a class="nav-link" href="<?= base_url("restrita/usuarios"); ?>">Listar</a></li>
                                 <li><a class="nav-link" href="<?= base_url(); ?>widget-data.html">Data Widgets</a></li>
                             </ul>
                         </li>
