@@ -10,7 +10,17 @@ class Usuarios extends CI_Controller{
 
 
         $data = array(
+            'titulo' => 'Usuários cadastrados',
             'usuarios' => $this->ion_auth->users()->result(),
+            'styles' => array(
+                'bundles/datatables/datatables.min.css',
+                'bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css',
+            ),
+            'scripts' => array(
+                'assets/bundles/datatables/datatables.min.js',
+                'bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js',
+                'bundles/jquery-ui/jquery-ui.min.js'
+            )
         );
             
         $this->load->view('restrita/layout/header');
