@@ -30,7 +30,7 @@ s<?php $this->load->view('restrita/layout/navbar');?>
                             <th>E-mail</th>
                             <th>Usuário</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th class="nosort">Ação</th>
                           </tr>
                         </thead>
                         <tbody>
