@@ -7,12 +7,21 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>WL TOPOS - <?= isset($titulo)?$titulo:'LOJA'?></title>
+    <title>WL TOPOS - <?= isset($titulo) ? $titulo : 'LOJA' ?></title>
     <!-- General CSS Files -->
     <link rel="stylesheet" href="<?= base_url("public/assets/css/app.min.css"); ?>">
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?= base_url("public/assets/css/style.css"); ?>">
     <link rel="stylesheet" href="<?= base_url("public/assets/css/components.css"); ?>">
+
+    <?php if (isset($styles)) : ?>
+
+        <?php foreach ($styles as $style) : ?>
+            <link rel="stylesheet" href="<?= base_url("public/assets/".$style); ?>">
+        <?php endforeach ?>
+
+    <?php endif; ?>
+
     <!-- Custom style CSS -->
     <link rel="stylesheet" href="<?= base_url("public/assets/css/components.css"); ?>X">
     <link rel='shortcut icon' type='image/x-icon' href='public/assets/img/favicon.ico' />
