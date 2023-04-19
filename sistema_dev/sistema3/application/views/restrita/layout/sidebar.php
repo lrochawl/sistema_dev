@@ -1,7 +1,7 @@
 <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="<?= base_url("restrita/home"); ?>"> <img alt="image" src="<?= base_url("public/assets/img/logo.png"); ?>" class="header-logo" /> <span class="logo-name">Otika</span>
+                        <a href="<?= base_url("restrita/home"); ?>"> <img alt="image" src="<?= base_url("public/assets/img/logo.png"); ?>" class="header-logo" /> <span class="logo-name">WL TOPOS</span>
                         </a>
                     </div>
                     <ul class="sidebar-menu">
