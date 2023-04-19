@@ -1,5 +1,5 @@
 <?php $this->load->view('restrita/layout/navbar');?>
-<?php $this->load->view('restritalayout/sidebar');?>
+<?php $this->load->view('restrita/layout/sidebar');?>
 
             
             <!-- Main Content -->
