@@ -1,13 +1,13 @@
 <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="<?= base_url("restrita/home"); ?>"> <img alt="image" src="<?= base_url("public/assets/img/logo.png"); ?>" class="header-logo" /> <span class="logo-name">WL TOPOS</span>
+                        <a href="<?= base_url(); ?>"> <img alt="image" src="<?= base_url("public/assets/img/logo.png"); ?>" class="header-logo" /> <span class="logo-name">WL TOPOS</span>
                         </a>
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">Menu</li>
                         <li class="dropdown">
-                            <a href="<?= base_url(); ?>index.html" class="nav-link"><i data-feather="monitor"></i><span>Inicio</span></a>
+                            <a href="<?= base_url("restrita/home"); ?>" class="nav-link"><i data-feather="monitor"></i><span>Inicio</span></a>
                         </li>
                         <li class="dropdown">
                             <a href="<?= base_url("restrita/usuarios"); ?>" class="menu-toggle nav-link has-dropdown"><i data-feather="briefcase"></i><span>Usuarios</span></a>
