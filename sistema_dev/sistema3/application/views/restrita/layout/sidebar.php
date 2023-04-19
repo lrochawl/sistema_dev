@@ -5,14 +5,14 @@
                         </a>
                     </div>
                     <ul class="sidebar-menu">
-                        <li class="menu-header">Main</li>
+                        <li class="menu-header">Menu</li>
                         <li class="dropdown">
-                            <a href="<?= base_url(); ?>index.html" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
+                            <a href="<?= base_url(); ?>index.html" class="nav-link"><i data-feather="monitor"></i><span>Inicio</span></a>
                         </li>
                         <li class="dropdown">
-                            <a href="<?= base_url(); ?>#" class="menu-toggle nav-link has-dropdown"><i data-feather="briefcase"></i><span>Widgets</span></a>
+                            <a href="<?= base_url(); ?>#" class="menu-toggle nav-link has-dropdown"><i data-feather="briefcase"></i><span>Usuarios</span></a>
                             <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="<?= base_url(); ?>widget-chart.html">Chart Widgets</a></li>
+                                <li><a class="nav-link" href="<?= base_url(); ?>widget-chart.html">Listar</a></li>
                                 <li><a class="nav-link" href="<?= base_url(); ?>widget-data.html">Data Widgets</a></li>
                             </ul>
                         </li>
