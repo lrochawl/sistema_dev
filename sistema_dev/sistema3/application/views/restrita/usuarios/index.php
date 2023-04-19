@@ -47,7 +47,7 @@ s<?php $this->load->view('restrita/layout/navbar');?>
                             <td><?= $usuario->first_name.' '.$usuario->last_name ?></td>              
                             <td><?= $usuario->email; ?></td>
                             <td><?= $usuario->username; ?></td>
-                            <td><?= $usuario->active == 1?'<span class="badge badge-seccess>Ativo</span>"':'<span class="badge badge-dange">Inativo</span>'; ?></td>
+                            <td><?= $usuario->active == 1?'<span class="badge badge-success>Ativo</span>"':'<span class="badge badge-dange">Inativo</span>'; ?></td>
                            
                             </td>
                             <td><a href="#" class="btn btn-primary">Detail</a></td>
