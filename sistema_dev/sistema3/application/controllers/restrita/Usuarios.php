@@ -51,7 +51,7 @@ class Usuarios extends CI_Controller
 
                 $data = array(
                     'titulo' => 'Editar usuário',
-                    'usuario' => 
+                  
                 );
                 
                 $this->load->view('restrita/layout/header');
