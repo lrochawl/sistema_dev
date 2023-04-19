@@ -43,84 +43,21 @@
                               </div>
                             </td>
                             <td>Create a mobile app</td>
-                            
-                            <td><a href="#" class="btn btn-primary">Detail</a></td>
-                          </tr>
-                          <tr>
-                            <td class="text-center pt-2">
-                              <div class="custom-checkbox custom-control">
-                                <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input"
-                                  id="checkbox-2">
-                                <label for="checkbox-2" class="custom-control-label">&nbsp;</label>
-                              </div>
-                            </td>
-                            <td>Redesign homepage</td>
                             <td class="align-middle">
                               <div class="progress progress-xs">
-                                <div class="progress-bar width-per-60"></div>
+                                <div class="progress-bar width-per-70"></div>
                               </div>
                             </td>
                             <td>
-                              <img alt="image" src="assets/img/users/user-1.png" width="35">
-                              <img alt="image" src="assets/img/users/user-3.png" width="35">
-                              <img alt="image" src="assets/img/users/user-4.png" width="35">
-                            </td>
-                            <td>2018-04-10</td>
-                            <td>
-                              <div class="badge badge-info badge-shadow">Todo</div>
-                            </td>
-                            <td><a href="#" class="btn btn-primary">Detail</a></td>
-                          </tr>
-                          <tr>
-                            <td class="text-center pt-2">
-                              <div class="custom-checkbox custom-control">
-                                <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input"
-                                  id="checkbox-3">
-                                <label for="checkbox-3" class="custom-control-label">&nbsp;</label>
-                              </div>
-                            </td>
-                            <td>Backup database</td>
-                            <td class="align-middle">
-                              <div class="progress progress-xs">
-                                <div class="progress-bar bg-warning width-per-70"></div>
-                              </div>
-                            </td>
-                            <td>
-                              <img alt="image" src="assets/img/users/user-1.png" width="35">
-                              <img alt="image" src="assets/img/users/user-2.png" width="35">
-                            </td>
-                            <td>2018-01-29</td>
-                            <td>
-                              <div class="badge badge-warning badge-shadow">In Progress</div>
-                            </td>
-                            <td><a href="#" class="btn btn-primary">Detail</a></td>
-                          </tr>
-                          <tr>
-                            <td class="text-center pt-2">
-                              <div class="custom-checkbox custom-control">
-                                <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input"
-                                  id="checkbox-4">
-                                <label for="checkbox-4" class="custom-control-label">&nbsp;</label>
-                              </div>
-                            </td>
-                            <td>Input data</td>
-                            <td class="align-middle">
-                              <div class="progress progress-xs">
-                                <div class="progress-bar bg-success width-per-40"></div>
-                              </div>
-                            </td>
-                            <td>
-                              <img alt="image" src="assets/img/users/user-2.png" width="35">
                               <img alt="image" src="assets/img/users/user-5.png" width="35">
-                              <img alt="image" src="assets/img/users/user-4.png" width="35">
-                              <img alt="image" src="assets/img/users/user-1.png" width="35">
                             </td>
-                            <td>2018-01-16</td>
+                            <td>2018-01-20</td>
                             <td>
                               <div class="badge badge-success badge-shadow">Completed</div>
                             </td>
                             <td><a href="#" class="btn btn-primary">Detail</a></td>
                           </tr>
+                         
                         </tbody>
                       </table>
                     </div>
