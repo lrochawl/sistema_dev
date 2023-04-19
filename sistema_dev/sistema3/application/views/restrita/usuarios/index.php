@@ -44,10 +44,10 @@
                               </div>
                             </td>
                             <td><?= $usuario->id ?></td>
-                            <td><?= $usuario->first_name.' '.$usuario->last_name ?></td>
-                            <td><?= $usuario->first_name.' '.$usuario->last_name ?></td>
+                            <td><?= $usuario->first_name.' '.$usuario->last_name ?></td>              
                             <td><?= $usuario->email; ?></td>
                             <td><?= $usuario->username; ?></td>
+                            <td><?= $usuario->active == 1?'Ativo':'Inativo'; ?></td>
                            
                             </td>
                             <td><a href="#" class="btn btn-primary">Detail</a></td>
