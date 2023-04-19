@@ -7,6 +7,7 @@
                 <section class="section">
                     <div class="section-body">
                         <!-- add content here -->
+                        <?= '<pre>'.$usuarios.'</pre>' ?>
                     </div>
                 </section>
                 
