@@ -50,7 +50,10 @@ s<?php $this->load->view('restrita/layout/navbar');?>
                             <td><?= $usuario->active == 1?'<span class="badge badge-success">Ativo</span>':'<span class="badge badge-danger">Inativo</span>'; ?></td>
                            
                             </td>
-                            <td><a href="#" class="btn btn-primary">Detail</a></td>
+                            <td>
+                                <a href="#" class="btn btn-icon btn-primary"><i class="fa fa-edit"></i></a>
+                                <a href="#" class="btn btn-icon btn-danger"><i class="fa fa-timas"></a>
+                            </td>
                           </tr>
                          <?php endforeach;?>
                         </tbody>
