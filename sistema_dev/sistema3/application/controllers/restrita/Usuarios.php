@@ -59,9 +59,7 @@ class Usuarios extends CI_Controller
 
 
                 if ($this->form_validation->run()) {
-                    // echo '<pre>';
-                    // print_r($this->input->post());
-                    // exit();
+                   
 
                     $data = elements(
                         array(
@@ -89,6 +87,10 @@ class Usuarios extends CI_Controller
                     
                     $this->ion_auth->update($usuario_id, $data);
                     redirect('restrita/usuarios');
+
+                     echo '<pre>';
+                    print_r($this->input->post());
+                    exit();
                 } else {
 
                     $data = array(
