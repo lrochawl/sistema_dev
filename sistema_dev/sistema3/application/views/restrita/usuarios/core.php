@@ -35,10 +35,12 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
                   <div class="form-group col-md-4">
                     <label>Sobrenome</label>
                     <input type="text" class="form-control" value="<?= isset($usuario) ? $usuario->last_name : set_value('last_name') ?>" name="last_name">
+                    <?= form_error('last_name', '<div class="text-danger">', '</div>');?>
                   </div>
                   <div class="form-group col-md-4">
                     <label>E-mail</label>
                     <input type="email" class="form-control" value="<?= isset($usuario) ? $usuario->email : set_value('email') ?>" name="email">
+                    <?= form_error('email', '<div class="text-danger">', '</div>');?>
                   </div>
                 </div>
 
@@ -46,14 +48,17 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
                   <div class="form-group col-md-4">
                     <label>Usuario</label>
                     <input type="text" class="form-control" value="<?= isset($usuario) ? $usuario->username : set_value('username') ?>" name="username">
+                    <?= form_error('username', '<div class="text-danger">', '</div>');?>
                   </div>
                   <div class="form-group col-md-4">
                     <label>Senha</label>
                     <input type="text" class="form-control" name="password">
+                    <?= form_error('password', '<div class="text-danger">', '</div>');?>
                   </div>
                   <div class="form-group col-md-4">
                     <label>Confirmar senha</label>
                     <input type="password" class="form-control" name="confirma">
+                    <?= form_error('confirma', '<div class="text-danger">', '</div>');?>
                   </div>
                 </div>
                 <div class="form-row">
