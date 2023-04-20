@@ -53,7 +53,7 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
                         <option value="0" <?= ($usuario->active == 0) ? 'selected' : '' ?>>Inativo</option>
                       <?php else : ?>
                         <option value="1" >Ativo</option>
-                        <option value="0" >Inativo</option>
+                        <option value="0" >Inativo</option> 
                       <?php endif; ?>
                     </select>
                   </div>
