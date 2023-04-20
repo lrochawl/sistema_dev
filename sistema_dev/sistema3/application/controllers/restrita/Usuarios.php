@@ -86,10 +86,8 @@ class Usuarios extends CI_Controller
 
                     // Sanetizando o $data
                     $data = html_escape($data);
-
-                    $id = $usuario_id;
                     
-                    $this->ion_auth->update($id, $data);
+                    $this->ion_auth->update($usuario_id, $data);
                     redirect('restrita/usuarios');
                 } else {
 
