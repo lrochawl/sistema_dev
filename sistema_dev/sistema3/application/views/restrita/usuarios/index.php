@@ -14,6 +14,17 @@ s<?php $this->load->view('restrita/layout/navbar');?>
                     <h4><?= isset($titulo)?$titulo:'LISTANDO'?></h4>
                   </div>
                   <div class="card-body">
+
+                  <?php if($message = $this->session->flashdata('erro')):?>
+                    <div class="alert alert-danger alert-dismissible show fade">
+                        <div class="alert-body">
+                            <button class="cloase" data-demiss="alert">
+                                <span>&times;</span>
+                            </button>
+                            <?= $message ?>
+                        </div>
+                    </div>
+                    <?php endif?>
                     <div class="table-responsive">
                       <table class="table table-striped data-table" >
                         <thead>
