@@ -54,6 +54,8 @@ class Usuarios extends CI_Controller
                 $this->form_validation->set_rules('last_name', 'Sobrenome', 'trim|required|min_length[4]|max_length[45]');
                 $this->form_validation->set_rules('email', 'E-mail', 'trim|required|min_length[4]|max_length[100]|valid_email|callback_valida_email');
                 $this->form_validation->set_rules('username', 'Usuário', 'trim|required|min_length[4]|max_length[50]|callback_valida_usuario');
+                $this->form_validation->set_rules('password', 'Senha', 'trim|required|min_length[4]|max_length[200]');
+                $this->form_validation->set_rules('confirma', 'Confirma Senha', 'trim|required|min_length[4]|max_length[200]|matches[password]');
 
 
                 if ($this->form_validation->run()) {
