@@ -42,6 +42,7 @@ class Usuarios extends CI_Controller
 
         if (!$usuario_id) {
             //cadastrar
+            exit('Cadastrar novo usuário');
 
         } else {
             //editar
