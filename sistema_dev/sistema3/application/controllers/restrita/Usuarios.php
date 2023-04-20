@@ -85,9 +85,9 @@ class Usuarios extends CI_Controller
 
                     // Sanetizando o $data
                     $data = html_escape($data);
-                    echo '<pre>';
-                    print_r($data);
-                    exit();
+                    // echo '<pre>';
+                    // print_r($data);
+                    // exit();
                     if($this->ion_auth->update($usuario_id, $data)){
 
                         $perfil = $this->input->post('perfil');
