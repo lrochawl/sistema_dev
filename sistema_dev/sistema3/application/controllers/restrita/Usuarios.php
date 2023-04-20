@@ -84,8 +84,18 @@ class Usuarios extends CI_Controller
 
                     // Sanetizando o $data
                     $data = html_escape($data);
-                    
+                    echo '<pre>';
+                    print_r($data);
+                    exit();
                     if($this->ion_auth->update($usuario_id, $data)){
+
+                        $perfil = $this->input->post('perfil');
+
+                        if($perfil){
+                            $this->ion_auth->remove_from_group(NULL, $usuario_id);
+                            $this->ion_auth->add_to_group($perfil, $usuario_id);
+                        }
+
                         $this->session->set_flashdata('sucesso', 'Dados salvos com sucesso');
                     }else{
                         $this->session->set_flashdata('erro', $this->ion_auth->erros());

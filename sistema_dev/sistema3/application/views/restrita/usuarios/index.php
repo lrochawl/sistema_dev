@@ -19,7 +19,7 @@ s<?php $this->load->view('restrita/layout/navbar');?>
                     <div class="alert alert-success alert-has-icon alert-dismissible show fade">
                         <div class="alert-icon"><i class="fas fa-check-circle fa-lg"></i></div>
                         <div class="alert-body">
-                            <div class="alert-title">Sucesso</div>
+                            <div class="alert-title">Perfeito!</div>
                             <button class="close" data-demiss="alert">
                                 <span>&times;</span>
                             </button>
@@ -31,7 +31,7 @@ s<?php $this->load->view('restrita/layout/navbar');?>
                     <div class="alert alert-danger alert-has-icon alert-dismissible show fade">
                         <div class="alert-icon"><i class="fas fa-exclamation-circle fa-lg"></i></div>
                         <div class="alert-body">
-                            <div class="alert-title">Atenção</div>
+                            <div class="alert-title">Atenção!</div>
                             <button class="close" data-demiss="alert">
                                 <span>&times;</span>
                             </button>
