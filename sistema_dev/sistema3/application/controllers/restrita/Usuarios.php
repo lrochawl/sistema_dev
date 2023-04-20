@@ -68,6 +68,7 @@ class Usuarios extends CI_Controller
                             'email',
                             'username',
                             'password',
+                            'perfil',
                             'active'
 
                         ),
