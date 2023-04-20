@@ -22,11 +22,11 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
                 </div>
                 <div class="form-group col-md-4">
                   <label>Sobrenome</label>
-                  <input type="text" class="form-control" name="last_name">
+                  <input type="text" class="form-control"  value="<?= isset($usuario)?$usuario->last_name:''?>" name="last_name">
                 </div>
                 <div class="form-group col-md-4">
                   <label>E-mail</label>
-                  <input type="email" class="form-control" name="email">
+                  <input type="email" class="form-control"  value="<?= isset($usuario)?$usuario->email:''?>" name="email">
                 </div>
               </div>
               
