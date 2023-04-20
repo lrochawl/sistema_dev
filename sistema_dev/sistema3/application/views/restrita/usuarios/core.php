@@ -18,7 +18,7 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
               'name' => 'form_core'
 
             );
-            if(issset($usuario)):?>
+            if(isset($usuario)):?>
               <?php $usuario_id = $usaurio->id;?>
             <?php else:?>
               <?php $usuario_id = '';?>
