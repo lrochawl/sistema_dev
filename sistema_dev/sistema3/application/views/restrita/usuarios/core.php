@@ -29,23 +29,23 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
                 <div class="form-row">
                   <div class="form-group col-md-4">
                     <label>Nome</label>
-                    <input type="text" class="form-control" value="<?= isset($usuario) ? $usuario->first_name : '' ?>" name="first_name">
+                    <input type="text" class="form-control" value="<?= isset($usuario) ? $usuario->first_name : set_value('first_name') ?>" name="first_name">
                     <?= form_error('first_name', '<div class="text-danger">', '</div>');?>
                   </div>
                   <div class="form-group col-md-4">
                     <label>Sobrenome</label>
-                    <input type="text" class="form-control" value="<?= isset($usuario) ? $usuario->last_name : '' ?>" name="last_name">
+                    <input type="text" class="form-control" value="<?= isset($usuario) ? $usuario->last_name : set_value('last_name') ?>" name="last_name">
                   </div>
                   <div class="form-group col-md-4">
                     <label>E-mail</label>
-                    <input type="email" class="form-control" value="<?= isset($usuario) ? $usuario->email : '' ?>" name="email">
+                    <input type="email" class="form-control" value="<?= isset($usuario) ? $usuario->email : set_value('email') ?>" name="email">
                   </div>
                 </div>
 
                 <div class="form-row">
                   <div class="form-group col-md-4">
                     <label>Usuario</label>
-                    <input type="text" class="form-control" value="<?= isset($usuario) ? $usuario->username : '' ?>" name="username">
+                    <input type="text" class="form-control" value="<?= isset($usuario) ? $usuario->username : set_value('username') ?>" name="username">
                   </div>
                   <div class="form-group col-md-4">
                     <label>Senha</label>
