@@ -32,6 +32,33 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
                   </div>
                   
                 </div>
+
+              <div class="card-body">
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label>Usuario</label>
+                    <input type="text" class="form-control" name="username">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Senha</label>
+                    <input type="text" class="form-control" name="password">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Confirmar senha</label>
+                    <input type="password" class="form-control" name="confirma">
+                  </div>
+                  
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label >Perfil de acesso</label>
+                    <select class="form_control">
+                      <option selected>Cliente</option>
+                      <option>Administrador</option>
+                    </select>
+                  </div>
+                </div>
                
                 
               </div>
