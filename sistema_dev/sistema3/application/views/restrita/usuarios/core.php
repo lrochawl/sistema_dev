@@ -73,7 +73,7 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
                 </div>
 
                 <div class="card-footer">
-                  <button class="btn btn-primary">Submit</button>
+                  <button class="btn btn-primary">Salvar</button>
                 </div>
             </form>
           </div>
