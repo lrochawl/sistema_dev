@@ -43,7 +43,6 @@ class Usuarios extends CI_Controller
         if (!$usuario_id) {
             //cadastrar
             exit('Cadastrar novo usuário');
-
         } else {
             //editar
             if (!$usuario = $this->ion_auth->user($usuario_id)->row()) {
@@ -51,18 +50,26 @@ class Usuarios extends CI_Controller
                 redirect('restrita/usuarios');
             } else {
 
-              
-                $data = array(
-                    'titulo' => 'Editar usuário',
-                    'usuario' => $usuario,
+                $this->form_validation->set_rules('first_name', 'Nome', 'trim|required');
 
-                    'perfil' => $this->ion_auth->get_users_groups($usuario_id)->row(),
-                    'groups' => $this->ion_auth->groups()->result(),
-                );
-                
-                $this->load->view('restrita/layout/header', $data);
-                $this->load->view('restrita/usuarios/core');
-                $this->load->view('restrita/layout/footer');
+                if ($this->form_validation->run()) {
+                    echo '<pre>';
+                    print_r($this->input->post());
+                    exit();
+                } else {
+
+                    $data = array(
+                        'titulo' => 'Editar usuário',
+                        'usuario' => $usuario,
+
+                        'perfil' => $this->ion_auth->get_users_groups($usuario_id)->row(),
+                        'groups' => $this->ion_auth->groups()->result(),
+                    );
+
+                    $this->load->view('restrita/layout/header', $data);
+                    $this->load->view('restrita/usuarios/core');
+                    $this->load->view('restrita/layout/footer');
+                }
             }
         }
     }
