@@ -13,7 +13,18 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
             <div class="card-header">
               <h4><?= isset($titulo) ? $titulo : 'EDITAR ---' ?></h4>
             </div>
-            <form name="form_core">
+            <?php
+            $atributes = array(
+              'name' => 'form_core'
+
+            );
+            if(issset($usuario)):?>
+              <?php $usuario_id = $usaurio->id;?>
+            <?php else:?>
+              <?php $usuario_id = '';?>
+            <?php endif?>
+            <?= form_open_multpart('restrita/usarios/core'.$usuario_id, $atributes);?>
+            
               <div class="card-body">
                 <div class="form-row">
                   <div class="form-group col-md-4">
@@ -70,13 +81,16 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
                       
                     </select>
                   </div>
+                  <?php if(isset($usuario)):?>
+                  <input type="hidden" name="usuario_id" value="<?=$usuario->id?>">
+                  <?php endif?>
                 </div>
 
                 <div class="card-footer">
                   <button class="btn btn-primary mr-2">Salvar</button>
                   <a href="<?= base_url('restrita/usuarios')?>" class="btn btn-dark">Voltar</a> 
                 </div>
-            </form>
+            <?= form_close();?>
           </div>
         </div>
       </div>
