@@ -79,7 +79,7 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
                     <select class="form-control" name="perfil">
                       <?php foreach($groups as $group):?>
                         <?php if(isset($usuario)): ?>
-                        <option value="<?= $group->id?>" <?= ($group->id == $perfil)?'selected':''?>><?= $group->description ?></option>
+                        <option value="<?= $group->id?>" <?= ($group->id == $perfil->id)?'selected':''?>><?= $group->description ?></option>
                         <?php else:?>
                           <option value="<?= $group->id?>" ><?= $group->description ?></option>
                         <? endif?>
