@@ -63,7 +63,7 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
                       <?php foreach($groups as $group):?>
                         <option value="<?= $group->id?>"><?= $group->name ?></option>
                       <?php endforeach; ?>
-                      >
+                      
                     </select>
                   </div>
                 </div>
