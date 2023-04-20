@@ -50,7 +50,10 @@ class Usuarios extends CI_Controller
                 redirect('restrita/usuarios');
             } else {
 
-                $this->form_validation->set_rules('first_name', 'Nome', 'trim|required');
+                $this->form_validation->set_rules('first_name', 'Nome', 'trim|required|min_length[4]|max_length[45]');
+                $this->form_validation->set_rules('last_name', 'Sobrenome', 'trim|required|min_length[4]|max_length[45]');
+                $this->form_validation->set_rules('email', 'E-mail', 'trim|required|min_length[4]|max_length[100]|callback_valid_email|');
+                $this->form_validation->set_rules('')
 
                 if ($this->form_validation->run()) {
                     echo '<pre>';
