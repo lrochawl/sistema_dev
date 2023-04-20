@@ -13,13 +13,9 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
             <div class="card-header">
               <h4><?= isset($titulo) ? $titulo : 'EDITAR ---' ?></h4>
             </div>
+            <div class="card-body">
 
 
-
-            <div class="card">
-              <div class="card-header">
-                <h4>Horizontal Form</h4>
-              </div>
               <div class="card-body">
                 <div class="form-row">
                   <div class="form-group col-md-6">
@@ -69,11 +65,11 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
                 <button class="btn btn-primary">Submit</button>
               </div>
             </div>
-
           </div>
         </div>
       </div>
     </div>
-  </section>
+</div>
+</section>
 
 </div>
