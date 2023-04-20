@@ -73,7 +73,8 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
                 </div>
 
                 <div class="card-footer">
-                  <button class="btn btn-primary">Salvar</button>
+                  <button class="btn btn-primary mr-2">Salvar</button>
+                  <a href="<?= base_url('restrita/usuarios')?>" class="btn btn-dark">Voltar</a> 
                 </div>
             </form>
           </div>
