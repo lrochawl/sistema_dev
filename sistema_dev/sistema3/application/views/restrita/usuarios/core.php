@@ -55,14 +55,14 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
 
                   <div class="form-group col-md-4">
                     <label >Situação</label>
-                    <select class="form_control" name="active">
+                    <select class="form-control" name="active">
                       <option selected>Cliente</option>
                       <option>Administrador</option>
                     </select>
                   </div>
                   <div class="form-group col-md-4">
                     <label >Perfil de acesso</label>
-                    <select class="form_control" name="group">
+                    <select class="form-control" name="group">
                       <option selected>Cliente</option>
                       <option>Administrador</option>
                     </select>
