@@ -13,7 +13,7 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
             <div class="card-header">
               <h4><?= isset($titulo) ? $titulo : 'EDITAR ---' ?></h4>
             </div>
-            <form method="post" name="form_core" action="">
+            <form  name="form_core" >
             <div class="card-body">
               <div class="form-row">
                 <div class="form-group col-md-4">
