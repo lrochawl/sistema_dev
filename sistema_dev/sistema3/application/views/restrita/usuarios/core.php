@@ -19,7 +19,7 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
 
             );
             if(isset($usuario)):?>
-              <?php $usuario_id = $usaurio->id;?>
+              <?php $usuario_id = $usuario->id;?>
             <?php else:?>
               <?php $usuario_id = '';?>
             <?php endif?>
