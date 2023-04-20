@@ -56,8 +56,8 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
                   <div class="form-group col-md-4">
                     <label >Situação</label>
                     <select class="form-control" name="active">
-                      <option selected>Cliente</option>
-                      <option>Administrador</option>
+                      <option >Ativo</option>
+                      <option >Inativo</option>
                     </select>
                   </div>
                   <div class="form-group col-md-4">
