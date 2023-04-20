@@ -19,6 +19,14 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
               <div class="card-body">
                 <div class="form-row">
                   <div class="form-group col-md-6">
+                    <label>Nome</label>
+                    <input type="text" class="form-control" name="first_name">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label>Sobrenome</label>
+                    <input type="text" class="form-control" name="last_name">
+                  </div>
+                  <div class="form-group col-md-6">
                     <label for="inputEmail4">Email</label>
                     <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
                   </div>
