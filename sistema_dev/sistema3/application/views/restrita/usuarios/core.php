@@ -23,7 +23,7 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
             <?php else:?>
               <?php $usuario_id = '';?>
             <?php endif?>
-            <?= form_open_multipart('restrita/usarios/core/'.$usuario_id, $atributes);?>
+            <?= form_open_multipart('restrita/usuarios/core/'.$usuario_id, $atributes);?>
             
               <div class="card-body">
                 <div class="form-row">
