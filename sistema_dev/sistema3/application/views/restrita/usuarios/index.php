@@ -17,7 +17,7 @@ s<?php $this->load->view('restrita/layout/navbar');?>
 
                   <?php if($message = $this->session->flashdata('erro')):?>
                     <div class="alert alert-danger alert-dismissible show fade">
-                        <div class="alert-icon"><i class="far fa-lightbuld"></i></div>
+                        <div class="alert-icon"><i class="fas fa-lightbulb"></i></div>
                         <div class="alert-body">
                             <div class="alert-title">Atenção</div>
                             <button class="close" data-demiss="alert">
