@@ -114,7 +114,7 @@ class Usuarios extends CI_Controller
                         'groups' => $this->ion_auth->groups()->result(),
                     );
                     echo '<pre>';
-                    print_r($data);
+                    print_r($data['perfil']);
                     exit();
                     $this->load->view('restrita/layout/header', $data);
                     $this->load->view('restrita/usuarios/core');
