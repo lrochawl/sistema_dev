@@ -52,7 +52,7 @@ class Usuarios extends CI_Controller
 
                 $this->form_validation->set_rules('first_name', 'Nome', 'trim|required|min_length[4]|max_length[45]');
                 $this->form_validation->set_rules('last_name', 'Sobrenome', 'trim|required|min_length[4]|max_length[45]');
-                $this->form_validation->set_rules('email', 'email', 'trim|required|min_length[4]|max_length[100]|callback_valid_email|');
+                $this->form_validation->set_rules('email', 'E-mail', 'trim|required|min_length[4]|max_length[100]|callback_valid_email|');
                
 
                 if ($this->form_validation->run()) {
@@ -84,7 +84,7 @@ class Usuarios extends CI_Controller
             //Cadastrando
 
             if($this->core_model->get_by_id('users', array('email' => $email))){
-                $this->form_validation->set_message('valida_email', 'Esse e-mail já existe');
+                $this->form_validation->set_message('valid_email', 'Esse e-mail já existe');
                 return false;
             }else{
                 return true;
@@ -94,7 +94,7 @@ class Usuarios extends CI_Controller
             //Editando
 
             if($this->core_model->get_by_id('users', array('email' => $email, 'id !=' => $usuario_id))){
-                $this->form_validation->set_message('valida_email', 'Esse e-mail já existe');
+                $this->form_validation->set_message('valid_email', 'Esse e-mail já existe');
                 return false;
             }else{
                 return true;
