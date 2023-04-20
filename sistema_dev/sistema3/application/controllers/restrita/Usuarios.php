@@ -88,7 +88,7 @@ class Usuarios extends CI_Controller
                     if($this->ion_auth->update($usuario_id, $data)){
                         $this->session->set_flashdata('sucesso', 'Dados salvos com sucesso');
                     }else{
-                        $this->session->set_flashdata('erro', 'Não foi possivel salvar os dados');
+                        $this->session->set_flashdata('erro', $this->ion_auth->erros());
                     }
                     
                     redirect('restrita/usuarios');
