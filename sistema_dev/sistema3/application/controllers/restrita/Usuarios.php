@@ -105,7 +105,7 @@ class Usuarios extends CI_Controller
 
     public function valida_usuario($username)
     {
-        $usuario_id = $this->input->post['usuario_id'];
+        $usuario_id = $this->input->post('usuario_id');
 
         if (!$usuario_id) {
             //Cadastrando uduário
