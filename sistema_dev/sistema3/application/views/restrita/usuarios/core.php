@@ -18,7 +18,7 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
               <div class="form-row">
                 <div class="form-group col-md-4">
                   <label>Nome</label>
-                  <input type="text" class="form-control" name="first_name">
+                  <input type="text" class="form-control" value="<?= isset($usuario)?$usuario->first_name:''?>" name="first_name">
                 </div>
                 <div class="form-group col-md-4">
                   <label>Sobrenome</label>
