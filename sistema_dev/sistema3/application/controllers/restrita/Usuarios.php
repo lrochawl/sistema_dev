@@ -54,14 +54,43 @@ class Usuarios extends CI_Controller
                 $this->form_validation->set_rules('last_name', 'Sobrenome', 'trim|required|min_length[4]|max_length[45]');
                 $this->form_validation->set_rules('email', 'E-mail', 'trim|required|min_length[4]|max_length[100]|valid_email|callback_valida_email');
                 $this->form_validation->set_rules('username', 'Usuário', 'trim|required|min_length[4]|max_length[50]|callback_valida_usuario');
-                $this->form_validation->set_rules('password', 'Senha', 'trim|required|min_length[4]|max_length[200]');
-                $this->form_validation->set_rules('confirma', 'Confirma Senha', 'trim|required|min_length[4]|max_length[200]|matches[password]');
+                $this->form_validation->set_rules('password', 'Senha', 'trim|min_length[4]|max_length[200]');
+                $this->form_validation->set_rules('confirma', 'Confirma Senha', 'trim|min_length[4]|max_length[200]|matches[password]');
 
 
                 if ($this->form_validation->run()) {
-                    echo '<pre>';
-                    print_r($this->input->post());
-                    exit();
+                    // echo '<pre>';
+                    // print_r($this->input->post());
+                    // exit();
+
+                    $data = elements(
+                        array(
+                            'first_name',
+                            'last_name',
+                            'email',
+                            'username',
+                            'password',
+                            'active'
+
+                        ),
+                        $this->input->post(),
+                    );
+
+                    // Não atualiza a senha se a mesma não for passada
+
+                    $password = $this->input->post('password');
+
+                    if(!$password){
+                        unset($data['password']);
+                    }
+
+                    // Sanetizando o $data
+                    $data = html_escape($data);
+
+                    $id = $usuario_id;
+                    
+                    $this->ion_auth->update($id, $data);
+                    redirect('restrita/usuarios');
                 } else {
 
                     $data = array(
