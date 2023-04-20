@@ -33,7 +33,7 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
                 <div class="form-row">
                   <div class="form-group col-md-4">
                     <label>Usuario</label>
-                    <input type="text" class="form-control" name="username">
+                    <input type="text" class="form-control"  value="<?= isset($usuario)?$usuario->username:''?>" name="username">
                   </div>
                   <div class="form-group col-md-4">
                     <label>Senha</label>
@@ -48,8 +48,8 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
                   <div class="form-group col-md-4">
                     <label>Situação</label>
                     <select class="form-control" name="active">
-                      <option>Ativo</option>
-                      <option>Inativo</option>
+                      <option value="1"  <?= ($usuario->active == 1)?'selected':''?>>Ativo</option>
+                      <option value="0" <?= ($usuario->active == 0)?'selected':''?>>Inativo</option>
                     </select>
                   </div>
                   <div class="form-group col-md-4">
