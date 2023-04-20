@@ -55,7 +55,7 @@ class Usuarios extends CI_Controller
                     'titulo' => 'Editar usuário',
                     'usuario' => $usuario,
 
-                    'perfil' => $this->ion_auth->get_user_groups($usuario_id)->row(),
+                    'perfil' => $this->ion_auth->get_users_groups($usuario_id)->row(),
                     'grupos' => $this->ion_auth->groups->result(),
                 );
                 
