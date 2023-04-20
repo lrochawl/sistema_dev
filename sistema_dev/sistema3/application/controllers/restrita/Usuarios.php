@@ -119,7 +119,7 @@ class Usuarios extends CI_Controller
         } else {
             //Editando usuário
 
-            if ($this->core_model->get_by_id('users', array('username' => $username, 'id' => $usuario_id))) {
+            if ($this->core_model->get_by_id('users', array('username' => $username, ' !=' => $usuario_id))) {
                 $this->form_validation->set_message('valida_usuario', 'Usuário já existe');
                 return false;
             } else {
