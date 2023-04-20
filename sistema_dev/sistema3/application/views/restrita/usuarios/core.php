@@ -52,7 +52,7 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
                   </div>
                   <div class="form-group col-md-4">
                     <label>Senha</label>
-                    <input type="text" class="form-control" name="password">
+                    <input type="password" class="form-control" name="password">
                     <?= form_error('password', '<div class="text-danger">', '</div>');?>
                   </div>
                   <div class="form-group col-md-4">
