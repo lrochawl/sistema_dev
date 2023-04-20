@@ -61,7 +61,7 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
                     <label>Perfil de acesso</label>
                     <select class="form-control" name="perfil">
                       <?php foreach($groups as $group):?>
-                        <option value="<?= $group->id?>"><?= $group->name ?></option>
+                        <option value="<?= $group->id?>" <?= ($group->id == $perfil)?'selected':''?>><?= $group->name ?></option>
                       <?php endforeach; ?>
                       
                     </select>
