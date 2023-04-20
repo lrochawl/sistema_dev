@@ -76,7 +76,7 @@ class Usuarios extends CI_Controller
         }
     }
 
-    public function valida_email($email){
+    public function valid_email($email){
 
         $usuario_id = $this->input->post('usuario_id');
 
