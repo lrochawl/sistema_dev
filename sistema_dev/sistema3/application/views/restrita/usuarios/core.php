@@ -29,7 +29,7 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
                   <input type="email" class="form-control" name="email">
                 </div>
               </div>
-              <div class="card-body">
+              
                 <div class="form-row">
                   <div class="form-group col-md-4">
                     <label>Usuario</label>
@@ -60,7 +60,7 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
                     </select>
                   </div>
                 </div>
-              </div>
+              
               <div class="card-footer">
                 <button class="btn btn-primary">Submit</button>
               </div>
