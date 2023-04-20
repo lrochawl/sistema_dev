@@ -63,7 +63,23 @@ class Core_model extends CI_Model
                 $this->session->set_flashdata('erro', 'Não foi possivel salvar os dados');
             }
 
+        }else{
+            return false;
         }
 
+    }
+
+    public function delete($tabela = NULL, $condicoes = NULL){
+        
+        if($tabela && $this->db->table_exists($tabela) && is_array($condicoes)){
+
+            if($this->db->delete($tabela, $condicoes)){
+                $this->session->set_flashdata('sucesso', 'Registro excluido com sucesso');
+            }else{
+                $this->session->set_flashdata('erro', 'Não foi possivel excluir o registro');
+            }
+        }else{
+            return false;
+        }
     }
 }
