@@ -54,7 +54,9 @@ class Usuarios extends CI_Controller
                 $data = array(
                     'titulo' => 'Editar usuário',
                     'usuario' => $usuario,
-                  
+
+                    'perfil' => $this->ion_auth->get_users_groups($usuario_id)->row(),
+                    'grupos' => $this->ion_auth->groups->result(),
                 );
                 
                 $this->load->view('restrita/layout/header', $data);

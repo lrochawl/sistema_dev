@@ -59,9 +59,11 @@ s<?php $this->load->view('restrita/layout/navbar'); ?>
                   </div>
                   <div class="form-group col-md-4">
                     <label>Perfil de acesso</label>
-                    <select class="form-control" name="group">
-                      <option selected>Cliente</option>
-                      <option>Administrador</option>
+                    <select class="form-control" name="perfil">
+                      <?php foreach($groups as $group):?>
+                        <option value="<?= $group->id?>"><?= $group->name ?></option>
+                      <?php endforeach; ?>
+                      >
                     </select>
                   </div>
                 </div>
