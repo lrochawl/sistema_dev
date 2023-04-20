@@ -54,6 +54,7 @@ s<?php $this->load->view('restrita/layout/navbar');?>
                             <th>Nome Completo</th>
                             <th>E-mail</th>
                             <th>Usuário</th>
+                            <th>Perfil de acesso</th>
                             <th>Status</th>
                             <th class="nosort">Ação</th>
                           </tr>
@@ -72,6 +73,7 @@ s<?php $this->load->view('restrita/layout/navbar');?>
                             <td><?= $usuario->first_name.' '.$usuario->last_name ?></td>              
                             <td><?= $usuario->email; ?></td>
                             <td><?= $usuario->username; ?></td>
+                            <td><?= $usuario->perfil->id; ?></td>
                             <td><?= $usuario->active == 1?'<span class="badge badge-success">Ativo</span>':'<span class="badge badge-danger">Inativo</span>'; ?></td>
                            
                             </td>
