@@ -71,7 +71,7 @@ s<?php $this->load->view('restrita/layout/navbar');?>
                             <td><?= $usuario->id ?></td>
                             <td><?= $usuario->first_name.' '.$usuario->last_name ?></td>              
                             <td><?= $usuario->email; ?></td>
-                            <td><?= $usuario->perfil->id; ?></td>
+                            <td><?= $perfil->id; ?></td>
                             <td><?= $usuario->active == 1?'<span class="badge badge-success">Ativo</span>':'<span class="badge badge-danger">Inativo</span>'; ?></td>
                            
                             </td>
