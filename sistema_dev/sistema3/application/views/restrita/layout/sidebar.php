@@ -7,10 +7,10 @@
         <ul class="sidebar-menu">
             <li class="menu-header">Menu</li>
             <li class="dropdown">
-                <a href="<?= base_url("restrita/home"); ?>" class="nav-link"><i data-feather="monitor"></i><span>Inicio</span></a>
+                <a href="<?= base_url("restrita/home"); ?>" class="nav-link"><i data-feather="home"></i><span>Inicio</span></a>
             </li>
             <li class="dropdown">
-                <a href="<?= base_url("restrita/home"); ?>" class="nav-link"><i data-feather="home"></i><span>Usuários</span></a>
+                <a href="<?= base_url("restrita/usuarios"); ?>" class="nav-link"><i data-feather="users"></i><span>Usuários</span></a>
             </li>
             <li class="dropdown">
                 <a href="<?= base_url("restrita/usuarios"); ?>" class="menu-toggle nav-link has-dropdown"><i data-feather="briefcase"></i><span>Usuarios</span></a>
