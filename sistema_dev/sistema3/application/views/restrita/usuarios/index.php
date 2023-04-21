@@ -71,7 +71,7 @@ s<?php $this->load->view('restrita/layout/navbar');?>
                             <td><?= $usuario->id ?></td>
                             <td><?= $usuario->first_name.' '.$usuario->last_name ?></td>              
                             <td><?= $usuario->email; ?></td>
-                            <td><?= $perfil->id; ?></td>
+                            <td><?= $this->ion_auth->is_admin($usuario_id)?"Administrador":"Cliente" ?></td>
                             <td><?= $usuario->active == 1?'<span class="badge badge-success">Ativo</span>':'<span class="badge badge-danger">Inativo</span>'; ?></td>
                            
                             </td>

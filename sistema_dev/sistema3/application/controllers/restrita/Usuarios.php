@@ -28,6 +28,7 @@ class Usuarios extends CI_Controller
         $dataBody = array(
             'titulo' => 'Usuários cadastrados',
             'usuarios' => $this->ion_auth->users()->result(),
+           
 
         );
 
