@@ -12,7 +12,7 @@ s<?php $this->load->view('restrita/layout/navbar');?>
                 <div class="card">
                   <div class="card-header">
                     <h4><?= isset($titulo)?$titulo:'LISTANDO'?></h4>
-                    <a class="btn btn-primary float-rigth" href="<?= base_url('restrita/usuarios/core')?>">Cadastrar</a>
+                    <a class="btn btn-primary float-right" href="<?= base_url('restrita/usuarios/core')?>">Cadastrar</a>
                   </div>
                   <div class="card-body">
 
