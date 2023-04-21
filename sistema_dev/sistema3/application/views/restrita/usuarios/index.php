@@ -5,13 +5,14 @@ s<?php $this->load->view('restrita/layout/navbar');?>
             <!-- Main Content -->
             <div class="main-content">
                 <section class="section">
-                    <div class="section-body">
+                    <div class="section-body d-block">
                         <!-- add content here -->
                         <div class="row">
               <div class="col-12">
                 <div class="card">
                   <div class="card-header">
                     <h4><?= isset($titulo)?$titulo:'LISTANDO'?></h4>
+                    <a class="btn btn-sucess float-rigth" href="<?= base_url('restrita/usuarios/core')?>">Cadastrar</a>
                   </div>
                   <div class="card-body">
 
