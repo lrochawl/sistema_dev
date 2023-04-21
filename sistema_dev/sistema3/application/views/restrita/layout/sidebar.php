@@ -6,12 +6,12 @@
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Menu</li>
-            <li class="dropdown">
-                <?= ($this->router->fetch_class() == 'home' && $this->router->fetch_method() == 'index')? '<div class="active"></div>':''?>
+            <li class="dropdown <?= ($this->router->fetch_class() == 'home' && $this->router->fetch_method() == 'index')? 'active':''?>">
+                
                 <a href="<?= base_url("restrita/home"); ?>" class="nav-link"><i data-feather="home"></i><span>Inicio</span></a>
             </li>
-            <li class="dropdown">
-            <?= ($this->router->fetch_class() == 'usuarios' && $this->router->fetch_method() == 'index')? '<div class="active"></div>':''?>
+            <li class="dropdown <?= ($this->router->fetch_class() == 'usuarios' && $this->router->fetch_method() == 'index')? 'active':''?>">
+            
                 <a href="<?= base_url("restrita/usuarios"); ?>" class="nav-link"><i data-feather="users"></i><span>Usuários</span></a>
             </li>
             <li class="dropdown">
