@@ -42,7 +42,7 @@ class Usuarios extends CI_Controller
 
         if (!$usuario_id) {
             //cadastrar
-            
+
 
             $this->form_validation->set_rules('first_name', 'Nome', 'trim|required|min_length[4]|max_length[45]');
             $this->form_validation->set_rules('last_name', 'Sobrenome', 'trim|required|min_length[4]|max_length[45]');
@@ -52,9 +52,25 @@ class Usuarios extends CI_Controller
             $this->form_validation->set_rules('confirma', 'Confirma Senha', 'trim|required|min_length[4]|max_length[200]|matches[password]');
 
             if ($this->form_validation->run()) {
-                echo '<pre>';
-                    print_r($data);
-                    exit();
+                // echo '<pre>';
+                //     print_r($data);
+                //     exit();
+
+
+                $usename  = $this->input->post('username');
+                $password = $this->input->post('password');
+                $email    = $this->input->post('email');
+                $additional_data = array(
+                    'first_name' => $this->input->post('first_name'),
+                    'last_name' => $this->input->post('last_name')
+                );
+                $group = array($this->input->post('perfil'));
+
+                if($this->ion_auth->register($username, $password, $email, $additional_data, $group)){
+                    $this->session->set_flashdata('sucesso', 'Dados salvos com sucesso');
+                }else{
+                    $this->session->set_flashdata('erro', 'Não foi possivel salvar dados');
+                }
             } else {
                 $data = array(
                     'titulo' => 'Cadastrar usuário',
@@ -67,7 +83,6 @@ class Usuarios extends CI_Controller
                 $this->load->view('restrita/usuarios/core');
                 $this->load->view('restrita/layout/footer');
             }
-
         } else {
             //editar
             if (!$usuario = $this->ion_auth->user($usuario_id)->row()) {
