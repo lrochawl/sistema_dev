@@ -57,9 +57,7 @@ class Usuarios extends CI_Controller
                     exit();
             } else {
                 $data = array(
-                    'titulo' => 'Editar usuário',
-                    'usuario' => $usuario,
-                    'perfil' => $this->ion_auth->get_users_groups($usuario_id)->row(),
+                    'titulo' => 'Cadastrar usuário',
                     'groups' => $this->ion_auth->groups()->result(),
                 );
                 // echo '<pre>';
