@@ -56,7 +56,18 @@ class Usuarios extends CI_Controller
                     print_r($data);
                     exit();
             } else {
-                exit('Cadastrar');
+                $data = array(
+                    'titulo' => 'Editar usuário',
+                    'usuario' => $usuario,
+                    'perfil' => $this->ion_auth->get_users_groups($usuario_id)->row(),
+                    'groups' => $this->ion_auth->groups()->result(),
+                );
+                // echo '<pre>';
+                // print_r($data['perfil']);
+                // exit();
+                $this->load->view('restrita/layout/header', $data);
+                $this->load->view('restrita/usuarios/core');
+                $this->load->view('restrita/layout/footer');
             }
 
         } else {
