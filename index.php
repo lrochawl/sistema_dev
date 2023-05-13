@@ -159,7 +159,7 @@
 <div class="col-lg-7 py-vh-6 position-relative" data-aos="fade-right">
   <h1 class="display-1 fw-bold mt-5">Soluções para Pequenos Negócios</h1>
   <p class="lead">Obtenha soluções de tecnologia personalizadas para o seu pequeno negócio e suporte para seus dispositivos digitais com a equipe especializada da WL Topos. Inicie agora e transforme seu futuro em algo incrível!</p>
-  <a href="site/#" class="btn btn-dark btn-xl shadow me-3 rounded-0 my-5">Saiba mais</a>
+  <a href="#" class="btn btn-dark btn-xl shadow me-3 rounded-0 my-5">Saiba mais</a>
 </div>
 
 
@@ -179,7 +179,7 @@
   <span class="h5 fw-lighter">01.</span>
   <h3 class="py-5 border-top border-dark">Qualidade comprovada</h3>
   <p> Nossos serviços são de alta qualidade e comprovados por clientes satisfeitos. Oferecemos garantia de satisfação para nossos clientes, certificando-se de que nosso serviço atenda às suas expectativas e necessidades.</p>
-  <a href="site/#" class="link-fancy">Leia mais
+  <a href="#" class="link-fancy">Leia mais
   </a>
 </div>
 
@@ -187,7 +187,7 @@
   <span class="h5 fw-lighter">02.</span>
   <h3 class="py-5 border-top border-dark">Experiência e profissionalismo</h3>
   <p>Nossa equipe é altamente qualificada e experiente, pronta para atender às suas necessidades. Contamos com profissionais treinados e experientes, que garantem a eficiência e qualidade do nosso serviço.</p>
-  <a href="site/#" class="link-fancy">Leia mais
+  <a href="#" class="link-fancy">Leia mais
   </a>
 </div>
 
@@ -195,7 +195,7 @@
   <span class="h5 fw-lighter">03.</span>
   <h3 class="py-5 border-top border-dark">Suporte 24/7</h3>
   <p>Oferecemos suporte ao cliente 24/7 e serviços flexíveis, adaptados às necessidades de cada cliente. Nós nos preocupamos com nossos clientes e queremos que eles tenham a melhor experiência possível. Oferecemos serviços personalizados e flexíveis, para garantir que você receba exatamente o que precisa.</p>
-  <a href="site/#" class="link-fancy">Leia mais
+  <a href="#" class="link-fancy">Leia mais
   </a>
 </div>
 </div>
@@ -228,7 +228,7 @@
   <p data-aos="fade-left" data-aos-delay="200">Com nosso projeto de inovação social, a WL Topos impactou positivamente comunidades carentes, capacitando e empoderando moradores com tecnologia acessível e educativa.
   </p>
   <p>
-    <a href="site/#" class="link-fancy link-dark" data-aos="fade-left" data-aos-delay="400">Leia mais
+    <a href="#" class="link-fancy link-dark" data-aos="fade-left" data-aos-delay="400">Leia mais
     </a>
   </p>
 </div>
@@ -320,7 +320,7 @@
     <h2 class="display-6 mb-5">Estamos sempre buscando melhorar nossos produtos e serviços para atender às necessidades dos nossos clientes. Sua opinião é muito importante para nós. Deixe seu comentário, crítica ou elogio abaixo e nos ajude a oferecer uma experiência ainda melhor para você!.</h2>
   </div>
   <div class="col-12">
-    <a href="site/#" class="btn btn-warning btn-xl shadow me-3 mt-4" data-aos="fade-down">Fale conosco</a>
+    <a href="#" class="btn btn-warning btn-xl shadow me-3 mt-4" data-aos="fade-down">Fale conosco</a>
   </div>
 </div>
 
@@ -632,7 +632,7 @@
       </form>
     </div>
     <div class="col-auto">
-      <a href="site/#" class="btn btn-dark py-3 px-5">Inscreva-se</a>
+      <a href="#" class="btn btn-dark py-3 px-5">Inscreva-se</a>
     </div>
   </div>
 </div>
