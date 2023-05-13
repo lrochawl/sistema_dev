@@ -105,7 +105,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item">
-    <a class="nav-link" href="site/#services" aria-label="Brings you to the frontpage">
+    <a class="nav-link" href="#" aria-label="Brings you to the frontpage">
       Serviços
     </a>
   </li>
