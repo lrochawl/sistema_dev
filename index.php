@@ -664,16 +664,16 @@
   <h3 class="h6 mb-3">Empresa</h3>
   <ul class="nav flex-column">
     <li class="nav-item">
-      <a class="nav-link link-secondary ps-0" aria-current="page" href="site/#">Quem somos</a>
+      <a class="nav-link link-secondary ps-0" aria-current="page" href="#">Quem somos</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link link-secondary ps-0" href="site/#">Nossa Missão</a>
+      <a class="nav-link link-secondary ps-0" href="#">Nossa Missão</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link link-secondary ps-0" href="site/#">Nossa Visão</a>
+      <a class="nav-link link-secondary ps-0" href="#">Nossa Visão</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link link-secondary ps-0" href="site/#">Nossos Valores</a>
+      <a class="nav-link link-secondary ps-0" href="#">Nossos Valores</a>
     </li>
   </ul>
 </div>
@@ -681,20 +681,20 @@
   <h3 class="h6 mb-3">Produos</h3>
     <ul class="nav flex-column">
     <li class="nav-item">
-      <a class="nav-link link-secondary ps-0" aria-current="page" href="site/#">Inteligência artificial (IA)</a>
+      <a class="nav-link link-secondary ps-0" aria-current="page" href="#">Inteligência artificial (IA)</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link link-secondary ps-0" href="site/#">Big Data</a>
+      <a class="nav-link link-secondary ps-0" href="#">Big Data</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link link-secondary ps-0" href="site/#">Cibersegurança</a>
+      <a class="nav-link link-secondary ps-0" href="#">Cibersegurança</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link link-secondary ps-0" href="site/#">Desenvolvimento de software</a>
+      <a class="nav-link link-secondary ps-0" href="#">Desenvolvimento de software</a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link link-secondary ps-0" href="site/#">Robótica</a>
+      <a class="nav-link link-secondary ps-0" href="#">Robótica</a>
     </li>
   </ul>
 </div>
