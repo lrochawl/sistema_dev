@@ -110,27 +110,27 @@
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="site/#aboutus">
+    <a class="nav-link" href="#">
       Quem somos
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="site/#numbers">
+    <a class="nav-link" href="#">
       Numeros
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="site/#gallery">
+    <a class="nav-link" href="#">
       Galeria
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="site/#workwithus">
+    <a class="nav-link" href="#">
       Trabalhe conosco
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="site/#testimonials">
+    <a class="nav-link" href="#">
       Depoimentos
     </a>
   </li>
