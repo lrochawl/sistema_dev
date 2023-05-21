@@ -168,7 +168,9 @@
 </div>
 
 </div>
-
+<div class="container py-vh-4">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-lg-10">
 <div class="row d-flex align-items-start mt-5 border-top pt-5" data-aos="fade">
         <div class="col-12 col-lg-8">
           <span class="text-secondary">1.0</span>
@@ -187,7 +189,9 @@
           </p>
         </div>
       </div>
-
+    </div>
+  </div>
+</div>
 <div class="container py-vh-3 border-top" data-aos="fade" data-aos-delay="200">
   <div class="row d-flex justify-content-center">
     <div class="col-12 col-lg-8 text-center">
