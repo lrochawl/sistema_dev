@@ -205,7 +205,7 @@
              
             </div>
             <div class="col-12 col-lg-3 offset-lg-1 bg-light p-5 mt-5">
-              <h3 class="h6">tl;dr</h3>
+              <h3 class="h6">RADIO WL TOPOS APP</h3>
               <p class="text-secondary">
               
               </p>
