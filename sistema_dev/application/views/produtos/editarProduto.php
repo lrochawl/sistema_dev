@@ -119,7 +119,7 @@
                             <label for="descricao" class="control-label">Descrição<span class="required">*</span></label>
                             <div class="controls">
 
-                                <input onkeydown='handleEnter(event)' onchange="gerarCodigo()" id="descricao" type="text" required name="descricao" value="<?php echo $result->produtoDescricao; ?>" />
+                                <input onkeydown='handleEnter(event)' id="descricao" type="text" required name="descricao" value="<?php echo $result->produtoDescricao; ?>" />
                             </div>
                         </div>
 
@@ -297,6 +297,8 @@
                                 <span class="button__icon"><i class="bx bx-sync"></i></span><span class="button__text2">Atualizar</span></button>
                             <a href="<?php echo base_url() ?>index.php/produtos" id="" class="button btn btn-mini btn-warning">
                                 <span class="button__icon"><i class="bx bx-undo"></i></span><span class="button__text2">Voltar</span></a>
+                            <a href="#" id="botaoGerarCodigo" class="button btn btn-mini btn-warning">
+                                <span class="button__icon"><i class="bx bx-undo"></i></span><span class="button__text2">Codigo Auto</span></a>
                         </div>
                     </div>
                 </div>
