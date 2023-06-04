@@ -591,7 +591,7 @@ $(document).ready(function() {
     const subcategoriaSelecionada = subcategoriaSelect.val();
     const marcaSelecionada = marcaSelect.find(":selected").text();
     const descricao = descricaoInput.val();
-
+console.log(subcategoriaSelecionada);
     // Gerando o código
     const codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
       subcategoriaSelecionada +
