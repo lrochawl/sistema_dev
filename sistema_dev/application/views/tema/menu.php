@@ -51,7 +51,7 @@
                     </li>
                 <?php } ?>
                 <?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vCliente')) { ?>
-                    <li class="<?php if (isset($menuClientes)) {
+                    <li class="<?php if (isset($menuQrCode)) {
     echo 'active';
 }; ?>">
                         <a class="tip-bottom" title="" href="<?= site_url('QrCode') ?>"><i class='bx bx-qr-scan bx-flashing iconX'></i>
