@@ -579,6 +579,7 @@
     // Obtendo os elementos HTML
 const categoriaSelect = document.getElementById('tipoMarca');
 const subcategoriaSelect = document.getElementById('tipoMarca');
+const marcaSelect = document.getElementById('selectMarca');
 const descricaoInput = document.getElementById('descricao');
 const codigoInput = document.getElementById('codDeBarra');
 
@@ -592,6 +593,7 @@ function gerarCodigo() {
   // Gerando o código
   const codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
     subcategoriaSelecionada.slice(0, 3).toUpperCase() +
+    marcaSelecionada.slice(0, 3).toUpperCase() +
     descricao.slice(0, 3).toUpperCase();
 
   // Definindo o código gerado no campo de entrada
