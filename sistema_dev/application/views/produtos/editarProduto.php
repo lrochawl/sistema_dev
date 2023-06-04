@@ -297,7 +297,7 @@
                                 <span class="button__icon"><i class="bx bx-sync"></i></span><span class="button__text2">Atualizar</span></button>
                             <a href="<?php echo base_url() ?>index.php/produtos" id="" class="button btn btn-mini btn-warning">
                                 <span class="button__icon"><i class="bx bx-undo"></i></span><span class="button__text2">Voltar</span></a>
-                            <a href="#" id="botaoGerarCodigo" class="button btn btn-mini btn-secondary">
+                            <a href="#" id="botaoGerarCodigo" class="button btn btn-mini btn-info">
                                 <span class="button__icon"><i class="bx bx-barcode-reader"></i></span><span class="button__text2">Codigo Auto</span></a>
                         </div>
                     </div>
