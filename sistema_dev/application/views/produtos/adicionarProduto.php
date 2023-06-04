@@ -183,7 +183,7 @@
                             <button type="submit" id="editarProduto" class="button btn btn-mini btn-info" style="max-width: 160px; display: none;" disabled><span class="button__icon"><i class='bx bx-plus-circle'></i></span><span class="button__text2">Editar</span></button>
                             <a href="<?php echo base_url('index.php/produtos') ?>" id="voltar" class="button btn btn-mini btn-warning"><span class="button__icon"><i class="bx bx-undo"></i></span><span class="button__text2">Voltar</span></a>
                             <a href="#" id="botaoGerarCodigo" class="button btn btn-mini btn-info">
-                                <span class="button__icon"><i class="bx bx-barcode-reader"></i></span><span class="button__text2">Codigo Auto</span></a>
+                                <span class="button__icon"><i class="bx bx-barcode-reader"></i></span><span class="button__text2">Gerar codigo</span></a>
                         </div>
                     </div>
                 </div>
