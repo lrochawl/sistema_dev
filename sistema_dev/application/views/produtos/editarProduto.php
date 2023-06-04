@@ -597,7 +597,7 @@ $(document).ready(function() {
     const descricao = descricaoInput.val();
 
     // Gerando o código
-    const codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
+    let codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
       subcategoriaSelecionada +
       marcaSelecionada.slice(0, 3).toUpperCase() +
       descricao.slice(0, 3).toUpperCase();
