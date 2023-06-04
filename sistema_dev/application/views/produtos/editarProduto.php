@@ -600,4 +600,10 @@ $(document).ready(function() {
     codigoInput.val(codigo);
   }
 
+  // Atribuir evento de clique ao botão
+  $('#botaoGerarCodigo').click(function() {
+    gerarCodigo();
+  });
+});
+
 </script>
