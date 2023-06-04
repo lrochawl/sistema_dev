@@ -132,7 +132,7 @@
             </div>
         </div>
         </div>
-
+        <?php if ($dataCadastro || $dataUpdate): ?>
         <div class="accordion-group widget-box">
             <div class="accordion-heading">
                 <div class="widget-title">
@@ -165,6 +165,8 @@
                 </div>
             </div>
         </div>
+<?php endif ?>
+
     </div>
 </div>
 
