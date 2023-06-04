@@ -576,28 +576,28 @@
 </script>
 
 <script> //GERAR CODIGO AUTOMATICO
-    // Obtendo os elementos HTML
-const categoriaSelect = document.getElementById('tipoMarca');
-const subcategoriaSelect = document.getElementById('tipoMarca');
-const marcaSelect = document.getElementById('selectMarca');
-const descricaoInput = document.getElementById('descricao');
-const codigoInput = document.getElementById('codDeBarra');
+$(document).ready(function() {
+  const categoriaSelect = $('#tipoMarca');
+  const subcategoriaSelect = $('#tipoSubmarca');
+  const marcaSelect = $('#selectMarca');
+  const descricaoInput = $('#descricao');
+  const codigoInput = $('#codDeBarra');
 
+  // Função para gerar o código automático
+  function gerarCodigo() {
+    const categoriaSelecionada = categoriaSelect.val();
+    const subcategoriaSelecionada = subcategoriaSelect.val();
+    const marcaSelecionada = marcaSelect.val();
+    const descricao = descricaoInput.val();
 
-// Função para gerar o código automático
-function gerarCodigo() {
-  const categoriaSelecionada = categoriaSelect.textContent;
-  const subcategoriaSelecionada = subcategoriaSelect.value;
-  const marcaSelecionada = marcaSelect.textContent;
-  const descricao = descricaoInput.value;
+    // Gerando o código
+    const codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
+      subcategoriaSelecionada +
+      marcaSelecionada.slice(0, 3).toUpperCase() +
+      descricao.slice(0, 3).toUpperCase();
 
-  // Gerando o código
-  const codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
-    subcategoriaSelecionada +
-    marcaSelecionada.slice(0, 3).toUpperCase() +
-    descricao.slice(0, 3).toUpperCase();
+    // Definindo o código gerado no campo de entrada
+    codigoInput.val(codigo);
+  }
 
-  // Definindo o código gerado no campo de entrada
-  codigoInput.value = codigo;
-}
 </script>
