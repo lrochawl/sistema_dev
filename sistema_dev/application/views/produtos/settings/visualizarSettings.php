@@ -101,7 +101,7 @@
                             <tr>
                                 <td style="text-align: right"><strong>Categoria</strong></td>
                                 <td>
-                                    <?php echo $nome ?>
+                                    <?php //echo $nome ?>
                                 </td>
                             </tr>
                             
