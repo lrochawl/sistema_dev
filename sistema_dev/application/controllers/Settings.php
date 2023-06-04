@@ -40,7 +40,7 @@ class Settings extends MY_Controller
 
         $this->data['custom_error'] = '';
         $this->data['results'] = $this->setdb_model->getTabelaQ("estoque_".$this->data['id'] ."s", '*', '', '', '');
-        $titulo = $this->data['titlo'];
+        $titulo = $this->data['id'];
        
         
 
