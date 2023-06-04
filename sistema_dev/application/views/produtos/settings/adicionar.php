@@ -112,7 +112,7 @@
                                 </li>
                             <?php endif ?>
 
-                            <li class="bg_ls span12">
+                            <li class="bg_ls span12" style="margin-left: 0">
                                 <strong><?= ucfirst($config) ?></strong>
                                 <input type="text" alt="nome" name="nome" value="" required>
                             </li>
