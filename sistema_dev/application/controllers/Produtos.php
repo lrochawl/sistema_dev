@@ -146,8 +146,6 @@ class Produtos extends MY_Controller
         $this->data['resultAddCampo'] = $this->setdb_model->getTabelaQ('estoque_addCampos', '*', '', '', 'addCampo, asc');
         $this->data['resultLocations'] = $this->setdb_model->getTabelaQ('estoque_locations', '*', '', '', 'location, asc');
 
-        print_r($this->data['resultProdutos']);
-        exit();
 
         if ($this->form_validation->run('produtos') == false) {
             $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
@@ -224,6 +222,7 @@ class Produtos extends MY_Controller
         $this->medidasJoin   = $this->setquery_model->getJoin('medidas');
 
         $this->data['custom_error']     = '';
+        $this->data['resultProdutos'] = $this->setdb_model->getTabelaLastRow('estoque_produtos', '*', '', '', 'id_estoque_produto, asc');
         $this->data['resultAddCampo']   = $this->setdb_model->getTabelaQ('estoque_addCampos', '*', '', '', 'addCampo, asc');
         $this->data['resultLocations']  = $this->setdb_model->getTabelaQ('estoque_locations', '*', '', '', 'location, asc');
         $this->data['resultMarca']      = $this->setdb_model->getTabelaQ('estoque_marcas', '*', '', '', 'marca, asc');
