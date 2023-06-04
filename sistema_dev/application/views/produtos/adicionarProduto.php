@@ -23,13 +23,13 @@
                 <div class="widget-content nopadding tab-content" style="margin-bottom: 2%;">
                     <div class="span6">
                         <input onkeydown='handleEnter(event)' type="hidden" id="adNotaFiscal_id" name="adNotaFiscal_id" value="" />
-                        <input onkeydown='handleEnter(event)' type="hidden" id="produto_id" name="codDeBarra" value="" />
+                        <input onkeydown='handleEnter(event)' type="hidden" id="produto_id" name="codDeBarra" class="codDeBarra" value="" />
                         <input onkeydown='handleEnter(event)' type="hidden" id="imagemProduto" name="imagemProduto" value="" />
                         <div class="control-group">
                             <div class="control-group">
                                 <label for="codDeBarra" class="control-label">Código/Referência/GTIN<span class="required">*</span></label>
                                 <div class="controls">
-                                    <input required onkeydown='handleEnter(event)' autocomplete="off" name="codigo" id="codDeBarra" type="text" value="<?php echo set_value('codDeBarra'); ?>" />
+                                    <input required onkeydown='handleEnter(event)' autocomplete="off" name="codigo" id="codDeBarra" type="text" class="codDeBarra" value="<?php echo set_value('codDeBarra'); ?>" />
                                 </div>
                             </div>
                             <div class="control-group">
@@ -493,4 +493,47 @@
     function removeTodosCampos(){
         $('.campoAdd').remove();
     }
+</script>
+
+</script>
+
+<script> //GERAR CODIGO AUTOMATICO
+$(document).ready(function() {
+  const categoriaSelect = $('#tipoMarca');
+  const subcategoriaSelect = $('#tipoMarca');
+  const marcaSelect = $('#selectMarca');
+  const descricaoInput = $('#descricao');
+  const codigoInput = $('.codDeBarra');
+
+  function removerCaracteresEspeciais(texto) {
+    return texto.replace(/[^\w\s]/gi, '');
+  }
+
+  // Função para gerar o código automático
+  function gerarCodigo() {
+    const categoriaSelecionada = categoriaSelect.find(":selected").text();
+    const subcategoriaSelecionada = subcategoriaSelect.val();
+    const marcaSelecionada = marcaSelect.find(":selected").text();
+    const descricao = descricaoInput.val();
+
+    // Gerando o código
+    let codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
+      subcategoriaSelecionada +
+      marcaSelecionada.slice(0, 3).toUpperCase() +
+      descricao.slice(0, 3).toUpperCase();
+
+      // Removendo caracteres especiais do código
+    codigo = removerCaracteresEspeciais(codigo);
+
+    // Definindo o código gerado no campo de entrada
+    codigoInput.val(codigo);
+  }
+
+  // Atribuir evento de clique ao botão
+  $('#botaoGerarCodigo').click(function() {
+    gerarCodigo();
+  });
+});
+
+
 </script>
