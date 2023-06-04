@@ -580,7 +580,7 @@
 <script> //GERAR CODIGO AUTOMATICO
 $(document).ready(function() {
   const categoriaSelect = $('#tipoMarca');
-  const subcategoriaSelect = $('#tipoSubmarca');
+  const subcategoriaSelect = $('#tipoMarca');
   const marcaSelect = $('#selectMarca');
   const descricaoInput = $('#descricao');
   const codigoInput = $('#codDeBarra');
@@ -588,7 +588,7 @@ $(document).ready(function() {
   // Função para gerar o código automático
   function gerarCodigo() {
     const categoriaSelecionada = categoriaSelect.find(":selected").text();
-    const subcategoriaSelecionada = subcategoriaSelect.find(":selected").value();
+    const subcategoriaSelecionada = subcategoriaSelect.find(":selected").value;
     const marcaSelecionada = marcaSelect.find(":selected").text();
     const descricao = descricaoInput.val();
 console.log(subcategoriaSelecionada);
