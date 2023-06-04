@@ -45,7 +45,7 @@
                     <div class="span6">
                         <?php echo $custom_error; ?>
                         <input onkeydown='handleEnter(event)' type="hidden" id="adNotaFiscal_id" name="adNotaFiscal_id" value="<?php echo $result->id_financeiro_nota; ?>" />
-                        <input onkeydown='handleEnter(event)' type="hidden" id="produto_id" name="codDeBarra" value="<?php echo $result->codDeBarra; ?>" />
+                        <input onkeydown='handleEnter(event)' type="hidden" id="produto_id" name="codDeBarra" class="codDeBarra" value="<?php echo $result->codDeBarra; ?>" />
                         <input onkeydown='handleEnter(event)' type="hidden" name="id_estoque_produto" value="<?php echo $result->id_estoque_produto; ?>" />
                         <input onkeydown='handleEnter(event)' type="hidden" id="imagemProduto" name="imagemProduto" value="<?php echo $result->imagemProduto; ?>" />
 
@@ -54,7 +54,7 @@
                             <div class="control-group">
                                 <label for="codDeBarra" class="control-label">Código/Referência/GTIN<span class="required">*</span></label>
                                 <div class="controls">
-                                    <input onkeydown='handleEnter(event)' autocomplete="false" id="codDeBarra" type="text" required value="<?php echo $result->codDeBarra; ?>" />
+                                    <input onkeydown='handleEnter(event)' autocomplete="false" id="codDeBarra" type="text" class="codDeBarra" required value="<?php echo $result->codDeBarra; ?>" />
                                 </div>
                             </div>
 
@@ -583,7 +583,7 @@ $(document).ready(function() {
   const subcategoriaSelect = $('#tipoMarca');
   const marcaSelect = $('#selectMarca');
   const descricaoInput = $('#descricao');
-  const codigoInput = $('#codDeBarra');
+  const codigoInput = $('.codDeBarra');
 
   function removerCaracteresEspeciais(texto) {
     return texto.replace(/[^\w\s]/gi, '');
