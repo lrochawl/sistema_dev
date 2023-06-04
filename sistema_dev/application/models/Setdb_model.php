@@ -80,6 +80,23 @@ class Setdb_model extends CI_Model
         $result =  !$one  ? $query->result() : $query->row();
         return $result;
     }
+    public function getTabelaLastRow($table, $fields = '*', $where = '', $join = '', $order = '', $parametro = '', $perpage = 0, $start = 0, $one = false)
+    {
+
+
+        $this->db_empresa->select($fields);
+        $this->db_empresa->from($table);
+        $this->setJoinOut($join, $parametro);
+        $this->setWhere($where);
+        $this->setOrderBy($order);
+        $this->setPageLimit($perpage, $start);
+
+
+        $query = $this->db_empresa->get();
+
+        $result =  $query->row()->last_id;
+        return $result;
+    }
 
     public function add($table, $data, $returnId = false)
     {

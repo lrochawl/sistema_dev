@@ -139,7 +139,7 @@ class Produtos extends MY_Controller
 
         $this->load->library('form_validation');
         $this->data['custom_error'] = '';
-        $this->data['resultProdutos'] = $this->setdb_model->getTabelaQ('estoque_produtos', '*', '', '', 'id_estoque_produto, asc');
+        $this->data['resultProdutos'] = $this->setdb_model->getTabelaLastRow('estoque_produtos', '*', '', '', 'id_estoque_produto, asc');
         $this->data['resultMarca'] = $this->setdb_model->getTabelaQ('estoque_marcas', '*', '', '', 'marca, asc');
         $this->data['resultMedida'] = $this->setdb_model->getTabelaQ('estoque_medidas', '', '', $this->produtosJoin, 'siglaMedida,desc');
         $this->data['resultTipo'] = $this->setdb_model->getTabelaQ('estoque_tipo_produtos', '*', '', '', 'tipo_produto, asc');
