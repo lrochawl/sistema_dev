@@ -54,7 +54,7 @@
                             <div class="control-group">
                                 <label for="codDeBarra" class="control-label">Código/Referência/GTIN<span class="required">*</span></label>
                                 <div class="controls">
-                                    <input onkeydown='handleEnter(event)' onchange="gerarCodigo()" autocomplete="false" id="codDeBarra" type="text" required value="<?php echo $result->codDeBarra; ?>" />
+                                    <input onkeydown='handleEnter(event)' autocomplete="false" id="codDeBarra" type="text" required value="<?php echo $result->codDeBarra; ?>" />
                                 </div>
                             </div>
 
@@ -119,7 +119,7 @@
                             <label for="descricao" class="control-label">Descrição<span class="required">*</span></label>
                             <div class="controls">
 
-                                <input onkeydown='handleEnter(event)' id="descricao" type="text" required name="descricao" value="<?php echo $result->produtoDescricao; ?>" />
+                                <input onkeydown='handleEnter(event)' onchange="gerarCodigo()" id="descricao" type="text" required name="descricao" value="<?php echo $result->produtoDescricao; ?>" />
                             </div>
                         </div>
 
