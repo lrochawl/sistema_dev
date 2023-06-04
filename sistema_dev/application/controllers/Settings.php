@@ -40,7 +40,7 @@ class Settings extends MY_Controller
 
         $this->data['custom_error'] = '';
         $this->data['results'] = $this->setdb_model->getTabelaQ("estoque_".$this->data['id'] ."s", '*', '', '', '');
-        $titulo = $this->data['id'];
+        
        
         
 
@@ -55,10 +55,10 @@ class Settings extends MY_Controller
             }
 
             if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vProduto')) {
-                $v = '<a style="margin-right: 1%" href="' . site_url() . "settings/visualizar/".$titulo ."/" . $settings->{"id_estoque_".$this->data['id'] } . '" class="btn-nwe" title="Visualizar Setting"><i class="bx bx-show bx-xs"></i></a>  ';
+                $v = '<a style="margin-right: 1%" href="' . site_url() . "settings/visualizar/".$this->data['id'] ."/" . $settings->{"id_estoque_".$this->data['id'] } . '" class="btn-nwe" title="Visualizar Setting"><i class="bx bx-show bx-xs"></i></a>  ';
             }
             if ($this->permission->checkPermission($this->session->userdata('permissao'), 'eProduto')) {
-                $e = '<a style="margin-right: 1%" href="' . site_url() . "settings/editar/".$this->data['titulo'] ."/" . $settings->{"id_estoque_".$this->data['id']} . '" class="btn-nwe3" title="Editar Setting"><i class="bx bx-edit bx-xs"></i></a>';
+                $e = '<a style="margin-right: 1%" href="' . site_url() . "settings/editar/".$this->data['id'] ."/" . $settings->{"id_estoque_".$this->data['id']} . '" class="btn-nwe3" title="Editar Setting"><i class="bx bx-edit bx-xs"></i></a>';
             }
             if ($this->permission->checkPermission($this->session->userdata('permissao'), 'dProduto')) {
                 $d = '<a style="margin-right: 1%" href="#modal-excluir" role="button" data-toggle="modal" setting="' .$this->data['id']. '" idSetting="' . $settings->{"id_estoque_".$this->data['id']} . '" class="btn-nwe4" title="Excluir Setting"><i class="bx bx-trash-alt bx-xs"></i></a>';
