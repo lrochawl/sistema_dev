@@ -66,7 +66,7 @@
                             </td>
                         </tr>
                         <?php endif ?>
-                        <?= $config, $medidaSistema->medidaSistema  ?>
+                        
                     <?php if ($config == 'local') : ?>
                         <tr>
                             <td style="text-align: right; width: 30%"><strong>Localização</strong></td>
@@ -97,7 +97,21 @@
                                 </td>
                             </tr>
                         <?php endif ?>
-                    
+                        <?php if ($config == 'tipo_produto') : ?>
+                            <tr>
+                                <td style="text-align: right"><strong>Categoria</strong></td>
+                                <td>
+                                    <?php echo $nome ?>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align: right"><strong>Setor</strong></td>
+                                <td>
+                                    <?php echo $descricao ?>
+                                </td>
+                            </tr>
+                        <?php endif ?>
                         <?php if ($config == 'campo') : ?>
                             <tr>
                                 <td style="text-align: right"><strong>Campo</strong></td>
