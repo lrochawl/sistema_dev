@@ -34,10 +34,7 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <ul class="site-stats">
-                            <li class="bg_ls span12">
-                                <strong><?= ucfirst($config) ?>:</strong>
-                                <input type="text" alt="nome" name="nome" value="<?= $result->$id ?>" required>
-                            </li>
+                            
                             <?php if ($id == 'medida') : ?>
                                 <li class="bg_ls span12" style="margin-left: 0">
                                     <strong>Multiplicador</strong>
@@ -71,21 +68,7 @@
 
                             <?php if ($id == 'tipo_produto') : ?>
                                 
-                                <li class="bg_ls span12" style="margin-left: 0">
-                                    <strong>Categoria</strong>
-                                    <select name="categoria">
-                                        <?php 
-                                            foreach($categorias as $categoria){
-                                                if($categoria->id_estoque_categoria == $result->estoque_categoria_id){
-                                                    echo  "<option value='$categoria->id_estoque_categoria' selected>$categoria->categoria</option>";
-                                                }else{
-                                                    echo  "<option value='$categoria->id_estoque_categoria'>$categoria->categoria</option>";
-                                                }
-                                                
-                                            }
-                                        ?>
-                                    </select>
-                                </li>
+                                
                                 <li class="bg_ls span12" style="margin-left: 0">
                                     <strong>Setor</strong>
                                     <select name="sector">
@@ -95,6 +78,22 @@
                                                     echo  "<option value='$setor->id_estoque_sector' selected>$setor->sector</option>";
                                                 }else{
                                                     echo  "<option value='$setor->id_estoque_sector'>$setor->sector</option>";
+                                                }
+                                                
+                                            }
+                                        ?>
+                                    </select>
+                                </li>
+
+                                <li class="bg_ls span12" style="margin-left: 0">
+                                    <strong>Categoria</strong>
+                                    <select name="categoria">
+                                        <?php 
+                                            foreach($categorias as $categoria){
+                                                if($categoria->id_estoque_categoria == $result->estoque_categoria_id){
+                                                    echo  "<option value='$categoria->id_estoque_categoria' selected>$categoria->categoria</option>";
+                                                }else{
+                                                    echo  "<option value='$categoria->id_estoque_categoria'>$categoria->categoria</option>";
                                                 }
                                                 
                                             }
@@ -116,6 +115,11 @@
                                     </select>
                                 </li>
                             <?php endif ?>
+
+                            <li class="bg_ls span12" style="margin-left: 0">
+                                <strong><?= ucfirst($config) ?>:</strong>
+                                <input type="text" alt="nome" name="nome" value="<?= $result->$id ?>" required>
+                            </li>
                             <!-- <li class="bg_lg span12" style="margin-left: 0">
                                 <strong>URL Logo</strong>
                                 <input type="text" alt="URL Logo" name="urlLogo" id="urlLogo" value="<?= $urlLogo ?>" placeholder="http://urldaimagem" value="">
