@@ -255,7 +255,7 @@ class Settings extends MY_Controller
         }
 
         
-        $this->data['config'] = $this->data['titulo'];
+        $this->data['config'] = $this->data['id'];
         $this->data['view'] = 'produtos/settings/visualizarSettings';
         return $this->layout();
     }
