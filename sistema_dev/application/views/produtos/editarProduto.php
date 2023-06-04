@@ -585,7 +585,7 @@ const codigoInput = document.getElementById('codDeBarra');
 
 // Função para gerar o código automático
 function gerarCodigo() {
-  const categoriaSelecionada = categoriaSelect.text;
+  const categoriaSelecionada = categoriaSelect.textContent;
   const subcategoriaSelecionada = subcategoriaSelect.value;
   const descricao = descricaoInput.value;
 
