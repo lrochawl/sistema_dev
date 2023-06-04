@@ -597,6 +597,7 @@ $(document).ready(function() {
     const descricao = descricaoInput.val();
 
     // Gerando o código
+    if(categoriaSelecionada != null || subcategoriaSelecionada != null || marcaSelecionada != null || descricao  != null){
     let codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
       subcategoriaSelecionada +
       marcaSelecionada.slice(0, 3).toUpperCase() +
@@ -607,6 +608,9 @@ $(document).ready(function() {
 
     // Definindo o código gerado no campo de entrada
     codigoInput.val(codigo);
+  }else{
+    codigoInput.val(0);
+  }
   }
 
   // Atribuir evento de clique ao botão
