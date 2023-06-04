@@ -146,7 +146,7 @@ class Produtos extends MY_Controller
         $this->data['resultAddCampo'] = $this->setdb_model->getTabelaQ('estoque_addCampos', '*', '', '', 'addCampo, asc');
         $this->data['resultLocations'] = $this->setdb_model->getTabelaQ('estoque_locations', '*', '', '', 'location, asc');
 
-        print_r($this->data['resultProdutos']->num_rows());
+        print_r($this->data['resultProdutos']);
         exit();
 
         if ($this->form_validation->run('produtos') == false) {
