@@ -519,7 +519,7 @@ $(document).ready(function() {
     const descricao = descricaoInput.val();
 
     // Gerando o código
-    if(categoriaSelecionada != null || subcategoriaSelecionada != null || marcaSelecionada != null || descricao  != null){
+    if(categoriaSelecionada != null && subcategoriaSelecionada != null && marcaSelecionada != null && descricao  != null){
     let codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
       subcategoriaSelecionada +
       marcaSelecionada.slice(0, 3).toUpperCase() +
