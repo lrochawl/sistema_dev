@@ -54,7 +54,7 @@
                             <div class="control-group">
                                 <label for="codDeBarra" class="control-label">Código/Referência/GTIN<span class="required">*</span></label>
                                 <div class="controls">
-                                    <input onkeydown='handleEnter(event)' autocomplete="false" id="codDeBarra" type="text" required value="<?php echo $result->codDeBarra; ?>" />
+                                    <input onkeydown='handleEnter(event)' onchange="gerarCodigo()" autocomplete="false" id="codDeBarra" type="text" required value="<?php echo $result->codDeBarra; ?>" />
                                 </div>
                             </div>
 
@@ -316,7 +316,7 @@
             const index = [...form].indexOf(event.target);
             form.elements[index + 1].focus();
             // event.preventDefault();
-            gerarCodigo();
+         
         }
     }
 
