@@ -40,7 +40,7 @@ class Settings extends MY_Controller
 
         $this->data['custom_error'] = '';
         $this->data['results'] = $this->setdb_model->getTabelaQ("estoque_".$this->data['id'] ."s", '*', '', '', '');
-        print_r($this->data['id']);
+       
         
 
         foreach ($this->data['results'] as $settings) {
@@ -82,8 +82,9 @@ class Settings extends MY_Controller
         $settings = [
             'data' => $result
         ];
-
+       
         echo json_encode($settings);
+        print_r($this->data['id']);
     }
 
 
