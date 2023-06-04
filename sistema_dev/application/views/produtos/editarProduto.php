@@ -588,7 +588,7 @@ const codigoInput = document.getElementById('codDeBarra');
 function gerarCodigo() {
   const categoriaSelecionada = categoriaSelect.textContent;
   const subcategoriaSelecionada = subcategoriaSelect.value;
-  const marcaSelecionada = subcategoriaSelect.textContent;
+  const marcaSelecionada = marcaSelect.textContent;
   const descricao = descricaoInput.value;
 
   // Gerando o código
