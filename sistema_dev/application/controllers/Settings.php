@@ -40,6 +40,7 @@ class Settings extends MY_Controller
 
         $this->data['custom_error'] = '';
         $this->data['results'] = $this->setdb_model->getTabelaQ("estoque_".$this->data['id'] ."s", '*', '', '', '');
+        $titulo = $this->data['titlo'];
        
         
 
@@ -54,7 +55,7 @@ class Settings extends MY_Controller
             }
 
             if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vProduto')) {
-                $v = '<a style="margin-right: 1%" href="' . site_url() . "settings/visualizar/".$this->data['titlo'] ."/" . $settings->{"id_estoque_".$this->data['id'] } . '" class="btn-nwe" title="Visualizar Setting"><i class="bx bx-show bx-xs"></i></a>  ';
+                $v = '<a style="margin-right: 1%" href="' . site_url() . "settings/visualizar/".$titulo ."/" . $settings->{"id_estoque_".$this->data['id'] } . '" class="btn-nwe" title="Visualizar Setting"><i class="bx bx-show bx-xs"></i></a>  ';
             }
             if ($this->permission->checkPermission($this->session->userdata('permissao'), 'eProduto')) {
                 $e = '<a style="margin-right: 1%" href="' . site_url() . "settings/editar/".$this->data['titulo'] ."/" . $settings->{"id_estoque_".$this->data['id']} . '" class="btn-nwe3" title="Editar Setting"><i class="bx bx-edit bx-xs"></i></a>';
@@ -84,7 +85,7 @@ class Settings extends MY_Controller
         ];
        
         echo json_encode($settings);
-        print_r($this->data['id']);
+       
     }
 
 
