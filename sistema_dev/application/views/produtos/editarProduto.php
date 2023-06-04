@@ -587,9 +587,9 @@ $(document).ready(function() {
 
   // Função para gerar o código automático
   function gerarCodigo() {
-    const categoriaSelecionada = categoriaSelect.val();
+    const categoriaSelecionada = categoriaSelect.text();
     const subcategoriaSelecionada = subcategoriaSelect.val();
-    const marcaSelecionada = marcaSelect.val();
+    const marcaSelecionada = marcaSelect.text();
     const descricao = descricaoInput.val();
 
     // Gerando o código
