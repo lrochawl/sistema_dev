@@ -585,18 +585,25 @@ $(document).ready(function() {
   const descricaoInput = $('#descricao');
   const codigoInput = $('#codDeBarra');
 
+  function removerCaracteresEspeciais(texto) {
+    return texto.replace(/[^\w\s]/gi, '');
+  }
+
   // Função para gerar o código automático
   function gerarCodigo() {
     const categoriaSelecionada = categoriaSelect.find(":selected").text();
     const subcategoriaSelecionada = subcategoriaSelect.val();
     const marcaSelecionada = marcaSelect.find(":selected").text();
     const descricao = descricaoInput.val();
-console.log(subcategoriaSelecionada);
+
     // Gerando o código
     const codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
       subcategoriaSelecionada +
       marcaSelecionada.slice(0, 3).toUpperCase() +
       descricao.slice(0, 3).toUpperCase();
+
+      // Removendo caracteres especiais do código
+    codigo = removerCaracteresEspeciais(codigo);
 
     // Definindo o código gerado no campo de entrada
     codigoInput.val(codigo);
