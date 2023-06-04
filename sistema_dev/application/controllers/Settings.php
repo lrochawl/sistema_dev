@@ -55,7 +55,7 @@ class Settings extends MY_Controller
             }
 
             if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vProduto')) {
-                $v = '<a style="margin-right: 1%" href="' . site_url() . "settings/visualizar/".$this->data['titulo'] ."/" . $settings->{"id_estoque_".$this->data['id'] } . '" class="btn-nwe" title="Visualizar Setting"><i class="bx bx-show bx-xs"></i></a>  ';
+                $v = '<a style="margin-right: 1%" href="' . site_url() . "settings/visualizar/".$this->data['titulo'] . "/" . $settings->{"id_estoque_".$this->data['id'] } . '" class="btn-nwe" title="Visualizar Setting"><i class="bx bx-show bx-xs"></i></a>  ';
             }
             if ($this->permission->checkPermission($this->session->userdata('permissao'), 'eProduto')) {
                 $e = '<a style="margin-right: 1%" href="' . site_url() . "settings/editar/".$this->data['titulo'] ."/" . $settings->{"id_estoque_".$this->data['id']} . '" class="btn-nwe3" title="Editar Setting"><i class="bx bx-edit bx-xs"></i></a>';
@@ -231,8 +231,8 @@ class Settings extends MY_Controller
         }
 
         $this->getLinkReturnData($id); //RETORNA DADOS DE TITULO E BANCO DE DADOS A PARTIR DO ID DO MODAL
-
-        $this->data['result'] = $this->setdb_model->getTabelaQID("estoque_$id" . "s", '*', "id_estoque_$id=" . $this->uri->segment(4));
+        $titulo = $this->data['titulo'];
+        $this->data['result'] = $this->setdb_model->getTabelaQID("estoque_$titulo" . "s", '*', "id_estoque_$titulo=" . $this->uri->segment(4));
         log_info($this->data['titulo'].' vizualizado id: '.$this->uri->segment(4));
 
         $a = "$id";
