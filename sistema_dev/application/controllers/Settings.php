@@ -41,7 +41,7 @@ class Settings extends MY_Controller
         $this->data['custom_error'] = '';
         $this->data['results'] = $this->setdb_model->getTabelaQ("estoque_".$this->data['id'] ."s", '*', '', '', '');
         print_r($this->data['id']);
-        exit();
+        
 
         foreach ($this->data['results'] as $settings) {
             $idUrl = 'urlLogo' . ucfirst($this->data['id']);
