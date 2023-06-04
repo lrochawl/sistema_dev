@@ -33,10 +33,7 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <ul class="site-stats">
-                            <li class="bg_ls span12">
-                                <strong><?= ucfirst($config) ?></strong>
-                                <input type="text" alt="nome" name="nome" value="" required>
-                            </li>
+                            
 
                             <?php if ($id == 'medida') : ?>
                                 <li class="bg_ls span12" style="margin-left: 0">
@@ -71,20 +68,7 @@
 
                             <?php if ($id == 'tipo_produto') : ?>
                                 
-                                <li class="bg_ls span12" style="margin-left: 0">
-                                    <strong>Categoria</strong>
-                                    <select name="categoria">
-                                        <?php 
-                                        if (!$categorias or $categorias == '' or $categorias == null) {
-                                            echo '<option disabled selected>Não há categorias cadastradas</option>';
-                                        }
-                                            foreach($categorias as $categoria){
-                                               
-                                                    echo  "<option value='$categoria->id_estoque_categoria'>$categoria->categoria</option>";                                                
-                                            }
-                                        ?>
-                                    </select>
-                                </li>
+                                
                                 <li class="bg_ls span12" style="margin-left: 0">
                                     <strong>Setor</strong>
                                     <select name="sector">
@@ -95,6 +79,20 @@
                                             foreach($setores as $setor){
                                                 
                                                     echo  "<option value='$setor->id_estoque_sector'>$setor->sector</option>";
+                                            }
+                                        ?>
+                                    </select>
+                                </li>
+                                <li class="bg_ls span12" style="margin-left: 0">
+                                    <strong>Categoria</strong>
+                                    <select name="categoria">
+                                        <?php 
+                                        if (!$categorias or $categorias == '' or $categorias == null) {
+                                            echo '<option disabled selected>Não há categorias cadastradas</option>';
+                                        }
+                                            foreach($categorias as $categoria){
+                                               
+                                                    echo  "<option value='$categoria->id_estoque_categoria'>$categoria->categoria</option>";                                                
                                             }
                                         ?>
                                     </select>
@@ -114,6 +112,10 @@
                                 </li>
                             <?php endif ?>
 
+                            <li class="bg_ls span12">
+                                <strong><?= ucfirst($config) ?></strong>
+                                <input type="text" alt="nome" name="nome" value="" required>
+                            </li>
                             <!-- <li class="bg_lg span12" style="margin-left: 0">
                                 <strong>URL Logo:</strong>
                                 <input type="text" alt="URL Logo" name="urlLogo" placeholder="http://urldaimagem" value="">
