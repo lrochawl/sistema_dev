@@ -35,7 +35,7 @@
                         <li class="active" id="tDetalhes"><a href="#tabMarca" data-toggle="tab">Marcas</a></li>
                         <li id="tSetores"><a href="#tabSector" data-toggle="tab">Setores</a></li>
                         <li id="tCategorias"><a href="#tabCategoria" data-toggle="tab">Categorioas</a></li>
-                        <li id="tGrupo"><a href="#tabTipo_produto" data-toggle="tab">Grupos</a></li>
+                        <li id="tGrupo"><a href="#tabTipoProduto" data-toggle="tab">Grupos</a></li>
                         <li id="tMedidas"><a href="#tabMedida" data-toggle="tab">Medidas</a></li>
                         <li id="tLocais"><a href="#tabLocation" data-toggle="tab">Locais</a></li>
                         <li id="tCampos"><a href="#tabAddCampo" data-toggle="tab">Campos adicionais</a></li>
@@ -307,14 +307,14 @@
                             </div>
 
                         </div>
-                        <div class="tab-pane" id="tabTipo_produto">
+                        <div class="tab-pane" id="tabTipoProduto">
                             <div class="span12 well" id="divEditarTipoProduto">
 
                                 <div class="widget-box">
 
                                     <div class="flexxn tituloDataTableMargin">
                                         <?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'aProduto')) { ?>
-                                            <a href="<?php echo base_url(); ?>settings/adicionar/grupo" class="button btn btn-mini btn-success" style="max-width: 160px">
+                                            <a href="<?php echo base_url('settings/adicionar/grupo'); ?>" class="button btn btn-mini btn-success" style="max-width: 160px">
                                                 <span class="button__icon"><i class='bx bx-plus-circle'></i></span><span class="button__text2">Add. Grupo</span>
                                             </a>
 
