@@ -94,7 +94,7 @@ class Setdb_model extends CI_Model
 
         $query = $this->db_empresa->get();
 
-        $result =  $query->row();
+        $result =  $query->num_rows();
         return $result;
     }
 
