@@ -139,11 +139,15 @@ class Produtos extends MY_Controller
 
         $this->load->library('form_validation');
         $this->data['custom_error'] = '';
+        $this->data['resultProdutos'] = $this->setdb_model->getTabelaQ('estoque_produtos', '*', '', '', 'id_estoque_produto, asc');
         $this->data['resultMarca'] = $this->setdb_model->getTabelaQ('estoque_marcas', '*', '', '', 'marca, asc');
         $this->data['resultMedida'] = $this->setdb_model->getTabelaQ('estoque_medidas', '', '', $this->produtosJoin, 'siglaMedida,desc');
         $this->data['resultTipo'] = $this->setdb_model->getTabelaQ('estoque_tipo_produtos', '*', '', '', 'tipo_produto, asc');
         $this->data['resultAddCampo'] = $this->setdb_model->getTabelaQ('estoque_addCampos', '*', '', '', 'addCampo, asc');
         $this->data['resultLocations'] = $this->setdb_model->getTabelaQ('estoque_locations', '*', '', '', 'location, asc');
+
+        print_r($this->data['resultProdutos']->rows());
+        exit();
 
         if ($this->form_validation->run('produtos') == false) {
             $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
