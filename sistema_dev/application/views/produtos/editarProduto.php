@@ -573,3 +573,27 @@
 
    
 </script>
+
+<script> //GERAR CODIGO AUTOMATICO
+    // Obtendo os elementos HTML
+const categoriaSelect = document.getElementById('tipoMarca');
+const subcategoriaSelect = document.getElementById('tipoMarca');
+const descricaoInput = document.getElementById('descricao');
+const codigoInput = document.getElementById('codDeBarra');
+
+
+// Função para gerar o código automático
+function gerarCodigo() {
+  const categoriaSelecionada = categoriaSelect.value;
+  const subcategoriaSelecionada = subcategoriaSelect.value;
+  const descricao = descricaoInput.value;
+
+  // Gerando o código
+  const codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
+    subcategoriaSelecionada.slice(0, 3).toUpperCase() +
+    descricao.slice(0, 3).toUpperCase();
+
+  // Definindo o código gerado no campo de entrada
+  codigoInput.value = codigo;
+}
+</script>
