@@ -25,6 +25,7 @@
                         <input onkeydown='handleEnter(event)' type="hidden" id="adNotaFiscal_id" name="adNotaFiscal_id" value="" />
                         <input onkeydown='handleEnter(event)' type="hidden" id="produto_id" name="codDeBarra" class="codDeBarra" value="" />
                         <input onkeydown='handleEnter(event)' type="hidden" id="imagemProduto" name="imagemProduto" value="" />
+                        <input onkeydown='handleEnter(event)' type="hidden" id="lastID" name="lastID" value="<?php echo $resultProdutos; ?>" />
                         <div class="control-group">
                             <div class="control-group">
                                 <label for="codDeBarra" class="control-label">Código/Referência/GTIN<span class="required">*</span></label>
@@ -518,7 +519,7 @@ $(document).ready(function() {
     const subcategoriaSelecionada = subcategoriaSelect.val();
     const marcaSelecionada = marcaSelect.find(":selected").text();
     const descricao = descricaoInput.val();
-    const lastID = lastId.val() + 1;
+    const lastID = lastId.val();
 
     // Gerando o código
     if(categoriaSelecionada != null && subcategoriaSelecionada != null && marcaSelecionada != null && descricao  != null){

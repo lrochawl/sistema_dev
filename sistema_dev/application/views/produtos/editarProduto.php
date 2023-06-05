@@ -586,7 +586,7 @@ $(document).ready(function() {
   const descricaoInput = $('#descricao');
   const codigoInput = $('.codDeBarra');
   const lastId = $('#lastID');
-  console.log($('#lastID').val());
+
   function removerCaracteresEspeciais(texto) {
     return texto.replace(/[^\w\s]/gi, '');
   }
@@ -605,7 +605,7 @@ $(document).ready(function() {
       subcategoriaSelecionada +
       marcaSelecionada.slice(0, 3).toUpperCase() +
       descricao.slice(0, 3).toUpperCase()+
-      (lastID+1);
+      lastID;
 
       // Removendo caracteres especiais do código
     codigo = removerCaracteresEspeciais(codigo);
