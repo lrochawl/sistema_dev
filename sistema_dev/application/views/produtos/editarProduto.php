@@ -48,7 +48,7 @@
                         <input onkeydown='handleEnter(event)' type="hidden" id="produto_id" name="codDeBarra" class="codDeBarra" value="<?php echo $result->codDeBarra; ?>" />
                         <input onkeydown='handleEnter(event)' type="hidden" name="id_estoque_produto" value="<?php echo $result->id_estoque_produto; ?>" />
                         <input onkeydown='handleEnter(event)' type="hidden" id="imagemProduto" name="imagemProduto" value="<?php echo $result->imagemProduto; ?>" />
-                        <input onkeydown='handleEnter(event)' type="hidden" id="lastId" name="lastID" value="<?php echo $resultProdutos; ?>" />
+                        <input onkeydown='handleEnter(event)' type="hidden" id="lastID" name="lastID" value="<?php echo $resultProdutos; ?>" />
 
                         <div class="control-group">
 
