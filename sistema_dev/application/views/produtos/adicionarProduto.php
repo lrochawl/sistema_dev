@@ -505,7 +505,7 @@ $(document).ready(function() {
   const categoriaSelect = $('#tipoMarca');
   const subcategoriaSelect = $('#tipoMarca');
   const marcaSelect = $('#selectMarca');
-  const descricaoInput = $('#descricao');
+ // const descricaoInput = $('#descricao');
   const codigoInput = $('.codDeBarra');
   const lastId = $('#lastID');
 
@@ -518,7 +518,7 @@ $(document).ready(function() {
     const categoriaSelecionada = categoriaSelect.find(":selected").text();
     const subcategoriaSelecionada = subcategoriaSelect.val();
     const marcaSelecionada = marcaSelect.find(":selected").text();
-    const descricao = descricaoInput.val();
+  //  const descricao = descricaoInput.val();
     const lastID = lastId.val();
 
     // Gerando o código
@@ -526,7 +526,7 @@ $(document).ready(function() {
     let codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
       subcategoriaSelecionada +
       marcaSelecionada.slice(0, 3).toUpperCase() +
-      descricao.slice(0, 3).toUpperCase()+
+      //descricao.slice(0, 3).toUpperCase()+
       lastID;
 
       // Removendo caracteres especiais do código
