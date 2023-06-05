@@ -586,7 +586,7 @@ $(document).ready(function() {
   const descricaoInput = $('#descricao');
   const codigoInput = $('.codDeBarra');
   const lastId = $('#lastID');
-
+  console.log(lastId.val());
   function removerCaracteresEspeciais(texto) {
     return texto.replace(/[^\w\s]/gi, '');
   }
@@ -598,7 +598,7 @@ $(document).ready(function() {
     const marcaSelecionada = marcaSelect.find(":selected").text();
     const descricao = descricaoInput.val();
     const lastID = lastId.val();
-console.log(lastId.val());
+
     // Gerando o código
     if(categoriaSelecionada != null && subcategoriaSelecionada != null && marcaSelecionada != null && descricao  != null){
     let codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
