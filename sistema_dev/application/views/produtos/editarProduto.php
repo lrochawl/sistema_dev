@@ -586,7 +586,7 @@ $(document).ready(function() {
   const descricaoInput = $('#descricao');
   const codigoInput = $('.codDeBarra');
   const lastId = $('#lastID');
-  console.log(lastId.val());
+  console.log($('#lastID').val());
   function removerCaracteresEspeciais(texto) {
     return texto.replace(/[^\w\s]/gi, '');
   }
