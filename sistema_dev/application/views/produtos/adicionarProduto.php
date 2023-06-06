@@ -28,7 +28,7 @@
                         <input onkeydown='handleEnter(event)' type="hidden" id="lastID" name="lastID" value="<?php echo $resultProdutos; ?>" />
                         <div class="control-group">
                             <div class="control-group">
-                                <label for="codDeBarra" class="control-label">Código/Referência/GTIN<span class="required">*</span></label>
+                                <label for="codDeBarra" class="control-label">Código interno/GTIN<span class="required">*</span></label>
                                 <div class="controls">
                                     <input required onkeydown='handleEnter(event)' autocomplete="off" name="codigo" id="codDeBarra" type="text" class="codDeBarra" value="<?php echo set_value('codDeBarra'); ?>" />
                                 </div>
