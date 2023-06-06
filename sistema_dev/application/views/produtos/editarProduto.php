@@ -53,7 +53,7 @@
                         <div class="control-group">
 
                             <div class="control-group">
-                                <label for="codDeBarra" class="control-label">Código/Referência/GTIN<span class="required">*</span></label>
+                                <label for="codDeBarra" class="control-label">Código interno/GTIN<span class="required">*</span></label>
                                 <div class="controls">
                                     <input onkeydown='handleEnter(event)' autocomplete="false" id="codDeBarra" type="text" class="codDeBarra" required value="<?php echo $result->codDeBarra; ?>" />
                                 </div>
