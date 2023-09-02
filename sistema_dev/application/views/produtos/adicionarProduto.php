@@ -533,7 +533,7 @@
 </script>
 
 <script>
-    // GERAR CODIGO AUTOMATICO
+    //GERAR CODIGO AUTOMATICO
     $(document).ready(function() {
         const categoriaSelect = $('#tipoMarca');
         const subcategoriaSelect = $('#tipoMarca');
@@ -576,11 +576,5 @@
         $('#botaoGerarCodigo').click(function() {
             gerarCodigo();
         });
-
-        // Atribuir evento de mudança aos elementos relevantes
-        categoriaSelect.change(gerarCodigo);
-        subcategoriaSelect.change(gerarCodigo);
-        marcaSelect.change(gerarCodigo);
-        // descricaoInput.change(gerarCodigo); // Descomente esta linha se também desejar ouvir mudanças na descrição
     });
 </script>
