@@ -537,8 +537,8 @@ $(document).ready(function() {
   const marcaSelect = $('#selectMarca');
  // const descricaoInput = $('#descricao');
   const codigoInput = $('.codDeBarra');
-  const lastId = $('#lastID');
-  const lastID2 = lastId.val();
+  const lastId = $('#lastID').val();
+  
   function removerCaracteresEspeciais(texto) {
     return texto.replace(/[^\w\s]/gi, '');
   }
