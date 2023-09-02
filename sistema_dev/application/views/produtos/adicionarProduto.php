@@ -1,3 +1,21 @@
+<style>
+    /* Estilos para o grupo de entrada */
+    .input-group {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Estilos para o campo de entrada */
+    .form-control {
+        flex: 1;
+        border-radius: 0;
+    }
+
+    /* Estilos para o botão */
+    .btn {
+        border-radius: 0;
+    }
+</style>
 <link rel="stylesheet" href="<?php echo base_url('assets/js/jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.css'); ?>" />
 <link rel="stylesheet" href="<?php echo base_url('assets/css/controllers/adcionarProduto.css'); ?>" />
 <script type="text/javascript" src="<?php echo base_url('assets/js/jquery-ui/js/jquery-ui-1.9.2.custom.js') ?>"></script>
@@ -30,7 +48,10 @@
                             <div class="control-group">
                                 <label for="codDeBarra" class="control-label">Código interno/GTIN<span class="required">*</span></label>
                                 <div class="controls">
-                                    <input required onkeydown='handleEnter(event)' autocomplete="off" name="codigo" id="codDeBarra" type="text" class="codDeBarra" value="<?php echo set_value('codDeBarra'); ?>" />
+                                    <input required onkeydown='handleEnter(event)' class="form-control" autocomplete="off" name="codigo" id="codDeBarra" type="text" class="codDeBarra" value="<?php echo set_value('codDeBarra'); ?>" />
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button">Botão</button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="control-group">
@@ -137,7 +158,7 @@
                         <div class="control-group" id="divAddCampo">
                             <label for="addCampo" class="control-label">Adicionar campo<span class="required">*</span></label>
                             <div class="controls">
-                                <select required onkeydown='handleEnter(event)' onchange="btAddCampo()"  title="Adicionar campo" name="addCampo" id="addCampo" value="<?php echo set_value('addCampo'); ?>">
+                                <select required onkeydown='handleEnter(event)' onchange="btAddCampo()" title="Adicionar campo" name="addCampo" id="addCampo" value="<?php echo set_value('addCampo'); ?>">
                                     <?php if ($resultAddCampo) {
                                         echo  '<option value="0" disabled selected>Tipo de observação</option>';
                                         foreach ($resultAddCampo as $r) {
@@ -189,7 +210,7 @@
                     </div>
                 </div>
             </form>
-        </div> 
+        </div>
     </div>
 </div>
 </div>
@@ -266,7 +287,7 @@
                 $('#codDeBarra').css("font-weight", 700);
                 $('#imgLogo').remove();
                 $('.addCampo').remove();
-               
+
                 if (ui.item.id != null) {
                     $("#editarProduto").show();
                     $('#adcionarProduto').text('Duplicar');
@@ -340,6 +361,7 @@
                 }
             }
         });
+
         function buscaProdutos() {
             let v;
             v = barCode.value;
@@ -393,7 +415,7 @@
                             } catch (err) {
                                 //image.src = 'https://sistema.wltopos.com/assets/img/sem_logo.png';
                                 // imgLogo.appendChild(image).setAttribute("id", "imgLogo");
-                                $('#imagemProduto').val( base_url('assets/img/sem_logo.png'));
+                                $('#imagemProduto').val(base_url('assets/img/sem_logo.png'));
                                 updateThumb(base_url('assets/img/sem_logo.png'));
                             }
                         }
@@ -424,6 +446,7 @@
 
         }
     })
+
     function updateThumb(file) {
         if ($(".drop-zone__thumb") && typeof file == "string") {
             $("#zone__prompt").removeClass("drop-zone__prompt");
@@ -481,6 +504,7 @@
                                         <i class='fa fa-minus'></i></button></div></div>`);
         }
     });
+
     function btAddCampo() {
         let opt = $('#addCampo option:selected').val();
 
@@ -493,57 +517,56 @@
         $(campo).remove();
     }
 
-    function removeTodosCampos(){
+    function removeTodosCampos() {
         $('.campoAdd').remove();
     }
 </script>
 
 </script>
 
-<script> //GERAR CODIGO AUTOMATICO
-$(document).ready(function() {
-  const categoriaSelect = $('#tipoMarca');
-  const subcategoriaSelect = $('#tipoMarca');
-  const marcaSelect = $('#selectMarca');
- // const descricaoInput = $('#descricao');
-  const codigoInput = $('.codDeBarra');
-  const lastId = $('#lastID');
+<script>
+    //GERAR CODIGO AUTOMATICO
+    $(document).ready(function() {
+        const categoriaSelect = $('#tipoMarca');
+        const subcategoriaSelect = $('#tipoMarca');
+        const marcaSelect = $('#selectMarca');
+        // const descricaoInput = $('#descricao');
+        const codigoInput = $('.codDeBarra');
+        const lastId = $('#lastID');
 
-  function removerCaracteresEspeciais(texto) {
-    return texto.replace(/[^\w\s]/gi, '');
-  }
+        function removerCaracteresEspeciais(texto) {
+            return texto.replace(/[^\w\s]/gi, '');
+        }
 
-  // Função para gerar o código automático
-  function gerarCodigo() {
-    const categoriaSelecionada = categoriaSelect.find(":selected").text();
-    const subcategoriaSelecionada = subcategoriaSelect.val();
-    const marcaSelecionada = marcaSelect.find(":selected").text();
-  //  const descricao = descricaoInput.val();
-    let lastIDadd = lastId.val()+1;
+        // Função para gerar o código automático
+        function gerarCodigo() {
+            const categoriaSelecionada = categoriaSelect.find(":selected").text();
+            const subcategoriaSelecionada = subcategoriaSelect.val();
+            const marcaSelecionada = marcaSelect.find(":selected").text();
+            //  const descricao = descricaoInput.val();
+            let lastIDadd = lastId.val() + 1;
 
-    // Gerando o código
-    if(categoriaSelecionada != null && subcategoriaSelecionada != null && marcaSelecionada != null && descricao  != null){
-    let codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
-      subcategoriaSelecionada +
-      marcaSelecionada.slice(0, 3).toUpperCase() +
-      //descricao.slice(0, 3).toUpperCase()+
-      lastIDadd;
+            // Gerando o código
+            if (categoriaSelecionada != null && subcategoriaSelecionada != null && marcaSelecionada != null && descricao != null) {
+                let codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
+                    subcategoriaSelecionada +
+                    marcaSelecionada.slice(0, 3).toUpperCase() +
+                    //descricao.slice(0, 3).toUpperCase()+
+                    lastIDadd;
 
-      // Removendo caracteres especiais do código
-    codigo = removerCaracteresEspeciais(codigo);
+                // Removendo caracteres especiais do código
+                codigo = removerCaracteresEspeciais(codigo);
 
-    // Definindo o código gerado no campo de entrada
-    codigoInput.val(codigo);
-  }else{
-    codigoInput.val(0);
-  }
-  }
+                // Definindo o código gerado no campo de entrada
+                codigoInput.val(codigo);
+            } else {
+                codigoInput.val(0);
+            }
+        }
 
-  // Atribuir evento de clique ao botão
-  $('#botaoGerarCodigo').click(function() {
-    gerarCodigo();
-  });
-});
-
-
+        // Atribuir evento de clique ao botão
+        $('#botaoGerarCodigo').click(function() {
+            gerarCodigo();
+        });
+    });
 </script>
