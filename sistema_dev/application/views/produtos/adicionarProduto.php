@@ -519,7 +519,7 @@ $(document).ready(function() {
     const subcategoriaSelecionada = subcategoriaSelect.val();
     const marcaSelecionada = marcaSelect.find(":selected").text();
   //  const descricao = descricaoInput.val();
-    let lastID = lastId.val()+1;
+    let lastIDadd = lastId.val()+1;
 
     // Gerando o código
     if(categoriaSelecionada != null && subcategoriaSelecionada != null && marcaSelecionada != null && descricao  != null){
@@ -527,7 +527,7 @@ $(document).ready(function() {
       subcategoriaSelecionada +
       marcaSelecionada.slice(0, 3).toUpperCase() +
       //descricao.slice(0, 3).toUpperCase()+
-      lastID;
+      lastIDadd;
 
       // Removendo caracteres especiais do código
     codigo = removerCaracteresEspeciais(codigo);
