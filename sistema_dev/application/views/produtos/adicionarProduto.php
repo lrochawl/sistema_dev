@@ -58,7 +58,7 @@
                                 <label for="codDeBarra" class="control-label">Código interno/GTIN<span class="required">*</span></label>
                                 <div class="controls input-group">
                                     <input required onkeydown='handleEnter(event)' class="form-control-btn" autocomplete="off" name="codigo" id="codDeBarra" type="text" class="codDeBarra" value="<?php echo set_value('codDeBarra'); ?>" />
-                                    <button class="btn btn-primary" type="button"><a href="#" id="botaoGerarCodigo"><i class="bx bx-refresh"></i></a></button>
+                                    <button class="btn btn-primary" type="button"><a href="#" class_uses="botaoGerarCodigo"><i class="bx bx-refresh"></i></a></button>
 
                                 </div>
                             </div>
@@ -212,7 +212,7 @@
                             <button type="submit" class="button btn btn-mini btn-success" style="max-width: 160px"><span class="button__icon"><i class='bx bx-plus-circle'></i></span><span class="button__text2" id="adcionarProduto">Adicionar</span></button>
                             <button type="submit" id="editarProduto" class="button btn btn-mini btn-info" style="max-width: 160px; display: none;" disabled><span class="button__icon"><i class='bx bx-plus-circle'></i></span><span class="button__text2">Editar</span></button>
                             <a href="<?php echo base_url('index.php/produtos') ?>" id="voltar" class="button btn btn-mini btn-warning"><span class="button__icon"><i class="bx bx-undo"></i></span><span class="button__text2">Voltar</span></a>
-                            <a href="#" id="botaoGerarCodigo" class="button btn btn-mini btn-info">
+                            <a href="#" class="botaoGerarCodigo" class="button btn btn-mini btn-info">
                                 <span class="button__icon"><i class="bx bx-barcode-reader"></i></span><span class="button__text2">Gerar codigo</span></a>
                         </div>
                     </div>
