@@ -536,7 +536,7 @@ $(document).ready(function() {
   const subcategoriaSelect = $('#tipoMarca');
   const marcaSelect = $('#selectMarca');
  // const descricaoInput = $('#descricao');
-  const codigoInput = $('.codDeBarra');
+  const codigoInput = $('#codDeBarra');
   let lastId = $('#lastID').val();
   console.log(lastId);
   function removerCaracteresEspeciais(texto) {
