@@ -18,7 +18,7 @@
     .btn {
         border-radius: 0;
     }
-    .bx bx-refresh{
+    i.bx.bx-refresh{
         font-size: 16px;
     }
 </style>
