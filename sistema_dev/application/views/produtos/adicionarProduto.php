@@ -18,6 +18,9 @@
     .btn {
         border-radius: 0;
     }
+    .bx bx-refresh{
+        font-size: 16px;
+    }
 </style>
 <link rel="stylesheet" href="<?php echo base_url('assets/js/jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.css'); ?>" />
 <link rel="stylesheet" href="<?php echo base_url('assets/css/controllers/adcionarProduto.css'); ?>" />
