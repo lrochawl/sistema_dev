@@ -540,7 +540,7 @@
         const marcaSelect = $('#selectMarca');
         // const descricaoInput = $('#descricao');
         const codigoInput = $('.codDeBarra');
-        const lastId = $('#lastID');
+        let lastId = $('#lastID');
 
         function removerCaracteresEspeciais(texto) {
             return texto.replace(/[^\w\s]/gi, '');
