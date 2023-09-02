@@ -530,50 +530,51 @@
     }
 </script>
 
-<script> //GERAR CODIGO AUTOMATICO
-$(document).ready(function() {
-  const categoriaSelect = $('#tipoMarca');
-  const subcategoriaSelect = $('#tipoMarca');
-  const marcaSelect = $('#selectMarca');
- // const descricaoInput = $('#descricao');
-  const codigoInput = $('.codDeBarra');
-  let lastId = $('#lastID').val();
-  console.log(lastId);
-  function removerCaracteresEspeciais(texto) {
-    return texto.replace(/[^\w\s]/gi, '');
-  }
+<script>
+    // GERAR CÓDIGO AUTOMÁTICO
+    $(document).ready(function() {
+        const categoriaSelect = $('#tipoMarca');
+        const subcategoriaSelect = $('#tipoMarca');
+        const marcaSelect = $('#selectMarca');
+        const codigoInput = $('.codDeBarra');
+        const lastId = $('#lastID');
+        const descricaoInput = $('#descricao'); // Adicione a seleção para o campo de descrição
 
-  // Função para gerar o código automático
-  function gerarCodigo() {
-    const categoriaSelecionada = categoriaSelect.find(":selected").text();
-    const subcategoriaSelecionada = subcategoriaSelect.val();
-    const marcaSelecionada = marcaSelect.find(":selected").text();
-   // const descricao = descricaoInput.val();
-    lastID = lastId;
-    console.log(lastId);
-    // Gerando o código
-    if(categoriaSelecionada != null && subcategoriaSelecionada != null && marcaSelecionada != null && descricao  != null){
-    let codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
-      subcategoriaSelecionada +
-      marcaSelecionada.slice(0, 3).toUpperCase() +
-      //descricao.slice(0, 3).toUpperCase()+
-      lastID+1;
-      
-      // Removendo caracteres especiais do código
-    codigo = removerCaracteresEspeciais(codigo);
-    console.log(codigo);
-    // Definindo o código gerado no campo de entrada
-    codigoInput.val(codigo);
-  }else{
-    codigoInput.val(0);
-  }
-  }
+        function removerCaracteresEspeciais(texto) {
+            return texto.replace(/[^\w\s]/gi, '');
+        }
 
-  // Atribuir evento de clique ao botão
-  $('.botaoGerarCodigo').click(function() {
-    gerarCodigo();
-  });
-});
+        // Função para gerar o código automático
+        function gerarCodigo(event) {
+            event.preventDefault(); // Impede o comportamento padrão do botão
 
+            const categoriaSelecionada = categoriaSelect.find(":selected").text();
+            const subcategoriaSelecionada = subcategoriaSelect.val();
+            const marcaSelecionada = marcaSelect.find(":selected").text();
+            const descricao = descricaoInput.val(); // Obtenha o valor do campo de descrição
+            const lastID = parseInt(lastId.val()) + 1; // Converta o valor de lastId para número
 
+            // Gerando o código
+            if (categoriaSelecionada != null && subcategoriaSelecionada != null && marcaSelecionada != null && descricao != null) {
+                let codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
+                    subcategoriaSelecionada +
+                    marcaSelecionada.slice(0, 3).toUpperCase() +
+                    descricao.slice(0, 3).toUpperCase() +
+                    lastID;
+
+                // Removendo caracteres especiais do código
+                codigo = removerCaracteresEspeciais(codigo);
+
+                // Definindo o código gerado no campo de entrada
+                codigoInput.val(codigo);
+            } else {
+                codigoInput.val(0);
+            }
+        }
+
+        // Atribuir evento de clique ao botão
+        $('.botaoGerarCodigo').click(function(event) {
+            gerarCodigo(event);
+        });
+    });
 </script>
