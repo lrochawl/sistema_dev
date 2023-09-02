@@ -558,10 +558,10 @@ $(document).ready(function() {
       marcaSelecionada.slice(0, 3).toUpperCase() +
       //descricao.slice(0, 3).toUpperCase()+
       lastID+1;
-      console.log(lastId);
+      
       // Removendo caracteres especiais do código
     codigo = removerCaracteresEspeciais(codigo);
-
+    console.log(codigo);
     // Definindo o código gerado no campo de entrada
     codigoInput.val(codigo);
   }else{
