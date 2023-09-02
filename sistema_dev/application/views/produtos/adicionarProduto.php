@@ -10,7 +10,7 @@
     .form-control-btn {
         flex: 1;
         border-radius: 0;
-        width: 142px;
+        width: 160px;
         margin-right: 3px;
     }
 
