@@ -552,7 +552,7 @@
             const subcategoriaSelecionada = subcategoriaSelect.val();
             const marcaSelecionada = marcaSelect.find(":selected").text();
             //  const descricao = descricaoInput.val();
-            let lastIDadd = lastId.val() + 1;
+            let lastID = lastId.val() + 1;
 
             // Gerando o código
             if (categoriaSelecionada != null && subcategoriaSelecionada != null && marcaSelecionada != null && descricao != null) {
@@ -560,7 +560,7 @@
                     subcategoriaSelecionada +
                     marcaSelecionada.slice(0, 3).toUpperCase() +
                     //descricao.slice(0, 3).toUpperCase()+
-                    lastIDadd;
+                    lastID;
 
                 // Removendo caracteres especiais do código
                 codigo = removerCaracteresEspeciais(codigo);
