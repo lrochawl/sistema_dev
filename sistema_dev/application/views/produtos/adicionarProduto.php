@@ -1,6 +1,7 @@
 <style>
     /* Estilos para o grupo de entrada */
     .input-group {
+        width: 1em;
         display: flex;
         align-items: center;
     }
@@ -51,7 +52,7 @@
                                 <label for="codDeBarra" class="control-label">Código interno/GTIN<span class="required">*</span></label>
                                 <div class="controls input-group">
                                     <input required onkeydown='handleEnter(event)' class="form-control-btn" autocomplete="off" name="codigo" id="codDeBarra" type="text" class="codDeBarra" value="<?php echo set_value('codDeBarra'); ?>" />
-                                    <button class="btn btn-primary" type="button">Botão</button>
+                                    <button class="btn btn-primary" type="button"><span class="button__icon"><i class="bx bx-barcode-reader"></i></span></button>
                                     
                                 </div>
                             </div>
