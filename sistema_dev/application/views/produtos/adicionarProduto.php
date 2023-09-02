@@ -212,7 +212,7 @@
                             <button type="submit" class="button btn btn-mini btn-success" style="max-width: 160px"><span class="button__icon"><i class='bx bx-plus-circle'></i></span><span class="button__text2" id="adcionarProduto">Adicionar</span></button>
                             <button type="submit" id="editarProduto" class="button btn btn-mini btn-info" style="max-width: 160px; display: none;" disabled><span class="button__icon"><i class='bx bx-plus-circle'></i></span><span class="button__text2">Editar</span></button>
                             <a href="<?php echo base_url('index.php/produtos') ?>" id="voltar" class="button btn btn-mini btn-warning"><span class="button__icon"><i class="bx bx-undo"></i></span><span class="button__text2">Voltar</span></a>
-                            <a href="#" class="button btn btn-mini btn-info botaoGerarCodigo">
+                            <a href="#" id="botaoGerarCodigo" class="button btn btn-mini btn-info">
                                 <span class="button__icon"><i class="bx bx-barcode-reader"></i></span><span class="button__text2">Gerar codigo</span></a>
                         </div>
                     </div>
@@ -570,7 +570,7 @@ $(document).ready(function() {
   }
 
   // Atribuir evento de clique ao botão
-  $('.botaoGerarCodigo').click(function() {
+  $('#botaoGerarCodigo').click(function() {
     gerarCodigo();
   });
 });
