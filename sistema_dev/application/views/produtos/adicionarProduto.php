@@ -18,8 +18,11 @@
     .btn {
         border-radius: 0;
     }
-    i.bx.bx-refresh{
-        font-size: 16px;
+
+    i.bx.bx-refresh {
+        display: flex;
+        font-size: 26px;
+        margin: -4px;
     }
 </style>
 <link rel="stylesheet" href="<?php echo base_url('assets/js/jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.css'); ?>" />
@@ -55,8 +58,8 @@
                                 <label for="codDeBarra" class="control-label">Código interno/GTIN<span class="required">*</span></label>
                                 <div class="controls input-group">
                                     <input required onkeydown='handleEnter(event)' class="form-control-btn" autocomplete="off" name="codigo" id="codDeBarra" type="text" class="codDeBarra" value="<?php echo set_value('codDeBarra'); ?>" />
-                                    <button class="btn btn-primary" type="button"><a href="#" id="botaoGerarCodigo" ><i class="bx bx-refresh"></i></a></button>
-                                    
+                                    <button class="btn btn-primary" type="button"><a href="#" id="botaoGerarCodigo"><i class="bx bx-refresh"></i></a></button>
+
                                 </div>
                             </div>
                             <div class="control-group">
