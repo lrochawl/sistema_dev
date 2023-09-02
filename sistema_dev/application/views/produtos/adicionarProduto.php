@@ -573,7 +573,7 @@
         }
 
         // Atribuir evento de clique ao botão
-        $('#botaoGerarCodigo').click(function() {
+        $('.botaoGerarCodigo').click(function() {
             gerarCodigo();
         });
     });
