@@ -55,14 +55,6 @@
                         <input onkeydown='handleEnter(event)' type="hidden" id="lastID" name="lastID" value="<?php echo $resultProdutos; ?>" />
                         <div class="control-group">
                             <div class="control-group">
-                                <label for="codDeBarra" class="control-label">Código interno/GTIN<span class="required">*</span></label>
-                                <div class="controls input-group">
-                                    <input required onkeydown='handleEnter(event)' class="form-control-btn codDeBarra" autocomplete="off" name="codigo" id="codDeBarra" type="text" value="<?php echo set_value('codDeBarra'); ?>" />
-                                    <button class="btn btn-primary botaoGerarCodigo" type="button"><a href="#"><i class="bx bx-refresh"></i></a></button>
-
-                                </div>
-                            </div>
-                            <div class="control-group">
                                 <label for="adNotaFiscal" class="control-label">Nota Fiscal<span class="required">*</span></label>
                                 <div class="controls">
                                     <input required onkeydown='handleEnter(event)' type="text" autocomplete="off" id="adNotaFiscal" name="adNotaFiscal" value="<?php echo set_value('adNotaFiscal'); ?>" />
@@ -98,6 +90,14 @@
                                         }
                                         ?>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="codDeBarra" class="control-label">Código interno/GTIN<span class="required">*</span></label>
+                                <div class="controls input-group">
+                                    <input required onkeydown='handleEnter(event)' class="form-control-btn codDeBarra" autocomplete="off" name="codigo" id="codDeBarra" type="text" value="<?php echo set_value('codDeBarra'); ?>" />
+                                    <button class="btn btn-primary botaoGerarCodigo" type="button"><a href="#"><i class="bx bx-refresh"></i></a></button>
+
                                 </div>
                             </div>
                         </div>
