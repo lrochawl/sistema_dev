@@ -529,49 +529,51 @@
         $('.campoAdd').remove();
     }
 </script>
-<script>
-    // GERAR CÓDIGO AUTOMÁTICO
-    $(document).ready(function() {
-        const categoriaSelect = $('#tipoMarca');
-        const subcategoriaSelect = $('#tipoMarca');
-        const marcaSelect = $('#selectMarca');
-        const codigoInput = $('.codDeBarra');
-        const lastId = $('#lastID');
-        const descricaoInput = $('#descricao'); // Adicione a seleção para o campo de descrição
 
-        function removerCaracteresEspeciais(texto) {
-            return texto.replace(/[^\w\s]/gi, '');
-        }
+<script> //GERAR CODIGO AUTOMATICO
+$(document).ready(function() {
+  const categoriaSelect = $('#tipoMarca');
+  const subcategoriaSelect = $('#tipoMarca');
+  const marcaSelect = $('#selectMarca');
+ // const descricaoInput = $('#descricao');
+  const codigoInput = $('.codDeBarra');
+  const lastId = $('#lastID');
 
-        // Função para gerar o código automático
-        function gerarCodigo() {
-            const categoriaSelecionada = categoriaSelect.find(":selected").text();
-            const subcategoriaSelecionada = subcategoriaSelect.val();
-            const marcaSelecionada = marcaSelect.find(":selected").text();
-            const descricao = descricaoInput.val(); // Obtenha o valor do campo de descrição
-            const lastIDadd = parseInt(lastId.val()) + 1; // Converta o valor de lastId para número
+  function removerCaracteresEspeciais(texto) {
+    return texto.replace(/[^\w\s]/gi, '');
+  }
 
-            // Gerando o código
-            if (categoriaSelecionada != null && subcategoriaSelecionada != null && marcaSelecionada != null && descricao != null) {
-                let codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
-                    subcategoriaSelecionada +
-                    marcaSelecionada.slice(0, 3).toUpperCase() +
-                    descricao.slice(0, 3).toUpperCase() +
-                    lastIDadd;
+  // Função para gerar o código automático
+  function gerarCodigo() {
+    const categoriaSelecionada = categoriaSelect.find(":selected").text();
+    const subcategoriaSelecionada = subcategoriaSelect.val();
+    const marcaSelecionada = marcaSelect.find(":selected").text();
+   // const descricao = descricaoInput.val();
+    const lastID = lastId.val();
 
-                // Removendo caracteres especiais do código
-                codigo = removerCaracteresEspeciais(codigo);
+    // Gerando o código
+    if(categoriaSelecionada != null && subcategoriaSelecionada != null && marcaSelecionada != null && descricao  != null){
+    let codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
+      subcategoriaSelecionada +
+      marcaSelecionada.slice(0, 3).toUpperCase() +
+      //descricao.slice(0, 3).toUpperCase()+
+      lastID+1;
 
-                // Definindo o código gerado no campo de entrada
-                codigoInput.val(codigo);
-            } else {
-                codigoInput.val(0);
-            }
-        }
+      // Removendo caracteres especiais do código
+    codigo = removerCaracteresEspeciais(codigo);
 
-        // Atribuir evento de clique ao botão
-        $('.botaoGerarCodigo').click(function() {
-            gerarCodigo();
-        });
-    });
+    // Definindo o código gerado no campo de entrada
+    codigoInput.val(codigo);
+  }else{
+    codigoInput.val(0);
+  }
+  }
+
+  // Atribuir evento de clique ao botão
+  $('#botaoGerarCodigo').click(function() {
+    gerarCodigo();
+  });
+});
+
+
 </script>
