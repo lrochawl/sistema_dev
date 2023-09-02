@@ -519,7 +519,7 @@ $(document).ready(function() {
     const subcategoriaSelecionada = subcategoriaSelect.val();
     const marcaSelecionada = marcaSelect.find(":selected").text();
   //  const descricao = descricaoInput.val();
-    const lastID = lastId.val()+1;
+    let lastID = lastId.val()+1;
 
     // Gerando o código
     if(categoriaSelecionada != null && subcategoriaSelecionada != null && marcaSelecionada != null && descricao  != null){
