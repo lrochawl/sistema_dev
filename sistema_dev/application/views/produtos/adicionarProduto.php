@@ -52,7 +52,7 @@
                                 <label for="codDeBarra" class="control-label">Código interno/GTIN<span class="required">*</span></label>
                                 <div class="controls input-group">
                                     <input required onkeydown='handleEnter(event)' class="form-control-btn" autocomplete="off" name="codigo" id="codDeBarra" type="text" class="codDeBarra" value="<?php echo set_value('codDeBarra'); ?>" />
-                                    <button class="btn btn-primary" type="button"><i class="bx bx-barcode-reader"></i></button>
+                                    <button class="btn btn-primary" type="button"><i class="bx bx-refresh"></i></button>
                                     
                                 </div>
                             </div>
