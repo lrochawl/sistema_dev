@@ -527,7 +527,7 @@ $(document).ready(function() {
       subcategoriaSelecionada +
       marcaSelecionada.slice(0, 3).toUpperCase() +
       //descricao.slice(0, 3).toUpperCase()+
-      lastID;
+      lastID+1;
 
       // Removendo caracteres especiais do código
     codigo = removerCaracteresEspeciais(codigo);
