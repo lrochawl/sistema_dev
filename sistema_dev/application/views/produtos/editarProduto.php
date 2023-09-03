@@ -408,13 +408,7 @@
                         $("#ativaVencimento").prop("checked", true);
                         $("#dataVencimento").val(ui.item.dataVencimento);
                     }
-                    if (ui.item.imagemProduto != null && ui.item.imagemProduto != "") {
-                        console.log(image_x)
-                        image_x.attr("src", ui.item.imagemProduto);
-                      
-                        imgLogo.appendChild(image).setAttribute("id", "imgLogo");
-                        $('#imagemProduto').val(ui.item.imagemProduto);
-                    }
+                    
                     if ($('#dataVencimento').val() != '') {
                         $("#dataVencimento").attr("readonly", false);
                         $('#ativaVencimento')[0].checked = true;
