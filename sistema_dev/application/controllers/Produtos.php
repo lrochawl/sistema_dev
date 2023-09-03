@@ -521,6 +521,7 @@ class Produtos extends MY_Controller
             $tamanho = $this->upload->data('file_size');
             $tipo = $this->upload->data('file_ext');
             
+
             $this->dataInsert["imagemProduto"]  =  $url;
             $this->dataInsert["pathImagem"]     =  $path;
             // $this->dataInsert["file"]     =  $file;
@@ -528,8 +529,8 @@ class Produtos extends MY_Controller
             // $this->dataInsert["tipo"]     =  $tipo;
 
             $this->upload->data();
-
-            return  $this->upload->data();
+            exit($this->upload->data('file_ext'));
+           // return  $this->upload->data();
         }
     }
 }
