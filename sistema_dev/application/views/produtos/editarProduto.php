@@ -366,7 +366,6 @@
         const marcas = document.getElementById('marcasAgrotec');
         const camposDB = <?= json_encode($resultAddCampo) ?>;
 
-
         $("#codDeBarra").autocomplete({
             source: "<?php echo base_url('AutoComplete/autoCompleteProduto'); ?>",
             minLength: 1,
@@ -631,21 +630,21 @@
         const lastId = $('#lastID');
         const descricaoInput = $('#descricao'); // Adicione a seleção para o campo de descrição
 
+        // Função para remover caracteres especiais
         function removerCaracteresEspeciais(texto) {
             return texto.replace(/[^\w\s]/gi, '');
         }
 
-        // Função para gerar o código automático
+        // Função para gerar código automático
         function gerarCodigo(event) {
-            event.preventDefault(); // Impede o comportamento padrão do botão
+            event.preventDefault();
 
             const categoriaSelecionada = categoriaSelect.find(":selected").text();
             const subcategoriaSelecionada = subcategoriaSelect.val();
             const marcaSelecionada = marcaSelect.find(":selected").text();
-            const descricao = descricaoInput.val(); // Obtenha o valor do campo de descrição
-            const lastID = parseInt(lastId.val()) + 1; // Converta o valor de lastId para número
+            const descricao = descricaoInput.val();
+            const lastID = parseInt(lastId.val()) + 1;
 
-            // Gerando o código
             if (categoriaSelecionada != null && subcategoriaSelecionada != null && marcaSelecionada != null && descricao != null) {
                 let codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
                     subcategoriaSelecionada +
@@ -653,10 +652,8 @@
                     descricao.slice(0, 3).toUpperCase() +
                     lastID;
 
-                // Removendo caracteres especiais do código
                 codigo = removerCaracteresEspeciais(codigo);
 
-                // Definindo o código gerado no campo de entrada
                 codigoInput.val(codigo);
             } else {
                 codigoInput.val(0);
@@ -668,4 +665,23 @@
             gerarCodigo(event);
         });
     });
+
+    function updateThumb(file) {
+        if ($(".drop-zone__thumb") && typeof file == "string") {
+            $("#zone__prompt").removeClass("drop-zone__prompt");
+            $("#drop-zone > img").remove();
+            $("#zone__prompt").text("");
+            $('<img />', {
+                class: 'logoImagem',
+                src: file,
+                alt: 'MyAlt'
+            }).appendTo($('.drop-zone__thumb'));
+            $('.drop-zone__thumb').attr('data-label', "Imagem do produto");
+        } else {
+            $("#drop-zone > img").remove();
+            $("#zone__prompt").addClass("drop-zone__prompt");
+            $("#zone__prompt").text("Arraste o arquivo ou clique para upload");
+        }
+    }
+
 </script>
