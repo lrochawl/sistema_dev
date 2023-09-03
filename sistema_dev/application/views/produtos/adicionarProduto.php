@@ -14,11 +14,6 @@
         margin-right: 3px;
     }
 
-    /* Estilos para o botão */
-    .btn {
-        border-radius: 9%;
-    }
-
     i.bx.bx-refresh {
         display: flex;
         font-size: 26px;
