@@ -851,26 +851,32 @@ class CI_Upload {
 	 * @return	bool
 	 */
 	public function is_image()
-	{
-		// IE will sometimes return odd mime-types during upload, so here we just standardize all
-		// jpegs or pngs to the same file type.
+{
+    // IE will sometimes return odd mime-types during upload, so here we just standardize all
+    // jpegs or pngs to the same file type.
 
-		$png_mimes  = array('image/x-png');
-		$jpeg_mimes = array('image/jpg', 'image/jpe', 'image/jpeg', 'image/pjpeg');
+    $png_mimes  = array('image/x-png');
+    $jpeg_mimes = array('image/jpg', 'image/jpe', 'image/jpeg', 'image/pjpeg');
+    $webp_mimes = array('image/webp'); // Adicione o tipo MIME WebP
 
-		if (in_array($this->file_type, $png_mimes))
-		{
-			$this->file_type = 'image/png';
-		}
-		elseif (in_array($this->file_type, $jpeg_mimes))
-		{
-			$this->file_type = 'image/jpeg';
-		}
+    if (in_array($this->file_type, $png_mimes))
+    {
+        $this->file_type = 'image/png';
+    }
+    elseif (in_array($this->file_type, $jpeg_mimes))
+    {
+        $this->file_type = 'image/jpeg';
+    }
+    elseif (in_array($this->file_type, $webp_mimes)) // Verifique se é um arquivo WebP
+    {
+        $this->file_type = 'image/webp';
+    }
 
-		$img_mimes = array('image/gif',	'image/jpeg', 'image/png');
+    $img_mimes = array('image/gif', 'image/jpeg', 'image/png', 'image/webp'); // Inclua 'image/webp' aqui
 
-		return in_array($this->file_type, $img_mimes, TRUE);
-	}
+    return in_array($this->file_type, $img_mimes, TRUE);
+}
+
 
 	// --------------------------------------------------------------------
 
