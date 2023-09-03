@@ -99,42 +99,46 @@
                             <div class="widget-content">
                                 <table class="table table-bordered" style="border: 1px solid #ddd">
                                     <tbody id="divAddCampo">
-                                        <tr>
-                                            <td style="text-align: right"><strong>Ambiente de estoque</strong></td>
-                                            <td>
-                                                <?php echo $result->ambiente ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: right"><strong>Localização</strong></td>
-                                            <td>
-                                                <?php echo $result->location ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: right"><strong>Descrição de localização</strong></td>
-                                            <td>
-                                                <?php echo $result->descricaoLocation ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: right; width: 30%"><strong>Estoque atual</strong></td>
-                                            <td>
-                                                <?php echo $estoque['texto'] ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: right; width: 30%"><strong>Estoque minimo</strong></td>
-                                            <td>
-                                                <?php echo $estoque['textoEstoqueMinimo'] ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: right"><strong>Descrição de medida padrão</strong></td>
-                                            <td>
-                                                <?php echo $result->descricaoMedida ?>
-                                            </td>
-                                        </tr>
+                                        <div style="color:blue">
+
+                                            <tr>
+                                                    <td style="text-align: right"><strong>Ambiente de estoque</strong></td>
+                                                    <td>
+                                                        <?php echo $result->ambiente ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: right"><strong>Localização</strong></td>
+                                                    <td>
+                                                        <?php echo $result->location ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: right"><strong>Descrição de localização</strong></td>
+                                                    <td>
+                                                        <?php echo $result->descricaoLocation ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: right; width: 30%"><strong>Estoque atual</strong></td>
+                                                    <td>
+                                                        <?php echo $estoque['texto'] ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: right; width: 30%"><strong>Estoque minimo</strong></td>
+                                                    <td>
+                                                        <?php echo $estoque['textoEstoqueMinimo'] ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: right"><strong>Descrição de medida padrão</strong></td>
+                                                    <td>
+                                                        <?php echo $result->descricaoMedida ?>
+                                                    </td>
+                                                </tr>
+                                        </div>
+                                            
                                         <?php
 
                                         $resultCampos = explode("||", $result->observacao);
