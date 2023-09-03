@@ -408,7 +408,7 @@
                         $("#ativaVencimento").prop("checked", true);
                         $("#dataVencimento").val(ui.item.dataVencimento);
                     }
-                    if (ui.item.imagemProduto != null) {
+                    if (ui.item.imagemProduto != null && ui.item.imagemProduto != "") {
                         image.src = ui.item.imagemProduto;
                         imgLogo.appendChild(image).setAttribute("id", "imgLogo");
                         $('#imagemProduto').val(ui.item.imagemProduto);
