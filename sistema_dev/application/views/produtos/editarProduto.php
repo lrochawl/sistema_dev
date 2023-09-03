@@ -230,7 +230,7 @@
                                 $var3 = explode('::', $rCampo);
                                 $idCampo = trim($var3[0]);
                                 foreach ($resultAddCampo as $r) {
-                                    print($r);
+                                    print_r($r);
                                     exit();
                                     if ($idCampo != '' && $r->id_estoque_addCampo == $idCampo) {
                                         if ($r->tipoAddCampo != "textarea") {     ?>
