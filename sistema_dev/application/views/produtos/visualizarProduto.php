@@ -98,9 +98,7 @@
                         <div class="collapse accordion-body" id="collapseGTwo">
                             <div class="widget-content">
                                 <table class="table table-bordered" style="border: 1px solid #ddd">
-                                    <tbody id="divAddCampo">
-                                        <div class="r">
-
+                                    <tbody id="divAddCampo" >
                                             <tr>
                                                 <td style="text-align: right"><strong>Ambiente de estoque</strong></td>
                                                 <td>
@@ -137,7 +135,7 @@
                                                     <?php echo $result->descricaoMedida ?>
                                                 </td>
                                             </tr>
-                                        </div>
+                                       
 
                                         <?php
 
@@ -159,21 +157,21 @@
                                         ?>
 
                                                             <script>
-                                                                $('#divAddCampo').append(`<tr> <td style="text-align: right; vertical-align: inherit; "><strong><?php echo $r->addCampo; ?></strong></td> <td> <input type="color" value="<?php echo $var3[1]; ?>" style=" height: 33px; margin:auto;" disabled> </td>  </tr>`);
+                                                                $('#divAddCampo').append(`<tr> <td style="text-align: right; color:blue; vertical-align: inherit; "><strong><?php echo $r->addCampo; ?></strong></td> <td> <input type="color" value="<?php echo $var3[1]; ?>" style=" height: 33px; margin:auto;" disabled> </td>  </tr>`);
                                                             </script>
                                                         <?php
                                                             break;
                                                         case "range";
                                                         ?>
                                                             <script>
-                                                                $('#divAddCampo').append(`<tr> <td style="text-align: right; vertical-align: inherit; "><strong><?php echo $r->addCampo; ?></strong></td> <td> <input type="range" value="<?php echo $var3[1]; ?>" style=" height: 33px; margin:auto;" disabled> </td>  </tr>`);
+                                                                $('#divAddCampo').append(`<tr> <td style="text-align: right; color:blue; vertical-align: inherit; "><strong><?php echo $r->addCampo; ?></strong></td> <td> <input type="range" value="<?php echo $var3[1]; ?>" style=" height: 33px; margin:auto;" disabled> </td>  </tr>`);
                                                             </script>
                                                         <?php
                                                             break;
                                                         default:
                                                         ?>
                                                             <script>
-                                                                $('#divAddCampo').append(`<tr> <td style="text-align: right"><strong><?php echo $r->addCampo; ?></strong></td> <td> <?php echo $var3[1]; ?> </td>  </tr>`);
+                                                                $('#divAddCampo').append(`<tr> <td style="text-align: right; color:blue; vertical-align: inherit; "><strong><?php echo $r->addCampo; ?></strong></td> <td> <?php echo $var3[1]; ?> </td>  </tr>`);
                                                             </script>
                                         <?php
                                                     }
