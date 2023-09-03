@@ -230,11 +230,11 @@
                                 $var3 = explode('::', $rCampo);
                                 $idCampo = trim($var3[0]);
                                 foreach ($resultAddCampo as $r) {
-                                    print_r($r);
-                                    exit();
+
                                     if ($idCampo != '' && $r->id_estoque_addCampo == $idCampo) {
                                         if ($r->tipoAddCampo != "textarea") {     ?>
-
+                                            print_r($r);
+                                            exit();
                                             <script>
                                                 $('#divAddCampo').append(`<div id='<?= "rm_" . $r->siglaAddCampo . "_" . $i ?>' class='control-group addCampo'>
                                                 <label for='<?= $r->siglaAddCampo . "_" . $i ?>' class='control-label campoAdd'>
@@ -410,7 +410,7 @@
                         $("#ativaVencimento").prop("checked", true);
                         $("#dataVencimento").val(ui.item.dataVencimento);
                     }
-                    
+
                     if ($('#dataVencimento').val() != '') {
                         $("#dataVencimento").attr("readonly", false);
                         $('#ativaVencimento')[0].checked = true;
@@ -681,5 +681,4 @@
             $("#zone__prompt").text("Arraste o arquivo ou clique para upload");
         }
     }
-
 </script>
