@@ -410,7 +410,8 @@
                     }
                     if (ui.item.imagemProduto != null && ui.item.imagemProduto != "") {
                         console.log(image_x)
-                        image_x.src = ui.item.imagemProduto;
+                        image_x.attr("src", ui.item.imagemProduto);
+                      
                         imgLogo.appendChild(image).setAttribute("id", "imgLogo");
                         $('#imagemProduto').val(ui.item.imagemProduto);
                     }
