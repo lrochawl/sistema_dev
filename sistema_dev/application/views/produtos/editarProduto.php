@@ -408,6 +408,7 @@
                     $("#precoCompra").val(ui.item.precoCompra);
                     $("#precoVenda").val(ui.item.precoVenda);
                     $("#margemLucro").val(ui.item.margem);
+                    $('.codDeBarra').val(ui.item.codDeBarra);
                     if (ui.item.dataVencimento != null) {
                         $("#ativaVencimento").prop("checked", true);
                         $("#dataVencimento").val(ui.item.dataVencimento);
