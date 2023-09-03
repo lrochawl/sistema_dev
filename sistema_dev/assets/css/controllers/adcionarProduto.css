@@ -1,3 +1,25 @@
+
+    /* Estilos para o grupo de entrada */
+    .input-group {
+        width: 1em;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Estilos para o campo de entrada */
+    .form-control-btn {
+        flex: 1;
+        border-radius: 0;
+        width: 160px;
+        margin-right: 3px;
+    }
+
+    i.bx.bx-refresh {
+        display: flex;
+        font-size: 26px;
+        margin: -4px;
+        color: white;
+    }
     /* Hiding the checkbox, but allowing it to be focused */
     .select2-container--default .select2-selection--single {
         height: 30px;

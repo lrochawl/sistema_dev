@@ -1,26 +1,3 @@
-<style>
-    /* Estilos para o grupo de entrada */
-    .input-group {
-        width: 1em;
-        display: flex;
-        align-items: center;
-    }
-
-    /* Estilos para o campo de entrada */
-    .form-control-btn {
-        flex: 1;
-        border-radius: 0;
-        width: 160px;
-        margin-right: 3px;
-    }
-
-    i.bx.bx-refresh {
-        display: flex;
-        font-size: 26px;
-        margin: -4px;
-        color: white;
-    }
-</style>
 <link rel="stylesheet" href="<?php echo base_url('assets/js/jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.css'); ?>" />
 <link rel="stylesheet" href="<?php echo base_url('assets/css/controllers/adcionarProduto.css'); ?>" />
 <script type="text/javascript" src="<?php echo base_url('assets/js/jquery-ui/js/jquery-ui-1.9.2.custom.js') ?>"></script>
