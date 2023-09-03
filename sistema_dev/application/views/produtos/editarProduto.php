@@ -384,7 +384,7 @@
                 $('#codDeBarra').css("background-color", "#9dc2d5");
                 $('#codDeBarra').css("font-weight", 700);
                 $('#imgLogo').remove();
-                $('.addCampo').remove();
+                $('.campoAdd').remove();
 
                 if (ui.item.id != null) {
 
