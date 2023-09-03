@@ -407,18 +407,12 @@
                     $("#precoVenda").val(ui.item.precoVenda);
                     $("#margemLucro").val(ui.item.margem);
 
-                    if (ui.item.dataVencimento != null) {
-                        $("#ativaVencimento").prop("checked", true);
-                        $("#dataVencimento").val(ui.item.dataVencimento);
+                    if (ui.item.imagemProduto != null) {
+                        image.src = ui.item.imagemProduto;
+                        imgLogo.appendChild(image).setAttribute("id", "imgLogo");
+                        $('#imagemProduto').val(ui.item.imagemProduto);
                     }
 
-                    if ($('#dataVencimento').val() != '') {
-                        $("#dataVencimento").attr("readonly", false);
-                        $('#ativaVencimento')[0].checked = true;
-                    } else {
-                        $("#dataVencimento").attr("readonly", true);
-                        $('#ativaVencimento')[0].checked = false;
-                    }
                     $.ajax({
                         url: "<?= site_url('produtos/returnAddCampos'); ?>",
                         dataType: 'json',
