@@ -16,7 +16,7 @@
 
     /* Estilos para o botão */
     .btn {
-        border-radius: 0;
+        border-radius: 10%;
     }
 
     i.bx.bx-refresh {
