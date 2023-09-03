@@ -454,40 +454,83 @@ class Produtos extends MY_Controller
     }
 
     private function do_upload()
-{
-    $config['upload_path'] = './assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/";
-    $config['allowed_types'] = 'jpg|jpeg|png|gif|webp'; // Adicione 'webp' aqui
-    $config['max_size'] = 2048; // Tamanho máximo do arquivo em kilobytes
-    $config['max_width'] = 0; // Largura máxima da imagem em pixels (0 para ignorar)
-    $config['max_height'] = 0; // Altura máxima da imagem em pixels (0 para ignorar)
-    $config['encrypt_name'] = TRUE; // Renomear o arquivo durante o upload
+    {
 
-    if (!is_dir('./assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/")) {
-        mkdir('./assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/", 0777, true);
+
+
+        $config['upload_path'] = './assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/";
+        //$config['allowed_types'] = 'jpg|jpeg|png|gif|webp'; // Certifique-se de incluir 'webp' aqui
+        $config['max_size'] = 2048; // Tamanho máximo do arquivo em kilobytes
+        $config['max_width'] = 0; // Largura máxima da imagem em pixels (0 para ignorar)
+        $config['max_height'] = 0; // Altura máxima da imagem em pixels (0 para ignorar)
+        $config['encrypt_name'] = TRUE; // Renomear o arquivo durante o upload
+
+        if (!is_dir('./assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/")) {
+            mkdir('./assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/", 0777, true);
+        }
+
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        print_r($this->upload->initialize($config));
+        exit();
+        if (!$this->upload->do_upload()) {
+
+            $error = ['error' => $this->upload->display_errors()];
+
+            $this->session->set_flashdata('error', "Erro ao fazer upload do arquivo, verifique se a extensão do arquivo é permitida. ");
+
+            // redirect(site_url('settings/'));
+
+            try {
+
+                $files = $this->setdb_model->getTabelaQ("estoque_produtos", 'pathImagem');
+                $this->data['imagens'] = array();
+                $this->data['imagens_path'] = scandir($_SERVER['DOCUMENT_ROOT'] . '/assets/uploads/db_wltopos/imagemProdutos');
+                foreach ($files as $file) {
+
+                    $imagens = explode("/", $file->pathImagem);
+                    $this->data['imagens'][] =  $imagens[11];
+                }
+
+                $i = 0;
+                foreach ($this->data['imagens_path'] as $arquivo) {
+                    if ($arquivo != "." && $arquivo != "..") {
+                        // Verifica se o arquivo não está salvo no banco de dados
+
+                        if (!in_array($arquivo, $this->data['imagens'])) {
+                            // $files = $this->setdb_model->getTabelaQID("estoque_produtos", '*', 'pathImagem=' . $_SERVER['DOCUMENT_ROOT'] . '/assets/uploads/db_wltopos/imagemProdutos/' . $arquivo);
+                            // // Exclui o arquivo
+                            // $i++;
+                            echo $arquivo . '-' . $files->id_estoque_produto . '<br>';
+                            unlink($_SERVER['DOCUMENT_ROOT'] . '/assets/uploads/db_wltopos/imagemProdutos/' . $arquivo);
+                        }
+                    }
+                }
+            } catch (Exception $e) {
+                echo 'Exceção capturada: ',  $e->getMessage(), "\n";
+            }
+            echo $this->upload->display_errors();
+            return 0;
+        }
+
+        if ($this->upload->do_upload()) {
+            //$data = array('upload_data' => $this->upload->data());
+            $file = $this->upload->data('file_name');
+            $path = $this->upload->data('full_path');
+            $url = base_url('assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/" . $file);
+            $tamanho = $this->upload->data('file_size');
+            $tipo = $this->upload->data('file_ext');
+
+
+            $this->dataInsert["imagemProduto"]  =  $url;
+            $this->dataInsert["pathImagem"]     =  $path;
+            $this->dataInsert["file"]     =  $file;
+            $this->dataInsert["tamanho"]  =  $tamanho;
+            $this->dataInsert["tipo"]     =  $tipo;
+
+            $this->upload->data();
+
+            return  $this->upload->data();
+        }
     }
-
-    $this->load->library('upload', $config);
-
-    if (!$this->upload->do_upload()) {
-        $error = ['error' => $this->upload->display_errors()];
-        $this->session->set_flashdata('error', "Erro ao fazer upload do arquivo, verifique se a extensão do arquivo é permitida.");
-        return 0;
-    }
-
-    if ($this->upload->do_upload()) {
-        $file = $this->upload->data('file_name');
-        $path = $this->upload->data('full_path');
-        $url = base_url('assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/" . $file);
-        $tamanho = $this->upload->data('file_size');
-        $tipo = $this->upload->data('file_ext');
-
-        $this->dataInsert["imagemProduto"] = $url;
-        $this->dataInsert["pathImagem"] = $path;
-        $this->dataInsert["file"] = $file;
-        $this->dataInsert["tamanho"] = $tamanho;
-        $this->dataInsert["tipo"] = $tipo;
-
-        return $this->upload->data();
-    }
-}
 }
