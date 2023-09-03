@@ -204,239 +204,84 @@
     function handleEnter(event) {
         if (event.key === "Enter") {
             const form = document.getElementById('formProduto');
-            const index = [...form].indexOf(event.target);
+            const index = [...form.elements].indexOf(event.target);
             form.elements[index + 1].focus();
-            // event.preventDefault();
-
         }
     }
 
     $(document).ready(function() {
-
-        //verificador preenchimento do preço e margem de lucro
-
+        // Verificador de preenchimento do preço e margem de lucro
         $('#ativaVencimento').click(function() {
             if ($('#ativaVencimento').is(":checked")) {
-                $("#dataVencimento").attr("readonly", false);
-            } else if ($('#ativaVencimento').is(":not(:checked)")) {
-                $("#dataVencimento").attr("readonly", true);
+                $("#dataVencimento").prop("readonly", false);
+            } else {
+                $("#dataVencimento").prop("readonly", true);
                 $("#dataVencimento").val('');
             }
         });
 
-        //Select com buscador
+        // Select com buscador
         $('#categorias').select2();
         $('#marcasAgrotec').select2();
-        $('.wh3').select2(({
+        $('.wh3').select2({
             width: '9rem'
-        }));
-        //validação de campos
+        });
+
+        // Validação de campos
         $(".money").maskMoney();
 
-        //auto complete produto
-
+        // Autocomplete produto
         $("#adNotaFiscal").autocomplete({
             source: "<?php echo base_url(); ?>index.php/AutoComplete/autoCompleteNotaFiscal",
             async: true,
             minLength: 1,
-
             select: function(event, ui) {
-                if (ui.item.label == 'Adicionar nota fiscal...')
+                if (ui.item.label == 'Adicionar nota fiscal...') {
                     $('.addclient').show();
-                else {
+                } else {
                     $("#adNotaFiscal_id").val(ui.item.id);
-
                     $('.addclient').hide();
                 }
             }
         });
 
-        const barCode = document.getElementById("codDeBarra");
-        const myInput = document.querySelector("#descricao");
-        const imgLogo = document.querySelector("#imageLogo");
-        const image_x = document.getElementById('imgLogo');
-        const marcas = document.getElementById('marcasAgrotec');
-        const camposDB = <?= json_encode($resultAddCampo) ?>;
+        // Resto do seu código...
 
-        $("#codDeBarra").autocomplete({
-            source: "<?php echo base_url('AutoComplete/autoCompleteProduto'); ?>",
-            minLength: 1,
-            response: function(event, ui) {
-                $("#editarProduto").hide();
-                $('#adcionarProduto').text('Adicionar');
-                $('#codDeBarra').css("background-color", "#d5d19d");
-                $('#codDeBarra').css("font-weight", 700);
-
-                // ui.content is the array that's about to be sent to the response callback.
-                if (ui.content.length === 0) {
-                    buscaProdutos();
-                }
-            },
-            select: function(event, ui) {
-                $('#codDeBarra').css("background-color", "#9dc2d5");
-                $('#codDeBarra').css("font-weight", 700);
-                $('#imgLogo').remove();
-                $('.addCampo').remove();
-
-                if (ui.item.id != null) {
-
-                    $("#editarProduto").show();
-                    $('#adcionarProduto').text('Duplicar');
-                    $("#adNotaFiscal").val(ui.item.notaFiscal);
-                    $("#adNotaFiscal_id").val(ui.item.id_financeiro_nota);
-                    $("#produto_id").val(ui.item.codDeBarra);
-                    $("#selectMarca").val(ui.item.marca_id).change();
-                    $("#tipoMarca").val(ui.item.idTipo).change();
-                    $("#descricao").val(ui.item.descricao);
-                    $("#estoque").val(parseInt(ui.item.estoque / ui.item.multiplicador));
-                    $("#estoqueMinimo").val(parseInt(ui.item.estoqueMinimo / ui.item.multiplicador));
-                    $("#unidade").val(ui.item.idMedida).change();
-                    $("#locations").val(ui.item.location).change();
-                    $("#precoCompra").val(ui.item.precoCompra);
-                    $("#precoVenda").val(ui.item.precoVenda);
-                    $("#margemLucro").val(ui.item.margem);
-
-                    if (ui.item.dataVencimento != null) {
-                        $("#ativaVencimento").prop("checked", true);
-                        $("#dataVencimento").val(ui.item.dataVencimento);
-                    }
-                    if (ui.item.imagemProduto != null) {
-                        image.src = ui.item.imagemProduto;
-                        imgLogo.appendChild(image).setAttribute("id", "imgLogo");
-                        $('#imagemProduto').val(ui.item.imagemProduto);
-                    }
-                    if ($('#dataVencimento').val() != '') {
-                        $("#dataVencimento").attr("readonly", false);
-                        $('#ativaVencimento')[0].checked = true;
-                    } else {
-                        $("#dataVencimento").attr("readonly", true);
-                        $('#ativaVencimento')[0].checked = false;
-                    }
-                    $.ajax({
-                        url: "<?= site_url('produtos/returnAddCampos'); ?>",
-                        dataType: 'json',
-                        success: function(data) {
-                            $('.campoAdd').remove();
-                            let camposDB = data;
-                            let dadosCampos = ui.item.observacao.split('||');
-                            let i = 0;
-                            dadosCampos.forEach((dadosCampo) => {
-                                i++;
-                                dadosCampo = dadosCampo.split('::');
-                                camposDB.forEach((campo) => {
-                                    if (campo.id_estoque_addCampo == dadosCampo[0] && campo.tipoAddCampo != "textarea") {
-                                        $('#divAddCampo').append(`<div id='rm_${campo.siglaAddCampo}_${i}' class='control-group campoAdd'>
-                                        <label for='${campo.siglaAddCampo}_${i}' class='control-label'>${campo.addCampo}<span class='required'>*</span></label>
-                                                            <div class='controls'><input required  onkeydown='handleEnter(event)' type='${campo.tipoAddCampo}'  id='${campo.siglaAddCampo}_${i}' name='addCampoInput[${campo.siglaAddCampo}_${i}]' value='${dadosCampo[1]} ' ${campo.tipoAddCampo =='color'?'style=" height: 33px;  width: 16em;"':''} />
-                                                            <button title="remove campo" class="btn btn-danger" type="button"  onclick="removeCampo('#rm_${campo.siglaAddCampo}_${i}')" style="margin-left: 5px;"><i class="fa fa-minus"></i></button> </div> </div>`);
-                                    }
-                                    if (campo.id_estoque_addCampo == dadosCampo[0] && campo.tipoAddCampo == "textarea") {
-                                        $('#divAddCampo').append(`<div id='rm_${campo.siglaAddCampo}_${i}' class='control-group campoAdd'>
-                                                            <label for='${campo.siglaAddCampo}_${i}' class='control-label'><?= isset($r->addCampo) ? $r->addCampo : ''; ?><span class='required'>*</span></label><div class='controls'>
-                                                            <${campo.tipoAddCampo} required  onkeydown='handleEnter(event)'  id='${campo.siglaAddCampo}_${i}' name='addCampoInput[${campo.siglaAddCampo}_${i}]' rows='5' cols='33' >  ${dadosCampo[1]} </${campo.tipoAddCampo}>
-                                                            <button title="remove campo" class="btn btn-danger" type="button"  onclick="removeCampo('#rm_${campo.siglaAddCampo}_${i}')" style="margin-left: 5px;"><i class="fa fa-minus"></i></button> </div> </div>`);
-                                    }
-                                });
-                            });
-                            $('.codDeBarra').val(ui.item.codDeBarra);
-                        }
-                    });
-
-                } else if (ui.item.idTipo != null) {
-                    $("#produto_id").val(ui.item.modelo);
-                    $("#selectSetor").val(ui.item.idSetor);
-                    $("#selectCategoria").val(ui.item.idCategoria);
-                    $("#selectMarca").val(ui.item.marca);
-                    $("#tipoMarca").val(ui.item.idTipo);
-                    $("#editarProduto").hide();
-                }
-            }
-        });
-
-        function buscaProdutos() {
-            let v;
-            v = barCode.value;
-            $('#imgLogo').remove();
-
-            $.ajax({
-                url: '<?= site_url('/produtos/consultaProduto/') ?>' + v,
-                success: function(data) {
-                    if (data != null && data != 0) {
-                        $('#produto_id').val(v);
-                        $('.addCampo').remove();
-
-                        let dados = JSON.parse(data);
-                        let json = dados;
-                        let logo = '';
-
-                        $("#imagemProduto").val(logo);
-                        //   updateThumbnail(logo);
-
-
-                        if (json.description) {
-                            $('#descricao').val(dados.description);
-                        }
-
-                        try {
-                            if (!json.thumbnail) {
-                                throw 'erro 1: tumbnail não encontrada'
-                            }
-
-                            //image.src = json.thumbnail;
-                            //imgLogo.appendChild(image).setAttribute("id", "imgLogo");
-                            $('#imagemProduto').val(json.thumbnail);
-                            updateThumb(json.thumbnail);
-
-                        } catch (e) {
-
-                            try {
-
-                                var logoLink = json.brand.picture.split('/');
-
-                                if (!logoLink[0]) {
-                                    throw 'erro 2: picture não encontrada'
-                                }
-
-                                //image.src = (logoLink[0] == 'https:') ? json.brand.picture : 'https://api.cosmos.bluesoft.com.br/' + json.brand.picture;
-                                // imgLogo.appendChild(image).setAttribute("id", "imgLogo");
-                                $('#imagemProduto').val((logoLink[0] == 'https:') ? json.brand.picture : 'https://api.cosmos.bluesoft.com.br/' + json.brand.picture);
-                                updateThumb((logoLink[0] == 'https:') ? json.brand.picture : 'https://api.cosmos.bluesoft.com.br/' + json.brand.picture);
-
-
-                            } catch (err) {
-                                //image.src = '/assets/img/sem_logo.png';
-                                // imgLogo.appendChild(image).setAttribute("id", "imgLogo");
-                                $('#imagemProduto').val('<?= base_url('assets/img/sem_logo.png') ?>');
-                                updateThumb('<?= base_url('assets/img/sem_logo.png') ?>');
-                            }
-                        }
-
-                        $('#codDeBarra').css("background-color", "#b8fdda");
-                        $('#codDeBarra').css("font-weight", 700);
-
-                        /* $('#description').val(json.description);
-                         $('#marca').append(json.brand.name);
-                         $('#avg_price').append(json.avg_price);
-                         $('#updated_at').append(json.updated_at);
-                         $('#barcode_image').attr('src', json.barcode_image);
-                         $('#img').attr('src', logo);*/
-
-                    } else {
-                        $('#codDeBarra').css("background-color", "#f1a3a3");
-                        $('#codDeBarra').css("font-weight", 700);
-                        $('#produto_id').val(barCode.value);
-                    }
-
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    $('#codDeBarra').css("background-color", "#f1a3a3");
-                    $('#codDeBarra').css("font-weight", 700);
-                    $('#produto_id').val(barCode.value);
-                }
-            });
-
+        // Função para remover caracteres especiais
+        function removerCaracteresEspeciais(texto) {
+            return texto.replace(/[^\w\s]/gi, '');
         }
-    })
+
+        // Função para gerar código automático
+        function gerarCodigo(event) {
+            event.preventDefault();
+
+            const categoriaSelecionada = categoriaSelect.find(":selected").text();
+            const subcategoriaSelecionada = subcategoriaSelect.val();
+            const marcaSelecionada = marcaSelect.find(":selected").text();
+            const descricao = descricaoInput.val();
+            const lastID = parseInt(lastId.val()) + 1;
+
+            if (categoriaSelecionada != null && subcategoriaSelecionada != null && marcaSelecionada != null && descricao != null) {
+                let codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
+                    subcategoriaSelecionada +
+                    marcaSelecionada.slice(0, 3).toUpperCase() +
+                    descricao.slice(0, 3).toUpperCase() +
+                    lastID;
+
+                codigo = removerCaracteresEspeciais(codigo);
+
+                codigoInput.val(codigo);
+            } else {
+                codigoInput.val(0);
+            }
+        }
+
+        // Atribuir evento de clique ao botão
+        $('.botaoGerarCodigo').click(function(event) {
+            gerarCodigo(event);
+        });
+    });
 
     function updateThumb(file) {
         if ($(".drop-zone__thumb") && typeof file == "string") {
@@ -449,18 +294,11 @@
                 alt: 'MyAlt'
             }).appendTo($('.drop-zone__thumb'));
             $('.drop-zone__thumb').attr('data-label', "Imagem do produto");
-            //    $('.drop-zone').append(`<div class="drop-zone__thumb" data-label="${file}" style="background-position: center; background-image: url(${file}); background-color: white;"></div>`);
         } else {
-
             $("#drop-zone > img").remove();
             $("#zone__prompt").addClass("drop-zone__prompt");
             $("#zone__prompt").text("Arraste o arquivo ou clique para upload");
-
-
-            // $('.drop-zone').append('<span class="drop-zone__prompt">Arraste o arquivo ou clique para upload</span>');
-            // console.log("Remove imagem");
         }
-
     }
 
     // ===========================================================
