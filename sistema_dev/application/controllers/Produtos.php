@@ -490,3 +490,4 @@ class Produtos extends MY_Controller
         return $this->upload->data();
     }
 }
+}
