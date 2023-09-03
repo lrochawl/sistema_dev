@@ -224,7 +224,7 @@ class Arquivos extends MY_Controller
         $date = date('d-m-Y');
 
         $config['upload_path'] = './assets/arquivos/' . $date;
-        $config['allowed_types'] = 'txt|jpg|jpeg|gif|png|pdf|PDF|JPG|JPEG|GIF|PNG';
+        $config['allowed_types'] = 'txt|jpg|jpeg|gif|png|pdf|PDF|JPG|JPEG|GIF|PNG|webp';
         $config['max_size'] = 0;
         $config['max_width'] = '3000';
         $config['max_height'] = '2000';
