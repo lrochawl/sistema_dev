@@ -36,7 +36,7 @@
                     <div class="drop-zone">
                         <input type="file" name="userfile" class="drop-zone__input">
                         <div class="drop-zone__thumb" data-label="<?= "Sem imagem " ?>">
-                            <img class="logoImagem" src='/assets/img/sem_logo.png'>
+                            <img class="logoImagem" src='<?=base_url('assets/img/sem_logo.png')?>'>
                         </div>
                     </div>
 
@@ -520,10 +520,10 @@
 
 
                             } catch (err) {
-                                //image.src = 'https://sistema.wltopos.com/assets/img/sem_logo.png';
+                                //image.src = '/assets/img/sem_logo.png';
                                 // imgLogo.appendChild(image).setAttribute("id", "imgLogo");
-                                $('#imagemProduto').val(base_url('assets/img/sem_logo.png'));
-                                updateThumb(base_url('assets/img/sem_logo.png'));
+                                $('#imagemProduto').val(<?=base_url('assets/img/sem_logo.png')?>);
+                                updateThumb(<?=base_url('assets/img/sem_logo.png')?>);
                             }
                         }
 
