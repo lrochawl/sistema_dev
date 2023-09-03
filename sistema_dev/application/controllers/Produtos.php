@@ -459,7 +459,7 @@ class Produtos extends MY_Controller
 
 
         $config['upload_path'] = './assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/";
-        $config['allowed_types'] = 'jpg|jpeg|png|JPG|JPEG|PNG|webp';
+        $config['allowed_types'] = 'jpg|jpeg|png|JPG|JPEG|PNG|webp|';
         $config['max_size'] = 0;
         $config['max_width'] = 0;
         $config['max_height'] = 0;
@@ -475,7 +475,7 @@ class Produtos extends MY_Controller
         if (!$this->upload->do_upload()) {
             $error = ['error' => $this->upload->display_errors()];
 
-            // $this->session->set_flashdata('error', 'Erro ao fazer upload do arquivo, verifique se a extensão do arquivo é permitida.');
+             $this->session->set_flashdata('error', 'Erro ao fazer upload do arquivo, verifique se a extensão do arquivo é permitida.');
             // redirect(site_url('settings/'));
 
             try {
