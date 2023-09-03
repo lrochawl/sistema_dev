@@ -341,6 +341,9 @@
         $('.wh3').select2({
             width: '9rem'
         });
+        $('#tipoMarca').select2({
+            width: '9rem'
+        });
 
         // Validação de campos
         $(".money").maskMoney();
