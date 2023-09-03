@@ -36,7 +36,7 @@
                     <div class="drop-zone">
                         <input type="file" name="userfile" class="drop-zone__input">
                         <div class="drop-zone__thumb" data-label="<?= "Sem imagem " ?>">
-                            <img class="logoImagem" src='https://sistema.wltopos.com/assets/img/sem_logo.png'>
+                            <img class="logoImagem" src='/assets/img/sem_logo.png'>
                         </div>
                     </div>
 
@@ -393,7 +393,7 @@
                 $('.addCampo').remove();
 
                 if (ui.item.id != null) {
-                    console.log(ui.item.codDeBarra);
+                    
                     $("#editarProduto").show();
                     $('#adcionarProduto').text('Duplicar');
                     $("#adNotaFiscal").val(ui.item.notaFiscal);
