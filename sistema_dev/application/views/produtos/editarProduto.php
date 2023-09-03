@@ -234,7 +234,7 @@
                                         if ($r->tipoAddCampo != "textarea") {     ?>
 
                                             <script>
-                                                $('#divAddCampo').append(`<div id='<?= "rm_" . $r->siglaAddCampo . "_" . $i ?>' class='control-group'>
+                                                $('#divAddCampo').append(`<div id='<?= "rm_" . $r->siglaAddCampo . "_" . $i ?>' class='control-group addCampo'>
                                                 <label for='<?= $r->siglaAddCampo . "_" . $i ?>' class='control-label campoAdd'>
                                                 <?= $r->addCampo ?><span class='required'>*</span></label>
                                                 <div class='controls'>
@@ -244,7 +244,7 @@
                                             </script>
                                         <?php  } else { ?>
                                             <script>
-                                                $('#divAddCampo').append(`<div id='<?= "rm_" . $r->siglaAddCampo . "_" . $i ?>' class='control-group'>
+                                                $('#divAddCampo').append(`<div id='<?= "rm_" . $r->siglaAddCampo . "_" . $i ?>' class='control-group addCampo'>
                                                 <label for='<?= $r->siglaAddCampo . "_" . $i ?>' class='control-label'>
                                                 <?= $r->addCampo ?><span class='required'>*</span></label>
                                                 <div class='controls'>
@@ -384,7 +384,7 @@
                 $('#codDeBarra').css("background-color", "#9dc2d5");
                 $('#codDeBarra').css("font-weight", 700);
                 $('#imgLogo').remove();
-                $('.campoAdd').remove();
+                $('.addCampo').remove();
 
                 if (ui.item.id != null) {
 
