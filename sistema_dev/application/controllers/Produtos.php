@@ -473,8 +473,7 @@ class Produtos extends MY_Controller
         $data = $this->upload->data();
         
         print_r($_FILES['userfile']);
-        exit();
-        
+       
         if (!$this->upload->do_upload()) {
 
             $error = ['error' => $this->upload->display_errors()];
