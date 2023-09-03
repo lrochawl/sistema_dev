@@ -68,6 +68,7 @@
     }
 
     input#precoVenda {
+        margin-right: 1%;
         width: 6em;
     }
 
