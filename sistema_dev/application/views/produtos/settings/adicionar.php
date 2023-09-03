@@ -106,7 +106,7 @@
                                     <option  value='textarea' <?= ($result->tipoAddCampo == 'textarea')?'selected':''?>>Texto longo</option>
                                     <option  value='text'  <?= ($result->tipoAddCampo == 'text')?'selected':''?>>Texto curto</option>
                                     <option  value='number'<?= ($result->tipoAddCampo == 'number')?'selected':''?>>Numero</option>
-                                    <option  value='number'<?= ($result->tipoAddCampo == 'date')?'selected':''?>>Data</option>
+                                    <option  value='date'<?= ($result->tipoAddCampo == 'date')?'selected':''?>>Data</option>
                                     <option  value='color' <?= ($result->tipoAddCampo == 'color')?'selected':''?>>Cor</option>
                                     <option  value='range' <?= ($result->tipoAddCampo == 'range')?'selected':''?>>Variação</option>
                                     </select>
