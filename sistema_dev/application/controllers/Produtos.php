@@ -470,8 +470,8 @@ class Produtos extends MY_Controller
         }
 
         $this->load->library('upload', $config);
-        
-        print_r($this->upload->initialize->data());
+        $data = array('upload_data' => $this->upload->data());
+        print_r($data);
         exit();
         $this->upload->initialize($config);
         if (!$this->upload->do_upload()) {
