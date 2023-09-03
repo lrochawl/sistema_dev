@@ -298,11 +298,11 @@
                     $("#margemLucro").val(ui.item.margem);
 
                     
-                    if (ui.item.imagemProduto != null) {
-                        //image_x.src = ui.item.imagemProduto;
-                        imgLogo.appendChild(image).setAttribute("id", "imgLogo");
-                        $('#imagemProduto').val(ui.item.imagemProduto);
-                    }
+                    // if (ui.item.imagemProduto != null) {
+                    //     //image_x.src = ui.item.imagemProduto;
+                    //     imgLogo.appendChild(image).setAttribute("id", "imgLogo");
+                    //     $('#imagemProduto').val(ui.item.imagemProduto);
+                    // }
                     
                     $.ajax({
                         url: "<?= site_url('produtos/returnAddCampos'); ?>",
