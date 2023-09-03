@@ -460,7 +460,7 @@ class CI_Upload {
 		$this->file_name = $this->_prep_filename($_file['name']);
 		$this->file_ext	 = $this->get_extension($this->file_name);
 		$this->client_name = $this->file_name;
-		exit($this->file_ext);
+		
 		// Is the file type allowed to be uploaded?
 		if ( ! $this->is_allowed_filetype())
 		{
@@ -613,7 +613,7 @@ class CI_Upload {
 				'image_type'		=> $this->image_type,
 				'image_size_str'	=> $this->image_size_str,
 			);
-
+exit($data);
 		if ( ! empty($index))
 		{
 			return isset($data[$index]) ? $data[$index] : NULL;
