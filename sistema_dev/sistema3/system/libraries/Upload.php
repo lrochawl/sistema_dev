@@ -613,7 +613,7 @@ class CI_Upload {
 				'image_type'		=> $this->image_type,
 				'image_size_str'	=> $this->image_size_str,
 			);
-exit($data);
+
 		if ( ! empty($index))
 		{
 			return isset($data[$index]) ? $data[$index] : NULL;
