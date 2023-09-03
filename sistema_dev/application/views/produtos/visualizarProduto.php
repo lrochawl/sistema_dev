@@ -102,43 +102,43 @@
                                         <div style="color:blue">
 
                                             <tr>
-                                                    <td style="text-align: right"><strong>Ambiente de estoque</strong></td>
-                                                    <td>
-                                                        <?php echo $result->ambiente ?>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="text-align: right"><strong>Localização</strong></td>
-                                                    <td>
-                                                        <?php echo $result->location ?>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="text-align: right"><strong>Descrição de localização</strong></td>
-                                                    <td>
-                                                        <?php echo $result->descricaoLocation ?>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="text-align: right; width: 30%"><strong>Estoque atual</strong></td>
-                                                    <td>
-                                                        <?php echo $estoque['texto'] ?>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="text-align: right; width: 30%"><strong>Estoque minimo</strong></td>
-                                                    <td>
-                                                        <?php echo $estoque['textoEstoqueMinimo'] ?>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="text-align: right"><strong>Descrição de medida padrão</strong></td>
-                                                    <td>
-                                                        <?php echo $result->descricaoMedida ?>
-                                                    </td>
-                                                </tr>
+                                                <td style="text-align: right"><strong>Ambiente de estoque</strong></td>
+                                                <td>
+                                                    <?php echo $result->ambiente ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: right"><strong>Localização</strong></td>
+                                                <td>
+                                                    <?php echo $result->location ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: right"><strong>Descrição de localização</strong></td>
+                                                <td>
+                                                    <?php echo $result->descricaoLocation ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: right; width: 30%"><strong>Estoque atual</strong></td>
+                                                <td>
+                                                    <?php echo $estoque['texto'] ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: right; width: 30%"><strong>Estoque minimo</strong></td>
+                                                <td>
+                                                    <?php echo $estoque['textoEstoqueMinimo'] ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: right"><strong>Descrição de medida padrão</strong></td>
+                                                <td>
+                                                    <?php echo $result->descricaoMedida ?>
+                                                </td>
+                                            </tr>
                                         </div>
-                                            
+
                                         <?php
 
                                         $resultCampos = explode("||", $result->observacao);
@@ -154,32 +154,32 @@
 
                                                 if ($idCampo != '' && $r->id_estoque_addCampo == $idCampo) {
 
-                                                   switch($r->tipoAddCampo){
-                                                   case "color":
+                                                    switch ($r->tipoAddCampo) {
+                                                        case "color":
                                         ?>
 
-                                                    <script>
-                                                        $('#divAddCampo').append(`<tr> <td style="text-align: right; vertical-align: inherit; "><strong><?php echo $r->addCampo; ?></strong></td> <td> <input type="color" value="<?php echo $var3[1]; ?>" style=" height: 33px; margin:auto;" disabled> </td>  </tr>`);
-                                                    </script>
+                                                            <script>
+                                                                $('#divAddCampo').append(`<tr> <td style="text-align: right; vertical-align: inherit; "><strong><?php echo $r->addCampo; ?></strong></td> <td> <input type="color" value="<?php echo $var3[1]; ?>" style=" height: 33px; margin:auto;" disabled> </td>  </tr>`);
+                                                            </script>
+                                                        <?php
+                                                            break;
+                                                        case "range";
+                                                        ?>
+                                                            <script>
+                                                                $('#divAddCampo').append(`<tr> <td style="text-align: right; vertical-align: inherit; "><strong><?php echo $r->addCampo; ?></strong></td> <td> <input type="range" value="<?php echo $var3[1]; ?>" style=" height: 33px; margin:auto;" disabled> </td>  </tr>`);
+                                                            </script>
+                                                        <?php
+                                                            break;
+                                                        default:
+                                                        ?>
+                                                            <script>
+                                                                $('#divAddCampo').append(`<tr> <td style="text-align: right"><strong><?php echo $r->addCampo; ?></strong></td> <td> <?php echo $var3[1]; ?> </td>  </tr>`);
+                                                            </script>
                                         <?php
-                                                break;
-                                                case "range";
-                                                ?>
-                                                    <script>
-                                                        $('#divAddCampo').append(`<tr> <td style="text-align: right; vertical-align: inherit; "><strong><?php echo $r->addCampo; ?></strong></td> <td> <input type="range" value="<?php echo $var3[1]; ?>" style=" height: 33px; margin:auto;" disabled> </td>  </tr>`);
-                                                    </script>
-                                        <?php
-                                                break;
-                                                default:
-                                                ?>
-                                                    <script>
-                                                        $('#divAddCampo').append(`<tr> <td style="text-align: right"><strong><?php echo $r->addCampo; ?></strong></td> <td> <?php echo $var3[1]; ?> </td>  </tr>`);
-                                                    </script>
-                                        <?php
+                                                    }
                                                 }
                                             }
                                         }
-                                    }
 
                                         ?>
                                     </tbody>
