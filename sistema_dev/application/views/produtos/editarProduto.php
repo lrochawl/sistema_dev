@@ -238,7 +238,7 @@
                                                 <label for='<?= $r->siglaAddCampo . "_" . $i ?>' class='control-label campoAdd'>
                                                 <?= $r->addCampo ?><span class='required'>*</span></label>
                                                 <div class='controls'>
-                                                <input onkeydown='handleEnter(event)' type='<?= $r->tipoAddCampo ?>'  id='<?= $r->siglaAddCampo . "_" . $i ?>' name='addCampoInput[<?= $r->id_estoque_addCampo . "_" . $i ?>]' value='<?= "$var3[1]" ?>' <?= ($r->tipoAddCampo == 'color' ? 'style=" height: 33px; width: 16em;"' : ''); ?> />   
+                                                <input onkeydown='handleEnter(event)' type='<?= $r->tipoAddCampo ?>'  id='<?= $r->siglaAddCampo . "_" . $i ?>' name='addCampoInput[<?= $r->idCampo . "_" . $i ?>]' value='<?= "$var3[1]" ?>' <?= ($r->tipoAddCampo == 'color' ? 'style=" height: 33px; width: 16em;"' : ''); ?> />   
                                                 <button title="remove campo" class="btn btn-danger" type="button"  onclick="removeCampo('#<?= "rm_" . $r->siglaAddCampo . "_" . $i ?>')" style="margin-left: 5px;">
                                                 <i class="fa fa-minus"></i></button> </div> </div>`);
                                             </script>
