@@ -453,7 +453,7 @@ class Produtos extends MY_Controller
         echo json_encode($this->setdb_model->getTabelaQ('estoque_addCampos'));
     }
 
-    private function do_upload($setting = null)
+    private function do_upload()
     {
 
 
@@ -468,7 +468,8 @@ class Produtos extends MY_Controller
         if (!is_dir('./assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/")) {
             mkdir('./assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/", 0777, true);
         }
-
+        print_r($config);
+             exit();
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
 
@@ -512,14 +513,13 @@ class Produtos extends MY_Controller
         }
 
         if ($this->upload->do_upload()) {
-            $data = array('upload_data' => $this->upload->data());
+            //$data = array('upload_data' => $this->upload->data());
             $file = $this->upload->data('file_name');
             $path = $this->upload->data('full_path');
             $url = base_url('assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/" . $file);
             $tamanho = $this->upload->data('file_size');
             $tipo = $this->upload->data('file_ext');
-            print_r($data);
-             exit();
+            
             $this->dataInsert["imagemProduto"]  =  $url;
             $this->dataInsert["pathImagem"]     =  $path;
             // $this->dataInsert["file"]     =  $file;
