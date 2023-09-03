@@ -203,32 +203,40 @@
 <script type="text/javascript">
     function handleEnter(event) {
         if (event.key === "Enter") {
-            const form = document.getElementById('formProduto')
+            const form = document.getElementById('formProduto');
             const index = [...form].indexOf(event.target);
             form.elements[index + 1].focus();
             // event.preventDefault();
+
         }
     }
+
     $(document).ready(function() {
+
         //verificador preenchimento do preço e margem de lucro
+
         $('#ativaVencimento').click(function() {
             if ($('#ativaVencimento').is(":checked")) {
                 $("#dataVencimento").attr("readonly", false);
             } else if ($('#ativaVencimento').is(":not(:checked)")) {
                 $("#dataVencimento").attr("readonly", true);
-                $("#dataVencimento").val("");
+                $("#dataVencimento").val('');
             }
         });
+
         //Select com buscador
-        $('select').select2();
+        $('#categorias').select2();
+        $('#marcasAgrotec').select2();
         $('.wh3').select2(({
             width: '9rem'
         }));
         //validação de campos
         $(".money").maskMoney();
+
         //auto complete produto
+
         $("#adNotaFiscal").autocomplete({
-            source: "<?php echo base_url('index.php/AutoComplete/autoCompleteNotaFiscal'); ?>",
+            source: "<?php echo base_url(); ?>index.php/AutoComplete/autoCompleteNotaFiscal",
             async: true,
             minLength: 1,
 
@@ -242,13 +250,14 @@
                 }
             }
         });
+
         const barCode = document.getElementById("codDeBarra");
         const myInput = document.querySelector("#descricao");
         const imgLogo = document.querySelector("#imageLogo");
         const image_x = document.getElementById('imgLogo');
         const marcas = document.getElementById('marcasAgrotec');
-        const image = document.createElement("img");
-        //  const camposDB = <?= json_encode($resultAddCampo) ?>;
+        const camposDB = <?= json_encode($resultAddCampo) ?>;
+
         $("#codDeBarra").autocomplete({
             source: "<?php echo base_url('AutoComplete/autoCompleteProduto'); ?>",
             minLength: 1,
@@ -270,6 +279,7 @@
                 $('.addCampo').remove();
 
                 if (ui.item.id != null) {
+
                     $("#editarProduto").show();
                     $('#adcionarProduto').text('Duplicar');
                     $("#adNotaFiscal").val(ui.item.notaFiscal);
@@ -285,12 +295,13 @@
                     $("#precoCompra").val(ui.item.precoCompra);
                     $("#precoVenda").val(ui.item.precoVenda);
                     $("#margemLucro").val(ui.item.margem);
+
                     if (ui.item.dataVencimento != null) {
                         $("#ativaVencimento").prop("checked", true);
                         $("#dataVencimento").val(ui.item.dataVencimento);
                     }
                     if (ui.item.imagemProduto != null) {
-                        image.src = "ui.item.imagemProduto";
+                        image.src = ui.item.imagemProduto;
                         imgLogo.appendChild(image).setAttribute("id", "imgLogo");
                         $('#imagemProduto').val(ui.item.imagemProduto);
                     }
@@ -315,20 +326,19 @@
                                 camposDB.forEach((campo) => {
                                     if (campo.id_estoque_addCampo == dadosCampo[0] && campo.tipoAddCampo != "textarea") {
                                         $('#divAddCampo').append(`<div id='rm_${campo.siglaAddCampo}_${i}' class='control-group campoAdd'>
-                                                            <label for='${campo.siglaAddCampo}_${i}' class='control-label'>${campo.addCampo}
-                                                            <span class='required'>*</span></label>
+                                        <label for='${campo.siglaAddCampo}_${i}' class='control-label'>${campo.addCampo}<span class='required'>*</span></label>
                                                             <div class='controls'><input required  onkeydown='handleEnter(event)' type='${campo.tipoAddCampo}'  id='${campo.siglaAddCampo}_${i}' name='addCampoInput[${campo.siglaAddCampo}_${i}]' value='${dadosCampo[1]} ' ${campo.tipoAddCampo =='color'?'style=" height: 33px;  width: 16em;"':''} />
                                                             <button title="remove campo" class="btn btn-danger" type="button"  onclick="removeCampo('#rm_${campo.siglaAddCampo}_${i}')" style="margin-left: 5px;"><i class="fa fa-minus"></i></button> </div> </div>`);
                                     }
                                     if (campo.id_estoque_addCampo == dadosCampo[0] && campo.tipoAddCampo == "textarea") {
                                         $('#divAddCampo').append(`<div id='rm_${campo.siglaAddCampo}_${i}' class='control-group campoAdd'>
-                                                            <label for='${campo.siglaAddCampo}_${i}' class='control-label'><?= isset($r->addCampo) ? $r->addCampo : ''; ?>
-                                                            <span class='required'>*</span></label><div class='controls'>
+                                                            <label for='${campo.siglaAddCampo}_${i}' class='control-label'><?= isset($r->addCampo) ? $r->addCampo : ''; ?><span class='required'>*</span></label><div class='controls'>
                                                             <${campo.tipoAddCampo} required  onkeydown='handleEnter(event)'  id='${campo.siglaAddCampo}_${i}' name='addCampoInput[${campo.siglaAddCampo}_${i}]' rows='5' cols='33' >  ${dadosCampo[1]} </${campo.tipoAddCampo}>
                                                             <button title="remove campo" class="btn btn-danger" type="button"  onclick="removeCampo('#rm_${campo.siglaAddCampo}_${i}')" style="margin-left: 5px;"><i class="fa fa-minus"></i></button> </div> </div>`);
                                     }
                                 });
                             });
+                            $('.codDeBarra').val(ui.item.codDeBarra);
                         }
                     });
 
@@ -394,10 +404,10 @@
 
 
                             } catch (err) {
-                                //image.src = 'https://sistema.wltopos.com/assets/img/sem_logo.png';
+                                //image.src = '/assets/img/sem_logo.png';
                                 // imgLogo.appendChild(image).setAttribute("id", "imgLogo");
-                                $('#imagemProduto').val(base_url('assets/img/sem_logo.png'));
-                                updateThumb(base_url('assets/img/sem_logo.png'));
+                                $('#imagemProduto').val('<?= base_url('assets/img/sem_logo.png') ?>');
+                                updateThumb('<?= base_url('assets/img/sem_logo.png') ?>');
                             }
                         }
 
@@ -452,7 +462,6 @@
         }
 
     }
-
 
     // ===========================================================
     // SCRIPT BOTÃO ADICIONAR CAMPO
