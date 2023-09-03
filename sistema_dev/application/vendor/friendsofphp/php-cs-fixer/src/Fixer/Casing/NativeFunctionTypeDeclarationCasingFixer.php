@@ -18,8 +18,6 @@ use PhpCsFixer\AbstractFixer;
 use PhpCsFixer\FixerDefinition\CodeSample;
 use PhpCsFixer\FixerDefinition\FixerDefinition;
 use PhpCsFixer\FixerDefinition\FixerDefinitionInterface;
-use PhpCsFixer\FixerDefinition\VersionSpecification;
-use PhpCsFixer\FixerDefinition\VersionSpecificCodeSample;
 use PhpCsFixer\Tokenizer\Analyzer\Analysis\TypeAnalysis;
 use PhpCsFixer\Tokenizer\Analyzer\FunctionsAnalyzer;
 use PhpCsFixer\Tokenizer\Token;
@@ -42,7 +40,12 @@ final class NativeFunctionTypeDeclarationCasingFixer extends AbstractFixer
      * object   PHP 7.2
      * static   PHP 8.0 (return type only)
      * mixed    PHP 8.0
-     * never    PHP 8.1
+     * false    PHP 8.0 (union return type only)
+     * null     PHP 8.0 (union return type only)
+     * never    PHP 8.1 (return type only)
+     * true     PHP 8.2 (standalone type: https://wiki.php.net/rfc/true-type)
+     * false    PHP 8.2 (standalone type: https://wiki.php.net/rfc/null-false-standalone-types)
+     * null     PHP 8.2 (standalone type: https://wiki.php.net/rfc/null-false-standalone-types)
      *
      * @var array<string, true>
      */
@@ -56,45 +59,35 @@ final class NativeFunctionTypeDeclarationCasingFixer extends AbstractFixer
 
         $this->hints = [
             'array' => true,
+            'bool' => true,
             'callable' => true,
+            'float' => true,
+            'int' => true,
+            'iterable' => true,
+            'object' => true,
             'self' => true,
+            'string' => true,
+            'void' => true,
         ];
 
-        $this->hints = array_merge(
-            $this->hints,
-            [
-                'bool' => true,
-                'float' => true,
-                'int' => true,
-                'string' => true,
-            ]
-        );
-
-        $this->hints = array_merge(
-            $this->hints,
-            [
-                'iterable' => true,
-                'void' => true,
-            ]
-        );
-
-        $this->hints = array_merge($this->hints, ['object' => true]);
-
-        if (\PHP_VERSION_ID >= 80000) {
-            $this->hints = array_merge($this->hints, ['static' => true]);
-            $this->hints = array_merge($this->hints, ['mixed' => true]);
+        if (\PHP_VERSION_ID >= 8_00_00) {
+            $this->hints['false'] = true;
+            $this->hints['mixed'] = true;
+            $this->hints['null'] = true;
+            $this->hints['static'] = true;
         }
 
-        if (\PHP_VERSION_ID >= 80100) {
-            $this->hints = array_merge($this->hints, ['never' => true]);
+        if (\PHP_VERSION_ID >= 8_01_00) {
+            $this->hints['never'] = true;
+        }
+
+        if (\PHP_VERSION_ID >= 8_02_00) {
+            $this->hints['true'] = true;
         }
 
         $this->functionsAnalyzer = new FunctionsAnalyzer();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getDefinition(): FixerDefinitionInterface
     {
         return new FixerDefinition(
@@ -107,29 +100,22 @@ final class NativeFunctionTypeDeclarationCasingFixer extends AbstractFixer
                 new CodeSample(
                     "<?php\nfunction Foo(Iterable \$a): VOID\n{\n    echo 'Hello world';\n}\n"
                 ),
-                new VersionSpecificCodeSample(
+                new CodeSample(
                     "<?php\nfunction Foo(Object \$a)\n{\n    return 'hi!';\n}\n",
-                    new VersionSpecification(70200)
                 ),
             ]
         );
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function isCandidate(Tokens $tokens): bool
     {
-        return $tokens->isAllTokenKindsFound([T_FUNCTION, T_STRING]);
+        return $tokens->isAnyTokenKindsFound([T_FUNCTION, T_FN]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function applyFix(\SplFileInfo $file, Tokens $tokens): void
     {
         for ($index = $tokens->count() - 1; $index >= 0; --$index) {
-            if ($tokens[$index]->isGivenKind(T_FUNCTION)) {
+            if ($tokens[$index]->isGivenKind([T_FUNCTION, T_FN])) {
                 $this->fixFunctionReturnType($tokens, $index);
                 $this->fixFunctionArgumentTypes($tokens, $index);
             }

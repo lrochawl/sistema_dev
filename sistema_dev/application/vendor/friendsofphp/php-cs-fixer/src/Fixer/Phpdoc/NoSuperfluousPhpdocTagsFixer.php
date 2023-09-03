@@ -17,6 +17,7 @@ namespace PhpCsFixer\Fixer\Phpdoc;
 use PhpCsFixer\AbstractFixer;
 use PhpCsFixer\DocBlock\Annotation;
 use PhpCsFixer\DocBlock\DocBlock;
+use PhpCsFixer\DocBlock\TypeExpression;
 use PhpCsFixer\Fixer\ConfigurableFixerInterface;
 use PhpCsFixer\FixerConfiguration\FixerConfigurationResolver;
 use PhpCsFixer\FixerConfiguration\FixerConfigurationResolverInterface;
@@ -25,16 +26,21 @@ use PhpCsFixer\FixerDefinition\CodeSample;
 use PhpCsFixer\FixerDefinition\FixerDefinition;
 use PhpCsFixer\FixerDefinition\FixerDefinitionInterface;
 use PhpCsFixer\Preg;
+use PhpCsFixer\Tokenizer\Analyzer\Analysis\TypeAnalysis;
+use PhpCsFixer\Tokenizer\Analyzer\NamespacesAnalyzer;
 use PhpCsFixer\Tokenizer\Analyzer\NamespaceUsesAnalyzer;
 use PhpCsFixer\Tokenizer\CT;
 use PhpCsFixer\Tokenizer\Token;
 use PhpCsFixer\Tokenizer\Tokens;
+use PhpCsFixer\Tokenizer\TokensAnalyzer;
 
 final class NoSuperfluousPhpdocTagsFixer extends AbstractFixer implements ConfigurableFixerInterface
 {
-    /**
-     * {@inheritdoc}
-     */
+    private const NO_TYPE_INFO = [
+        'types' => [],
+        'allows_null' => true,
+    ];
+
     public function getDefinition(): FixerDefinitionInterface
     {
         return new FixerDefinition(
@@ -93,27 +99,51 @@ class Foo {
         return 6;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function isCandidate(Tokens $tokens): bool
     {
         return $tokens->isTokenKindFound(T_DOC_COMMENT);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function applyFix(\SplFileInfo $file, Tokens $tokens): void
     {
+        $tokensAnalyzer = new TokensAnalyzer($tokens);
+
         $namespaceUseAnalyzer = new NamespaceUsesAnalyzer();
         $shortNames = [];
+        $currentSymbol = null;
+        $currentSymbolEndIndex = null;
 
         foreach ($namespaceUseAnalyzer->getDeclarationsFromTokens($tokens) as $namespaceUseAnalysis) {
-            $shortNames[strtolower($namespaceUseAnalysis->getShortName())] = '\\'.strtolower($namespaceUseAnalysis->getFullName());
+            $shortNames[strtolower($namespaceUseAnalysis->getShortName())] = strtolower($namespaceUseAnalysis->getFullName());
+        }
+
+        $symbolKinds = [T_CLASS, T_INTERFACE];
+        if (\defined('T_ENUM')) { // @TODO drop the condition when requiring PHP 8.1+
+            $symbolKinds[] = T_ENUM;
         }
 
         foreach ($tokens as $index => $token) {
+            if ($index === $currentSymbolEndIndex) {
+                $currentSymbol = null;
+                $currentSymbolEndIndex = null;
+
+                continue;
+            }
+
+            if ($token->isGivenKind(T_CLASS) && $tokensAnalyzer->isAnonymousClass($index)) {
+                continue;
+            }
+
+            if ($token->isGivenKind($symbolKinds)) {
+                $currentSymbol = $tokens[$tokens->getNextMeaningfulToken($index)]->getContent();
+                $currentSymbolEndIndex = $tokens->findBlockEnd(
+                    Tokens::BLOCK_TYPE_CURLY_BRACE,
+                    $tokens->getNextTokenOfKind($index, ['{']),
+                );
+
+                continue;
+            }
+
             if (!$token->isGivenKind(T_DOC_COMMENT)) {
                 continue;
             }
@@ -130,10 +160,15 @@ class Foo {
                 $content = $this->removeSuperfluousInheritDoc($content);
             }
 
+            $namespace = (new NamespacesAnalyzer())->getNamespaceAt($tokens, $index)->getFullName();
+            if ('' === $namespace) {
+                $namespace = null;
+            }
+
             if ('function' === $documentedElement['type']) {
-                $content = $this->fixFunctionDocComment($content, $tokens, $documentedElement, $shortNames);
+                $content = $this->fixFunctionDocComment($content, $tokens, $documentedElement, $namespace, $currentSymbol, $shortNames);
             } elseif ('property' === $documentedElement['type']) {
-                $content = $this->fixPropertyDocComment($content, $tokens, $documentedElement, $shortNames);
+                $content = $this->fixPropertyDocComment($content, $tokens, $documentedElement, $namespace, $currentSymbol, $shortNames);
             } elseif ('classy' === $documentedElement['type']) {
                 $content = $this->fixClassDocComment($content, $documentedElement);
             } else {
@@ -150,27 +185,32 @@ class Foo {
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function createConfigurationDefinition(): FixerConfigurationResolverInterface
     {
         return new FixerConfigurationResolver([
-            (new FixerOptionBuilder('allow_mixed', 'Whether type `mixed` without description is allowed (`true`) or considered superfluous (`false`)'))
+            (new FixerOptionBuilder('allow_mixed', 'Whether type `mixed` without description is allowed (`true`) or considered superfluous (`false`).'))
                 ->setAllowedTypes(['bool'])
                 ->setDefault(false)
                 ->getOption(),
-            (new FixerOptionBuilder('remove_inheritdoc', 'Remove `@inheritDoc` tags'))
+            (new FixerOptionBuilder('remove_inheritdoc', 'Remove `@inheritDoc` tags.'))
                 ->setAllowedTypes(['bool'])
                 ->setDefault(false)
                 ->getOption(),
-            (new FixerOptionBuilder('allow_unused_params', 'Whether `param` annotation without actual signature is allowed (`true`) or considered superfluous (`false`)'))
+            (new FixerOptionBuilder('allow_unused_params', 'Whether `param` annotation without actual signature is allowed (`true`) or considered superfluous (`false`).'))
                 ->setAllowedTypes(['bool'])
                 ->setDefault(false)
                 ->getOption(),
         ]);
     }
 
+    /**
+     * @return null|array{
+     *       index: int,
+     *       type: 'classy'|'function'|'property',
+     *       modifiers: array<int, Token>,
+     *       types: array<int, Token>,
+     * }
+     */
     private function findDocumentedElement(Tokens $tokens, int $docCommentIndex): ?array
     {
         $modifierKinds = [
@@ -250,8 +290,24 @@ class Foo {
         return null;
     }
 
-    private function fixFunctionDocComment(string $content, Tokens $tokens, array $element, array $shortNames): string
-    {
+    /**
+     * @param array{
+     *       index: int,
+     *       type: 'function',
+     *       modifiers: array<int, Token>,
+     *       types: array<int, Token>,
+     * } $element
+     * @param null|non-empty-string $namespace
+     * @param array<string, string> $shortNames
+     */
+    private function fixFunctionDocComment(
+        string $content,
+        Tokens $tokens,
+        array $element,
+        ?string $namespace,
+        ?string $currentSymbol,
+        array $shortNames
+    ): string {
         $docBlock = new DocBlock($content);
 
         $openingParenthesisIndex = $tokens->getNextTokenOfKind($element['index'], ['(']);
@@ -267,6 +323,10 @@ class Foo {
             $argumentName = $annotation->getVariableName();
 
             if (null === $argumentName) {
+                if ($this->annotationIsSuperfluous($annotation, self::NO_TYPE_INFO, $namespace, $currentSymbol, $shortNames)) {
+                    $annotation->remove();
+                }
+
                 continue;
             }
 
@@ -274,7 +334,7 @@ class Foo {
                 continue;
             }
 
-            if (!isset($argumentsInfo[$argumentName]) || $this->annotationIsSuperfluous($annotation, $argumentsInfo[$argumentName], $shortNames)) {
+            if (!isset($argumentsInfo[$argumentName]) || $this->annotationIsSuperfluous($annotation, $argumentsInfo[$argumentName], $namespace, $currentSymbol, $shortNames)) {
                 $annotation->remove();
             }
         }
@@ -282,7 +342,7 @@ class Foo {
         $returnTypeInfo = $this->getReturnTypeInfo($tokens, $closingParenthesisIndex);
 
         foreach ($docBlock->getAnnotationsOfType('return') as $annotation) {
-            if ($this->annotationIsSuperfluous($annotation, $returnTypeInfo, $shortNames)) {
+            if ($this->annotationIsSuperfluous($annotation, $returnTypeInfo, $namespace, $currentSymbol, $shortNames)) {
                 $annotation->remove();
             }
         }
@@ -292,21 +352,34 @@ class Foo {
         return $docBlock->getContent();
     }
 
-    private function fixPropertyDocComment(string $content, Tokens $tokens, array $element, array $shortNames): string
-    {
+    /**
+     * @param array{
+     *       index: int,
+     *       type: 'property',
+     *       modifiers: array<int, Token>,
+     *       types: array<int, Token>,
+     * } $element
+     * @param null|non-empty-string $namespace
+     * @param array<string, string> $shortNames
+     */
+    private function fixPropertyDocComment(
+        string $content,
+        Tokens $tokens,
+        array $element,
+        ?string $namespace,
+        ?string $currentSymbol,
+        array $shortNames
+    ): string {
         if (\count($element['types']) > 0) {
             $propertyTypeInfo = $this->parseTypeHint($tokens, array_key_first($element['types']));
         } else {
-            $propertyTypeInfo = [
-                'types' => [],
-                'allows_null' => true,
-            ];
+            $propertyTypeInfo = self::NO_TYPE_INFO;
         }
 
         $docBlock = new DocBlock($content);
 
         foreach ($docBlock->getAnnotationsOfType('var') as $annotation) {
-            if ($this->annotationIsSuperfluous($annotation, $propertyTypeInfo, $shortNames)) {
+            if ($this->annotationIsSuperfluous($annotation, $propertyTypeInfo, $namespace, $currentSymbol, $shortNames)) {
                 $annotation->remove();
             }
         }
@@ -314,6 +387,14 @@ class Foo {
         return $docBlock->getContent();
     }
 
+    /**
+     * @param array{
+     *       index: int,
+     *       type: 'classy',
+     *       modifiers: array<int, Token>,
+     *       types: array<int, Token>,
+     * } $element
+     */
     private function fixClassDocComment(string $content, array $element): string
     {
         $docBlock = new DocBlock($content);
@@ -324,7 +405,7 @@ class Foo {
     }
 
     /**
-     * @return array<string, array>
+     * @return array<string, array{types: list<string>, allows_null: bool}>
      */
     private function getArgumentsInfo(Tokens $tokens, int $start, int $end): array
     {
@@ -343,10 +424,7 @@ class Foo {
             if ($typeIndex !== $index) {
                 $info = $this->parseTypeHint($tokens, $typeIndex);
             } else {
-                $info = [
-                    'types' => [],
-                    'allows_null' => true,
-                ];
+                $info = self::NO_TYPE_INFO;
             }
 
             if (!$info['allows_null']) {
@@ -365,21 +443,22 @@ class Foo {
         return $argumentsInfo;
     }
 
+    /**
+     * @return array{types: list<string>, allows_null: bool}
+     */
     private function getReturnTypeInfo(Tokens $tokens, int $closingParenthesisIndex): array
     {
         $colonIndex = $tokens->getNextMeaningfulToken($closingParenthesisIndex);
 
         return $tokens[$colonIndex]->isGivenKind(CT::T_TYPE_COLON)
             ? $this->parseTypeHint($tokens, $tokens->getNextMeaningfulToken($colonIndex))
-            : [
-                'types' => [],
-                'allows_null' => true,
-            ]
-        ;
+            : self::NO_TYPE_INFO;
     }
 
     /**
      * @param int $index The index of the first token of the type hint
+     *
+     * @return array{types: list<string>, allows_null: bool}
      */
     private function parseTypeHint(Tokens $tokens, int $index): array
     {
@@ -430,25 +509,42 @@ class Foo {
     }
 
     /**
+     * @param null|non-empty-string $namespace
      * @param array<string, string> $symbolShortNames
      */
-    private function annotationIsSuperfluous(Annotation $annotation, array $info, array $symbolShortNames): bool
-    {
+    private function annotationIsSuperfluous(
+        Annotation $annotation,
+        array $info,
+        ?string $namespace,
+        ?string $currentSymbol,
+        array $symbolShortNames
+    ): bool {
         if ('param' === $annotation->getTag()->getName()) {
-            $regex = '/@param\s+[^\$]+\s(?:\&\s*)?(?:\.{3}\s*)?\$\S+\s+\S/';
+            $regex = '{@param(?:\s+'.TypeExpression::REGEX_TYPES.')?(?!\S)(?:\s+(?:\&\s*)?(?:\.{3}\s*)?\$\S+)?(?:\s+(?<description>(?!\*+\/)\S+))?}s';
         } elseif ('var' === $annotation->getTag()->getName()) {
-            $regex = '/@var\s+\S+(\s+\$\S+)?(\s+)(?!\*+\/)([^$\s]+)/';
+            $regex = '{@var(?:\s+'.TypeExpression::REGEX_TYPES.')?(?!\S)(?:\s+\$\S+)?(?:\s+(?<description>(?!\*\/)\S+))?}s';
         } else {
-            $regex = '/@return\s+\S+\s+\S/';
+            $regex = '{@return(?:\s+'.TypeExpression::REGEX_TYPES.')?(?!\S)(?:\s+(?<description>(?!\*\/)\S+))?}s';
         }
 
-        if (Preg::match($regex, $annotation->getContent())) {
+        if (!Preg::match($regex, $annotation->getContent(), $matches)) {
+            // Unable to match the annotation, it must be malformed or has unsupported format.
+            // Either way we don't want to tinker with it.
             return false;
         }
 
-        $annotationTypes = $this->toComparableNames($annotation->getTypes(), $symbolShortNames);
+        if (isset($matches['description'])) {
+            return false;
+        }
 
-        if (['null'] === $annotationTypes) {
+        if (!isset($matches['types']) || '' === $matches['types']) {
+            // If there's no type info in the annotation, further checks make no sense, exit early.
+            return true;
+        }
+
+        $annotationTypes = $this->toComparableNames($annotation->getTypes(), $namespace, $currentSymbol, $symbolShortNames);
+
+        if (['null'] === $annotationTypes && ['null'] !== $info['types']) {
             return false;
         }
 
@@ -462,7 +558,15 @@ class Foo {
             $actualTypes[] = 'null';
         }
 
-        return $annotationTypes === $this->toComparableNames($actualTypes, $symbolShortNames);
+        $actualTypes = $this->toComparableNames($actualTypes, $namespace, $currentSymbol, $symbolShortNames);
+
+        if ($annotationTypes === $actualTypes) {
+            return true;
+        }
+
+        // retry comparison with annotation type unioned with null
+        // phpstan implies the null presence from the native type
+        return $actualTypes === $this->toComparableNames(array_merge($annotationTypes, ['null']), null, null, []);
     }
 
     /**
@@ -472,24 +576,42 @@ class Foo {
      * their matching FQCN, and finally sorts the result.
      *
      * @param string[]              $types            The types to normalize
+     * @param null|non-empty-string $namespace
      * @param array<string, string> $symbolShortNames The imports aliases
      *
      * @return array The normalized types
      */
-    private function toComparableNames(array $types, array $symbolShortNames): array
+    private function toComparableNames(array $types, ?string $namespace, ?string $currentSymbol, array $symbolShortNames): array
     {
         $normalized = array_map(
-            static function (string $type) use ($symbolShortNames): string {
-                $type = strtolower($type);
-
+            function (string $type) use ($namespace, $currentSymbol, $symbolShortNames): string {
                 if (str_contains($type, '&')) {
                     $intersects = explode('&', $type);
-                    sort($intersects);
+
+                    $intersects = $this->toComparableNames($intersects, $namespace, $currentSymbol, $symbolShortNames);
 
                     return implode('&', $intersects);
                 }
 
-                return $symbolShortNames[$type] ?? $type;
+                if ('self' === $type && null !== $currentSymbol) {
+                    $type = $currentSymbol;
+                }
+
+                $type = strtolower($type);
+
+                if (isset($symbolShortNames[$type])) {
+                    return $symbolShortNames[$type]; // always FQCN /wo leading backslash and in lower-case
+                }
+
+                if (str_starts_with($type, '\\')) {
+                    return substr($type, 1);
+                }
+
+                if (null !== $namespace && !(new TypeAnalysis($type))->isReservedType()) {
+                    $type = strtolower($namespace).'\\'.$type;
+                }
+
+                return $type;
             },
             $types
         );

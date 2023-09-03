@@ -63,11 +63,46 @@ final class TokensAnalyzer
     }
 
     /**
+     * Get indices of modifiers of a classy code (classes, interfaces and traits).
+     *
+     * @return array{
+     *     final: int|null,
+     *     abstract: int|null,
+     *     readonly: int|null
+     * }
+     */
+    public function getClassyModifiers(int $index): array
+    {
+        if (!$this->tokens[$index]->isClassy()) {
+            throw new \InvalidArgumentException(sprintf('Not an "classy" at given index %d.', $index));
+        }
+
+        $readOnlyPossible = \defined('T_READONLY'); // @TODO: drop condition when PHP 8.2+ is required
+        $modifiers = ['final' => null, 'abstract' => null, 'readonly' => null];
+
+        while (true) {
+            $index = $this->tokens->getPrevMeaningfulToken($index);
+
+            if ($this->tokens[$index]->isGivenKind(T_FINAL)) {
+                $modifiers['final'] = $index;
+            } elseif ($this->tokens[$index]->isGivenKind(T_ABSTRACT)) {
+                $modifiers['abstract'] = $index;
+            } elseif ($readOnlyPossible && $this->tokens[$index]->isGivenKind(T_READONLY)) {
+                $modifiers['readonly'] = $index;
+            } else { // no need to skip attributes as it is not possible on PHP8.2
+                break;
+            }
+        }
+
+        return $modifiers;
+    }
+
+    /**
      * Get indices of namespace uses.
      *
      * @param bool $perNamespace Return namespace uses per namespace
      *
-     * @return array<int, list<int>>|list<int>
+     * @return ($perNamespace is true ? array<int, list<int>> : list<int>)
      */
     public function getImportUseIndexes(bool $perNamespace = false): array
     {
@@ -169,25 +204,14 @@ final class TokensAnalyzer
     }
 
     /**
-     * Returns the attributes of the method under the given index.
+     * @param int $index Index of the T_FUNCTION token
      *
-     * The array has the following items:
-     * 'visibility' int|null  T_PRIVATE, T_PROTECTED or T_PUBLIC
-     * 'static'     bool
-     * 'abstract'   bool
-     * 'final'      bool
-     *
-     * @param int $index Token index of the method (T_FUNCTION)
-     *
-     * @return array{visibility: ?int, static: bool, abstract: bool, final: bool}
+     * @return array{visibility: null|T_PRIVATE|T_PROTECTED|T_PUBLIC, static: bool, abstract: bool, final: bool}
      */
     public function getMethodAttributes(int $index): array
     {
-        $tokens = $this->tokens;
-        $token = $tokens[$index];
-
-        if (!$token->isGivenKind(T_FUNCTION)) {
-            throw new \LogicException(sprintf('No T_FUNCTION at given index %d, got "%s".', $index, $token->getName()));
+        if (!$this->tokens[$index]->isGivenKind(T_FUNCTION)) {
+            throw new \LogicException(sprintf('No T_FUNCTION at given index %d, got "%s".', $index, $this->tokens[$index]->getName()));
         }
 
         $attributes = [
@@ -198,10 +222,8 @@ final class TokensAnalyzer
         ];
 
         for ($i = $index; $i >= 0; --$i) {
-            $tokenIndex = $tokens->getPrevMeaningfulToken($i);
-
-            $i = $tokenIndex;
-            $token = $tokens[$tokenIndex];
+            $i = $this->tokens->getPrevMeaningfulToken($i);
+            $token = $this->tokens[$i];
 
             if ($token->isGivenKind(T_STATIC)) {
                 $attributes['static'] = true;
@@ -263,6 +285,10 @@ final class TokensAnalyzer
         }
 
         $index = $this->tokens->getPrevMeaningfulToken($index);
+
+        if (\defined('T_READONLY') && $this->tokens[$index]->isGivenKind(T_READONLY)) { // @TODO: drop condition when PHP 8.1+ is required
+            $index = $this->tokens->getPrevMeaningfulToken($index);
+        }
 
         while ($this->tokens[$index]->isGivenKind(CT::T_ATTRIBUTE_CLOSE)) {
             $index = $this->tokens->findBlockStart(Tokens::BLOCK_TYPE_ATTRIBUTE, $index);
@@ -605,6 +631,31 @@ final class TokensAnalyzer
         $beforeStartIndex = $tokens->getPrevMeaningfulToken($startIndex);
 
         return $tokens[$beforeStartIndex]->isGivenKind(T_DO);
+    }
+
+    /**
+     * @throws \LogicException when provided index does not point to token containing T_CASE
+     */
+    public function isEnumCase(int $caseIndex): bool
+    {
+        $tokens = $this->tokens;
+        $token = $tokens[$caseIndex];
+
+        if (!$token->isGivenKind(T_CASE)) {
+            throw new \LogicException(sprintf(
+                'No T_CASE given at index %d, got %s instead.',
+                $caseIndex,
+                $token->getName() ?? $token->getContent()
+            ));
+        }
+
+        if (!\defined('T_ENUM') || !$tokens->isTokenKindFound(T_ENUM)) {
+            return false;
+        }
+
+        $prevIndex = $tokens->getPrevTokenOfKind($caseIndex, [[T_ENUM], [T_SWITCH]]);
+
+        return null !== $prevIndex && $tokens[$prevIndex]->isGivenKind(T_ENUM);
     }
 
     public function isSuperGlobal(int $index): bool

@@ -101,7 +101,7 @@ final class ErrorOutput
                 $this->output->writeln(sprintf('      Applied fixers: <comment>%s</comment>', implode(', ', $error->getAppliedFixers())));
 
                 $diff = $error->getDiff();
-                if (!empty($diff)) {
+                if (null !== $diff) {
                     $diffFormatter = new DiffConsoleFormatter(
                         $this->isDecorated,
                         sprintf(
@@ -117,6 +117,17 @@ final class ErrorOutput
         }
     }
 
+    /**
+     * @param array{
+     *     function?: string,
+     *     line?: int,
+     *     file?: string,
+     *     class?: class-string,
+     *     type?: '::'|'->',
+     *     args?: mixed[],
+     *     object?: object,
+     * } $trace
+     */
     private function outputTrace(array $trace): void
     {
         if (isset($trace['class'], $trace['type'], $trace['function'])) {
@@ -139,7 +150,6 @@ final class ErrorOutput
     {
         return $this->isDecorated
             ? OutputFormatter::escape($string)
-            : $string
-        ;
+            : $string;
     }
 }

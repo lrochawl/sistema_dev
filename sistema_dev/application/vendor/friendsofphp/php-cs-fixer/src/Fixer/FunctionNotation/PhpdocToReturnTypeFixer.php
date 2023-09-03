@@ -47,13 +47,10 @@ final class PhpdocToReturnTypeFixer extends AbstractPhpdocToTypeDeclarationFixer
         'null' => true,
     ];
 
-    /**
-     * {@inheritdoc}
-     */
     public function getDefinition(): FixerDefinitionInterface
     {
         return new FixerDefinition(
-            'EXPERIMENTAL: Takes `@return` annotation of non-mixed types and adjusts accordingly the function signature. Requires PHP >= 7.0.',
+            'EXPERIMENTAL: Takes `@return` annotation of non-mixed types and adjusts accordingly the function signature.',
             [
                 new CodeSample(
                     '<?php
@@ -65,16 +62,11 @@ function f1()
 /** @return void */
 function f2()
 {}
-'
-                ),
-                new VersionSpecificCodeSample(
-                    '<?php
 
 /** @return object */
 function my_foo()
 {}
 ',
-                    new VersionSpecification(70200)
                 ),
                 new CodeSample(
                     '<?php
@@ -97,7 +89,7 @@ final class Foo {
     }
 }
 ',
-                    new VersionSpecification(80000)
+                    new VersionSpecification(8_00_00)
                 ),
             ],
             null,
@@ -105,9 +97,6 @@ final class Foo {
         );
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function isCandidate(Tokens $tokens): bool
     {
         return $tokens->isAnyTokenKindsFound([T_FUNCTION, T_FN]);
@@ -116,7 +105,7 @@ final class Foo {
     /**
      * {@inheritdoc}
      *
-     * Must run before FullyQualifiedStrictTypesFixer, NoSuperfluousPhpdocTagsFixer, PhpdocAlignFixer, ReturnTypeDeclarationFixer.
+     * Must run before FullyQualifiedStrictTypesFixer, NoSuperfluousPhpdocTagsFixer, PhpdocAlignFixer, ReturnToYieldFromFixer, ReturnTypeDeclarationFixer.
      * Must run after AlignMultilineCommentFixer, CommentToPhpdocFixer, PhpdocIndentFixer, PhpdocScalarFixer, PhpdocToCommentFixer, PhpdocTypesFixer.
      */
     public function getPriority(): int
@@ -129,12 +118,9 @@ final class Foo {
         return isset($this->skippedTypes[$type]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function applyFix(\SplFileInfo $file, Tokens $tokens): void
     {
-        if (\PHP_VERSION_ID >= 80000) {
+        if (\PHP_VERSION_ID >= 8_00_00) {
             unset($this->skippedTypes['mixed']);
         }
 

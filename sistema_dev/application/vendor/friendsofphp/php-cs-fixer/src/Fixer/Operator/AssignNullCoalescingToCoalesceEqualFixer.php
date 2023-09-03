@@ -15,10 +15,9 @@ declare(strict_types=1);
 namespace PhpCsFixer\Fixer\Operator;
 
 use PhpCsFixer\AbstractFixer;
+use PhpCsFixer\FixerDefinition\CodeSample;
 use PhpCsFixer\FixerDefinition\FixerDefinition;
 use PhpCsFixer\FixerDefinition\FixerDefinitionInterface;
-use PhpCsFixer\FixerDefinition\VersionSpecification;
-use PhpCsFixer\FixerDefinition\VersionSpecificCodeSample;
 use PhpCsFixer\Tokenizer\Analyzer\RangeAnalyzer;
 use PhpCsFixer\Tokenizer\CT;
 use PhpCsFixer\Tokenizer\Token;
@@ -26,17 +25,13 @@ use PhpCsFixer\Tokenizer\Tokens;
 
 final class AssignNullCoalescingToCoalesceEqualFixer extends AbstractFixer
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getDefinition(): FixerDefinitionInterface
     {
         return new FixerDefinition(
             'Use the null coalescing assignment operator `??=` where possible.',
             [
-                new VersionSpecificCodeSample(
+                new CodeSample(
                     "<?php\n\$foo = \$foo ?? 1;\n",
-                    new VersionSpecification(70400)
                 ),
             ]
         );
@@ -53,17 +48,11 @@ final class AssignNullCoalescingToCoalesceEqualFixer extends AbstractFixer
         return -1;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function isCandidate(Tokens $tokens): bool
     {
         return $tokens->isTokenKindFound(T_COALESCE);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function applyFix(\SplFileInfo $file, Tokens $tokens): void
     {
         for ($index = \count($tokens) - 1; $index > 3; --$index) {
@@ -123,6 +112,9 @@ final class AssignNullCoalescingToCoalesceEqualFixer extends AbstractFixer
         }
     }
 
+    /**
+     * @return array{start: int, end: int}
+     */
     private function getBeforeOperator(Tokens $tokens, int $index): array
     {
         $controlStructureWithoutBracesTypes = [T_IF, T_ELSE, T_ELSEIF, T_FOR, T_FOREACH, T_WHILE];
@@ -175,6 +167,9 @@ final class AssignNullCoalescingToCoalesceEqualFixer extends AbstractFixer
         return $range;
     }
 
+    /**
+     * @param array{start: int, end: int} $range
+     */
     private function clearMeaningfulFromRange(Tokens $tokens, array $range): void
     {
         // $range['end'] must be meaningful!

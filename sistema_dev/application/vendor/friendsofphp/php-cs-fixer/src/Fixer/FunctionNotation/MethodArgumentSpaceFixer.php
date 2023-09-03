@@ -23,24 +23,16 @@ use PhpCsFixer\FixerConfiguration\FixerOptionBuilder;
 use PhpCsFixer\FixerDefinition\CodeSample;
 use PhpCsFixer\FixerDefinition\FixerDefinition;
 use PhpCsFixer\FixerDefinition\FixerDefinitionInterface;
-use PhpCsFixer\FixerDefinition\VersionSpecification;
-use PhpCsFixer\FixerDefinition\VersionSpecificCodeSample;
 use PhpCsFixer\Preg;
 use PhpCsFixer\Tokenizer\CT;
 use PhpCsFixer\Tokenizer\Token;
 use PhpCsFixer\Tokenizer\Tokens;
-use Symfony\Component\OptionsResolver\Options;
 
 /**
- * Fixer for rules defined in PSR2 ¶4.4, ¶4.6.
- *
  * @author Kuanhung Chen <ericj.tw@gmail.com>
  */
 final class MethodArgumentSpaceFixer extends AbstractFixer implements ConfigurableFixerInterface, WhitespacesAwareFixerInterface
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getDefinition(): FixerDefinitionInterface
     {
         return new FixerDefinition(
@@ -80,59 +72,42 @@ final class MethodArgumentSpaceFixer extends AbstractFixer implements Configurab
                         'keep_multiple_spaces_after_comma' => false,
                     ]
                 ),
-                new VersionSpecificCodeSample(
+                new CodeSample(
                     <<<'SAMPLE'
-<?php
-sample(
-    <<<EOD
-        foo
-        EOD
-    ,
-    'bar'
-);
+                        <?php
+                        sample(
+                            <<<EOD
+                                foo
+                                EOD
+                            ,
+                            'bar'
+                        );
 
-SAMPLE
+                        SAMPLE
                     ,
-                    new VersionSpecification(70300),
                     ['after_heredoc' => true]
                 ),
-            ]
+            ],
+            'This fixer covers rules defined in PSR2 ¶4.4, ¶4.6.'
         );
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function isCandidate(Tokens $tokens): bool
     {
         return $tokens->isTokenKindFound('(');
     }
 
-    public function configure(array $configuration): void
-    {
-        parent::configure($configuration);
-
-        if (isset($configuration['ensure_fully_multiline'])) {
-            $this->configuration['on_multiline'] = $this->configuration['ensure_fully_multiline']
-                ? 'ensure_fully_multiline'
-                : 'ignore';
-        }
-    }
-
     /**
      * {@inheritdoc}
      *
-     * Must run before ArrayIndentationFixer.
-     * Must run after CombineNestedDirnameFixer, FunctionDeclarationFixer, ImplodeCallFixer, LambdaNotUsedImportFixer, MethodChainingIndentationFixer, NoMultilineWhitespaceAroundDoubleArrowFixer, NoUselessSprintfFixer, PowToExponentiationFixer, StrictParamFixer.
+     * Must run before ArrayIndentationFixer, StatementIndentationFixer.
+     * Must run after CombineNestedDirnameFixer, FunctionDeclarationFixer, ImplodeCallFixer, LambdaNotUsedImportFixer, NoMultilineWhitespaceAroundDoubleArrowFixer, NoUselessSprintfFixer, PowToExponentiationFixer, StrictParamFixer.
      */
     public function getPriority(): int
     {
         return 30;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function applyFix(\SplFileInfo $file, Tokens $tokens): void
     {
         $expectedTokens = [T_LIST, T_FUNCTION, CT::T_USE_LAMBDA, T_FN, T_CLASS];
@@ -165,9 +140,6 @@ SAMPLE
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function createConfigurationDefinition(): FixerConfigurationResolverInterface
     {
         return new FixerConfigurationResolver([
@@ -185,9 +157,6 @@ SAMPLE
             (new FixerOptionBuilder('after_heredoc', 'Whether the whitespace between heredoc end and comma should be removed.'))
                 ->setAllowedTypes(['bool'])
                 ->setDefault(false)
-                ->setNormalizer(static function (Options $options, $value) {
-                    return $value;
-                })
                 ->getOption(),
         ]);
     }
@@ -319,8 +288,7 @@ SAMPLE
             $lastLineIndex = strrpos($existingIndentation, "\n");
             $existingIndentation = false === $lastLineIndex
                 ? $existingIndentation
-                : substr($existingIndentation, $lastLineIndex + 1)
-            ;
+                : substr($existingIndentation, $lastLineIndex + 1);
         }
 
         $indentation = $existingIndentation.$this->whitespacesConfig->getIndent();
@@ -359,8 +327,17 @@ SAMPLE
                 continue;
             }
 
-            if ($token->equals(',') && !$tokens[$tokens->getNextMeaningfulToken($index)]->equals(')')) {
+            $isAttribute = $token->isGivenKind(CT::T_ATTRIBUTE_CLOSE);
+
+            if (
+                ($token->equals(',') || $isAttribute)
+                && !$tokens[$tokens->getNextMeaningfulToken($index)]->equals(')')
+            ) {
                 $this->fixNewline($tokens, $index, $indentation);
+
+                if ($isAttribute) {
+                    $index = $tokens->findBlockStart(Tokens::BLOCK_TYPE_ATTRIBUTE, $index);
+                }
             }
         }
 

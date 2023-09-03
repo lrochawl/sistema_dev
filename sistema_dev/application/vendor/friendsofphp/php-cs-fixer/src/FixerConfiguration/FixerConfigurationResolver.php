@@ -21,12 +21,12 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 final class FixerConfigurationResolver implements FixerConfigurationResolverInterface
 {
     /**
-     * @var FixerOptionInterface[]
+     * @var list<FixerOptionInterface>
      */
     private array $options = [];
 
     /**
-     * @var string[]
+     * @var list<string>
      */
     private array $registeredNames = [];
 
@@ -44,17 +44,11 @@ final class FixerConfigurationResolver implements FixerConfigurationResolverInte
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getOptions(): array
     {
         return $this->options;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function resolve(array $configuration): array
     {
         $resolver = new OptionsResolver();
@@ -91,9 +85,7 @@ final class FixerConfigurationResolver implements FixerConfigurationResolverInte
             if (null !== $allowedValues) {
                 foreach ($allowedValues as &$allowedValue) {
                     if (\is_object($allowedValue) && \is_callable($allowedValue)) {
-                        $allowedValue = static function (/* mixed */ $values) use ($allowedValue) {
-                            return $allowedValue($values);
-                        };
+                        $allowedValue = static fn (/* mixed */ $values) => $allowedValue($values);
                     }
                 }
 

@@ -19,11 +19,20 @@ namespace PhpCsFixer\FixerDefinition;
  */
 final class VersionSpecification implements VersionSpecificationInterface
 {
+    /**
+     * @var null|int<1, max>
+     */
     private ?int $minimum;
 
+    /**
+     * @var null|int<1, max>
+     */
     private ?int $maximum;
 
     /**
+     * @param null|int<1, max> $minimum
+     * @param null|int<1, max> $maximum
+     *
      * @throws \InvalidArgumentException
      */
     public function __construct(?int $minimum = null, ?int $maximum = null)
@@ -50,9 +59,6 @@ final class VersionSpecification implements VersionSpecificationInterface
         $this->maximum = $maximum;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function isSatisfiedBy(int $version): bool
     {
         if (null !== $this->minimum && $version < $this->minimum) {

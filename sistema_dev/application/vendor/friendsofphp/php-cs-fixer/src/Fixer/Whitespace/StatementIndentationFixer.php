@@ -41,9 +41,6 @@ final class StatementIndentationFixer extends AbstractFixer implements Whitespac
         $this->bracesFixerCompatibility = $bracesFixerCompatibility;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getDefinition(): FixerDefinitionInterface
     {
         return new FixerDefinition(
@@ -67,16 +64,13 @@ else {
      * {@inheritdoc}
      *
      * Must run before HeredocIndentationFixer.
-     * Must run after ClassAttributesSeparationFixer.
+     * Must run after ClassAttributesSeparationFixer, CurlyBracesPositionFixer, MethodArgumentSpaceFixer, YieldFromArrayToYieldsFixer.
      */
     public function getPriority(): int
     {
-        return parent::getPriority();
+        return -3;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function isCandidate(Tokens $tokens): bool
     {
         return true;
@@ -98,16 +92,17 @@ else {
             T_CASE,
             T_DEFAULT,
             T_TRY,
-            T_FUNCTION,
             T_CLASS,
             T_INTERFACE,
             T_TRAIT,
+            T_EXTENDS,
+            T_IMPLEMENTS,
         ];
         if (\defined('T_MATCH')) { // @TODO: drop condition when PHP 8.0+ is required
             $blockSignatureFirstTokens[] = T_MATCH;
         }
 
-        $blockFirstTokens = ['{', [CT::T_DESTRUCTURING_SQUARE_BRACE_OPEN], [T_EXTENDS], [T_IMPLEMENTS], [CT::T_USE_TRAIT], [CT::T_GROUP_IMPORT_BRACE_OPEN]];
+        $blockFirstTokens = ['{', [CT::T_DESTRUCTURING_SQUARE_BRACE_OPEN], [CT::T_USE_TRAIT], [CT::T_GROUP_IMPORT_BRACE_OPEN]];
         if (\defined('T_ATTRIBUTE')) { // @TODO: drop condition when PHP 8.0+ is required
             $blockFirstTokens[] = [T_ATTRIBUTE];
         }
@@ -122,9 +117,35 @@ else {
             0,
             $this->extractIndent($this->computeNewLineContent($tokens, 0)),
         );
+
+        $methodModifierTokens = [
+            //  https://github.com/php/php-langspec/blob/master/spec/19-grammar.md#grammar-visibility-modifier
+            T_PUBLIC,
+            T_PROTECTED,
+            T_PRIVATE,
+            //  https://github.com/php/php-langspec/blob/master/spec/19-grammar.md#grammar-static-modifier
+            T_STATIC,
+            //  https://github.com/php/php-langspec/blob/master/spec/19-grammar.md#grammar-class-modifier
+            T_ABSTRACT,
+            T_FINAL,
+        ];
+
+        $methodModifierIndents = [];
+
+        /**
+         * @var list<array{
+         *     type: 'block'|'block_signature'|'statement',
+         *     skip: bool,
+         *     end_index: int,
+         *     end_index_inclusive: bool,
+         *     initial_indent: string,
+         *     is_indented_block: bool,
+         * }> $scopes
+         */
         $scopes = [
             [
                 'type' => 'block',
+                'skip' => false,
                 'end_index' => $endIndex,
                 'end_index_inclusive' => true,
                 'initial_indent' => $lastIndent,
@@ -139,10 +160,6 @@ else {
 
         foreach ($tokens as $index => $token) {
             $currentScope = \count($scopes) - 1;
-
-            if ($token->isComment()) {
-                continue;
-            }
 
             if (
                 $token->equalsAny($blockFirstTokens)
@@ -180,13 +197,32 @@ else {
                     $initialIndent = $this->getLineIndentationWithBracesCompatibility($tokens, $index, $lastIndent);
                 }
 
+                $skip = false;
+                if ($this->bracesFixerCompatibility) {
+                    $prevIndex = $tokens->getPrevMeaningfulToken($index);
+                    if (null !== $prevIndex) {
+                        $prevIndex = $tokens->getPrevMeaningfulToken($prevIndex);
+                    }
+                    if (null !== $prevIndex && $tokens[$prevIndex]->isGivenKind([T_FUNCTION, T_FN])) {
+                        $skip = true;
+                    }
+                }
+
                 $scopes[] = [
                     'type' => 'block',
+                    'skip' => $skip,
                     'end_index' => $endIndex,
                     'end_index_inclusive' => $endIndexInclusive,
                     'initial_indent' => $initialIndent,
                     'is_indented_block' => true,
                 ];
+                ++$currentScope;
+
+                while ($index >= $scopes[$currentScope]['end_index']) {
+                    array_pop($scopes);
+
+                    --$currentScope;
+                }
 
                 continue;
             }
@@ -199,7 +235,7 @@ else {
                         continue;
                     }
 
-                    if ($tokens[$endIndex]->equalsAny(['{', ';', [T_DOUBLE_ARROW]])) {
+                    if ($tokens[$endIndex]->equalsAny(['{', ';', [T_DOUBLE_ARROW], [T_IMPLEMENTS]])) {
                         break;
                     }
 
@@ -216,10 +252,55 @@ else {
 
                 $scopes[] = [
                     'type' => 'block_signature',
+                    'skip' => false,
                     'end_index' => $endIndex,
                     'end_index_inclusive' => true,
                     'initial_indent' => $this->getLineIndentationWithBracesCompatibility($tokens, $index, $lastIndent),
-                    'is_indented_block' => false,
+                    'is_indented_block' => $token->isGivenKind([T_EXTENDS, T_IMPLEMENTS]),
+                ];
+
+                continue;
+            }
+
+            if ($token->isGivenKind($methodModifierTokens)) {
+                $methodModifierIndents[$index] = $lastIndent;
+
+                continue;
+            }
+
+            if ($token->isGivenKind(T_FUNCTION)) {
+                $x = $tokens->getPrevMeaningfulToken($index);
+                while (
+                    null !== $x
+                    && $tokens[$x]->isGivenKind($methodModifierTokens)
+                    && \array_key_exists($x, $methodModifierIndents)
+                ) {
+                    $lastIndent = $methodModifierIndents[$x];
+                    $x = $tokens->getPrevMeaningfulToken($x);
+                }
+
+                $methodModifierIndents = [];
+                $endIndex = $index + 1;
+
+                for ($max = \count($tokens); $endIndex < $max; ++$endIndex) {
+                    if ($tokens[$endIndex]->equals('(')) {
+                        $endIndex = $tokens->findBlockEnd(Tokens::BLOCK_TYPE_PARENTHESIS_BRACE, $endIndex);
+
+                        continue;
+                    }
+
+                    if ($tokens[$endIndex]->equalsAny(['{', ';'])) {
+                        break;
+                    }
+                }
+
+                $scopes[] = [
+                    'type' => 'block_signature',
+                    'skip' => false,
+                    'end_index' => $endIndex,
+                    'end_index_inclusive' => true,
+                    'initial_indent' => $this->getLineIndentationWithBracesCompatibility($tokens, $index, $lastIndent),
+                    'is_indented_block' => $token->isGivenKind([T_EXTENDS, T_IMPLEMENTS]),
                 ];
 
                 continue;
@@ -231,8 +312,7 @@ else {
             ) {
                 $previousOpenTagContent = $tokens[$index - 1]->isGivenKind(T_OPEN_TAG)
                     ? Preg::replace('/\S/', '', $tokens[$index - 1]->getContent())
-                    : ''
-                ;
+                    : '';
 
                 $content = $previousOpenTagContent.($token->isWhitespace() ? $token->getContent() : '');
 
@@ -255,47 +335,51 @@ else {
                     $indent = false;
 
                     if ($scopes[$currentScope]['is_indented_block']) {
-                        $firstMeaningFulTokenIndex = null;
+                        $firstNonWhitespaceTokenIndex = null;
                         $nextNewlineIndex = null;
                         for ($searchIndex = $index + 1, $max = \count($tokens); $searchIndex < $max; ++$searchIndex) {
                             $searchToken = $tokens[$searchIndex];
 
-                            if (!$searchToken->isWhitespace() && !$searchToken->isComment()) {
-                                if (null === $firstMeaningFulTokenIndex) {
-                                    $firstMeaningFulTokenIndex = $searchIndex;
+                            if (!$searchToken->isWhitespace()) {
+                                if (null === $firstNonWhitespaceTokenIndex) {
+                                    $firstNonWhitespaceTokenIndex = $searchIndex;
                                 }
 
                                 continue;
                             }
 
-                            if ($searchToken->isWhitespace() && Preg::match('/\R/', $searchToken->getContent())) {
+                            if (Preg::match('/\R/', $searchToken->getContent())) {
                                 $nextNewlineIndex = $searchIndex;
 
                                 break;
                             }
                         }
 
-                        if (!$this->isCommentForControlSructureContinuation($tokens, $index + 1)) {
-                            $endIndex = $scopes[$currentScope]['end_index'];
+                        $endIndex = $scopes[$currentScope]['end_index'];
 
-                            if (!$scopes[$currentScope]['end_index_inclusive']) {
-                                ++$endIndex;
-                            }
+                        if (!$scopes[$currentScope]['end_index_inclusive']) {
+                            ++$endIndex;
+                        }
 
-                            if (
-                                (null !== $firstMeaningFulTokenIndex && $firstMeaningFulTokenIndex < $endIndex)
-                                || (null !== $nextNewlineIndex && $nextNewlineIndex < $endIndex)
-                            ) {
-                                $indent = true;
-                            }
+                        if (
+                            (null !== $firstNonWhitespaceTokenIndex && $firstNonWhitespaceTokenIndex < $endIndex)
+                            || (null !== $nextNewlineIndex && $nextNewlineIndex < $endIndex)
+                        ) {
+                            $indent = true;
                         }
                     }
 
                     $previousLineInitialIndent = $this->extractIndent($content);
 
+                    if ($scopes[$currentScope]['skip']) {
+                        $whitespaces = $previousLineInitialIndent;
+                    } else {
+                        $whitespaces = $scopes[$currentScope]['initial_indent'].($indent ? $this->whitespacesConfig->getIndent() : '');
+                    }
+
                     $content = Preg::replace(
                         '/(\R+)\h*$/',
-                        '$1'.$scopes[$currentScope]['initial_indent'].($indent ? $this->whitespacesConfig->getIndent() : ''),
+                        '$1'.$whitespaces,
                         $content
                     );
 
@@ -350,7 +434,7 @@ else {
                 --$currentScope;
             }
 
-            if ($token->equalsAny([';', ',', '}', [T_OPEN_TAG], [T_CLOSE_TAG], [CT::T_ATTRIBUTE_CLOSE]])) {
+            if ($token->isComment() || $token->equalsAny([';', ',', '}', [T_OPEN_TAG], [T_CLOSE_TAG], [CT::T_ATTRIBUTE_CLOSE]])) {
                 continue;
             }
 
@@ -363,6 +447,7 @@ else {
 
                 $scopes[] = [
                     'type' => 'statement',
+                    'skip' => false,
                     'end_index' => $endIndex,
                     'end_index_inclusive' => false,
                     'initial_indent' => $previousLineInitialIndent,
@@ -437,7 +522,7 @@ else {
             }
 
             if ($tokens[$index]->equalsAny(['}', [T_ENDSWITCH]])) {
-                return [$tokens->getPrevMeaningfulToken($index), false];
+                return [$tokens->getPrevNonWhitespace($index), false];
             }
         }
 
@@ -454,40 +539,10 @@ else {
             && $tokens[$index + 1]->isWhitespace()
             && Preg::match('/\h+$/D', $tokens[$index + 1]->getContent())
         ) {
-            return Preg::replace('/.*?(\h+)$/D', '$1', $tokens[$index + 1]->getContent());
+            return Preg::replace('/.*?(\h+)$/sD', '$1', $tokens[$index + 1]->getContent());
         }
 
         return $regularIndent;
-    }
-
-    private function isCommentForControlSructureContinuation(Tokens $tokens, int $index): bool
-    {
-        if (!isset($tokens[$index], $tokens[$index + 1])) {
-            return false;
-        }
-
-        if (!$tokens[$index]->isComment() || 1 !== Preg::match('~^(//|#)~', $tokens[$index]->getContent())) {
-            return false;
-        }
-
-        if (!$tokens[$index + 1]->isWhitespace() || 1 !== Preg::match('/\R/', $tokens[$index + 1]->getContent())) {
-            return false;
-        }
-
-        $prevIndex = $tokens->getPrevMeaningfulToken($index);
-        if (null !== $prevIndex && $tokens[$prevIndex]->equals('{')) {
-            return false;
-        }
-
-        $index = $tokens->getNextMeaningfulToken($index + 1);
-
-        if (null === $index || !$tokens[$index]->equals('}')) {
-            return false;
-        }
-
-        $index = $tokens->getNextMeaningfulToken($index);
-
-        return null !== $index && $tokens[$index]->equalsAny([[T_ELSE], [T_ELSEIF], ',']);
     }
 
     /**
@@ -510,7 +565,7 @@ else {
 
         $indent = preg_quote($this->whitespacesConfig->getIndent(), '~');
 
-        if (1 === Preg::match("~^(//|#)({$indent}.*)?$~", $tokens[$index]->getContent())) {
+        if (Preg::match("~^(//|#)({$indent}.*)?$~", $tokens[$index]->getContent())) {
             return false;
         }
 

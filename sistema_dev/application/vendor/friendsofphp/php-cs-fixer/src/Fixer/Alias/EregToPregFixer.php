@@ -30,8 +30,8 @@ use PhpCsFixer\Tokenizer\Tokens;
 final class EregToPregFixer extends AbstractFixer
 {
     /**
-     * @var array the list of the ext/ereg function names, their preg equivalent and the preg modifier(s), if any
-     *            all condensed in an array of arrays
+     * @var list<array<int, string>> the list of the ext/ereg function names, their preg equivalent and the preg modifier(s), if any
+     *                               all condensed in an array of arrays
      */
     private static array $functions = [
         ['ereg', 'preg_match', ''],
@@ -43,13 +43,10 @@ final class EregToPregFixer extends AbstractFixer
     ];
 
     /**
-     * @var array the list of preg delimiters, in order of preference
+     * @var list<string> the list of preg delimiters, in order of preference
      */
     private static array $delimiters = ['/', '#', '!'];
 
-    /**
-     * {@inheritdoc}
-     */
     public function getDefinition(): FixerDefinitionInterface
     {
         return new FixerDefinition(
@@ -62,23 +59,24 @@ final class EregToPregFixer extends AbstractFixer
 
     /**
      * {@inheritdoc}
+     *
+     * Must run after NoUselessConcatOperatorFixer.
      */
+    public function getPriority(): int
+    {
+        return 0;
+    }
+
     public function isCandidate(Tokens $tokens): bool
     {
         return $tokens->isTokenKindFound(T_STRING);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function isRisky(): bool
     {
         return true;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function applyFix(\SplFileInfo $file, Tokens $tokens): void
     {
         $end = $tokens->count() - 1;

@@ -24,8 +24,6 @@ use PhpCsFixer\FixerConfiguration\FixerOptionBuilder;
 use PhpCsFixer\FixerDefinition\CodeSample;
 use PhpCsFixer\FixerDefinition\FixerDefinition;
 use PhpCsFixer\FixerDefinition\FixerDefinitionInterface;
-use PhpCsFixer\FixerDefinition\VersionSpecification;
-use PhpCsFixer\FixerDefinition\VersionSpecificCodeSample;
 use PhpCsFixer\Preg;
 use PhpCsFixer\Tokenizer\CT;
 use PhpCsFixer\Tokenizer\Token;
@@ -46,9 +44,6 @@ final class CurlyBracesPositionFixer extends AbstractFixer implements Configurab
      */
     public const SAME_LINE = 'same_line';
 
-    /**
-     * {@inheritdoc}
-     */
     public function getDefinition(): FixerDefinitionInterface
     {
         return new FixerDefinition(
@@ -70,15 +65,11 @@ if (foo())
 {
     bar();
 }
-'
-                ),
-                new VersionSpecificCodeSample(
-                    '<?php
+
 $foo = new class
 {
 };
-',
-                    new VersionSpecification(70000)
+'
                 ),
                 new CodeSample(
                     '<?php
@@ -111,20 +102,18 @@ class Foo
 ',
                     ['classes_opening_brace' => self::SAME_LINE]
                 ),
-                new VersionSpecificCodeSample(
+                new CodeSample(
                     '<?php
 $foo = new class {
 };
 ',
-                    new VersionSpecification(70000),
                     ['anonymous_classes_opening_brace' => self::NEXT_LINE_UNLESS_NEWLINE_AT_SIGNATURE_END]
                 ),
-                new VersionSpecificCodeSample(
+                new CodeSample(
                     '<?php
 $foo = new class { };
 $bar = new class { private $baz; };
 ',
-                    new VersionSpecification(70000),
                     ['allow_single_line_empty_anonymous_classes' => true]
                 ),
                 new CodeSample(
@@ -139,9 +128,6 @@ $bar = function () { $result = true;
         );
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function isCandidate(Tokens $tokens): bool
     {
         return $tokens->isTokenKindFound('{');
@@ -150,16 +136,14 @@ $bar = function () { $result = true;
     /**
      * {@inheritdoc}
      *
-     * Must run after ControlStructureBracesFixer.
+     * Must run before SingleLineEmptyBodyFixer, StatementIndentationFixer.
+     * Must run after ControlStructureBracesFixer, NoMultipleStatementsPerLineFixer.
      */
     public function getPriority(): int
     {
-        return parent::getPriority();
+        return -2;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function applyFix(\SplFileInfo $file, Tokens $tokens): void
     {
         $classyTokens = Token::getClassyTokenKinds();
@@ -223,7 +207,7 @@ $bar = function () { $result = true;
 
                     if (
                         ($allowSingleLineIfEmpty && !$tokenInsideBraces->isWhitespace() && !$tokenInsideBraces->isComment())
-                        || ($tokenInsideBraces->isWhitespace() && 1 === Preg::match('/\R/', $tokenInsideBraces->getContent()))
+                        || ($tokenInsideBraces->isWhitespace() && Preg::match('/\R/', $tokenInsideBraces->getContent()))
                     ) {
                         $addNewlinesInsideBraces = true;
 
@@ -255,7 +239,7 @@ $bar = function () { $result = true;
                 $previousTokenIndex = $openBraceIndex;
                 do {
                     $previousTokenIndex = $tokens->getPrevMeaningfulToken($previousTokenIndex);
-                } while ($tokens[$previousTokenIndex]->isGivenKind([CT::T_TYPE_COLON, CT::T_NULLABLE_TYPE, T_STRING, T_NS_SEPARATOR, CT::T_ARRAY_TYPEHINT, T_STATIC, CT::T_TYPE_ALTERNATION, CT::T_TYPE_INTERSECTION]));
+                } while ($tokens[$previousTokenIndex]->isGivenKind([CT::T_TYPE_COLON, CT::T_NULLABLE_TYPE, T_STRING, T_NS_SEPARATOR, CT::T_ARRAY_TYPEHINT, T_STATIC, CT::T_TYPE_ALTERNATION, CT::T_TYPE_INTERSECTION, T_CALLABLE, CT::T_DISJUNCTIVE_NORMAL_FORM_TYPE_PARENTHESIS_OPEN, CT::T_DISJUNCTIVE_NORMAL_FORM_TYPE_PARENTHESIS_CLOSE]));
 
                 if ($tokens[$previousTokenIndex]->equals(')')) {
                     if ($tokens[--$previousTokenIndex]->isComment()) {
@@ -263,7 +247,7 @@ $bar = function () { $result = true;
                     }
                     if (
                         $tokens[$previousTokenIndex]->isWhitespace()
-                        && 1 === Preg::match('/\R/', $tokens[$previousTokenIndex]->getContent())
+                        && Preg::match('/\R/', $tokens[$previousTokenIndex]->getContent())
                     ) {
                         $whitespace = ' ';
                     }
@@ -312,7 +296,7 @@ $bar = function () { $result = true;
                         } else {
                             $tokens->clearAt($openBraceIndex + 1);
                         }
-                    } else {
+                    } elseif ($tokens[$openBraceIndex - 1]->isWhitespace()) {
                         $tokens->clearAt($openBraceIndex - 1);
                     }
                 }
@@ -345,7 +329,7 @@ $bar = function () { $result = true;
             for ($prevIndex = $closeBraceIndex - 1; $tokens->isEmptyAt($prevIndex); --$prevIndex);
 
             $prevToken = $tokens[$prevIndex];
-            if ($prevToken->isWhitespace() && 1 === Preg::match('/\R/', $prevToken->getContent())) {
+            if ($prevToken->isWhitespace() && Preg::match('/\R/', $prevToken->getContent())) {
                 continue;
             }
 
@@ -354,37 +338,34 @@ $bar = function () { $result = true;
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function createConfigurationDefinition(): FixerConfigurationResolverInterface
     {
         return new FixerConfigurationResolver([
-            (new FixerOptionBuilder('control_structures_opening_brace', 'the position of the opening brace of control structures body.'))
+            (new FixerOptionBuilder('control_structures_opening_brace', 'The position of the opening brace of control structures‘ body.'))
                 ->setAllowedValues([self::NEXT_LINE_UNLESS_NEWLINE_AT_SIGNATURE_END, self::SAME_LINE])
                 ->setDefault(self::SAME_LINE)
                 ->getOption(),
-            (new FixerOptionBuilder('functions_opening_brace', 'the position of the opening brace of functions body.'))
+            (new FixerOptionBuilder('functions_opening_brace', 'The position of the opening brace of functions‘ body.'))
                 ->setAllowedValues([self::NEXT_LINE_UNLESS_NEWLINE_AT_SIGNATURE_END, self::SAME_LINE])
                 ->setDefault(self::NEXT_LINE_UNLESS_NEWLINE_AT_SIGNATURE_END)
                 ->getOption(),
-            (new FixerOptionBuilder('anonymous_functions_opening_brace', 'the position of the opening brace of anonymous functions body.'))
+            (new FixerOptionBuilder('anonymous_functions_opening_brace', 'The position of the opening brace of anonymous functions‘ body.'))
                 ->setAllowedValues([self::NEXT_LINE_UNLESS_NEWLINE_AT_SIGNATURE_END, self::SAME_LINE])
                 ->setDefault(self::SAME_LINE)
                 ->getOption(),
-            (new FixerOptionBuilder('classes_opening_brace', 'the position of the opening brace of classes body.'))
+            (new FixerOptionBuilder('classes_opening_brace', 'The position of the opening brace of classes‘ body.'))
                 ->setAllowedValues([self::NEXT_LINE_UNLESS_NEWLINE_AT_SIGNATURE_END, self::SAME_LINE])
                 ->setDefault(self::NEXT_LINE_UNLESS_NEWLINE_AT_SIGNATURE_END)
                 ->getOption(),
-            (new FixerOptionBuilder('anonymous_classes_opening_brace', 'the position of the opening brace of anonymous classes body.'))
+            (new FixerOptionBuilder('anonymous_classes_opening_brace', 'The position of the opening brace of anonymous classes‘ body.'))
                 ->setAllowedValues([self::NEXT_LINE_UNLESS_NEWLINE_AT_SIGNATURE_END, self::SAME_LINE])
                 ->setDefault(self::SAME_LINE)
                 ->getOption(),
-            (new FixerOptionBuilder('allow_single_line_empty_anonymous_classes', 'allow anonymous classes to have opening and closing braces on the same line.'))
+            (new FixerOptionBuilder('allow_single_line_empty_anonymous_classes', 'Allow anonymous classes to have opening and closing braces on the same line.'))
                 ->setAllowedTypes(['bool'])
                 ->setDefault(true)
                 ->getOption(),
-            (new FixerOptionBuilder('allow_single_line_anonymous_functions', 'allow anonymous functions to have opening and closing braces on the same line.'))
+            (new FixerOptionBuilder('allow_single_line_anonymous_functions', 'Allow anonymous functions to have opening and closing braces on the same line.'))
                 ->setAllowedTypes(['bool'])
                 ->setDefault(true)
                 ->getOption(),
@@ -409,7 +390,7 @@ $bar = function () { $result = true;
         for (++$index, $max = \count($tokens) - 1; $index < $max; ++$index) {
             $token = $tokens[$index];
             if (!$token->isComment()) {
-                return $token->isWhitespace() && 1 === Preg::match('/\R/', $token->getContent());
+                return $token->isWhitespace() && Preg::match('/\R/', $token->getContent());
             }
         }
 
@@ -420,7 +401,7 @@ $bar = function () { $result = true;
     {
         $token = $tokens[$index + 1];
 
-        if ($token->isWhitespace() && 1 !== Preg::match('/\R/', $token->getContent())) {
+        if ($token->isWhitespace() && !Preg::match('/\R/', $token->getContent())) {
             $token = $tokens[$index + 2];
         }
 

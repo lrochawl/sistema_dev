@@ -16,10 +16,9 @@ namespace PhpCsFixer\Fixer\FunctionNotation;
 
 use PhpCsFixer\AbstractPhpdocToTypeDeclarationFixer;
 use PhpCsFixer\DocBlock\Annotation;
+use PhpCsFixer\FixerDefinition\CodeSample;
 use PhpCsFixer\FixerDefinition\FixerDefinition;
 use PhpCsFixer\FixerDefinition\FixerDefinitionInterface;
-use PhpCsFixer\FixerDefinition\VersionSpecification;
-use PhpCsFixer\FixerDefinition\VersionSpecificCodeSample;
 use PhpCsFixer\Tokenizer\Token;
 use PhpCsFixer\Tokenizer\Tokens;
 
@@ -34,15 +33,12 @@ final class PhpdocToPropertyTypeFixer extends AbstractPhpdocToTypeDeclarationFix
         'null' => true,
     ];
 
-    /**
-     * {@inheritdoc}
-     */
     public function getDefinition(): FixerDefinitionInterface
     {
         return new FixerDefinition(
             'EXPERIMENTAL: Takes `@var` annotation of non-mixed types and adjusts accordingly the property signature. Requires PHP >= 7.4.',
             [
-                new VersionSpecificCodeSample(
+                new CodeSample(
                     '<?php
 class Foo {
     /** @var int */
@@ -51,9 +47,8 @@ class Foo {
     private $bar;
 }
 ',
-                    new VersionSpecification(70400)
                 ),
-                new VersionSpecificCodeSample(
+                new CodeSample(
                     '<?php
 class Foo {
     /** @var int */
@@ -62,7 +57,6 @@ class Foo {
     private $bar;
 }
 ',
-                    new VersionSpecification(70400),
                     ['scalar_types' => false]
                 ),
             ],
@@ -71,9 +65,6 @@ class Foo {
         );
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function isCandidate(Tokens $tokens): bool
     {
         return $tokens->isTokenKindFound(T_DOC_COMMENT);
@@ -95,9 +86,6 @@ class Foo {
         return isset($this->skippedTypes[$type]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function applyFix(\SplFileInfo $file, Tokens $tokens): void
     {
         for ($index = $tokens->count() - 1; 0 < $index; --$index) {

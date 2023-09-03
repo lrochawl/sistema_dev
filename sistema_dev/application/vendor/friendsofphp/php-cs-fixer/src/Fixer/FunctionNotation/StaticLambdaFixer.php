@@ -25,38 +25,26 @@ use PhpCsFixer\Tokenizer\TokensAnalyzer;
 
 final class StaticLambdaFixer extends AbstractFixer
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getDefinition(): FixerDefinitionInterface
     {
         return new FixerDefinition(
-            'Lambdas not (indirect) referencing `$this` must be declared `static`.',
+            'Lambdas not (indirectly) referencing `$this` must be declared `static`.',
             [new CodeSample("<?php\n\$a = function () use (\$b)\n{   echo \$b;\n};\n")],
             null,
             'Risky when using `->bindTo` on lambdas without referencing to `$this`.'
         );
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function isCandidate(Tokens $tokens): bool
     {
         return $tokens->isAnyTokenKindsFound([T_FUNCTION, T_FN]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function isRisky(): bool
     {
         return true;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function applyFix(\SplFileInfo $file, Tokens $tokens): void
     {
         $analyzer = new TokensAnalyzer($tokens);
