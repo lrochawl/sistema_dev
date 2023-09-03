@@ -459,9 +459,11 @@ class Produtos extends MY_Controller
 
 
         $config['upload_path'] = './assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/";
-        $config['allowed_types'] = 'webp|jpg|jpeg|png|JPG|JPEG|PNG';
-        
-        $config['encrypt_name'] = true;
+        $config['allowed_types'] = 'jpg|jpeg|png|gif|webp'; // Certifique-se de incluir 'webp' aqui
+        $config['max_size'] = 2048; // Tamanho máximo do arquivo em kilobytes
+        $config['max_width'] = 0; // Largura máxima da imagem em pixels (0 para ignorar)
+        $config['max_height'] = 0; // Altura máxima da imagem em pixels (0 para ignorar)
+        $config['encrypt_name'] = TRUE; // Renomear o arquivo durante o upload
 
         if (!is_dir('./assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/")) {
             mkdir('./assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/", 0777, true);
