@@ -440,7 +440,7 @@
                                 camposDB.forEach((campo) => {
                                     if (campo.id_estoque_addCampo == dadosCampo[0] && campo.tipoAddCampo != "textarea") {
                                         $('#divAddCampo').append(`<div id='rm_${campo.siglaAddCampo}_${i}' class='control-group campoAdd'>
-                                                            <label for='${campo.siglaAddCampo}_${i}' class='control-label'>${campo.addCampo}
+                                        <label for='${campo.siglaAddCampo}_${i}' class='control-label'>${campo.addCampo}
                                                             <span class='required'>*</span></label>
                                                             <div class='controls'><input required  onkeydown='handleEnter(event)' type='${campo.tipoAddCampo}'  id='${campo.siglaAddCampo}_${i}' name='addCampoInput[${campo.siglaAddCampo}_${i}]' value='${dadosCampo[1]} ' ${campo.tipoAddCampo =='color'?'style=" height: 33px;  width: 16em;"':''} />
                                                             <button title="remove campo" class="btn btn-danger" type="button"  onclick="removeCampo('#rm_${campo.siglaAddCampo}_${i}')" style="margin-left: 5px;"><i class="fa fa-minus"></i></button> </div> </div>`);
