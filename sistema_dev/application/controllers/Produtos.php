@@ -465,11 +465,10 @@ class Produtos extends MY_Controller
         $config['max_height'] = 0; // Altura máxima da imagem em pixels (0 para ignorar)
         $config['encrypt_name'] = TRUE; // Renomear o arquivo durante o upload
 
-        if (!is_dir('./assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/")) {
-            mkdir('./assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/", 0777, true);
+        if (!is_dir('./assets/uploads/'. $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/")) {
+            mkdir('./assets/uploads/'. $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/", 0777, true);
         }
-        print_r($config);
-             exit();
+        
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
 
@@ -519,7 +518,8 @@ class Produtos extends MY_Controller
             $url = base_url('assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/" . $file);
             $tamanho = $this->upload->data('file_size');
             $tipo = $this->upload->data('file_ext');
-            
+            print_r($file);
+        exit();
             $this->dataInsert["imagemProduto"]  =  $url;
             $this->dataInsert["pathImagem"]     =  $path;
             // $this->dataInsert["file"]     =  $file;
