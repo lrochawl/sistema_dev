@@ -522,8 +522,8 @@
                             } catch (err) {
                                 //image.src = '/assets/img/sem_logo.png';
                                 // imgLogo.appendChild(image).setAttribute("id", "imgLogo");
-                                $('#imagemProduto').val(<?=base_url('assets/img/sem_logo.png')?>);
-                                updateThumb(<?=base_url('assets/img/sem_logo.png')?>);
+                                $('#imagemProduto').val('<?=base_url('assets/img/sem_logo.png')?>');
+                                updateThumb('<?=base_url('assets/img/sem_logo.png')?>');
                             }
                         }
 
