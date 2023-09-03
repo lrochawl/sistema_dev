@@ -227,6 +227,7 @@
         //Select com buscador
         $('#tipoMarca').select2();
         $('#selectMarca').select2();
+        $('#addCampo').select2();
         $('.wh3').select2(({
             width: '9rem'
         }));
