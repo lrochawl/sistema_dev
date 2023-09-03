@@ -258,7 +258,7 @@
         const image_x = document.querySelector('.logoImagem');
         const marcas = document.getElementById('marcasAgrotec');
         const camposDB = <?= json_encode($resultAddCampo) ?>;
-
+console.log(image_x);
         $("#codDeBarra").autocomplete({
             source: "<?php echo base_url('AutoComplete/autoCompleteProduto'); ?>",
             minLength: 1,
