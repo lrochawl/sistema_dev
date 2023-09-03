@@ -393,7 +393,7 @@
                 $('.addCampo').remove();
 
                 if (ui.item.id != null) {
-                    console.log(ui.item);
+                    console.log(ui.item.codDeBarra);
                     $("#editarProduto").show();
                     $('#adcionarProduto').text('Duplicar');
                     $("#adNotaFiscal").val(ui.item.notaFiscal);
