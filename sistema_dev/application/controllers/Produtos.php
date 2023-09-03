@@ -45,10 +45,10 @@ class Produtos extends MY_Controller
             $estoque =  $this->produtos_model->converteMedida($produto->estoque, $produto->estoque_medida_id, 'D');
 
             if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vProduto')) {
-                $v = '<a style="margin-right: 1%" href="' . base_url('index.php/produtos/visualizar/'. $produto->id_estoque_produto). '" class="btn-nwe" title="Visualizar Produto" ><i class="bx bx-show bx-xs" > </i></a>  ';
+                $v = '<a style="margin-right: 1%" href="' . base_url('index.php/produtos/visualizar/' . $produto->id_estoque_produto) . '" class="btn-nwe" title="Visualizar Produto" ><i class="bx bx-show bx-xs" > </i></a>  ';
             }
             if ($this->permission->checkPermission($this->session->userdata('permissao'), 'eProduto')) {
-                $e = '<a style="margin-right: 1%" href="' . base_url('index.php/produtos/editar/' . $produto->id_estoque_produto ). '" class="btn-nwe3" title="Editar Produto" ><i class="bx bx-edit bx-xs" > </i></a>';
+                $e = '<a style="margin-right: 1%" href="' . base_url('index.php/produtos/editar/' . $produto->id_estoque_produto) . '" class="btn-nwe3" title="Editar Produto" ><i class="bx bx-edit bx-xs" > </i></a>';
             }
             if ($this->permission->checkPermission($this->session->userdata('permissao'), 'dProduto')) {
                 $d = '<a style="margin-right: 1%" href="#modal-excluir" role="button" data-toggle="modal" produto="' . $produto->id_estoque_produto . '" codigo="' . $produto->codDeBarra . '" class="btn-nwe4" title="Excluir Produto"><i class="bx bx-trash-alt bx-xs" ></i></a>';
@@ -465,20 +465,20 @@ class Produtos extends MY_Controller
         $config['max_height'] = 0; // Altura máxima da imagem em pixels (0 para ignorar)
         $config['encrypt_name'] = TRUE; // Renomear o arquivo durante o upload
 
-        if (!is_dir('./assets/uploads/'. $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/")) {
-            mkdir('./assets/uploads/'. $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/", 0777, true);
+        if (!is_dir('./assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/")) {
+            mkdir('./assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/", 0777, true);
         }
-        
+
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
-
+        print_r($this->upload->initialize->data);
+        exit();
         if (!$this->upload->do_upload()) {
-            print_r($this->upload->initialize->data);
-            exit();
+
             $error = ['error' => $this->upload->display_errors()];
 
-             $this->session->set_flashdata('error', "Erro ao fazer upload do arquivo, verifique se a extensão do arquivo é permitida. ");
-             
+            $this->session->set_flashdata('error', "Erro ao fazer upload do arquivo, verifique se a extensão do arquivo é permitida. ");
+
             // redirect(site_url('settings/'));
 
             try {
@@ -502,7 +502,7 @@ class Produtos extends MY_Controller
                             // // Exclui o arquivo
                             // $i++;
                             echo $arquivo . '-' . $files->id_estoque_produto . '<br>';
-                            unlink($_SERVER['DOCUMENT_ROOT'].'/assets/uploads/db_wltopos/imagemProdutos/' . $arquivo);
+                            unlink($_SERVER['DOCUMENT_ROOT'] . '/assets/uploads/db_wltopos/imagemProdutos/' . $arquivo);
                         }
                     }
                 }
@@ -520,7 +520,7 @@ class Produtos extends MY_Controller
             $url = base_url('assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/" . $file);
             $tamanho = $this->upload->data('file_size');
             $tipo = $this->upload->data('file_ext');
-            
+
 
             $this->dataInsert["imagemProduto"]  =  $url;
             $this->dataInsert["pathImagem"]     =  $path;
@@ -529,8 +529,8 @@ class Produtos extends MY_Controller
             $this->dataInsert["tipo"]     =  $tipo;
 
             $this->upload->data();
-            
-           return  $this->upload->data();
+
+            return  $this->upload->data();
         }
     }
 }
