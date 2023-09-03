@@ -461,7 +461,7 @@ class Produtos extends MY_Controller
         $config['upload_path'] = './assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/";
         $config['allowed_types'] = 'jpg|jpeg|png|JPG|JPEG|PNG|webp';
         
-        $config['encrypt_name'] = true;
+        $config['encrypt_name'] = false;
 
         if (!is_dir('./assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/")) {
             mkdir('./assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/", 0777, true);
