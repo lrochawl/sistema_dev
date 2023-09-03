@@ -23,6 +23,7 @@
         display: flex;
         font-size: 26px;
         margin: -4px;
+        color: white;
     }
 </style>
 <link rel="stylesheet" href="<?php echo base_url('assets/js/jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.css'); ?>" />
