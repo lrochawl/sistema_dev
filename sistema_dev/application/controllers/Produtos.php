@@ -512,13 +512,13 @@ class Produtos extends MY_Controller
         }
 
         if ($this->upload->do_upload()) {
-            //$data = array('upload_data' => $this->upload->data());
+            $data = array('upload_data' => $this->upload->data());
             $file = $this->upload->data('file_name');
             $path = $this->upload->data('full_path');
             $url = base_url('assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/" . $file);
             $tamanho = $this->upload->data('file_size');
             $tipo = $this->upload->data('file_ext');
-            print_r($tipo);
+            print_r($data);
              exit();
             $this->dataInsert["imagemProduto"]  =  $url;
             $this->dataInsert["pathImagem"]     =  $path;
