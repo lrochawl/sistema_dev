@@ -36,7 +36,7 @@
                     <div class="drop-zone">
                         <input type="file" name="userfile" class="drop-zone__input">
                         <div class="drop-zone__thumb" data-label="<?= "Sem imagem " ?>">
-                            <img class="logoImagem" src='<?=base_url('assets/img/sem_logo.png')?>'>
+                            <img class="logoImagem" src='<?= base_url('assets/img/sem_logo.png') ?>'>
                         </div>
                     </div>
 
@@ -179,8 +179,8 @@
                         <div class="control-group">
                             <label for="estoqueMinimo" class="control-label">Estoque Mínimo</label>
                             <div class="controls">
-                                <input onkeydown='handleEnter(event)' id="estoqueMinimo" class="input-numberProduto" min="0" type="number" name="estoqueMinimo"  value="<?php echo $estoque['valorConvertidoEstoqueMinimo']; ?>" />
-                                <select required onkeydown='handleEnter(event)' title="locations" class="wh3" name="location" id="locations" value="<?php echo set_value('location'); ?>" >
+                                <input onkeydown='handleEnter(event)' id="estoqueMinimo" class="input-numberProduto" min="0" type="number" name="estoqueMinimo" value="<?php echo $estoque['valorConvertidoEstoqueMinimo']; ?>" />
+                                <select required onkeydown='handleEnter(event)' title="locations" class="wh3" name="location" id="locations" value="<?php echo set_value('location'); ?>">
 
                                     <?php if (!$resultLocations) {
                                         echo '<option disabled selected>Sem Localizações</option>';
@@ -234,7 +234,7 @@
                                         if ($r->tipoAddCampo != "textarea") {     ?>
 
                                             <script>
-                                                $('#divAddCampo').append(`<div id='<?= "rm_" . $r->siglaAddCampo . "_" . $i ?>' class='control-group campoAdd'>
+                                                $('#divAddCampo').append(`<div id='<?= "rm_" . $r->siglaAddCampo . "_" . $i ?>' class='control-group'>
                                                 <label for='<?= $r->siglaAddCampo . "_" . $i ?>' class='control-label campoAdd'>
                                                 <?= $r->addCampo ?><span class='required'>*</span></label>
                                                 <div class='controls'>
@@ -244,7 +244,7 @@
                                             </script>
                                         <?php  } else { ?>
                                             <script>
-                                                $('#divAddCampo').append(`<div id='<?= "rm_" . $r->siglaAddCampo . "_" . $i ?>' class='control-group campoAdd'>
+                                                $('#divAddCampo').append(`<div id='<?= "rm_" . $r->siglaAddCampo . "_" . $i ?>' class='control-group'>
                                                 <label for='<?= $r->siglaAddCampo . "_" . $i ?>' class='control-label'>
                                                 <?= $r->addCampo ?><span class='required'>*</span></label>
                                                 <div class='controls'>
@@ -302,7 +302,7 @@
                             <!-- <a href="#" id="botaoGerarCodigo" class="button btn btn-mini btn-info">
                                 <span class="button__icon"><i class="bx bx-barcode-reader"></i></span><span class="button__text2">Gerar codigo</span></a>
                         -->
-                            </div> 
+                        </div>
                     </div>
                 </div>
             </form>
@@ -321,7 +321,7 @@
             const index = [...form].indexOf(event.target);
             form.elements[index + 1].focus();
             // event.preventDefault();
-         
+
         }
     }
 
@@ -393,7 +393,7 @@
                 $('.addCampo').remove();
 
                 if (ui.item.id != null) {
-                    
+
                     $("#editarProduto").show();
                     $('#adcionarProduto').text('Duplicar');
                     $("#adNotaFiscal").val(ui.item.notaFiscal);
@@ -409,7 +409,7 @@
                     $("#precoCompra").val(ui.item.precoCompra);
                     $("#precoVenda").val(ui.item.precoVenda);
                     $("#margemLucro").val(ui.item.margem);
-                    
+
                     if (ui.item.dataVencimento != null) {
                         $("#ativaVencimento").prop("checked", true);
                         $("#dataVencimento").val(ui.item.dataVencimento);
@@ -440,21 +440,19 @@
                                 camposDB.forEach((campo) => {
                                     if (campo.id_estoque_addCampo == dadosCampo[0] && campo.tipoAddCampo != "textarea") {
                                         $('#divAddCampo').append(`<div id='rm_${campo.siglaAddCampo}_${i}' class='control-group campoAdd'>
-                                        <label for='${campo.siglaAddCampo}_${i}' class='control-label'>${campo.addCampo}
-                                                            <span class='required'>*</span></label>
+                                        <label for='${campo.siglaAddCampo}_${i}' class='control-label'>${campo.addCampo}<span class='required'>*</span></label>
                                                             <div class='controls'><input required  onkeydown='handleEnter(event)' type='${campo.tipoAddCampo}'  id='${campo.siglaAddCampo}_${i}' name='addCampoInput[${campo.siglaAddCampo}_${i}]' value='${dadosCampo[1]} ' ${campo.tipoAddCampo =='color'?'style=" height: 33px;  width: 16em;"':''} />
                                                             <button title="remove campo" class="btn btn-danger" type="button"  onclick="removeCampo('#rm_${campo.siglaAddCampo}_${i}')" style="margin-left: 5px;"><i class="fa fa-minus"></i></button> </div> </div>`);
                                     }
                                     if (campo.id_estoque_addCampo == dadosCampo[0] && campo.tipoAddCampo == "textarea") {
                                         $('#divAddCampo').append(`<div id='rm_${campo.siglaAddCampo}_${i}' class='control-group campoAdd'>
-                                                            <label for='${campo.siglaAddCampo}_${i}' class='control-label'><?= isset($r->addCampo) ? $r->addCampo : ''; ?>
-                                                            <span class='required'>*</span></label><div class='controls'>
+                                                            <label for='${campo.siglaAddCampo}_${i}' class='control-label'><?= isset($r->addCampo) ? $r->addCampo : ''; ?><span class='required'>*</span></label><div class='controls'>
                                                             <${campo.tipoAddCampo} required  onkeydown='handleEnter(event)'  id='${campo.siglaAddCampo}_${i}' name='addCampoInput[${campo.siglaAddCampo}_${i}]' rows='5' cols='33' >  ${dadosCampo[1]} </${campo.tipoAddCampo}>
                                                             <button title="remove campo" class="btn btn-danger" type="button"  onclick="removeCampo('#rm_${campo.siglaAddCampo}_${i}')" style="margin-left: 5px;"><i class="fa fa-minus"></i></button> </div> </div>`);
                                     }
                                 });
                             });
-                          $('.codDeBarra').val(ui.item.codDeBarra);
+                            $('.codDeBarra').val(ui.item.codDeBarra);
                         }
                     });
 
@@ -522,8 +520,8 @@
                             } catch (err) {
                                 //image.src = '/assets/img/sem_logo.png';
                                 // imgLogo.appendChild(image).setAttribute("id", "imgLogo");
-                                $('#imagemProduto').val('<?=base_url('assets/img/sem_logo.png')?>');
-                                updateThumb('<?=base_url('assets/img/sem_logo.png')?>');
+                                $('#imagemProduto').val('<?= base_url('assets/img/sem_logo.png') ?>');
+                                updateThumb('<?= base_url('assets/img/sem_logo.png') ?>');
                             }
                         }
 
@@ -626,56 +624,53 @@
     function removeTodosCampos() {
         $('.campoAdd').remove();
     }
-
-   
 </script>
 
 <script>
-// GERAR CÓDIGO AUTOMÁTICO
+    // GERAR CÓDIGO AUTOMÁTICO
     $(document).ready(function() {
-            const categoriaSelect = $('#tipoMarca');
-            const subcategoriaSelect = $('#tipoMarca');
-            const marcaSelect = $('#selectMarca');
-            const codigoInput = $('.codDeBarra');
-            const lastId = $('#lastID');
-            const descricaoInput = $('#descricao'); // Adicione a seleção para o campo de descrição
+        const categoriaSelect = $('#tipoMarca');
+        const subcategoriaSelect = $('#tipoMarca');
+        const marcaSelect = $('#selectMarca');
+        const codigoInput = $('.codDeBarra');
+        const lastId = $('#lastID');
+        const descricaoInput = $('#descricao'); // Adicione a seleção para o campo de descrição
 
-            function removerCaracteresEspeciais(texto) {
-                return texto.replace(/[^\w\s]/gi, '');
+        function removerCaracteresEspeciais(texto) {
+            return texto.replace(/[^\w\s]/gi, '');
+        }
+
+        // Função para gerar o código automático
+        function gerarCodigo(event) {
+            event.preventDefault(); // Impede o comportamento padrão do botão
+
+            const categoriaSelecionada = categoriaSelect.find(":selected").text();
+            const subcategoriaSelecionada = subcategoriaSelect.val();
+            const marcaSelecionada = marcaSelect.find(":selected").text();
+            const descricao = descricaoInput.val(); // Obtenha o valor do campo de descrição
+            const lastID = parseInt(lastId.val()) + 1; // Converta o valor de lastId para número
+
+            // Gerando o código
+            if (categoriaSelecionada != null && subcategoriaSelecionada != null && marcaSelecionada != null && descricao != null) {
+                let codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
+                    subcategoriaSelecionada +
+                    marcaSelecionada.slice(0, 3).toUpperCase() +
+                    descricao.slice(0, 3).toUpperCase() +
+                    lastID;
+
+                // Removendo caracteres especiais do código
+                codigo = removerCaracteresEspeciais(codigo);
+
+                // Definindo o código gerado no campo de entrada
+                codigoInput.val(codigo);
+            } else {
+                codigoInput.val(0);
             }
+        }
 
-            // Função para gerar o código automático
-            function gerarCodigo(event) {
-                event.preventDefault(); // Impede o comportamento padrão do botão
-
-                const categoriaSelecionada = categoriaSelect.find(":selected").text();
-                const subcategoriaSelecionada = subcategoriaSelect.val();
-                const marcaSelecionada = marcaSelect.find(":selected").text();
-                const descricao = descricaoInput.val(); // Obtenha o valor do campo de descrição
-                const lastID = parseInt(lastId.val()) + 1; // Converta o valor de lastId para número
-
-                // Gerando o código
-                if (categoriaSelecionada != null && subcategoriaSelecionada != null && marcaSelecionada != null && descricao != null) {
-                    let codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
-                        subcategoriaSelecionada +
-                        marcaSelecionada.slice(0, 3).toUpperCase() +
-                        descricao.slice(0, 3).toUpperCase() +
-                        lastID;
-
-                    // Removendo caracteres especiais do código
-                    codigo = removerCaracteresEspeciais(codigo);
-
-                    // Definindo o código gerado no campo de entrada
-                    codigoInput.val(codigo);
-                } else {
-                    codigoInput.val(0);
-                }
-            }
-
-            // Atribuir evento de clique ao botão
-            $('.botaoGerarCodigo').click(function(event) {
-                gerarCodigo(event);
-            });
+        // Atribuir evento de clique ao botão
+        $('.botaoGerarCodigo').click(function(event) {
+            gerarCodigo(event);
         });
-
+    });
 </script>
