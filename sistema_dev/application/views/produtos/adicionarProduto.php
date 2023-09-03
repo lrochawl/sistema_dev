@@ -180,7 +180,7 @@
                                     }
                                     ?>
                                 </select>
-                                <button title="adicionar campo" class="btn btn-light" type="button" id="add-campo" style="margin-left: 5px;"><i class="fa fa-plus"></i></button>
+                                <button title="adicionar campo" class="btn btn-light" type="button" id="add-campo" ><i class="fa fa-plus"></i></button>
                             </div>
                         </div>
                         <!--  <div class="control-group">
