@@ -99,7 +99,7 @@
                             <div class="widget-content">
                                 <table class="table table-bordered" style="border: 1px solid #ddd">
                                     <tbody id="divAddCampo">
-                                        <div style="color:blue"> 
+                                        <div style="color:blue">
 
                                             <tr>
                                                     <td style="text-align: right"><strong>Ambiente de estoque</strong></td>
