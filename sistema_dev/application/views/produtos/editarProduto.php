@@ -55,7 +55,8 @@
                             <div class="control-group">
                                 <label for="codDeBarra" class="control-label">Código interno/GTIN<span class="required">*</span></label>
                                 <div class="controls">
-                                    <input onkeydown='handleEnter(event)' autocomplete="false" id="codDeBarra" type="text" class="codDeBarra" required value="<?php echo $result->codDeBarra; ?>" />
+                                    <input onkeydown='handleEnter(event)' autocomplete="off" id="codDeBarra" type="text" class="form-control-btn codDeBarra" name="codigo" required value="<?php echo $result->codDeBarra; ?>" />
+                                    <button class="btn btn-primary botaoGerarCodigo" type="button"><a href="#"><i class="bx bx-refresh"></i></a></button>
                                 </div>
                             </div>
 
