@@ -299,7 +299,7 @@
 
                     
                     if (ui.item.imagemProduto != null) {
-                        image_x.attr("src",ui.item.imagemProduto);
+                        image_ximage.src = ui.item.imagemProduto;
                         imgLogo.appendChild(image).setAttribute("id", "imgLogo");
                         $('#imagemProduto').val(ui.item.imagemProduto);
                     }
