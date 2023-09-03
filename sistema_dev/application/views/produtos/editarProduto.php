@@ -372,67 +372,86 @@
         const camposDB = <?= json_encode($resultAddCampo) ?>;
 
         $("#codDeBarra").autocomplete({
-            source: "<?php echo base_url(); ?>index.php/AutoComplete/autoCompleteProduto",
+            source: "<?php echo base_url('AutoComplete/autoCompleteProduto'); ?>",
             minLength: 1,
             response: function(event, ui) {
                 $("#editarProduto").hide();
                 $('#adcionarProduto').text('Adicionar');
                 $('#codDeBarra').css("background-color", "#d5d19d");
                 $('#codDeBarra').css("font-weight", 700);
+
                 // ui.content is the array that's about to be sent to the response callback.
                 if (ui.content.length === 0) {
                     buscaProdutos();
-
                 }
             },
             select: function(event, ui) {
                 $('#codDeBarra').css("background-color", "#9dc2d5");
                 $('#codDeBarra').css("font-weight", 700);
+                $('#imgLogo').remove();
+                $('.addCampo').remove();
+
                 if (ui.item.id != null) {
                     $("#editarProduto").show();
                     $('#adcionarProduto').text('Duplicar');
                     $("#adNotaFiscal").val(ui.item.notaFiscal);
+                    $("#adNotaFiscal_id").val(ui.item.id_financeiro_nota);
                     $("#produto_id").val(ui.item.codDeBarra);
-                    $("#selectMarca").val(ui.item.marca_id);
-                    $("#tipoMarca").val(ui.item.idTipo);
+                    $("#selectMarca").val(ui.item.marca_id).change();
+                    $("#tipoMarca").val(ui.item.idTipo).change();
                     $("#descricao").val(ui.item.descricao);
                     $("#estoque").val(parseInt(ui.item.estoque / ui.item.multiplicador));
+                    $("#estoqueMinimo").val(parseInt(ui.item.estoqueMinimo / ui.item.multiplicador));
                     $("#unidade").val(ui.item.idMedida).change();
                     $("#locations").val(ui.item.location).change();
                     $("#precoCompra").val(ui.item.precoCompra);
+                    $("#precoVenda").val(ui.item.precoVenda);
                     $("#margemLucro").val(ui.item.margem);
                     if (ui.item.dataVencimento != null) {
                         $("#ativaVencimento").prop("checked", true);
                         $("#dataVencimento").val(ui.item.dataVencimento);
                     }
-
-                    //calculaMargemVenda();
-                    $("#estoqueMinimo").val(ui.item.estoqueMinimo / ui.item.multiplicador);
-                    $('.campoAdd').remove();
-                    let dadosCampos = ui.item.observacao.split('||');
-                    let i;
-                    dadosCampos.forEach((dadosCampo) => {
-                        dadosCampo = dadosCampo.split('::');
-                        i++;
-                        camposDB.forEach((campo) => {
-
-                            if (campo.id_estoque_addCampo == dadosCampo[0] && campo.tipoAddCampo != "textarea") {
-                                $('#divAddCampo').append(`<div id='rm_${campo.siglaAddCampo}_${i}' class='control-group'>
-                                <label for='${campo.siglaAddCampo}_${i}' class='control-label campoAdd'>${campo.addCampo}
-                                <span class='required'>*</span></label>
-                                <div class='controls'><input required  onkeydown='handleEnter(event)' type='${campo.tipoAddCampo}'  id='${campo.siglaAddCampo}_${i}' name='addCampoInput[${campo.siglaAddCampo}_${i}]' value='${dadosCampo[1]} ' ${campo.tipoAddCampo =='color'?'style=" height: 33px;  width: 16em;"':''} />
-                                <button title="remove campo" class="btn btn-danger" type="button"  onclick="removeCampo('#rm_${campo.siglaAddCampo}_${i}')" style="margin-left: 5px;"><i class="fa fa-minus"></i></button> </div> </div>`);
-
-                            }
-                            if (campo.id_estoque_addCampo == dadosCampo[0] && campo.tipoAddCampo == "textarea") {
-                                $('#divAddCampo').append(`<div id='rm_${campo.siglaAddCampo}_${i}' class='control-group'>
-                                <label for='${campo.siglaAddCampo}_${i}' class='control-label campoAdd'><?= isset($r->addCampo) ? $r->addCampo : ''; ?>
-                                <span class='required'>*</span></label><div class='controls'>
-                                <${campo.tipoAddCampo} required  onkeydown='handleEnter(event)'  id='${campo.siglaAddCampo}_${i}' name='addCampoInput[${campo.siglaAddCampo}_${i}]' rows='5' cols='33' >  ${dadosCampo[1]} </${campo.tipoAddCampo}>
-                                <button title="remove campo" class="btn btn-danger" type="button"  onclick="removeCampo('#rm_${campo.siglaAddCampo}_${i}')" style="margin-left: 5px;"><i class="fa fa-minus"></i></button> </div> </div>`);
-                            }
-                        });
-
+                    if (ui.item.imagemProduto != null) {
+                        image.src = ui.item.imagemProduto;
+                        imgLogo.appendChild(image).setAttribute("id", "imgLogo");
+                        $('#imagemProduto').val(ui.item.imagemProduto);
+                    }
+                    if ($('#dataVencimento').val() != '') {
+                        $("#dataVencimento").attr("readonly", false);
+                        $('#ativaVencimento')[0].checked = true;
+                    } else {
+                        $("#dataVencimento").attr("readonly", true);
+                        $('#ativaVencimento')[0].checked = false;
+                    }
+                    $.ajax({
+                        url: "<?= site_url('produtos/returnAddCampos'); ?>",
+                        dataType: 'json',
+                        success: function(data) {
+                            $('.campoAdd').remove();
+                            let camposDB = data;
+                            let dadosCampos = ui.item.observacao.split('||');
+                            let i = 0;
+                            dadosCampos.forEach((dadosCampo) => {
+                                i++;
+                                dadosCampo = dadosCampo.split('::');
+                                camposDB.forEach((campo) => {
+                                    if (campo.id_estoque_addCampo == dadosCampo[0] && campo.tipoAddCampo != "textarea") {
+                                        $('#divAddCampo').append(`<div id='rm_${campo.siglaAddCampo}_${i}' class='control-group campoAdd'>
+                                                            <label for='${campo.siglaAddCampo}_${i}' class='control-label'>${campo.addCampo}
+                                                            <span class='required'>*</span></label>
+                                                            <div class='controls'><input required  onkeydown='handleEnter(event)' type='${campo.tipoAddCampo}'  id='${campo.siglaAddCampo}_${i}' name='addCampoInput[${campo.siglaAddCampo}_${i}]' value='${dadosCampo[1]} ' ${campo.tipoAddCampo =='color'?'style=" height: 33px;  width: 16em;"':''} />
+                                                            <button title="remove campo" class="btn btn-danger" type="button"  onclick="removeCampo('#rm_${campo.siglaAddCampo}_${i}')" style="margin-left: 5px;"><i class="fa fa-minus"></i></button> </div> </div>`);
+                                    }
+                                    if (campo.id_estoque_addCampo == dadosCampo[0] && campo.tipoAddCampo == "textarea") {
+                                        $('#divAddCampo').append(`<div id='rm_${campo.siglaAddCampo}_${i}' class='control-group campoAdd'>
+                                                            <label for='${campo.siglaAddCampo}_${i}' class='control-label'><?= isset($r->addCampo) ? $r->addCampo : ''; ?>
+                                                            <span class='required'>*</span></label><div class='controls'>
+                                                            <${campo.tipoAddCampo} required  onkeydown='handleEnter(event)'  id='${campo.siglaAddCampo}_${i}' name='addCampoInput[${campo.siglaAddCampo}_${i}]' rows='5' cols='33' >  ${dadosCampo[1]} </${campo.tipoAddCampo}>
+                                                            <button title="remove campo" class="btn btn-danger" type="button"  onclick="removeCampo('#rm_${campo.siglaAddCampo}_${i}')" style="margin-left: 5px;"><i class="fa fa-minus"></i></button> </div> </div>`);
+                                    }
+                                });
+                            });
+                        }
                     });
 
                 } else if (ui.item.idTipo != null) {
@@ -442,12 +461,9 @@
                     $("#selectMarca").val(ui.item.marca);
                     $("#tipoMarca").val(ui.item.idTipo);
                     $("#editarProduto").hide();
-
-
                 }
             }
         });
-
 
         function buscaProdutos() {
             let v;
@@ -459,13 +475,15 @@
                 success: function(data) {
                     if (data != null && data != 0) {
                         $('#produto_id').val(v);
+                        $('.addCampo').remove();
 
                         let dados = JSON.parse(data);
                         let json = dados;
-                        let logo;
+                        let logo = '';
 
                         $("#imagemProduto").val(logo);
-                        const image = document.createElement("img");
+                        //   updateThumbnail(logo);
+
 
                         if (json.description) {
                             $('#descricao').val(dados.description);
@@ -476,9 +494,10 @@
                                 throw 'erro 1: tumbnail não encontrada'
                             }
 
-                            image.src = json.thumbnail;
-                            imgLogo.appendChild(image).setAttribute("id", "imgLogo");
+                            //image.src = json.thumbnail;
+                            //imgLogo.appendChild(image).setAttribute("id", "imgLogo");
                             $('#imagemProduto').val(json.thumbnail);
+                            updateThumb(json.thumbnail);
 
                         } catch (e) {
 
@@ -490,27 +509,29 @@
                                     throw 'erro 2: picture não encontrada'
                                 }
 
-                                image.src = (logoLink[0] == 'https:') ? json.brand.picture : 'https://api.cosmos.bluesoft.com.br/' + json.brand.picture;
-                                imgLogo.appendChild(image).setAttribute("id", "imgLogo");
+                                //image.src = (logoLink[0] == 'https:') ? json.brand.picture : 'https://api.cosmos.bluesoft.com.br/' + json.brand.picture;
+                                // imgLogo.appendChild(image).setAttribute("id", "imgLogo");
                                 $('#imagemProduto').val((logoLink[0] == 'https:') ? json.brand.picture : 'https://api.cosmos.bluesoft.com.br/' + json.brand.picture);
+                                updateThumb((logoLink[0] == 'https:') ? json.brand.picture : 'https://api.cosmos.bluesoft.com.br/' + json.brand.picture);
+
 
                             } catch (err) {
-                                image.src = 'https://sistema.wltopos.com/assets/img/sem_logo.png';
-                                imgLogo.appendChild(image).setAttribute("id", "imgLogo");
-                                $('#imagemProduto').val('https://sistema.wltopos.com/assets/img/sem_logo.png');
+                                //image.src = 'https://sistema.wltopos.com/assets/img/sem_logo.png';
+                                // imgLogo.appendChild(image).setAttribute("id", "imgLogo");
+                                $('#imagemProduto').val(base_url('assets/img/sem_logo.png'));
+                                updateThumb(base_url('assets/img/sem_logo.png'));
                             }
                         }
 
-
                         $('#codDeBarra').css("background-color", "#b8fdda");
                         $('#codDeBarra').css("font-weight", 700);
+
                         /* $('#description').val(json.description);
                          $('#marca').append(json.brand.name);
                          $('#avg_price').append(json.avg_price);
                          $('#updated_at').append(json.updated_at);
                          $('#barcode_image').attr('src', json.barcode_image);
                          $('#img').attr('src', logo);*/
-
 
                     } else {
                         $('#codDeBarra').css("background-color", "#f1a3a3");
@@ -529,25 +550,48 @@
         }
     })
 
+    function updateThumb(file) {
+        if ($(".drop-zone__thumb") && typeof file == "string") {
+            $("#zone__prompt").removeClass("drop-zone__prompt");
+            $("#drop-zone > img").remove();
+            $("#zone__prompt").text("");
+            $('<img />', {
+                class: 'logoImagem',
+                src: file,
+                alt: 'MyAlt'
+            }).appendTo($('.drop-zone__thumb'));
+            $('.drop-zone__thumb').attr('data-label', "Imagem do produto");
+            //    $('.drop-zone').append(`<div class="drop-zone__thumb" data-label="${file}" style="background-position: center; background-image: url(${file}); background-color: white;"></div>`);
+        } else {
+
+            $("#drop-zone > img").remove();
+            $("#zone__prompt").addClass("drop-zone__prompt");
+            $("#zone__prompt").text("Arraste o arquivo ou clique para upload");
+
+
+            // $('.drop-zone').append('<span class="drop-zone__prompt">Arraste o arquivo ou clique para upload</span>');
+            // console.log("Remove imagem");
+        }
+
+    }
+
     // ===========================================================
     // SCRIPT BOTÃO ADICIONAR CAMPO
-    //=====================================
+    // ===========================================================
     let i = 0;
     $('#add-campo').click(function() {
-
         i++;
         let campo = $('#addCampo option:selected').text();
         let idCampo = $('#addCampo option:selected').val();
         idCampo = idCampo.split(',');
-        console.log(i);
         if (idCampo[0] != "0" && i < 5 && idCampo[1] != 'textarea') {
 
-            $('#divAddCampo').append(`<div id="rm_${idCampo[0]}_${i}" class='control-group campoAdd'>
+            $('#divAddCampo').append(`<div id='rm_${idCampo[0]}_${i}' class='control-group campoAdd'>
                                       <label for='${idCampo[0]}' class='control-label'>${campo}<span class='required'>*</span></label>
                                       <div class='controls'>
-                                      <input onkeydown='handleEnter(event)' type='${idCampo[1]}'  id='${idCampo[0]}' name='addCampoInput[${idCampo[0]}_${i}]' value='' ${idCampo[1]=='color'?'style=" height: 33px;"':''}/>
-                                      <button title="remove campo" class="btn btn-danger" type="button"  onclick="removeCampo('#rm_${idCampo[0]}_${i}')" style="margin-left: 5px;">
-                                      <i class="fa fa-minus"></i></button></div></div>`);
+                                      <input onkeydown='handleEnter(event)' type='${idCampo[1]}'  id='${idCampo[0]}' name='addCampoInput[${idCampo[0]}_${i}]' value='' ${(idCampo[1]=='color')?'style=" height: 33px;  width: 16em;"':''} />
+                                      <button title='remove campo' class='btn btn-danger' type='button'  onclick='removeCampo("#rm_${idCampo[0]}_${i}")' style='margin-left: 5px;'>
+                                      <i class='fa fa-minus'></i></button></div></div>`);
 
 
         }
@@ -565,9 +609,8 @@
 
     function btAddCampo() {
         let opt = $('#addCampo option:selected').val();
-        opt = opt.split(',');
 
-        if (opt[0] != "0") {
+        if (opt != "0") {
             $('#add-campo').attr('class', 'btn btn-primary');
         }
     }
@@ -576,53 +619,59 @@
         $(campo).remove();
     }
 
+    function removeTodosCampos() {
+        $('.campoAdd').remove();
+    }
+
    
 </script>
 
-<script> //GERAR CODIGO AUTOMATICO
-$(document).ready(function() {
-  const categoriaSelect = $('#tipoMarca');
-  const subcategoriaSelect = $('#tipoMarca');
-  const marcaSelect = $('#selectMarca');
- // const descricaoInput = $('#descricao');
-  const codigoInput = $('.codDeBarra');
-  const lastId = $('#lastID');
+<script>
+// GERAR CÓDIGO AUTOMÁTICO
+    $(document).ready(function() {
+            const categoriaSelect = $('#tipoMarca');
+            const subcategoriaSelect = $('#tipoMarca');
+            const marcaSelect = $('#selectMarca');
+            const codigoInput = $('.codDeBarra');
+            const lastId = $('#lastID');
+            const descricaoInput = $('#descricao'); // Adicione a seleção para o campo de descrição
 
-  function removerCaracteresEspeciais(texto) {
-    return texto.replace(/[^\w\s]/gi, '');
-  }
+            function removerCaracteresEspeciais(texto) {
+                return texto.replace(/[^\w\s]/gi, '');
+            }
 
-  // Função para gerar o código automático
-  function gerarCodigo() {
-    const categoriaSelecionada = categoriaSelect.find(":selected").text();
-    const subcategoriaSelecionada = subcategoriaSelect.val();
-    const marcaSelecionada = marcaSelect.find(":selected").text();
-   // const descricao = descricaoInput.val();
-    const lastID = lastId.val();
+            // Função para gerar o código automático
+            function gerarCodigo(event) {
+                event.preventDefault(); // Impede o comportamento padrão do botão
 
-    // Gerando o código
-    if(categoriaSelecionada != null && subcategoriaSelecionada != null && marcaSelecionada != null && descricao  != null){
-    let codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
-      subcategoriaSelecionada +
-      marcaSelecionada.slice(0, 3).toUpperCase() +
-      //descricao.slice(0, 3).toUpperCase()+
-      lastID+1;
+                const categoriaSelecionada = categoriaSelect.find(":selected").text();
+                const subcategoriaSelecionada = subcategoriaSelect.val();
+                const marcaSelecionada = marcaSelect.find(":selected").text();
+                const descricao = descricaoInput.val(); // Obtenha o valor do campo de descrição
+                const lastID = parseInt(lastId.val()) + 1; // Converta o valor de lastId para número
 
-      // Removendo caracteres especiais do código
-    codigo = removerCaracteresEspeciais(codigo);
+                // Gerando o código
+                if (categoriaSelecionada != null && subcategoriaSelecionada != null && marcaSelecionada != null && descricao != null) {
+                    let codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +
+                        subcategoriaSelecionada +
+                        marcaSelecionada.slice(0, 3).toUpperCase() +
+                        descricao.slice(0, 3).toUpperCase() +
+                        lastID;
 
-    // Definindo o código gerado no campo de entrada
-    codigoInput.val(codigo);
-  }else{
-    codigoInput.val(0);
-  }
-  }
+                    // Removendo caracteres especiais do código
+                    codigo = removerCaracteresEspeciais(codigo);
 
-  // Atribuir evento de clique ao botão
-  $('#botaoGerarCodigo').click(function() {
-    gerarCodigo();
-  });
-});
+                    // Definindo o código gerado no campo de entrada
+                    codigoInput.val(codigo);
+                } else {
+                    codigoInput.val(0);
+                }
+            }
 
+            // Atribuir evento de clique ao botão
+            $('.botaoGerarCodigo').click(function(event) {
+                gerarCodigo(event);
+            });
+        });
 
 </script>
