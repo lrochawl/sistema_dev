@@ -477,6 +477,7 @@ class Produtos extends MY_Controller
 
              $this->session->set_flashdata('error', "Erro ao fazer upload do arquivo, verifique se a extensão do arquivo é permitida. ");
              print_r($error);
+             exit();
             // redirect(site_url('settings/'));
 
             try {
