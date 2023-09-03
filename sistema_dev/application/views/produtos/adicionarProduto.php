@@ -225,8 +225,8 @@
         });
 
         //Select com buscador
-        $('#categorias').select2();
-        $('#marcasAgrotec').select2();
+        $('#tipoMarca').select2();
+        $('#selectMarca').select2();
         $('.wh3').select2(({
             width: '9rem'
         }));
