@@ -473,6 +473,8 @@ class Produtos extends MY_Controller
         $this->upload->initialize($config);
 
         if (!$this->upload->do_upload()) {
+            print_r($this->upload->data('file_name'));
+        exit();
             $error = ['error' => $this->upload->display_errors()];
 
              $this->session->set_flashdata('error', "Erro ao fazer upload do arquivo, verifique se a extensão do arquivo é permitida. ");
@@ -518,8 +520,7 @@ class Produtos extends MY_Controller
             $url = base_url('assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/" . $file);
             $tamanho = $this->upload->data('file_size');
             $tipo = $this->upload->data('file_ext');
-            print_r($file);
-        exit();
+            
             $this->dataInsert["imagemProduto"]  =  $url;
             $this->dataInsert["pathImagem"]     =  $path;
             // $this->dataInsert["file"]     =  $file;
