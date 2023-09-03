@@ -258,7 +258,7 @@
         const image_x = document.querySelector('.logoImagem');
         const marcas = document.getElementById('marcasAgrotec');
         const camposDB = <?= json_encode($resultAddCampo) ?>;
-console.log(image_x);
+
         $("#codDeBarra").autocomplete({
             source: "<?php echo base_url('AutoComplete/autoCompleteProduto'); ?>",
             minLength: 1,
@@ -299,7 +299,7 @@ console.log(image_x);
 
                     
                     if (ui.item.imagemProduto != null) {
-                        image_x.src = ui.item.imagemProduto;
+                        //image_x.src = ui.item.imagemProduto;
                         imgLogo.appendChild(image).setAttribute("id", "imgLogo");
                         $('#imagemProduto').val(ui.item.imagemProduto);
                     }
