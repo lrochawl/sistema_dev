@@ -169,13 +169,13 @@
                         </div>
                     </div> -->
 
-                        <div class="control-group">
+                        <!-- <div class="control-group">
                             <label for="dataVencimento" class="control-label">Data de Vencimento</label>
                             <div class="controls">
                                 <input onkeydown='handleEnter(event)' id="dataVencimento" type="date" name="dataVencimento" value="<?php echo set_value('dataVencimento'); ?>" readonly />
                                 <input onkeydown='handleEnter(event)' id="ativaVencimento" type="checkbox">
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>

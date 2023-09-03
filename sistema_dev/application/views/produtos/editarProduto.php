@@ -276,7 +276,7 @@
                         </div>
                     </div> -->
 
-                        <div class="control-group">
+                        <!-- <div class="control-group">
                             <label for="dataVencimento" class="control-label">Data de Vencimento</label>
                             <div class="controls">
                                 <?php
@@ -290,7 +290,7 @@
 
                                 ?>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="form-actions">

@@ -262,12 +262,12 @@
                                                 <?php echo $dateEmissao; ?>
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                             <td style="text-align: right"><strong>Data de vencimento</strong></td>
                                             <td>
                                                 <?php echo $dateVencimento; ?>
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
