@@ -350,7 +350,7 @@ class Settings extends MY_Controller
     {
 
         $config['upload_path'] = './assets/uploads/' . $this->session->userdata('dbEmpresa') . "/logo".ucfirst($this->data['titulo'])."s/";
-        $config['allowed_types'] = 'jpg|jpeg|png|JPG|JPEG|PNG';
+        $config['allowed_types'] = 'jpg|jpeg|png|JPG|JPEG|PNG|webp';
         $config['max_size'] = 0;
         $config['max_width'] = '3000';
         $config['max_height'] = '2000';

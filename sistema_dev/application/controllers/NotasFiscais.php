@@ -405,7 +405,7 @@ class NotasFiscais extends MY_Controller
     {
 
         $config['upload_path'] = './assets/uploads/' . $this->session->userdata('dbEmpresa') . "/"."logoNotasFiscais/";
-        $config['allowed_types'] = 'jpg|jpeg|png|JPG|JPEG|PNG|xml|XML|pdf|PDF';
+        $config['allowed_types'] = 'jpg|jpeg|png|JPG|JPEG|PNG|xml|XML|pdf|PDF|webp';
         $config['max_size'] = 0;
         $config['max_width'] = '3000';
         $config['max_height'] = '2000';
