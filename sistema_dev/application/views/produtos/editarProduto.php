@@ -410,7 +410,7 @@
                     if (ui.item.imagemProduto != null) {
                         image_x.src = ui.item.imagemProduto;
                         imgLogo.src = ui.item.imagemProduto;
-                        $('#imagemProduto').val(ui.item.imagemProduto);
+                        
                     }
 
                     $.ajax({
