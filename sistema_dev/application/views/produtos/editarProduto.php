@@ -365,7 +365,7 @@
         const barCode = document.getElementById("codDeBarra");
         const myInput = document.querySelector("#descricao");
         const imgLogo = document.querySelector("#imageLogo");
-        const image_x = document.getElementById('imgLogo');
+        const image_x = document.querySelector('.logoImagem');
         const marcas = document.getElementById('marcasAgrotec');
         const camposDB = <?= json_encode($resultAddCampo) ?>;
 
