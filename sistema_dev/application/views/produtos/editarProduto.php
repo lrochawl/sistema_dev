@@ -364,7 +364,7 @@
 
         const barCode = document.getElementById("codDeBarra");
         const myInput = document.querySelector("#descricao");
-        const imgLogo = document.querySelector("#imageLogo");
+        const imgLogo = document.querySelector("#imagemProduto");
         const image_x = document.querySelector('.logoImagem');
         const marcas = document.getElementById('marcasAgrotec');
         const camposDB = <?= json_encode($resultAddCampo) ?>;
@@ -409,7 +409,7 @@
 
                     if (ui.item.imagemProduto != null) {
                         image_x.src = ui.item.imagemProduto;
-                        imgLogo.appendChild(image_x).setAttribute("id", "imgLogo");
+                        imgLogo.src = ui.item.imagemProduto;
                         $('#imagemProduto').val(ui.item.imagemProduto);
                     }
 
