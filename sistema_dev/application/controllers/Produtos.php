@@ -45,10 +45,10 @@ class Produtos extends MY_Controller
             $estoque =  $this->produtos_model->converteMedida($produto->estoque, $produto->estoque_medida_id, 'D');
 
             if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vProduto')) {
-                $v = '<a style="margin-right: 1%" href="' . base_url('index.php/produtos/visualizar/'. $produto->id_estoque_produto). '" class="btn-nwe" title="Visualizar Produto" ><i class="bx bx-show bx-xs" > </i></a>  ';
+                $v = '<a style="margin-right: 1%" href="' . base_url('index.php/produtos/visualizar/' . $produto->id_estoque_produto) . '" class="btn-nwe" title="Visualizar Produto" ><i class="bx bx-show bx-xs" > </i></a>  ';
             }
             if ($this->permission->checkPermission($this->session->userdata('permissao'), 'eProduto')) {
-                $e = '<a style="margin-right: 1%" href="' . base_url('index.php/produtos/editar/' . $produto->id_estoque_produto ). '" class="btn-nwe3" title="Editar Produto" ><i class="bx bx-edit bx-xs" > </i></a>';
+                $e = '<a style="margin-right: 1%" href="' . base_url('index.php/produtos/editar/' . $produto->id_estoque_produto) . '" class="btn-nwe3" title="Editar Produto" ><i class="bx bx-edit bx-xs" > </i></a>';
             }
             if ($this->permission->checkPermission($this->session->userdata('permissao'), 'dProduto')) {
                 $d = '<a style="margin-right: 1%" href="#modal-excluir" role="button" data-toggle="modal" produto="' . $produto->id_estoque_produto . '" codigo="' . $produto->codDeBarra . '" class="btn-nwe4" title="Excluir Produto"><i class="bx bx-trash-alt bx-xs" ></i></a>';
@@ -460,25 +460,62 @@ class Produtos extends MY_Controller
 
         $config['upload_path'] = './assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/";
         $config['allowed_types'] = 'jpg|jpeg|png|gif|webp|WEBP|JPG|JPEG|PNG|GIF'; // Certifique-se de incluir 'webp' aqui
-        $config['max_size'] = 22048; // Tamanho máximo do arquivo em kilobytes
+        $config['remove_spaces'] = TRUE;
+        $config['encrypt_name'] = TRUE;
+        $config['max_size'] = '8192'; // 8Mbs
         $config['max_width'] = 0; // Largura máxima da imagem em pixels (0 para ignorar)
         $config['max_height'] = 0; // Altura máxima da imagem em pixels (0 para ignorar)
-        $config['encrypt_name'] = TRUE; // Renomear o arquivo durante o upload
 
-        if (!is_dir('./assets/uploads/'. $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/")) {
-            mkdir('./assets/uploads/'. $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/", 0777, true);
+        if (!is_dir($config['upload_path'])) {
+            mkdir($config['upload_path'], 0777, TRUE);
+            chmod($config['upload_path'], 0777);
         }
-        
+
+
+        $this->load->library('upload', $config);
+
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
 
+        #faz upload
+        $this->upload->do_upload(); 
+        $arquivo = $this->upload->data();
+
+        #dados do banco de dados
+        $file = $arquivo['file_name'];
+        $path = $arquivo['full_path'];
+        $url = $diretorio.'/'.$file;
+        $tamanho = $arquivo['file_size'];
+        $tipo = $arquivo['file_ext'];
+
+        $data = date("Y-m-d");
+        $data = array(
+            'nomearquivo' => $this->input->post('nomearquivo'),
+            'idAdministrador' => $this->input->post('idAdministrador'),
+            'modulo' => 'cliente',
+            'arquivo' => $file,
+            'diretorio' => $path,
+            'url' => $url,
+            'data' => $data,
+            'tamanho' => $tamanho,
+            'extensao' => $tipo
+        );
+
+        if ($this->documentos_model->add('documento', $data) == TRUE) {
+            $this->session->set_flashdata('success','Arquivo adicionado com sucesso!');
+           redirect(base_url() . 'documentos/cadastros/adicionarCliente');
+        } else {
+            $this->data['custom_error'] = '<div class="form_error"><p>Ocorreu um erro.</p></div>';
+        }
+
+        
         if (!$this->upload->do_upload()) {
-            
-            exit($this->upload->data('file_ext'));
+
+          
             $error = ['error' => $this->upload->display_errors()];
 
-             $this->session->set_flashdata('error', "Erro ao fazer upload do arquivo, verifique se a extensão do arquivo é permitida. ");
-             
+            $this->session->set_flashdata('error', "Erro ao fazer upload do arquivo, verifique se a extensão do arquivo é permitida. ");
+
             // redirect(site_url('settings/'));
 
             try {
@@ -502,7 +539,7 @@ class Produtos extends MY_Controller
                             // // Exclui o arquivo
                             // $i++;
                             echo $arquivo . '-' . $files->id_estoque_produto . '<br>';
-                            unlink($_SERVER['DOCUMENT_ROOT'].'/assets/uploads/db_wltopos/imagemProdutos/' . $arquivo);
+                            unlink($_SERVER['DOCUMENT_ROOT'] . '/assets/uploads/db_wltopos/imagemProdutos/' . $arquivo);
                         }
                     }
                 }
@@ -520,17 +557,17 @@ class Produtos extends MY_Controller
             $url = base_url('assets/uploads/' . $this->session->userdata('dbEmpresa') . "/" . "imagemProdutos/" . $file);
             $tamanho = $this->upload->data('file_size');
             $tipo = $this->upload->data('file_ext');
+
             
-            exit("('file_ext')");
             $this->dataInsert["imagemProduto"]  =  $url;
             $this->dataInsert["pathImagem"]     =  $path;
-             $this->dataInsert["file"]     =  $file;
-             $this->dataInsert["tamanho"]  =  $tamanho;
-             $this->dataInsert["tipo"]     =  $tipo;
+            $this->dataInsert["file"]     =  $file;
+            $this->dataInsert["tamanho"]  =  $tamanho;
+            $this->dataInsert["tipo"]     =  $tipo;
 
             $this->upload->data();
-            
-           return  $this->upload->data();
+
+            return  $this->upload->data();
         }
     }
 }
