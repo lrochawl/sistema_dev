@@ -647,7 +647,7 @@
 
                 codigo = removerCaracteresEspeciais(codigo);
 
-                codigoInput.val(codigo);
+                codigoInput.val(codigo.trim());
             } else {
                 codigoInput.val(0);
             }
