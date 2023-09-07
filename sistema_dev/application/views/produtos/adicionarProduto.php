@@ -540,7 +540,7 @@
                 codigo = removerCaracteresEspeciais(codigo);
 
                 // Definindo o código gerado no campo de entrada
-                codigoInput.val(codigo.trim());
+                codigoInput.val(codigo.replace(/\s+/g, ''));
             } else {
                 codigoInput.val(0);
             }
