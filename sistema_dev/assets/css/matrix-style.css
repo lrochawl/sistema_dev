@@ -4102,6 +4102,14 @@ form {
   background-color: #26a38e;
   border-color    : #088a74;
 }
+@media (max-width: 480px){
+    span.button__text2{
+    display:none;
+  }
+  .button {
+    min-width: 33px;
+  }
+}
 
 .btn-info:hover,
 .btn-info:focus,
