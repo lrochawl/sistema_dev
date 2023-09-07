@@ -65,19 +65,19 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="control-group">
-                                <label for="codDeBarra" class="control-label">Código interno/GTIN<span class="required">*</span></label>
-                                <div class="controls input-group">
-                                    <input required onkeydown='handleEnter(event)' class="form-control-btn codDeBarra" autocomplete="off" name="codigo" id="codDeBarra" type="text" value="<?php echo set_value('codDeBarra'); ?>" />
-                                    <button class="btn btn-primary botaoGerarCodigo" type="button"><a href="#"><i class="bx bx-refresh"></i></a></button>
-
-                                </div>
-                            </div>
                         </div>
                         <div class="control-group">
                             <label for="descricao" class="control-label">Descrição<span class="required">*</span></label>
                             <div class="controls">
                                 <input required onkeydown='handleEnter(event)' id="descricao" type="text" name="descricao" value="<?php echo set_value('descricao'); ?>" />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="codDeBarra" class="control-label">Código interno/GTIN<span class="required">*</span></label>
+                            <div class="controls input-group">
+                                <input required onkeydown='handleEnter(event)' class="form-control-btn codDeBarra" autocomplete="off" name="codigo" id="codDeBarra" type="text" value="<?php echo set_value('codDeBarra'); ?>" />
+                                <button class="btn btn-primary botaoGerarCodigo" type="button"><a href="#"><i class="bx bx-refresh"></i></a></button>
+
                             </div>
                         </div>
                         <div class="control-group">
@@ -152,7 +152,7 @@
                                     }
                                     ?>
                                 </select>
-                                <button title="adicionar campo" class="btn btn-light" type="button" id="add-campo" ><i class="fa fa-plus"></i></button>
+                                <button title="adicionar campo" class="btn btn-light" type="button" id="add-campo"><i class="fa fa-plus"></i></button>
                             </div>
                         </div>
                         <!--  <div class="control-group">
@@ -297,13 +297,13 @@
                     $("#precoVenda").val(ui.item.precoVenda);
                     $("#margemLucro").val(ui.item.margem);
 
-                    
+
                     if (ui.item.imagemProduto != null) {
                         image_x.src = ui.item.imagemProduto;
                         imgLogo.src = ui.item.imagemProduto;
-                        
+
                     }
-                    
+
                     $.ajax({
                         url: "<?= site_url('produtos/returnAddCampos'); ?>",
                         dataType: 'json',
