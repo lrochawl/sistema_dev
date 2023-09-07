@@ -45,10 +45,10 @@ class Produtos extends MY_Controller
             $estoque =  $this->produtos_model->converteMedida($produto->estoque, $produto->estoque_medida_id, 'D');
 
             if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vProduto')) {
-                $v = '<a style="margin-right: 1%" href="' . base_url('index.php/produtos/visualizar/' . $produto->id_estoque_produto) . '" class="btn-nwe" title="Visualizar Produto" ><i class="bx bx-show bx-xs" > </i></a>  ';
+                $v = '<a style="margin-right: 1%" href="' . base_url('produtos/visualizar/' . $produto->id_estoque_produto) . '" class="btn-nwe" title="Visualizar Produto" ><i class="bx bx-show bx-xs" > </i></a>  ';
             }
             if ($this->permission->checkPermission($this->session->userdata('permissao'), 'eProduto')) {
-                $e = '<a style="margin-right: 1%" href="' . base_url('index.php/produtos/editar/' . $produto->id_estoque_produto) . '" class="btn-nwe3" title="Editar Produto" ><i class="bx bx-edit bx-xs" > </i></a>';
+                $e = '<a style="margin-right: 1%" href="' . base_url('produtos/editar/' . $produto->id_estoque_produto) . '" class="btn-nwe3" title="Editar Produto" ><i class="bx bx-edit bx-xs" > </i></a>';
             }
             if ($this->permission->checkPermission($this->session->userdata('permissao'), 'dProduto')) {
                 $d = '<a style="margin-right: 1%" href="#modal-excluir" role="button" data-toggle="modal" produto="' . $produto->id_estoque_produto . '" codigo="' . $produto->codDeBarra . '" class="btn-nwe4" title="Excluir Produto"><i class="bx bx-trash-alt bx-xs" ></i></a>';
@@ -123,7 +123,7 @@ class Produtos extends MY_Controller
         }
 
 
-        $this->data['view'] = 'produtos/settings/index.php';
+        $this->data['view'] = 'produtos/settings';
 
         return $this->layout();
     }
@@ -403,7 +403,7 @@ class Produtos extends MY_Controller
         if ($id == null) {
             $this->session->set_flashdata('error', 'Erro ao tentar excluir produto.');
             log_info('Encontrou erro ao excluir produto');
-            redirect(base_url() . 'index.php/produtos/gerenciar/');
+            redirect(base_url() . 'produtos/gerenciar/');
         }
 
         $this->setdb_model->delete('comercial_os_produtos', 'id_comercial_os_produto', $id);
