@@ -123,7 +123,7 @@ class Produtos extends MY_Controller
         }
 
 
-        $this->data['view'] = 'produtos/settings';
+        $this->data['view'] = 'produtos/settings/index';
 
         return $this->layout();
     }
