@@ -636,7 +636,7 @@
             const subcategoriaSelecionada = subcategoriaSelect.val();
             const marcaSelecionada = marcaSelect.find(":selected").text();
             const descricao = descricaoInput.val();
-            const lastID = parseInt(lastId.val()) + 1;
+            const lastID = parseInt(lastId.val());
 
             if (categoriaSelecionada != null && subcategoriaSelecionada != null && marcaSelecionada != null && descricao != null) {
                 let codigo = categoriaSelecionada.slice(0, 3).toUpperCase() +

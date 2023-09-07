@@ -298,11 +298,11 @@
                     $("#margemLucro").val(ui.item.margem);
 
                     
-                    // if (ui.item.imagemProduto != null) {
-                    //     //image_x.src = ui.item.imagemProduto;
-                    //     imgLogo.appendChild(image).setAttribute("id", "imgLogo");
-                    //     $('#imagemProduto').val(ui.item.imagemProduto);
-                    // }
+                    if (ui.item.imagemProduto != null) {
+                        image_x.src = ui.item.imagemProduto;
+                        imgLogo.src = ui.item.imagemProduto;
+                        
+                    }
                     
                     $.ajax({
                         url: "<?= site_url('produtos/returnAddCampos'); ?>",
@@ -526,7 +526,7 @@
             const subcategoriaSelecionada = subcategoriaSelect.val();
             const marcaSelecionada = marcaSelect.find(":selected").text();
             const descricao = descricaoInput.val(); // Obtenha o valor do campo de descrição
-            const lastID = parseInt(lastId.val()) + 1; // Converta o valor de lastId para número
+            const lastID = parseInt(lastId.val()); // Converta o valor de lastId para número
 
             // Gerando o código
             if (categoriaSelecionada != null && subcategoriaSelecionada != null && marcaSelecionada != null && descricao != null) {
